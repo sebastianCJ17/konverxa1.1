@@ -47,7 +47,6 @@ export default function Home() {
             <SectionTitle
               badge="Portafolio de Soluciones BPO"
               title="Capacidades Operativas de Alto Desempeño"
-              subtitle="Diseñadas para escalar de forma elástica, garantizando respuestas inmediatas y continuidad de negocio."
               centered
             />
           </div>
@@ -72,12 +71,12 @@ export default function Home() {
       <GlobalNetworkMap />
 
       {/* SECCIÓN 05 · MERCADOS */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
+      <section className="py-14 sm:py-16 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-4 sm:mb-6 text-center">
             <SectionTitle
               badge="MERCADOS"
-              title="Los negocios cambian. El estándar permanece."
+              title="Los Negocios cambian. El estándar permanece."
               subtitle="Adaptamos la capacidad, la organización y la ejecución a las exigencias de cada sector, sin perder control ni consistencia."
               centered
             />

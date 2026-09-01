@@ -23,7 +23,6 @@ const SERVICE_THEMES = [
 
 export default function ServicesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const activeService = SERVICES_DATA[activeIndex] || SERVICES_DATA[0];
   const theme = SERVICE_THEMES[activeIndex % SERVICE_THEMES.length];
@@ -37,21 +36,8 @@ export default function ServicesCarousel() {
     setActiveIndex((prev) => (prev - 1 + SERVICES_DATA.length) % SERVICES_DATA.length);
   };
 
-  // Smooth auto-slide with pause on hover
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % SERVICES_DATA.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
   return (
-    <div
-      className="w-full relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="w-full relative">
       {/* 1-Row Interactive Solution Switcher Pills */}
       <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
         {SERVICES_DATA.map((service, idx) => {

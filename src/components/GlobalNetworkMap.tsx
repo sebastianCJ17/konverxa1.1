@@ -33,8 +33,8 @@ const HUBS: HubLocation[] = [
       'Mesa de Ayuda y Soporte Nivel 1, 2 y 3'
     ],
     stats: '+ 500 Colaboradores · Hub Regional',
-    x: 26.8,
-    y: 56.0,
+    x: 31.3,
+    y: 59.2,
     isPrimary: true
   },
   {
@@ -51,8 +51,8 @@ const HUBS: HubLocation[] = [
       'Consultoría de Transformación y Estrategia BPO'
     ],
     stats: 'Gobernanza Corporativa · Cobertura UE',
-    x: 47.4,
-    y: 32.0,
+    x: 49.5,
+    y: 41.8,
     isPrimary: true
   },
   {
@@ -69,81 +69,20 @@ const HUBS: HubLocation[] = [
       'Gestión de Bases de Datos y Enriquecimiento'
     ],
     stats: 'Sede Operativa · Cobertura Cono Sur',
-    x: 26.8,
-    y: 66.8,
+    x: 30.2,
+    y: 68.5,
     isPrimary: true
-  },
-  // Secondary connection nodes
-  {
-    id: 'usa',
-    country: 'Estados Unidos',
-    name: 'Conexión Nearshore',
-    flag: '🇺🇸',
-    role: 'Mercado Norteamérica & Clientes Bilingües',
-    cities: ['Miami', 'New York'],
-    capabilities: ['Operaciones Bilingües Español/Inglés', 'Integraciones Cloud'],
-    stats: 'Enlace Comercial',
-    x: 24.2,
-    y: 33.5,
-    isPrimary: false
-  },
-  {
-    id: 'mexico',
-    country: 'México',
-    name: 'Conexión Centroamérica',
-    flag: '🇲🇽',
-    role: 'Interconexión de Servicios Masivos',
-    cities: ['Ciudad de México'],
-    capabilities: ['Atención Masiva y Logística'],
-    stats: 'Enlace Regional',
-    x: 18.5,
-    y: 43.0,
-    isPrimary: false
-  },
-  {
-    id: 'uk',
-    country: 'Reino Unido & Europa Central',
-    name: 'Conexión Continental',
-    flag: '🇬🇧',
-    role: 'Enlace de Red Global',
-    cities: ['Londres'],
-    capabilities: ['Red de Telecomunicaciones'],
-    stats: 'Interconexión',
-    x: 47.0,
-    y: 24.5,
-    isPrimary: false
-  },
-  {
-    id: 'asia',
-    country: 'Asia Pacífico',
-    name: 'Nodo Global de Telecomunicaciones',
-    flag: '🌏',
-    role: 'Rutas Digitales y Continuidad de Red',
-    cities: ['Singapur', 'Tokio'],
-    capabilities: ['Ruteo de Alta Disponibilidad 24/7'],
-    stats: 'Red Global',
-    x: 76.5,
-    y: 46.5,
-    isPrimary: false
   }
 ];
 
-// Arcs between Hubs
+// Arcs connecting exclusively Colombia, España and Perú
 const ARCS = [
   // Colombia -> España (Transatlantic Bridge)
-  { from: { x: 26.8, y: 56.0 }, to: { x: 47.4, y: 32.0 }, curve: -85 },
+  { from: { x: 31.3, y: 59.2 }, to: { x: 49.5, y: 41.8 }, curve: -75 },
   // Perú -> Colombia (Andean Spine)
-  { from: { x: 26.8, y: 66.8 }, to: { x: 26.8, y: 56.0 }, curve: 8 },
+  { from: { x: 30.2, y: 68.5 }, to: { x: 31.3, y: 59.2 }, curve: 8 },
   // Perú -> España (Direct Link)
-  { from: { x: 26.8, y: 66.8 }, to: { x: 47.4, y: 32.0 }, curve: -115 },
-  // Colombia -> USA (Nearshore Bridge)
-  { from: { x: 26.8, y: 56.0 }, to: { x: 24.2, y: 33.5 }, curve: 18 },
-  // Colombia -> México
-  { from: { x: 26.8, y: 56.0 }, to: { x: 18.5, y: 43.0 }, curve: 12 },
-  // España -> UK
-  { from: { x: 47.4, y: 32.0 }, to: { x: 47.0, y: 24.5 }, curve: -12 },
-  // España -> Asia
-  { from: { x: 47.4, y: 32.0 }, to: { x: 76.5, y: 46.5 }, curve: -65 },
+  { from: { x: 30.2, y: 68.5 }, to: { x: 49.5, y: 41.8 }, curve: -105 }
 ];
 
 export default function GlobalNetworkMap() {
@@ -199,33 +138,21 @@ export default function GlobalNetworkMap() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none"></div>
 
           {/* Realistic World Map Presentation Layer */}
-          <div className="relative w-full aspect-[2/1] max-w-5xl mx-auto flex items-center justify-center">
+          <div className="relative w-full aspect-[1410/752] max-w-5xl mx-auto flex items-center justify-center">
             
-            {/* World Map Exact Continental Silhouette (Real Geographical Image Seamlessly Blended) */}
-            <div 
-              className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none overflow-hidden"
-              style={{
-                maskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%, black 70%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%, black 70%, transparent 100%)'
-              }}
-            >
+            {/* World Map Exact Continental Silhouette (Transparent PNG on Pure Black Canvas) */}
+            <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
               <img
                 src={mapImageError ? "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" : "/world-map.png"}
                 alt="Mapa Mundi Global"
                 onError={() => setMapImageError(true)}
-                className="w-full h-full object-contain select-none"
-                style={{
-                  // Invert white background into pitch black, leaving continents in crisp elegant slate-gray
-                  filter: 'invert(1) grayscale(100%) brightness(1.4) contrast(1.2)',
-                  mixBlendMode: 'screen',
-                  opacity: 0.85
-                }}
+                className="w-full h-full object-contain select-none brightness-110 contrast-105 opacity-90"
               />
             </div>
 
             {/* SVG Interactive Arcs Overlay */}
             <svg
-              viewBox="0 0 1000 500"
+              viewBox="0 0 1000 533.33"
               className="absolute inset-0 w-full h-full pointer-events-none select-none z-10"
             >
               <defs>
@@ -249,9 +176,9 @@ export default function GlobalNetworkMap() {
               {/* Dynamic Connecting Arcs */}
               {ARCS.map((arc, idx) => {
                 const x1 = arc.from.x * 10;
-                const y1 = arc.from.y * 5;
+                const y1 = arc.from.y * 5.3333;
                 const x2 = arc.to.x * 10;
-                const y2 = arc.to.y * 5;
+                const y2 = arc.to.y * 5.3333;
                 const midX = (x1 + x2) / 2;
                 const midY = Math.min(y1, y2) + arc.curve;
                 const pathD = `M ${x1} ${y1} Q ${midX} ${midY} ${x2} ${y2}`;

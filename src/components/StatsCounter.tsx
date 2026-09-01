@@ -4,7 +4,7 @@ import { Users, Clock, Globe, Building2, Briefcase, Headphones } from 'lucide-re
 export const STATS_ITEMS = [
   {
     id: 'empleados',
-    value: '+ 500',
+    value: '+500',
     label: 'Empleados',
     description: 'Talento humano especializado y capacitado',
     icon: Users,
@@ -12,7 +12,7 @@ export const STATS_ITEMS = [
   },
   {
     id: 'experiencia',
-    value: '+ 20',
+    value: '+20',
     label: 'Años Experiencia',
     description: 'Trayectoria sólida en gestión operativa y BPO',
     icon: Clock,
@@ -36,7 +36,7 @@ export const STATS_ITEMS = [
   },
   {
     id: 'clientes',
-    value: '+ 25',
+    value: '+25',
     label: 'Clientes',
     description: 'Empresas líderes confían en nuestro estándar',
     icon: Briefcase,
@@ -44,7 +44,7 @@ export const STATS_ITEMS = [
   },
   {
     id: 'posiciones',
-    value: '+ 1.000',
+    value: '750',
     label: 'Posiciones',
     description: 'Capacidad instalada y escalabilidad inmediata',
     icon: Headphones,
@@ -75,7 +75,7 @@ export default function StatsCounter() {
 
             {/* Number Value */}
             <div>
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight font-mono">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight whitespace-nowrap">
                 {stat.value}
               </div>
 

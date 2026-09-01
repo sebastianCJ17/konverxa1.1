@@ -155,14 +155,14 @@ export default function IndustryCarousel() {
   };
 
   return (
-    <div className="w-full relative select-none py-6">
+    <div className="w-full relative select-none pt-2 pb-6">
       
       {/* 3D Perspective Stage Container */}
       <div
         ref={containerRef}
-        className="relative w-full h-[520px] sm:h-[560px] md:h-[580px] flex items-center justify-center overflow-hidden [perspective:1400px]"
+        className="relative w-full h-[530px] sm:h-[570px] md:h-[600px] flex items-center justify-center overflow-hidden [perspective:1400px]"
       >
-        <div className="relative w-full max-w-5xl h-full flex items-center justify-center [transform-style:preserve-3d]">
+        <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center [transform-style:preserve-3d]">
           {MARKETS_DATA.map((item, index) => {
             // Calculate circular offset distance relative to activeIndex
             let offset = index - activeIndex;
@@ -170,17 +170,22 @@ export default function IndustryCarousel() {
             if (offset > Math.floor(total / 2)) offset -= total;
 
             const isActive = offset === 0;
-            const isVisible = Math.abs(offset) <= 3; // Show 3 on right, 3 on left
+            const isVisible = Math.abs(offset) <= 3; // Show up to 3 on right, 3 on left
 
             if (!isVisible) return null;
 
-            // Compute 3D transformation values
-            // Center is 0, offset +1 is to the right, -1 is to the left
-            const translateX = offset === 0 ? 0 : offset > 0 ? 160 + (offset - 1) * 95 : -160 + (offset + 1) * 95;
-            const rotateY = offset === 0 ? 0 : offset > 0 ? -28 : 28;
-            const scale = offset === 0 ? 1 : Math.max(0.72, 1 - Math.abs(offset) * 0.1);
-            const zIndex = 30 - Math.abs(offset) * 5;
-            const opacity = offset === 0 ? 1 : Math.max(0.25, 0.85 - Math.abs(offset) * 0.22);
+            // Compute 3D transformation values with wider lateral spacing so center card remains clean & unobstructed
+            let translateX = 0;
+            if (offset > 0) {
+              translateX = 340 + (offset - 1) * 260;
+            } else if (offset < 0) {
+              translateX = -340 + (offset + 1) * 260;
+            }
+
+            const rotateY = offset === 0 ? 0 : offset > 0 ? -22 : 22;
+            const scale = offset === 0 ? 1 : Math.max(0.76, 0.90 - Math.abs(offset) * 0.07);
+            const zIndex = offset === 0 ? 40 : 30 - Math.abs(offset) * 5;
+            const opacity = offset === 0 ? 1 : Math.max(0.35, 0.82 - Math.abs(offset) * 0.22);
 
             return (
               <motion.div
@@ -198,10 +203,10 @@ export default function IndustryCarousel() {
                   duration: 0.55,
                   ease: [0.32, 0.72, 0, 1]
                 }}
-                className={`absolute w-[290px] sm:w-[340px] md:w-[360px] h-[480px] sm:h-[510px] rounded-3xl overflow-hidden shadow-2xl transition-shadow cursor-pointer ${
+                className={`absolute w-[300px] sm:w-[370px] md:w-[410px] lg:w-[440px] h-[490px] sm:h-[520px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'ring-1 ring-white/30 shadow-slate-950/40 cursor-default'
-                    : 'hover:brightness-110'
+                    ? 'ring-2 ring-white/50 shadow-2xl shadow-slate-950/70 cursor-default'
+                    : 'hover:brightness-125'
                 }`}
                 style={{
                   transformStyle: 'preserve-3d',
@@ -214,48 +219,65 @@ export default function IndustryCarousel() {
                     src={item.image}
                     alt={item.name}
                     className={`w-full h-full object-cover transition-all duration-700 ${
-                      isActive ? 'filter brightness-90 scale-105' : 'filter brightness-65 grayscale-[35%]'
+                      isActive
+                        ? 'filter brightness-100 contrast-[1.06] saturate-110 grayscale-0 scale-105'
+                        : 'filter grayscale contrast-[0.95] brightness-[0.40] scale-100'
                     }`}
                     loading="lazy"
                   />
-                  {/* Subtle Dark Gradient Overlay for optimal legibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
-                  
-                  {/* Additional Glass Sheen */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+
+                  {/* Gradient Overlays: Rich clear contrast for active card, deep dark tint for side cards */}
+                  {isActive ? (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-70 pointer-events-none"></div>
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 bg-slate-950/60"></div>
+                  )}
                 </div>
 
                 {/* Card Content Layer */}
-                <div className="relative z-10 w-full h-full p-6 sm:p-7 flex flex-col justify-between text-white">
+                <div className={`relative z-10 w-full h-full p-6 sm:p-8 flex flex-col justify-between text-white transition-opacity duration-300 ${
+                  isActive ? 'opacity-100' : 'opacity-50'
+                }`}>
                   
                   {/* Top Part: Number & Title */}
                   <div className="space-y-2">
-                    <span className="font-mono text-xs font-bold text-slate-300 tracking-wider">
-                      {item.number}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight drop-shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <span className={`font-mono text-xs font-bold tracking-wider px-2.5 py-0.5 rounded-full ${
+                        isActive ? 'bg-white/20 text-white backdrop-blur-xs' : 'text-slate-400'
+                      }`}>
+                        SECTOR {item.number}
+                      </span>
+                    </div>
+                    <h3 className={`text-2xl sm:text-3xl font-black tracking-tight leading-tight drop-shadow-sm ${
+                      isActive ? 'text-white' : 'text-slate-300'
+                    }`}>
                       {item.name}
                     </h3>
                   </div>
 
-                  {/* Center Part: Description & Service Bullets (visible on all cards, crisp on active) */}
+                  {/* Center Part: Description & Service Bullets */}
                   <div className="space-y-4 my-auto py-2">
-                    <p className={`text-xs sm:text-[13px] leading-relaxed text-slate-200 line-clamp-3 font-normal transition-opacity duration-300 ${
-                      isActive ? 'opacity-100' : 'opacity-80'
+                    <p className={`text-xs sm:text-[13px] leading-relaxed line-clamp-3 font-normal ${
+                      isActive ? 'text-slate-200' : 'text-slate-400'
                     }`}>
                       {item.desc}
                     </p>
 
                     {/* Bullet List of Services with Icons */}
-                    <div className="space-y-2 pt-2">
+                    <div className="space-y-2 pt-1">
                       {item.tags.map((tag, tIdx) => {
                         const IconC = tag.icon;
                         return (
                           <div
                             key={tIdx}
-                            className="flex items-center gap-2.5 text-xs text-slate-100/90 font-medium"
+                            className={`flex items-center gap-2.5 text-xs font-medium ${
+                              isActive ? 'text-slate-100' : 'text-slate-400'
+                            }`}
                           >
-                            <IconC className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                            <IconC className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                             <span className="truncate">{tag.label}</span>
                           </div>
                         );
@@ -275,8 +297,8 @@ export default function IndustryCarousel() {
                       }}
                       className={`inline-flex items-center gap-2 text-xs font-bold transition-all duration-200 group ${
                         isActive
-                          ? 'text-white hover:text-amber-300'
-                          : 'text-slate-300 pointer-events-none'
+                          ? 'px-4 py-2 rounded-xl bg-white text-slate-950 hover:bg-slate-200 shadow-md font-semibold'
+                          : 'text-slate-400 pointer-events-none'
                       }`}
                     >
                       <span>Explorar {item.name}</span>

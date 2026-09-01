@@ -66,7 +66,6 @@ const SLIDES: SlideData[] = [
 
 export default function CtaSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
@@ -76,24 +75,11 @@ export default function CtaSlider() {
     setCurrentIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   }, []);
 
-  // Autoplay effect
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 6500);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide]);
-
   const slide = SLIDES[currentIndex];
   const BadgeIcon = slide.badgeIcon;
 
   return (
-    <section
-      className="relative w-full min-h-[580px] sm:min-h-[640px] flex items-center justify-center overflow-hidden bg-neutral-950 text-white font-sans"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
-    >
+    <section className="relative w-full min-h-[580px] sm:min-h-[640px] flex items-center justify-center overflow-hidden bg-neutral-950 text-white font-sans">
       {/* Background Image Carousel with Crystal Clear Visibility */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">

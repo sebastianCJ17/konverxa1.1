@@ -6,6 +6,7 @@ interface SectionTitleProps {
   subtitle?: string;
   centered?: boolean;
   light?: boolean;
+  className?: string;
 }
 
 export default function SectionTitle({
@@ -13,10 +14,11 @@ export default function SectionTitle({
   title,
   subtitle,
   centered = false,
-  light = false
+  light = false,
+  className = ''
 }: SectionTitleProps) {
   return (
-    <div className={`space-y-3 ${centered ? 'text-center mx-auto max-w-3xl' : 'max-w-3xl'}`}>
+    <div className={`space-y-3 ${centered ? 'text-center mx-auto max-w-4xl' : 'max-w-4xl'} ${className}`}>
       {badge && (
         <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${
           light
@@ -28,14 +30,14 @@ export default function SectionTitle({
         </div>
       )}
 
-      <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight ${
+      <h2 className={`text-3xl sm:text-4xl lg:text-[40px] font-black tracking-tight leading-tight ${
         light ? 'text-white' : 'text-black'
       }`}>
         {title}
       </h2>
 
       {subtitle && (
-        <p className={`text-base sm:text-lg leading-relaxed ${
+        <p className={`text-base sm:text-lg leading-relaxed max-w-3xl ${centered ? 'mx-auto' : ''} ${
           light ? 'text-zinc-300' : 'text-slate-600'
         }`}>
           {subtitle}

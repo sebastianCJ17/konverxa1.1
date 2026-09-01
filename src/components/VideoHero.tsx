@@ -43,7 +43,7 @@ export default function VideoHero() {
             </h1>
 
             <p className="text-slate-200 text-lg sm:text-xl font-medium leading-relaxed max-w-2xl pt-2 drop-shadow-sm">
-              Alcanzar resultados exige ejecución. Sostenerlos exige transformación.
+              Ejecutamos para construir. Transformamos para sostener.
             </p>
           </motion.div>
 

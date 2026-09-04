@@ -33,8 +33,8 @@ const HUBS: HubLocation[] = [
       'Mesa de Ayuda y Soporte Nivel 1, 2 y 3'
     ],
     stats: '+ 500 Colaboradores · Hub Regional',
-    x: 31.3,
-    y: 59.2,
+    x: 31.2,
+    y: 63.0,
     isPrimary: true
   },
   {
@@ -51,8 +51,8 @@ const HUBS: HubLocation[] = [
       'Consultoría de Transformación y Estrategia BPO'
     ],
     stats: 'Gobernanza Corporativa · Cobertura UE',
-    x: 49.5,
-    y: 41.8,
+    x: 47.6,
+    y: 46.2,
     isPrimary: true
   },
   {
@@ -69,76 +69,53 @@ const HUBS: HubLocation[] = [
       'Gestión de Bases de Datos y Enriquecimiento'
     ],
     stats: 'Sede Operativa · Cobertura Cono Sur',
-    x: 30.2,
-    y: 68.5,
+    x: 31.4,
+    y: 69.5,
     isPrimary: true
   }
 ];
 
-// Arcs connecting exclusively Colombia, España and Perú
+// Arcs connecting precisely Colombia, España and Perú
 const ARCS = [
   // Colombia -> España (Transatlantic Bridge)
-  { from: { x: 31.3, y: 59.2 }, to: { x: 49.5, y: 41.8 }, curve: -75 },
+  { from: { x: 31.2, y: 63.0 }, to: { x: 47.6, y: 46.2 }, curve: -65 },
   // Perú -> Colombia (Andean Spine)
-  { from: { x: 30.2, y: 68.5 }, to: { x: 31.3, y: 59.2 }, curve: 8 },
+  { from: { x: 31.4, y: 69.5 }, to: { x: 31.2, y: 63.0 }, curve: -8 },
   // Perú -> España (Direct Link)
-  { from: { x: 30.2, y: 68.5 }, to: { x: 49.5, y: 41.8 }, curve: -105 }
+  { from: { x: 31.4, y: 69.5 }, to: { x: 47.6, y: 46.2 }, curve: -95 }
 ];
 
 export default function GlobalNetworkMap() {
   const [selectedHub, setSelectedHub] = useState<HubLocation | null>(HUBS[0]); // Default Colombia
   const [mapImageError, setMapImageError] = useState(false);
-  const primaryHubs = HUBS.filter((h) => h.isPrimary);
 
   return (
-    <section className="py-20 sm:py-24 bg-black text-white relative overflow-hidden font-sans border-t border-b border-neutral-900">
+    <section className="py-16 sm:py-20 bg-black text-white relative overflow-hidden font-sans border-t border-b border-neutral-900">
       
       {/* Background Gradients & Subtle Radial Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-950/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-950/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-6 w-full">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-4">
           <SectionTitle
             badge="Presencia Multilocación & Cobertura Global"
             title="Infraestructura Operativa Sin Fronteras"
             subtitle="Conectamos operaciones en tiempo real entre América Latina y Europa con centros de excelencia en Colombia, España y Perú."
             light
           />
-
-          {/* Quick Country Selector Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <span className="text-xs text-neutral-400 font-semibold mr-1">
-              Sedes Operativas:
-            </span>
-            {primaryHubs.map((hub) => (
-              <button
-                key={hub.id}
-                onClick={() => setSelectedHub(hub)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 border ${
-                  selectedHub?.id === hub.id
-                    ? 'bg-white text-black border-white shadow-lg scale-105'
-                    : 'bg-neutral-900/90 text-neutral-300 border-neutral-800 hover:border-neutral-600 hover:text-white'
-                }`}
-              >
-                <span className="text-sm">{hub.flag}</span>
-                <span>{hub.country}</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Pure Solid Black Map Canvas Container Frame */}
-        <div className="relative rounded-3xl bg-black border border-neutral-900 shadow-2xl overflow-hidden min-h-[480px] sm:min-h-[580px] flex items-center justify-center p-4 sm:p-8">
+        {/* Solid Black Map Canvas Container Frame (Expansive & High Definition) */}
+        <div className="relative rounded-3xl bg-black border border-neutral-900 shadow-2xl overflow-hidden min-h-[560px] sm:min-h-[660px] lg:min-h-[760px] flex items-center justify-center p-2 sm:p-4 lg:p-6">
           
           {/* Subtle Coordinate Grid Lines */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none"></div>
 
           {/* Realistic World Map Presentation Layer */}
-          <div className="relative w-full aspect-[1410/752] max-w-5xl mx-auto flex items-center justify-center">
+          <div className="relative w-full aspect-[1410/752] max-w-[1360px] mx-auto flex items-center justify-center">
             
             {/* World Map Exact Continental Silhouette (Transparent PNG on Pure Black Canvas) */}
             <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
@@ -194,7 +171,7 @@ export default function GlobalNetworkMap() {
                       strokeDasharray="4,4"
                       opacity="0.6"
                     />
-                    {/* Glowing Fluid Arc */}
+                    {/* Glowing Fluid Arc (Slower Latency) */}
                     <path
                       d={pathD}
                       fill="none"
@@ -202,14 +179,14 @@ export default function GlobalNetworkMap() {
                       strokeWidth="1.8"
                       filter="url(#mapArcGlow)"
                       opacity="0.85"
-                      className="animate-pulse"
+                      style={{ animation: 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
                     />
                   </g>
                 );
               })}
             </svg>
 
-            {/* Interactive HTML Markers Placed on Exact Geographical Coordinates */}
+            {/* Interactive HTML Markers Placed with Pinpoint Precision on Map */}
             {HUBS.map((hub) => {
               const isSelected = selectedHub?.id === hub.id;
               const isPrimary = hub.isPrimary;
@@ -222,44 +199,37 @@ export default function GlobalNetworkMap() {
                 >
                   <button
                     onClick={() => setSelectedHub(hub)}
-                    className="relative group cursor-pointer p-2 flex items-center justify-center focus:outline-hidden"
+                    className="relative group cursor-pointer p-1.5 flex items-center justify-center focus:outline-hidden"
                     aria-label={`Ver información de ${hub.country}`}
+                    title={hub.country}
                   >
                     {/* Primary Highlighted Hubs (Colombia, España, Perú) */}
                     {isPrimary ? (
                       <>
-                        {/* Outer Glow Ping Animation */}
-                        <span className="absolute w-12 h-12 rounded-full bg-amber-400/30 animate-ping"></span>
+                        {/* Outer Glow Ping Animation (Calm, Slower Latency 4s & Compact) */}
+                        <span
+                          style={{ animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite' }}
+                          className="absolute w-7 h-7 rounded-full bg-amber-400/25 pointer-events-none"
+                        ></span>
                         
-                        {/* Inner Wave Pulse Animation */}
-                        <span className="absolute w-8 h-8 rounded-full bg-sky-400/50 animate-pulse"></span>
+                        {/* Inner Wave Pulse Animation (Slower Latency 3.5s & Compact) */}
+                        <span
+                          style={{ animation: 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
+                          className="absolute w-5 h-5 rounded-full bg-sky-400/35 pointer-events-none"
+                        ></span>
 
-                        {/* Solid Ring with White Center Marker */}
-                        <div className={`w-5 h-5 rounded-full border-2 transition-all duration-300 flex items-center justify-center shadow-lg ${
+                        {/* Solid Ring with Center Marker (Accurate pinpoint size) */}
+                        <div className={`w-3.5 h-3.5 rounded-full border border-white transition-all duration-300 flex items-center justify-center shadow-lg ${
                           isSelected
-                            ? 'bg-white border-amber-400 scale-125 shadow-amber-400/60'
-                            : 'bg-amber-400 border-white hover:scale-115 shadow-sky-400/50'
+                            ? 'bg-amber-400 scale-125 ring-2 ring-amber-400/70 shadow-amber-400/80'
+                            : 'bg-amber-400 hover:scale-125 shadow-amber-500/50'
                         }`}>
-                          <span className="w-2 h-2 rounded-full bg-black"></span>
-                        </div>
-
-                        {/* Country Flag & Name Badge */}
-                        <div className={`absolute top-full mt-1.5 px-2.5 py-1 rounded-md text-[11px] font-black tracking-tight whitespace-nowrap transition-all duration-300 shadow-md ${
-                          isSelected
-                            ? 'bg-white text-black scale-105'
-                            : 'bg-neutral-900 text-white border border-neutral-700 hover:border-white'
-                        }`}>
-                          <span>{hub.flag} {hub.country}</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
                         </div>
                       </>
                     ) : (
                       /* Secondary Network Nodes */
-                      <>
-                        <div className="w-2.5 h-2.5 rounded-full bg-neutral-600 hover:bg-neutral-300 border border-neutral-500 transition-all hover:scale-125"></div>
-                        <div className="absolute top-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity px-2 py-0.5 rounded bg-neutral-900 text-[10px] text-neutral-300 whitespace-nowrap pointer-events-none border border-neutral-700">
-                          {hub.country}
-                        </div>
-                      </>
+                      <div className="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-300 border border-neutral-500 transition-all hover:scale-125"></div>
                     )}
                   </button>
                 </div>

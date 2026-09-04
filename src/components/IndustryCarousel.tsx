@@ -14,6 +14,7 @@ export interface MarketItem {
   slug: string;
   desc: string;
   image: string;
+  fallbackImage: string;
   tags: { label: string; icon: ElementType }[];
 }
 
@@ -24,7 +25,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Telecomunicaciones',
     slug: 'telecomunicaciones',
     desc: 'Operaciones de alto volumen donde la capacidad de respuesta, la continuidad y el control deben sostenerse en cada interacción.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80',
+    image: '/telecomunicaciones.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Atención al cliente', icon: Headphones },
       { label: 'Ventas', icon: TrendingUp },
@@ -39,7 +41,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Banca y Servicios Financieros',
     slug: 'banca-fintech',
     desc: 'Entornos altamente regulados que exigen rigor operativo, protección de datos y absoluta continuidad en la atención transaccional.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+    image: '/banca-finanzas.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Onboarding digital', icon: Headphones },
       { label: 'Cobranza especializada', icon: TrendingUp },
@@ -54,7 +57,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Retail y Comercio Electrónico',
     slug: 'retail-ecommerce',
     desc: 'Atención ágil para picos de alta demanda, garantizando experiencia de compra y resolución inmediata en cada punto de contacto.',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67e51a6627?auto=format&fit=crop&w=1000&q=80',
+    image: '/retail-ecommerce.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1556742049-0a67e51a6627?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Atención pre y post-venta', icon: ShoppingBag },
       { label: 'Logística inversa y cambios', icon: Truck },
@@ -69,7 +73,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Tecnología y Negocios Digitales',
     slug: 'tecnologia-digital',
     desc: 'Soporte técnico especializado y gestión de usuarios para plataformas SaaS y apps que crecen a ritmo acelerado.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
+    image: '/tecnologia-digital.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Help desk multinivel', icon: Cpu },
       { label: 'Customer Success', icon: Heart },
@@ -84,7 +89,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Seguros e Insurtech',
     slug: 'seguros',
     desc: 'Gestión humana y oportuna en momentos decisivos, acelerando la respuesta ante siniestros y asistencias 24/7.',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1000&q=80',
+    image: '/seguros.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Atención siniestros 24/7', icon: ShieldCheck },
       { label: 'Despacho de asistencias', icon: Truck },
@@ -99,7 +105,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Salud y Farmacia',
     slug: 'salud',
     desc: 'Coordinación precisa y empática para servicios médicos y asistenciales, asegurando agilidad y rigor profesional.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
+    image: '/salud.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Agendamiento médico', icon: Activity },
       { label: 'Soporte telemedicina', icon: Headphones },
@@ -114,7 +121,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Movilidad, Transporte y Logística',
     slug: 'logistica',
     desc: 'Control en tiempo real para cadenas de distribución, trazabilidad de envíos y soporte integral a conductores y usuarios.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
+    image: '/movilidad-logistica.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Rastreo y trazabilidad', icon: Truck },
       { label: 'Gestión de novedades', icon: Wrench },
@@ -129,7 +137,8 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Energía y Servicios Públicos',
     slug: 'energia-servicios',
     desc: 'Atención masiva con alta disponibilidad ante contingencias, emergencias técnicas y gestión integral del ciclo comercial.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80',
+    image: '/energia-servicios.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Línea de emergencias 24/7', icon: Zap },
       { label: 'Atención de PQRs', icon: Headphones },
@@ -142,6 +151,7 @@ export const MARKETS_DATA: MarketItem[] = [
 
 export default function IndustryCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const containerRef = useRef<HTMLDivElement>(null);
 
   const total = MARKETS_DATA.length;
@@ -216,7 +226,8 @@ export default function IndustryCarousel() {
                 {/* Photographic Background */}
                 <div className="absolute inset-0 w-full h-full bg-slate-950">
                   <img
-                    src={item.image}
+                    src={failedImages[item.id] ? item.fallbackImage : item.image}
+                    onError={() => setFailedImages((prev) => ({ ...prev, [item.id]: true }))}
                     alt={item.name}
                     className={`w-full h-full object-cover transition-all duration-700 ${
                       isActive
@@ -242,15 +253,8 @@ export default function IndustryCarousel() {
                   isActive ? 'opacity-100' : 'opacity-50'
                 }`}>
                   
-                  {/* Top Part: Number & Title */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className={`font-mono text-xs font-bold tracking-wider px-2.5 py-0.5 rounded-full ${
-                        isActive ? 'bg-white/20 text-white backdrop-blur-xs' : 'text-slate-400'
-                      }`}>
-                        SECTOR {item.number}
-                      </span>
-                    </div>
+                  {/* Top Part: Title */}
+                  <div className="space-y-1">
                     <h3 className={`text-2xl sm:text-3xl font-black tracking-tight leading-tight drop-shadow-sm ${
                       isActive ? 'text-white' : 'text-slate-300'
                     }`}>

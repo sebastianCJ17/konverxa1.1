@@ -89,23 +89,23 @@ export const JOB_POSITIONS: JobPosition[] = [
 
 export const CAREER_BENEFITS = [
   {
-    title: 'Crecimiento Profesional Acelerado',
-    desc: 'Promovemos el 80% de nuestras vacantes de supervisión y gestión desde el talento interno a través de la Universidad Konverxa.',
-    icon: 'TrendingUp'
+    title: 'PREPARACIÓN PROFESIONAL',
+    desc: 'Antes de incorporarse a su puesto, cada persona completa la formación y recibe las herramientas necesarias para desempeñar su función con el estándar esperado.',
+    icon: 'GraduationCap'
   },
   {
-    title: 'Ambiente Corporativo Inclusivo',
-    desc: 'Cultura basada en el respeto, la diversidad, el liderazgo participativo y el reconocimiento continuo al desempeño.',
-    icon: 'Users'
+    title: 'OBJETIVOS Y DESEMPEÑO',
+    desc: 'Cada persona conoce sus objetivos, sus responsabilidades y los criterios con los que se evalúa su desempeño.',
+    icon: 'Target'
   },
   {
-    title: 'Flexibilidad & Trabajo Híbrido',
-    desc: 'Modelos de trabajo adaptados que promueven el equilibrio saludable entre la vida laboral y personal.',
-    icon: 'Home'
-  },
-  {
-    title: 'Bono por Desempeño & Bienestar',
-    desc: 'Esquema de incentivos competitivos, seguros de salud complementarios y convenios de bienestar integral.',
+    title: 'COMPENSACIÓN Y BENEFICIOS',
+    desc: 'Desde la oferta se detallan las condiciones de la compensación variable y los beneficios que corresponden a cada puesto.',
     icon: 'Award'
+  },
+  {
+    title: 'DESARROLLO INTERNO',
+    desc: 'Toda posición de responsabilidad se convoca internamente antes de abrirse al mercado.',
+    icon: 'TrendingUp'
   }
 ];

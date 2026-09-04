@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
@@ -5,18 +6,34 @@ import LinkedInIcon from './LinkedInIcon';
 import { COMPANY_INFO } from '../data/company';
 
 export default function VideoHero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback if autoplay is deferred by browser
+        });
+      }
+    }
+  }, []);
+
   return (
     <section className="relative w-full min-h-[90vh] sm:min-h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Video / Image with dark Overlay */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+      {/* Background Video with dark Overlay */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none bg-black">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          poster="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=2000&q=85"
-          className="w-full h-full object-cover filter brightness-[0.88] saturate-[1.1] contrast-[1.05]"
+          preload="auto"
+          className="w-full h-full object-cover filter brightness-[0.92] saturate-[1.05]"
         >
           <source src="/videoweb.mp4" type="video/mp4" />
         </video>

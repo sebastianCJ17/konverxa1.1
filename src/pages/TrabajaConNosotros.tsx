@@ -8,11 +8,11 @@ import { JOB_POSITIONS, CAREER_BENEFITS } from '../data/jobs';
 import { JobPosition } from '../types';
 import {
   Users, TrendingUp, Home, Award, Briefcase, MapPin, Clock,
-  CheckCircle2, ArrowRight, Search
+  CheckCircle2, ArrowRight, Search, GraduationCap, Target
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, any> = {
-  TrendingUp, Users, Home, Award
+  TrendingUp, Users, Home, Award, GraduationCap, Target
 };
 
 export default function TrabajaConNosotros() {

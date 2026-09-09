@@ -77,16 +77,12 @@ export default function ServicesCarousel() {
                 className="space-y-6"
               >
                 
-                {/* Top Badge and Numbering */}
+                {/* Top Badge */}
                 <div className="flex items-center justify-between">
                   <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold ${theme.bgLight} ${theme.textCol} border ${theme.borderCol}`}>
                     <IconComp className="w-3.5 h-3.5" />
                     <span>{theme.tag}</span>
                   </div>
-
-                  <span className="text-xs font-mono font-bold text-slate-400">
-                    0{activeIndex + 1} / 0{SERVICES_DATA.length}
-                  </span>
                 </div>
 
                 {/* Title & Tagline */}
@@ -168,6 +164,10 @@ export default function ServicesCarousel() {
               >
                 <img
                   src={activeService.image}
+                  onError={(e) => {
+                    // Fallback to high quality photography if custom local file fails to load
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80';
+                  }}
                   alt={activeService.title}
                   className="w-full h-full object-cover filter brightness-95 saturate-[1.1] contrast-[1.05]"
                 />

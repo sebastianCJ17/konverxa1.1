@@ -1,12 +1,29 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Upload } from 'lucide-react';
 import LinkedInIcon from './LinkedInIcon';
+import VideoUploadModal from './VideoUploadModal';
 import { COMPANY_INFO } from '../data/company';
+import { getLocalVideoBlob } from '../utils/videoStorage';
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [isUploadOpen, setIsUploadOpen] = useState(false);
+
+  useEffect(() => {
+    // Check if there is a locally saved custom video blob in IndexedDB
+    getLocalVideoBlob().then((blob) => {
+      if (blob && blob.size > 1000) {
+        const localUrl = URL.createObjectURL(blob);
+        setVideoSrc(localUrl);
+        setVideoError(false);
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -19,24 +36,51 @@ export default function VideoHero() {
         });
       }
     }
-  }, []);
+  }, [videoSrc]);
 
   return (
     <section className="relative w-full min-h-[90vh] sm:min-h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Video with dark Overlay */}
+      {/* Background Video with dark Overlay and Fallback poster */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none bg-black">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover filter brightness-[0.92] saturate-[1.05]"
-        >
-          <source src="/videoweb.mp4" type="video/mp4" />
-        </video>
+        {/* Fallback operations imagery if video is loading or unplayable */}
+        <img
+          src="/operations-overview.jpg"
+          alt="KONVERXA Centro Operativo"
+          className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.75] contrast-[1.05] transition-opacity duration-700 ${
+            isVideoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
+
+        {!videoError && (
+          <video
+            key={videoSrc}
+            ref={videoRef}
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onLoadedData={() => {
+              setIsVideoLoaded(true);
+              setVideoError(false);
+            }}
+            onCanPlay={() => {
+              setIsVideoLoaded(true);
+              setVideoError(false);
+            }}
+            onError={() => {
+              setVideoError(true);
+              setIsVideoLoaded(false);
+            }}
+            className={`w-full h-full object-cover filter brightness-[0.92] saturate-[1.05] transition-opacity duration-700 ${
+              isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        )}
 
         {/* Gradient Overlay: Solid black on the left for text contrast, fading out to reveal the contact center clearly on the right */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/15 sm:via-black/70 sm:to-transparent"></div>
@@ -68,26 +112,38 @@ export default function VideoHero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="pt-2"
           >
             <Link
               to="/modelo"
-              className="px-8 py-4 rounded-xl bg-transparent hover:bg-white hover:text-black text-white font-bold text-sm uppercase tracking-wider border border-white/40 transition-all duration-300 flex items-center justify-center gap-3 group shadow-lg"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold text-base transition-all duration-300 shadow-xl hover:shadow-2xl group border border-slate-200"
             >
-              <span>DESCUBRE EL MODELO</span>
-              <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+              <span>Descubre nuestro modelo</span>
+              <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
 
         </div>
       </div>
 
-      {/* Bottom Hero Bar: Left Tag "Operador BPO y Contact Center" & Right Institutional LinkedIn Icon */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-        <div className="font-semibold tracking-wide text-slate-300 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-slate-100 animate-pulse"></span>
-          <span>Operador BPO y Contact Center</span>
+      {/* Bottom Hero Bar: Left Tag, Video Upload Helper & Right Institutional LinkedIn */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
+        <div className="flex items-center gap-3">
+          <div className="font-semibold tracking-wide text-slate-300 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-slate-100 animate-pulse"></span>
+            <span>Operador BPO y Contact Center</span>
+          </div>
+
+          {/* Quick Video Upload / Status Action */}
+          <button
+            onClick={() => setIsUploadOpen(true)}
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white border border-white/20 transition-all text-[11px] font-medium cursor-pointer"
+            title="Subir o cambiar videoweb.mp4"
+          >
+            <Upload className="w-3 h-3" />
+            <span>{isVideoLoaded && !videoError ? 'Video activo (Cambiar)' : 'Subir videoweb.mp4'}</span>
+          </button>
         </div>
 
         {/* Institutional LinkedIn Link */}
@@ -105,8 +161,17 @@ export default function VideoHero() {
         </div>
       </div>
 
+      {/* Upload Video Modal */}
+      <VideoUploadModal
+        isOpen={isUploadOpen}
+        onClose={() => setIsUploadOpen(false)}
+        onVideoUpdated={(newSrc) => {
+          setVideoSrc(newSrc);
+          setVideoError(false);
+          setIsVideoLoaded(true);
+        }}
+      />
+
     </section>
   );
 }
-
-

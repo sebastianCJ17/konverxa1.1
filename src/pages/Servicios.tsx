@@ -164,6 +164,9 @@ export default function Servicios() {
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md h-64 sm:h-80">
                 <img
                   src={activeService.image}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80';
+                  }}
                   alt={activeService.title}
                   className="w-full h-full object-cover"
                 />

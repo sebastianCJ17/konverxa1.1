@@ -75,14 +75,14 @@ export default function NarrativeScroll() {
   return (
     <section className="relative w-full py-16 sm:py-20 bg-slate-100 text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Background Soft Texture & Ambient Tone */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-25">
+      {/* Background Soft Texture & Ambient Tone - Bloque 02 Photo */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-38">
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
-          alt="KONVERXA Centro Operativo"
+          src="/bloque2.png"
+          alt="Análisis y Visualización Operacional KONVERXA"
           className="w-full h-full object-cover filter brightness-95"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100 via-slate-100/90 to-slate-100/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/95 via-slate-100/85 to-slate-100/40"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -205,9 +205,6 @@ export default function NarrativeScroll() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className={`text-xs font-mono font-bold ${idx === currentStep ? 'text-slate-300' : 'text-slate-400'}`}>
-                        0{idx + 1}
-                      </span>
                       <span className="text-xs font-bold tracking-tight">
                         {m.tabLabel}
                       </span>
@@ -220,11 +217,7 @@ export default function NarrativeScroll() {
             </div>
 
             {/* Navigation Controls */}
-            <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs font-mono font-semibold text-slate-500">
-                0{currentStep + 1} / 0{MOMENTS.length}
-              </span>
-
+            <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-end">
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}

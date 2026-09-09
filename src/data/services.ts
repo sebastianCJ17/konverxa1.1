@@ -20,7 +20,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Trazabilidad completa de cada caso',
       'Monitoreo en tiempo real de satisfacción'
     ],
-    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4atencionalcliente.png'
   },
   {
     id: 'ventas-telemarketing',
@@ -41,7 +41,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Recuperación efectiva de cuentas inactivas',
       'Optimización del embudo de ventas'
     ],
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4ventas.png'
   },
   {
     id: 'cobranzas',
@@ -62,12 +62,12 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Trato ético preservando la relación comercial',
       'Información transparente y métricas en vivo'
     ],
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4cobranzas.png'
   },
   {
     id: 'soporte-tecnico',
     slug: 'soporte-tecnico',
-    title: 'Soporte técnico',
+    title: 'Soporte Técnico / HelpDesk',
     tagline: 'Mesa de ayuda de primer y segundo nivel para productos y plataformas digitales.',
     description: 'Resolución técnica eficiente con gestión de tickets y escalamiento, base de conocimiento estructurada, diagnóstico remoto avanzado e integración nativa con tu CRM.',
     iconName: 'Workflow',
@@ -83,7 +83,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Documentación técnica clara e impulsada por datos',
       'Sincronización total con la base de datos de clientes'
     ],
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4soporte.png'
   },
   {
     id: 'backoffice-bpo',
@@ -104,7 +104,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Escalabilidad inmediata según volumen de operaciones',
       'Agilización del tiempo de incorporación de usuarios'
     ],
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4backofice.png'
   },
   {
     id: 'omnicanalidad-bots',
@@ -125,6 +125,6 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Experiencia de cliente uniforme en todos los canales',
       'Optimización de costos por transacción atendida'
     ],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'
+    image: '/bloque4bots.png'
   }
 ];

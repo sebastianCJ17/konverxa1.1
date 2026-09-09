@@ -22,19 +22,37 @@ const HUBS: HubLocation[] = [
   {
     id: 'colombia',
     country: 'Colombia',
-    name: 'Hub Operativo Principal',
+    name: 'Base Corporativa y Operativa',
     flag: '🇨🇴',
-    role: 'Sede Central y Mayor Capacidad Operativa',
-    cities: ['Bogotá D.C.', 'Medellín'],
+    role: 'Pereira, Colombia. Base corporativa y operativa principal',
+    cities: ['Pereira', 'Bogotá D.C.'],
     capabilities: [
       'Centro de Contacto Multicanal 24/7',
       'Back Office Crítico y Procesamiento Transaccional',
       'Torre de Control Operativo y SLAs en Tiempo Real',
       'Mesa de Ayuda y Soporte Nivel 1, 2 y 3'
     ],
-    stats: '+ 500 Colaboradores · Hub Regional',
+    stats: 'Base Corporativa · Hub Regional',
     x: 31.2,
     y: 63.0,
+    isPrimary: true
+  },
+  {
+    id: 'peru',
+    country: 'Perú',
+    name: 'Plataforma de Expansión Regional',
+    flag: '🇵🇪',
+    role: 'Lima, Perú. Plataforma de expansión regional',
+    cities: ['Lima'],
+    capabilities: [
+      'Recuperación de Cartera y Cobranza Especializada',
+      'Ventas y Conversión B2B/B2C',
+      'Atención al Cliente e Interacciones Omnicanal',
+      'Gestión de Bases de Datos y Enriquecimiento'
+    ],
+    stats: 'Expansión Regional · Cobertura Andina',
+    x: 31.4,
+    y: 69.5,
     isPrimary: true
   },
   {
@@ -53,24 +71,6 @@ const HUBS: HubLocation[] = [
     stats: 'Gobernanza Corporativa · Cobertura UE',
     x: 47.6,
     y: 46.2,
-    isPrimary: true
-  },
-  {
-    id: 'peru',
-    country: 'Perú',
-    name: 'Sede Operativa Andina',
-    flag: '🇵🇪',
-    role: 'Operaciones Especializadas BPO y Contact Center',
-    cities: ['Lima'],
-    capabilities: [
-      'Recuperación de Cartera y Cobranza Especializada',
-      'Ventas y Conversión B2B/B2C',
-      'Atención al Cliente e Interacciones Omnicanal',
-      'Gestión de Bases de Datos y Enriquecimiento'
-    ],
-    stats: 'Sede Operativa · Cobertura Cono Sur',
-    x: 31.4,
-    y: 69.5,
     isPrimary: true
   }
 ];
@@ -103,7 +103,7 @@ export default function GlobalNetworkMap() {
           <SectionTitle
             badge="Presencia Multilocación & Cobertura Global"
             title="Infraestructura Operativa Sin Fronteras"
-            subtitle="Conectamos operaciones en tiempo real entre América Latina y Europa con centros de excelencia en Colombia, España y Perú."
+            subtitle="Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con el mismo estándar en cualquier huso horario."
             light
           />
         </div>

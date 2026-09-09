@@ -36,28 +36,12 @@ export const MARKETS_DATA: MarketItem[] = [
     ]
   },
   {
-    id: 'banca-finanzas',
-    number: '02',
-    name: 'Banca y Servicios Financieros',
-    slug: 'banca-fintech',
-    desc: 'Entornos altamente regulados que exigen rigor operativo, protección de datos y absoluta continuidad en la atención transaccional.',
-    image: '/banca-finanzas.png',
-    fallbackImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
-    tags: [
-      { label: 'Onboarding digital', icon: Headphones },
-      { label: 'Cobranza especializada', icon: TrendingUp },
-      { label: 'Soporte transaccional', icon: Wrench },
-      { label: 'Prevención de fraude', icon: ShieldCheck },
-      { label: 'Back Office crítico', icon: ClipboardList }
-    ]
-  },
-  {
     id: 'retail-ecommerce',
-    number: '03',
+    number: '02',
     name: 'Retail y Comercio Electrónico',
     slug: 'retail-ecommerce',
     desc: 'Atención ágil para picos de alta demanda, garantizando experiencia de compra y resolución inmediata en cada punto de contacto.',
-    image: '/retail-ecommerce.png',
+    image: '/retail.png',
     fallbackImage: 'https://images.unsplash.com/photo-1556742049-0a67e51a6627?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Atención pre y post-venta', icon: ShoppingBag },
@@ -69,11 +53,11 @@ export const MARKETS_DATA: MarketItem[] = [
   },
   {
     id: 'tecnologia-digital',
-    number: '04',
+    number: '03',
     name: 'Tecnología y Negocios Digitales',
     slug: 'tecnologia-digital',
     desc: 'Soporte técnico especializado y gestión de usuarios para plataformas SaaS y apps que crecen a ritmo acelerado.',
-    image: '/tecnologia-digital.png',
+    image: '/tecnologia.png',
     fallbackImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Help desk multinivel', icon: Cpu },
@@ -85,8 +69,8 @@ export const MARKETS_DATA: MarketItem[] = [
   },
   {
     id: 'seguros',
-    number: '05',
-    name: 'Seguros e Insurtech',
+    number: '04',
+    name: 'Seguros',
     slug: 'seguros',
     desc: 'Gestión humana y oportuna en momentos decisivos, acelerando la respuesta ante siniestros y asistencias 24/7.',
     image: '/seguros.png',
@@ -101,8 +85,8 @@ export const MARKETS_DATA: MarketItem[] = [
   },
   {
     id: 'salud',
-    number: '06',
-    name: 'Salud y Farmacia',
+    number: '05',
+    name: 'Salud',
     slug: 'salud',
     desc: 'Coordinación precisa y empática para servicios médicos y asistenciales, asegurando agilidad y rigor profesional.',
     image: '/salud.png',
@@ -116,12 +100,12 @@ export const MARKETS_DATA: MarketItem[] = [
     ]
   },
   {
-    id: 'movilidad-logistica',
-    number: '07',
-    name: 'Movilidad, Transporte y Logística',
-    slug: 'logistica',
-    desc: 'Control en tiempo real para cadenas de distribución, trazabilidad de envíos y soporte integral a conductores y usuarios.',
-    image: '/movilidad-logistica.png',
+    id: 'movilidad-transporte',
+    number: '06',
+    name: 'Movilidad y Transporte',
+    slug: 'movilidad',
+    desc: 'Control en tiempo real para flotas, trazabilidad logística y soporte integral a conductores y usuarios.',
+    image: '/movilidad.png',
     fallbackImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Rastreo y trazabilidad', icon: Truck },
@@ -133,11 +117,11 @@ export const MARKETS_DATA: MarketItem[] = [
   },
   {
     id: 'energia-servicios',
-    number: '08',
+    number: '07',
     name: 'Energía y Servicios Públicos',
     slug: 'energia-servicios',
     desc: 'Atención masiva con alta disponibilidad ante contingencias, emergencias técnicas y gestión integral del ciclo comercial.',
-    image: '/energia-servicios.png',
+    image: '/energia.png',
     fallbackImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Línea de emergencias 24/7', icon: Zap },
@@ -210,10 +194,10 @@ export default function IndustryCarousel() {
                   opacity: opacity,
                 }}
                 transition={{
-                  duration: 0.55,
-                  ease: [0.32, 0.72, 0, 1]
+                  duration: 0.26,
+                  ease: [0.16, 1, 0.3, 1]
                 }}
-                className={`absolute w-[300px] sm:w-[370px] md:w-[410px] lg:w-[440px] h-[490px] sm:h-[520px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 cursor-pointer ${
+                className={`absolute w-[300px] sm:w-[370px] md:w-[410px] lg:w-[440px] h-[490px] sm:h-[520px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer ${
                   isActive
                     ? 'ring-2 ring-white/50 shadow-2xl shadow-slate-950/70 cursor-default'
                     : 'hover:brightness-125'
@@ -229,7 +213,7 @@ export default function IndustryCarousel() {
                     src={failedImages[item.id] ? item.fallbackImage : item.image}
                     onError={() => setFailedImages((prev) => ({ ...prev, [item.id]: true }))}
                     alt={item.name}
-                    className={`w-full h-full object-cover transition-all duration-700 ${
+                    className={`w-full h-full object-cover transition-opacity duration-200 ${
                       isActive
                         ? 'filter brightness-100 contrast-[1.06] saturate-110 grayscale-0 scale-105'
                         : 'filter grayscale contrast-[0.95] brightness-[0.40] scale-100'

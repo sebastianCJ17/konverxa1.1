@@ -90,7 +90,7 @@ export const JOB_POSITIONS: JobPosition[] = [
 export const CAREER_BENEFITS = [
   {
     title: 'PREPARACIÓN PROFESIONAL',
-    desc: 'Antes de incorporarse a su puesto, cada persona completa la formación y recibe las herramientas necesarias para desempeñar su función con el estándar esperado.',
+    desc: 'Nadie asume su función sin haber completado antes la formación y recibido las herramientas necesarias.',
     icon: 'GraduationCap'
   },
   {

@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CAREER_BENEFITS } from '../data/jobs';
-import { ArrowRight, Users, TrendingUp, Home, Award, CheckCircle2, GraduationCap, Target } from 'lucide-react';
+import { ArrowRight, Users, TrendingUp, Award, CheckCircle2, GraduationCap, Target, Briefcase } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ElementType> = {
-  GraduationCap, Target, Award, TrendingUp, Users, Home
+  GraduationCap, Target, Award, TrendingUp, Users
 };
 
 export default function CareerTeaser() {
@@ -15,39 +15,25 @@ export default function CareerTeaser() {
       {/* Background Subtle Accent Dot Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         
-        {/* Header Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
-          
-          <div className="lg:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-xs">
-              <Users className="w-3.5 h-3.5 text-slate-600" /> Oportunidades de Carrera
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-black">
-              Las carreras también se construyen.
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl">
-              Hacer bien el trabajo no debería depender de esfuerzos excepcionales. En KONVERXA el método, el criterio y las responsabilidades están definidos para que hacer bien el trabajo sea algo habitual, no extraordinario. Y desde ahí empiezas a construir tu carrera.
-            </p>
+        {/* Top Header Block - No competing CTA on the top right */}
+        <div className="space-y-4 max-w-5xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <Users className="w-3.5 h-3.5 text-slate-600" /> Oportunidades de Carrera
           </div>
 
-          <div className="lg:col-span-4 flex lg:justify-end">
-            <Link
-              to="/trabaja-con-nosotros"
-              className="px-7 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-base border border-zinc-700 shadow-md transition-all duration-300 flex items-center gap-3 group"
-            >
-              <span>Conoce cómo trabajamos</span>
-              <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </div>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-black">
+            Las carreras también se construyen.
+          </h2>
 
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl pt-1">
+            Hacer bien el trabajo no debería depender de esfuerzos excepcionales. En KONVERXA el método, el criterio y las responsabilidades están definidos para que hacer bien el trabajo <span className="text-slate-900 font-semibold">sea lo habitual, no lo extraordinario</span>. Y desde ahí empiezas a construir tu carrera.
+          </p>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Benefits Grid (4 Cards) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {CAREER_BENEFITS.map((item, idx) => {
             const IconComp = ICON_MAP[item.icon] || Users;
             return (
@@ -57,16 +43,13 @@ export default function CareerTeaser() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-black/30 hover:bg-white transition-all duration-300 shadow-xs flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-black/30 hover:bg-white transition-all duration-300 shadow-2xs flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 rounded-xl bg-black text-white border border-zinc-800 flex items-center justify-center">
                       <IconComp className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-slate-400 font-mono">
-                      0{idx + 1}
-                    </span>
                   </div>
                   <h3 className="text-sm font-black text-black tracking-wider uppercase mb-2.5">
                     {item.title}
@@ -80,57 +63,90 @@ export default function CareerTeaser() {
           })}
         </div>
 
-        {/* Real Workplace Imagery Showcase */}
+        {/* CTA placed beneath the 4 cards, aligned left with content to close the argument */}
+        <div className="pt-1">
+          <Link
+            to="/trabaja-con-nosotros"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-base border border-zinc-800 shadow-md transition-all duration-300 group"
+          >
+            <span>Conoce cómo trabajamos</span>
+            <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </div>
+
+        {/* Part 2: Cultura de Trabajo y Desarrollo Humano */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-50 p-8 sm:p-12 rounded-3xl border border-slate-200">
           
           <div className="lg:col-span-6 space-y-6">
             <h3 className="text-2xl sm:text-3xl font-black text-black">
-              Cultura Corporativa, Bienestar y Desarrollo Humano
+              CULTURA DE TRABAJO y DESARROLLO HUMANO
             </h3>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              En KONVERXA fomentamos un ambiente laboral colaborativo, dinámico e inclusivo. Contamos con programas de formación continua mediante la Universidad Konverxa, reconocimientos mensuales por méritos y planes de carrera transparentes.
+              La exigencia viene acompañada de método. Cada persona tiene formación continua, criterios claros de evaluación y una vía definida para crecer dentro de la organización.
             </p>
 
             <ul className="space-y-3 text-sm text-slate-700">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-slate-700 shrink-0" />
-                <span>80% de promociones a liderazgo son internas.</span>
+              <li className="flex items-center gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
+                <span>Formación continua a través de la Universidad Konverxa.</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-slate-700 shrink-0" />
-                <span>Capacitación en Inteligencia Artificial aplicada a CX.</span>
+              <li className="flex items-center gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
+                <span>Evaluación periódica del desempeño con criterios conocidos.</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-slate-700 shrink-0" />
-                <span>Horarios flexibles y esquema híbrido de trabajo.</span>
+              <li className="flex items-center gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
+                <span>Las posiciones de responsabilidad se convocan internamente antes de salir al mercado.</span>
               </li>
             </ul>
 
             <div className="pt-2">
               <Link
                 to="/trabaja-con-nosotros"
-                className="inline-flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-black transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-black transition-colors group"
               >
-                <span>Conoce nuestra propuesta de valor para el talento</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Conoce nuestra propuesta para el talento</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
-              alt="Equipo de trabajo KONVERXA"
+              src="/cultura1.png"
+              alt="Cultura de Trabajo KONVERXA"
               className="rounded-2xl object-cover h-48 sm:h-56 w-full border border-slate-200 shadow-md"
             />
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
-              alt="Ejecutivos de cuenta BPO"
+              src="/cultura2.png"
+              alt="Desarrollo Humano KONVERXA"
               className="rounded-2xl object-cover h-48 sm:h-56 w-full border border-slate-200 shadow-md mt-6"
             />
           </div>
 
+        </div>
+
+        {/* Part 3: Banner moved from Footer to Bloque 7 per Page 8 */}
+        <div className="p-8 sm:p-10 rounded-3xl bg-black text-white border border-zinc-800 shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-slate-300 text-xs font-semibold">
+              <Briefcase className="w-3.5 h-3.5 text-slate-400" /> Oportunidades de Carrera
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              ¿Buscas transformar tu futuro profesional?
+            </h3>
+            <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+              KONVERXA, un lugar para aprender, aportar y desarrollarse con criterio.
+            </p>
+          </div>
+          <Link
+            to="/trabaja-con-nosotros"
+            className="whitespace-nowrap px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold transition-all border border-slate-200 shadow-lg flex items-center gap-3 text-sm shrink-0 group"
+          >
+            <span>Trabaja con nosotros</span>
+            <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
       </div>

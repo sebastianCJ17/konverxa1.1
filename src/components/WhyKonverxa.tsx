@@ -13,15 +13,15 @@ export default function WhyKonverxa() {
           alt="Centro de Operaciones y Contact Center KONVERXA"
           className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08] saturate-[1.02]"
         />
-        {/* Deep navy/black gradient overlay on the left for maximum text contrast as in the reference design */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d141e] via-[#0d141e]/90 to-[#0d141e]/30 sm:via-[#0d141e]/85 sm:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d141e] via-transparent to-[#0d141e]/60"></div>
+        {/* Deep navy/black gradient overlay on the left for maximum text contrast, lighter progressively to the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d141e] via-[#0d141e]/75 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d141e]/90 via-transparent to-[#0d141e]/40"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 sm:py-28">
-        <div className="max-w-2xl lg:max-w-3xl space-y-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+        <div className="max-w-2xl lg:max-w-3xl space-y-6">
           
-          {/* Main Title with Refined Gray Accent */}
+          {/* Main Title - reduced by 15%, white period, no gray line */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -29,19 +29,18 @@ export default function WhyKonverxa() {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black text-white tracking-tight leading-[1.15]">
-              Más de 20 años gestionando negocios, equipos y clientes dieron forma a nuestro modelo operativo<span className="text-slate-400">.</span>
+            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight leading-[1.18]">
+              Más de 20 años gestionando negocios, equipos y clientes dieron forma a nuestro modelo operativo<span className="text-white">.</span>
             </h2>
-            <div className="w-12 h-0.5 bg-slate-400"></div>
           </motion.div>
 
-          {/* Continuous Narrative Text - No separated numbers 01/02 */}
+          {/* Continuous Narrative Text - reduced 15% */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="space-y-5 text-slate-200 text-base sm:text-lg leading-relaxed font-normal max-w-2xl pt-2"
+            className="space-y-4 text-slate-200 text-sm sm:text-[15px] leading-relaxed font-normal max-w-2xl pt-1"
           >
             <p>
               Un recorrido que nos enseñó a reconocer dónde comienzan a perder consistencia los negocios, cómo se manifiesta en las operaciones y que se necesita para sostener su desempeño.

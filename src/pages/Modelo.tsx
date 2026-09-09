@@ -40,7 +40,7 @@ export default function Modelo() {
       />
 
       {/* Visión General */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section id="vision-general" className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid: Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 

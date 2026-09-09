@@ -35,7 +35,7 @@ export default function Nosotros() {
       />
 
       {/* Identity & Corporate Philosophy */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section id="quienes-somos" className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid: Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
@@ -82,8 +82,8 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* Values Grid */}
-      <section className="py-20 bg-slate-50 border-y border-slate-200">
+      {/* Values Grid - Fundamentos Corporativos */}
+      <section id="fundamentos" className="py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <SectionTitle
@@ -119,7 +119,7 @@ export default function Nosotros() {
       </section>
 
       {/* Certifications Showcase */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section id="certificaciones" className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 

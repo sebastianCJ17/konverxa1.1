@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Upload } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import LinkedInIcon from './LinkedInIcon';
-import VideoUploadModal from './VideoUploadModal';
 import { COMPANY_INFO } from '../data/company';
 import { getLocalVideoBlob } from '../utils/videoStorage';
 
@@ -12,7 +11,6 @@ export default function VideoHero() {
   const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [isUploadOpen, setIsUploadOpen] = useState(false);
 
   useEffect(() => {
     // Check if there is a locally saved custom video blob in IndexedDB
@@ -127,23 +125,13 @@ export default function VideoHero() {
         </div>
       </div>
 
-      {/* Bottom Hero Bar: Left Tag, Video Upload Helper & Right Institutional LinkedIn */}
+      {/* Bottom Hero Bar: Left Tag & Right Institutional LinkedIn */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
         <div className="flex items-center gap-3">
           <div className="font-semibold tracking-wide text-slate-300 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-slate-100 animate-pulse"></span>
             <span>Operador BPO y Contact Center</span>
           </div>
-
-          {/* Quick Video Upload / Status Action */}
-          <button
-            onClick={() => setIsUploadOpen(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white border border-white/20 transition-all text-[11px] font-medium cursor-pointer"
-            title="Subir o cambiar videoweb.mp4"
-          >
-            <Upload className="w-3 h-3" />
-            <span>{isVideoLoaded && !videoError ? 'Video activo (Cambiar)' : 'Subir videoweb.mp4'}</span>
-          </button>
         </div>
 
         {/* Institutional LinkedIn Link */}
@@ -160,17 +148,6 @@ export default function VideoHero() {
           </a>
         </div>
       </div>
-
-      {/* Upload Video Modal */}
-      <VideoUploadModal
-        isOpen={isUploadOpen}
-        onClose={() => setIsUploadOpen(false)}
-        onVideoUpdated={(newSrc) => {
-          setVideoSrc(newSrc);
-          setVideoError(false);
-          setIsVideoLoaded(true);
-        }}
-      />
 
     </section>
   );

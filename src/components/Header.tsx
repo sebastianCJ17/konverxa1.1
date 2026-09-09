@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, Menu, X, ArrowRight, Headphones, Building2, Layers } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 export default function Header() {
@@ -44,7 +44,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navHeaderClass}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans ${navHeaderClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -60,9 +60,9 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Menu - Uppercase with contained spacing as per document */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
             
-            {/* MODELO Dropdown */}
+            {/* 1. MODELO Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setActiveDropdown('modelo')}
@@ -70,7 +70,7 @@ export default function Header() {
             >
               <Link
                 to="/modelo"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/85 hover:text-white py-1 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>MODELO</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('modelo')}`} />
@@ -83,32 +83,44 @@ export default function Header() {
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 w-80 mt-2 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-3 shadow-2xl text-slate-100 backdrop-blur-xl"
+                    transition={{ duration: 0.18 }}
+                    className="absolute top-full left-0 min-w-[280px] w-max mt-1 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-2.5 shadow-2xl text-slate-100 backdrop-blur-xl"
                   >
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 mb-1 flex items-center justify-between border-b border-zinc-800">
-                      <span className="flex items-center gap-2"><Layers className="w-3.5 h-3.5 text-slate-300" /> Modelo OneX & Metodología</span>
-                      <Link to="/modelo" className="text-slate-300 hover:text-white hover:underline flex items-center gap-0.5">Ver Todo <ArrowRight className="w-3 h-3" /></Link>
-                    </div>
-
-                    <div className="space-y-1">
-                      <Link to="/modelo#vision-general" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Visión General
+                    <div className="flex flex-col space-y-1 font-sans">
+                      <Link
+                        to="/modelo#vision-general"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Visión General
                       </Link>
-                      <Link to="/nosotros" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Quienes somos
+                      <Link
+                        to="/modelo#excelencia-integral"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Excelencia Integral
                       </Link>
-                      <Link to="/modelo#excelencia-integral" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Excelencia Integral
+                      <Link
+                        to="/modelo#onex"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        OneX · Lectura y evidencia
                       </Link>
-                      <Link to="/modelo#experiencia" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Experiencia OneX
+                      <Link
+                        to="/modelo#integralx"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        CIK · Ciclo de Intervención
                       </Link>
-                      <Link to="/modelo#donde-estamos" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Dónde estamos
-                      </Link>
-                      <Link to="/modelo#integralx" className="block px-3 py-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                        • Ciclo Intervención IntegralX™
+                      <Link
+                        to="/modelo#integralx"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        IntegraIX · Accredited
                       </Link>
                     </div>
                   </motion.div>
@@ -116,7 +128,7 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* SERVICIOS Dropdown */}
+            {/* 2. SERVICIOS Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setActiveDropdown('servicios')}
@@ -124,7 +136,7 @@ export default function Header() {
             >
               <Link
                 to="/servicios"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/85 hover:text-white py-1 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>SERVICIOS</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('servicios')}`} />
@@ -137,45 +149,44 @@ export default function Header() {
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 w-96 mt-2 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-3 shadow-2xl text-slate-100 backdrop-blur-xl"
+                    transition={{ duration: 0.18 }}
+                    className="absolute top-full left-0 min-w-[300px] w-max mt-1 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-2.5 shadow-2xl text-slate-100 backdrop-blur-xl"
                   >
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 mb-1 flex items-center justify-between border-b border-zinc-800">
-                      <span className="flex items-center gap-2"><Headphones className="w-3.5 h-3.5 text-slate-300" /> Soluciones BPO & CX</span>
-                      <Link to="/servicios" className="text-slate-300 hover:text-white hover:underline flex items-center gap-0.5">Ver Todos <ArrowRight className="w-3 h-3" /></Link>
-                    </div>
-
-                    <div className="space-y-1">
+                    <div className="flex flex-col space-y-1 font-sans">
                       <Link
-                        to="/servicios#atencion-cliente"
-                        className="block p-2.5 rounded-lg hover:bg-zinc-800/80 transition-colors text-xs text-slate-200 hover:text-white"
+                        to="/servicios#atencion-al-cliente"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        <div className="font-bold text-white">Atención y Experiencia Cliente</div>
-                        <p className="text-[11px] text-slate-400 mt-0.5">Atención omnicanal, postventa, soporte y fidelización.</p>
+                        Atención y Experiencia Cliente
                       </Link>
-
                       <Link
-                        to="/servicios#ventas-fidelizacion"
-                        className="block p-2.5 rounded-lg hover:bg-zinc-800/80 transition-colors text-xs text-slate-200 hover:text-white"
+                        to="/servicios#ventas-telemarketing"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        <div className="font-bold text-white">Ventas y Fidelización</div>
-                        <p className="text-[11px] text-slate-400 mt-0.5">Prospección, captación, televentas, cross & up selling.</p>
+                        Ventas y Fidelización
                       </Link>
-
                       <Link
-                        to="/servicios#back-office"
-                        className="block p-2.5 rounded-lg hover:bg-zinc-800/80 transition-colors text-xs text-slate-200 hover:text-white"
+                        to="/servicios#backoffice-bpo"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        <div className="font-bold text-white">Back Office y Gestión de procesos</div>
-                        <p className="text-[11px] text-slate-400 mt-0.5">Gestión documental, validaciones, tramitación y control.</p>
+                        BO y Gestión de procesos
                       </Link>
-
                       <Link
-                        to="/servicios#capacidades-integradas"
-                        className="block p-2.5 rounded-lg hover:bg-zinc-800/80 transition-colors text-xs text-slate-200 hover:text-white"
+                        to="/servicios#omnicanalidad-bots"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        <div className="font-bold text-white">Capacidades integradas</div>
-                        <p className="text-[11px] text-slate-400 mt-0.5">Analítica, calidad, desarrollo, automatización y mejora.</p>
+                        Capacidades Integradas
+                      </Link>
+                      <Link
+                        to="/servicios#cobranzas"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        RRHH y Apoyo Psicosocial
                       </Link>
                     </div>
                   </motion.div>
@@ -183,62 +194,86 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* INDUSTRIAS Dropdown */}
+            {/* 3. INDUSTRIA Dropdown - Single Vertical Column (No two columns) */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown('industrias')}
+              onMouseEnter={() => setActiveDropdown('industria')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
                 to="/industrias"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/85 hover:text-white py-1 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
-                <span>INDUSTRIAS</span>
-                <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('industrias')}`} />
+                <span>INDUSTRIA</span>
+                <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('industria')}`} />
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-200 group-hover:w-full"></span>
               </Link>
 
               <AnimatePresence>
-                {activeDropdown === 'industrias' && (
+                {activeDropdown === 'industria' && (
                   <motion.div
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full -left-12 w-[480px] mt-2 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-4 shadow-2xl grid grid-cols-2 gap-2 text-slate-100 backdrop-blur-xl"
+                    transition={{ duration: 0.18 }}
+                    className="absolute top-full left-0 min-w-[310px] w-max mt-1 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-2.5 shadow-2xl text-slate-100 backdrop-blur-xl"
                   >
-                    <div className="col-span-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1 mb-1 border-b border-zinc-800 flex items-center gap-2">
-                      <Building2 className="w-3.5 h-3.5 text-slate-300" /> Sectores Especializados
-                    </div>
-
-                    <Link to="/industrias/telecomunicaciones" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Telecomunicaciones
-                    </Link>
-                    <Link to="/industrias/banca-fintech" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Banca y Servicios financieros
-                    </Link>
-                    <Link to="/industrias/retail-ecommerce" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Retail y Comercio electrónico
-                    </Link>
-                    <Link to="/industrias/tecnologia" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Tecnología y Negocios digitales
-                    </Link>
-                    <Link to="/industrias/seguros" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Seguros
-                    </Link>
-                    <Link to="/industrias/salud" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Salud
-                    </Link>
-                    <Link to="/industrias/logistica" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Movilidad, Transporte y Logística
-                    </Link>
-                    <Link to="/industrias/energia" className="p-2 rounded-lg hover:bg-zinc-800/80 text-xs text-slate-300 hover:text-white transition-colors">
-                      • Energía y Servicios Públicos
-                    </Link>
-
-                    <div className="col-span-2 mt-2 pt-2 border-t border-zinc-800 flex justify-end">
-                      <Link to="/industrias" className="text-xs font-semibold text-slate-300 hover:text-white flex items-center gap-1">
-                        Ver todas las industrias <ArrowRight className="w-3 h-3" />
+                    <div className="flex flex-col space-y-1 font-sans">
+                      <Link
+                        to="/industrias/telecomunicaciones"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Telecomunicaciones
+                      </Link>
+                      <Link
+                        to="/industrias/banca-fintech"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Banca y Seguros Financieros
+                      </Link>
+                      <Link
+                        to="/industrias/retail-ecommerce"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Retail y Comercio Electrónico
+                      </Link>
+                      <Link
+                        to="/industrias/tecnologia"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Tecnología y Negocios Digitales
+                      </Link>
+                      <Link
+                        to="/industrias/seguros"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Seguros
+                      </Link>
+                      <Link
+                        to="/industrias/salud"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Salud y Farmacia
+                      </Link>
+                      <Link
+                        to="/industrias/logistica"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Movilidad y Transporte
+                      </Link>
+                      <Link
+                        to="/industrias/energia"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Energía y Servicios Públicos
                       </Link>
                     </div>
                   </motion.div>
@@ -246,14 +281,78 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* NOSOTROS Link */}
-            <Link
-              to="/nosotros"
-              className="group relative text-xs font-bold uppercase tracking-widest text-slate-200/85 hover:text-white py-1 transition-colors duration-200"
+            {/* 4. NOSOTROS Dropdown - Vertical list matching image */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('nosotros')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              <span>NOSOTROS</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-200 group-hover:w-full"></span>
-            </Link>
+              <Link
+                to="/nosotros"
+                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
+              >
+                <span>NOSOTROS</span>
+                <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('nosotros')}`} />
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-200 group-hover:w-full"></span>
+              </Link>
+
+              <AnimatePresence>
+                {activeDropdown === 'nosotros' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute top-full left-0 min-w-[280px] w-max mt-1 bg-zinc-950/95 border border-zinc-800 rounded-2xl p-2.5 shadow-2xl text-slate-100 backdrop-blur-xl"
+                  >
+                    <div className="flex flex-col space-y-1 font-sans">
+                      <Link
+                        to="/nosotros#quienes-somos"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Quienes somos
+                      </Link>
+                      <Link
+                        to="/nosotros#fundamentos"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Fundamentos Corporativos
+                      </Link>
+                      <Link
+                        to="/nosotros#quienes-somos"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Visión / Misión
+                      </Link>
+                      <Link
+                        to="/nosotros#quienes-somos"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Capacidades
+                      </Link>
+                      <Link
+                        to="/nosotros#certificaciones"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Certificaciones
+                      </Link>
+                      <Link
+                        to="/contacto"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
+                        Ubicación
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* CONTÁCTANOS Button */}
             <Link
@@ -283,7 +382,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-zinc-950/95 border-b border-zinc-800 px-6 py-6 shadow-2xl backdrop-blur-xl overflow-hidden max-h-[85vh] overflow-y-auto text-white"
+            className="lg:hidden bg-zinc-950/95 border-b border-zinc-800 px-6 py-6 shadow-2xl backdrop-blur-xl overflow-hidden max-h-[85vh] overflow-y-auto text-white font-sans"
           >
             <div className="flex flex-col gap-4 text-slate-200">
               
@@ -297,13 +396,12 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-modelo' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-modelo' && (
-                  <div className="pl-4 py-2 flex flex-col gap-2.5 text-xs text-slate-300 border-l-2 border-slate-700 mt-2">
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/modelo#vision-general" onClick={() => setMobileMenuOpen(false)}>Visión General</Link>
-                    <Link to="/nosotros" onClick={() => setMobileMenuOpen(false)}>Quienes somos</Link>
                     <Link to="/modelo#excelencia-integral" onClick={() => setMobileMenuOpen(false)}>Excelencia Integral</Link>
-                    <Link to="/modelo#experiencia" onClick={() => setMobileMenuOpen(false)}>Experiencia OneX</Link>
-                    <Link to="/modelo#donde-estamos" onClick={() => setMobileMenuOpen(false)}>Dónde estamos</Link>
-                    <Link to="/modelo#integralx" onClick={() => setMobileMenuOpen(false)}>Ciclo Intervención IntegralX™</Link>
+                    <Link to="/modelo#onex" onClick={() => setMobileMenuOpen(false)}>OneX · Lectura y evidencia</Link>
+                    <Link to="/modelo#integralx" onClick={() => setMobileMenuOpen(false)}>CIK · Ciclo de Intervención</Link>
+                    <Link to="/modelo#integralx" onClick={() => setMobileMenuOpen(false)}>IntegraIX · Accredited</Link>
                   </div>
                 )}
               </div>
@@ -318,46 +416,59 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-servicios' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-servicios' && (
-                  <div className="pl-4 py-2 flex flex-col gap-2.5 text-xs text-slate-300 border-l-2 border-slate-700 mt-2">
-                    <Link to="/servicios#atencion-cliente" onClick={() => setMobileMenuOpen(false)}>Atención y Experiencia Cliente</Link>
-                    <Link to="/servicios#ventas-fidelizacion" onClick={() => setMobileMenuOpen(false)}>Ventas y Fidelización</Link>
-                    <Link to="/servicios#back-office" onClick={() => setMobileMenuOpen(false)}>Back Office y Gestión de procesos</Link>
-                    <Link to="/servicios#capacidades-integradas" onClick={() => setMobileMenuOpen(false)}>Capacidades integradas</Link>
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                    <Link to="/servicios#atencion-al-cliente" onClick={() => setMobileMenuOpen(false)}>Atención y Experiencia Cliente</Link>
+                    <Link to="/servicios#ventas-telemarketing" onClick={() => setMobileMenuOpen(false)}>Ventas y Fidelización</Link>
+                    <Link to="/servicios#backoffice-bpo" onClick={() => setMobileMenuOpen(false)}>BO y Gestión de procesos</Link>
+                    <Link to="/servicios#omnicanalidad-bots" onClick={() => setMobileMenuOpen(false)}>Capacidades Integradas</Link>
+                    <Link to="/servicios#cobranzas" onClick={() => setMobileMenuOpen(false)}>RRHH y Apoyo Psicosocial</Link>
                   </div>
                 )}
               </div>
 
-              {/* INDUSTRIAS Mobile */}
+              {/* INDUSTRIA Mobile */}
               <div>
                 <button
-                  onClick={() => setActiveDropdown(activeDropdown === 'm-industrias' ? null : 'm-industrias')}
+                  onClick={() => setActiveDropdown(activeDropdown === 'm-industria' ? null : 'm-industria')}
                   className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
-                  INDUSTRIAS
-                  <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-industrias' ? 'rotate-180 text-slate-200' : ''}`} />
+                  INDUSTRIA
+                  <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-industria' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
-                {activeDropdown === 'm-industrias' && (
-                  <div className="pl-4 py-2 flex flex-col gap-2.5 text-xs text-slate-300 border-l-2 border-slate-700 mt-2">
+                {activeDropdown === 'm-industria' && (
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/industrias/telecomunicaciones" onClick={() => setMobileMenuOpen(false)}>Telecomunicaciones</Link>
-                    <Link to="/industrias/banca-fintech" onClick={() => setMobileMenuOpen(false)}>Banca y Servicios financieros</Link>
-                    <Link to="/industrias/retail-ecommerce" onClick={() => setMobileMenuOpen(false)}>Retail y Comercio electrónico</Link>
-                    <Link to="/industrias/tecnologia" onClick={() => setMobileMenuOpen(false)}>Tecnología y Negocios digitales</Link>
+                    <Link to="/industrias/banca-fintech" onClick={() => setMobileMenuOpen(false)}>Banca y Seguros Financieros</Link>
+                    <Link to="/industrias/retail-ecommerce" onClick={() => setMobileMenuOpen(false)}>Retail y Comercio Electrónico</Link>
+                    <Link to="/industrias/tecnologia" onClick={() => setMobileMenuOpen(false)}>Tecnología y Negocios Digitales</Link>
                     <Link to="/industrias/seguros" onClick={() => setMobileMenuOpen(false)}>Seguros</Link>
-                    <Link to="/industrias/salud" onClick={() => setMobileMenuOpen(false)}>Salud</Link>
-                    <Link to="/industrias/logistica" onClick={() => setMobileMenuOpen(false)}>Movilidad, Transporte y Logística</Link>
+                    <Link to="/industrias/salud" onClick={() => setMobileMenuOpen(false)}>Salud y Farmacia</Link>
+                    <Link to="/industrias/logistica" onClick={() => setMobileMenuOpen(false)}>Movilidad y Transporte</Link>
                     <Link to="/industrias/energia" onClick={() => setMobileMenuOpen(false)}>Energía y Servicios Públicos</Link>
                   </div>
                 )}
               </div>
 
               {/* NOSOTROS Mobile */}
-              <Link
-                to="/nosotros"
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
-              >
-                NOSOTROS
-              </Link>
+              <div>
+                <button
+                  onClick={() => setActiveDropdown(activeDropdown === 'm-nosotros' ? null : 'm-nosotros')}
+                  className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
+                >
+                  NOSOTROS
+                  <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-nosotros' ? 'rotate-180 text-slate-200' : ''}`} />
+                </button>
+                {activeDropdown === 'm-nosotros' && (
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                    <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Quienes somos</Link>
+                    <Link to="/nosotros#fundamentos" onClick={() => setMobileMenuOpen(false)}>Fundamentos Corporativos</Link>
+                    <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Visión / Misión</Link>
+                    <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Capacidades</Link>
+                    <Link to="/nosotros#certificaciones" onClick={() => setMobileMenuOpen(false)}>Certificaciones</Link>
+                    <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>Ubicación</Link>
+                  </div>
+                )}
+              </div>
 
               {/* CONTÁCTANOS Mobile Button */}
               <Link

@@ -62,14 +62,6 @@ export default function NarrativeScroll() {
     setCurrentStep((prev) => (prev - 1 + MOMENTS.length) % MOMENTS.length);
   };
 
-  // Optional subtle auto-rotation if not interacted
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % MOMENTS.length);
-    }, 9000);
-    return () => clearInterval(interval);
-  }, []);
-
   const activeMoment = MOMENTS[currentStep];
 
   return (

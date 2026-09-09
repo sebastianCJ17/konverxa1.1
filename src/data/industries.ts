@@ -186,7 +186,7 @@ export const INDUSTRIES_DATA: Industry[] = [
   {
     id: 'logistica',
     slug: 'logistica',
-    name: 'Logística',
+    name: 'Logística y Movilidad',
     shortDesc: 'Rastreos, gestión de entregas y atención a transportistas.',
     fullDesc: 'Aseguramos la eficiencia comunicacional en la cadena de suministro y envíos. Resolvemos dudas sobre rastreo de guías, gestionamos entregas con novedades y brindamos soporte en tiempo real a conductores y transportistas.',
     iconName: 'Truck',
@@ -207,6 +207,58 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Resolución de Novedades', value: '89%' },
       { label: 'Atención a Choferes', value: '< 15s' },
       { label: 'Efectividad Entregas', value: '+27%' }
+    ]
+  },
+  {
+    id: 'tecnologia',
+    slug: 'tecnologia',
+    name: 'Tecnología y Negocios Digitales',
+    shortDesc: 'Soporte SaaS, onboarding de usuarios y retención de suscriptores.',
+    fullDesc: 'Acompañamos a empresas de software, plataformas en la nube y startups tecnológicas en su escalamiento. Brindamos soporte técnico especializado, onboarding ágil y gestión proactiva para reducir el churn en modelos de suscripción.',
+    iconName: 'Cpu',
+    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    keyChallenges: [
+      'Curva de adopción y onboarding complejo para nuevos usuarios.',
+      'Manejo de tickets técnicos con criticidad de uptime.',
+      'Retención de cuentas clave y control de churn recurrente.',
+      'Integración ágil con herramientas de producto y desarrollo.'
+    ],
+    solutions: [
+      'Mesa de soporte L1/L2 con ingenieros y agentes especializados.',
+      'Atención omnicanal en vivo dentro del producto o app.',
+      'Campañas de activación temprana de funciones clave.',
+      'Feedback estructurado para equipos de producto y QA.'
+    ],
+    stats: [
+      { label: 'Reducción de Churn', value: '31%' },
+      { label: 'Resolución Primer Contacto', value: '88%' },
+      { label: 'Tiempo de Respuesta', value: '< 45s' }
+    ]
+  },
+  {
+    id: 'energia',
+    slug: 'energia',
+    name: 'Energía y Servicios Públicos',
+    shortDesc: 'Gestión de averías, facturación, atención ciudadana y reclamos.',
+    fullDesc: 'Soluciones integrales de contacto para empresas de energía, gas, agua y servicios domiciliarios. Atendemos reportes de fallas técnicas, aclaración de facturación y contingencias con alta disponibilidad 24/7.',
+    iconName: 'Zap',
+    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80',
+    keyChallenges: [
+      'Picos extremos de llamadas durante interrupciones del servicio.',
+      'Complejidad en aclaraciones de facturación y consumos.',
+      'Exigencias regulatorias estrictas de tiempo de respuesta.',
+      'Despacho y coordinación con brigadas en terreno.'
+    ],
+    solutions: [
+      'Líneas de emergencia 24/7 con contingencia de sobreflujo por IA.',
+      'IVR transaccional para consulta de saldos y reportes de cortes.',
+      'Gestión y trazabilidad de reclamaciones ante entes reguladores.',
+      'Canales digitales de autogestión y pago rápido.'
+    ],
+    stats: [
+      { label: 'Atención en Picos', value: '99.5%' },
+      { label: 'Satisfacción Usuario', value: '91%' },
+      { label: 'Tiempo de Derivación', value: '< 2min' }
     ]
   }
 ];

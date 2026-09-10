@@ -5,126 +5,166 @@ export const SERVICES_DATA: ServicePillar[] = [
     id: 'atencion-al-cliente',
     slug: 'atencion-al-cliente',
     title: 'Atención al cliente',
-    tagline: 'Resolvemos consultas, gestionamos reclamos y damos seguimiento a cada caso.',
-    description: 'Inbound multicanal con SLA garantizados, gestión integral de reclamos y evaluación continua mediante encuestas CSAT y NPS para asegurar la máxima satisfacción de tus usuarios.',
+
+    tagline:
+      'Resolvemos consultas, gestionamos reclamos y damos seguimiento a cada caso.',
+
+    description:
+      'La calidad de la atención se sostiene en el método: criterios de resolución explícitos, tiempos definidos y medición continua de la experiencia.',
+
     iconName: 'Headphones',
+
     features: [
       'Inbound multicanal',
-      'SLA garantizados',
-      'Encuestas CSAT y NPS',
+      'Gestión de SLA',
+      'Medición CSAT y NPS',
       'Gestión de reclamos'
     ],
+
     benefits: [
-      'Atención oportuna y personalizada 24/7',
-      'Aumento directo en retención y lealtad de marca',
-      'Trazabilidad completa de cada caso',
-      'Monitoreo en tiempo real de satisfacción'
+      'Estándar Operativo',
+      'Control de SLA, supervisión en vivo y medición continua.'
     ],
+
     image: '/bloque4atencionalcliente.png'
   },
+
   {
     id: 'ventas-telemarketing',
     slug: 'ventas-telemarketing',
     title: 'Ventas y Telemarketing',
-    tagline: 'Campañas outbound e inbound para captar, retener y aumentar ticket promedio.',
-    description: 'Equipos comerciales especializados en prospección B2B y B2C, estrategias de Upsell & Cross-sell, reactivación de clientes inactivos y agendamiento efectivo de citas.',
+
+    tagline:
+      'Campañas outbound e inbound para captar clientes, desarrollar oportunidades y ampliar el valor de cada cuenta.',
+
+    description:
+      'La gestión comercial se sostiene en procesos definidos, argumentarios estructurados, seguimiento continuo y control sobre cada oportunidad.',
+
     iconName: 'TrendingUp',
+
     features: [
-      'Prospección B2B/B2C',
-      'Upsell & Cross-sell',
+      'Prospección B2B y B2C',
+      'Venta cruzada y ampliación',
       'Reactivación de clientes',
       'Agendamiento'
     ],
+
     benefits: [
-      'Aumento comprobado en tasa de conversión comercial',
-      'Incremento en el valor promedio de ticket por cliente',
-      'Recuperación efectiva de cuentas inactivas',
-      'Optimización del embudo de ventas'
+      'Estándar Operativo',
+      'Control de conversión, calidad comercial y trazabilidad de oportunidades.'
     ],
+
     image: '/bloque4ventas.png'
   },
+
   {
     id: 'cobranzas',
     slug: 'cobranzas',
     title: 'Cobranzas',
-    tagline: 'Estrategias de cobranza temprana, media y avanzada para recuperar cartera.',
-    description: 'Gestión estructurada basada en segmentación detallada por deuda, discado predictivo, negociación profesional adaptada y reportería diaria operacional en tiempo real.',
+
+    tagline:
+      'Estrategias de cobranza temprana, media y avanzada para recuperar cartera.',
+
+    description:
+      'La recuperación se sostiene en el método: segmentación por perfil de deuda, discado predictivo, negociación estructurada y seguimiento continuo.',
+
     iconName: 'ShieldCheck',
+
     features: [
       'Segmentación por deuda',
       'Discado predictivo',
       'Negociación estructurada',
       'Reportería diaria'
     ],
+
     benefits: [
-      'Reducción efectiva de índices de morosidad',
-      'Aceleración de recuperación de flujo de caja',
-      'Trato ético preservando la relación comercial',
-      'Información transparente y métricas en vivo'
+      'Estándar Operativo',
+      'Control de recuperación, calidad de negociación y trazabilidad de acuerdos.'
     ],
+
     image: '/bloque4cobranzas.png'
   },
+
   {
     id: 'soporte-tecnico',
     slug: 'soporte-tecnico',
-    title: 'Soporte Técnico / HelpDesk',
-    tagline: 'Mesa de ayuda de primer y segundo nivel para productos y plataformas digitales.',
-    description: 'Resolución técnica eficiente con gestión de tickets y escalamiento, base de conocimiento estructurada, diagnóstico remoto avanzado e integración nativa con tu CRM.',
+    title: 'Soporte Técnico',
+
+    tagline:
+      'Mesa de ayuda de primer y segundo nivel para productos y plataformas digitales.',
+
+    description:
+      'La atención técnica se estructura sobre tickets, criterios de escalamiento, diagnóstico remoto y conocimiento documentado.',
+
     iconName: 'Workflow',
+
     features: [
-      'Tickets & escalamiento',
+      'Tickets y escalamiento',
       'Base de conocimiento',
       'Diagnóstico remoto',
       'Integración con CRM'
     ],
+
     benefits: [
-      'Alta resolución de incidencias en primer contacto (FCR)',
-      'Minimización del tiempo de inactividad de plataformas',
-      'Documentación técnica clara e impulsada por datos',
-      'Sincronización total con la base de datos de clientes'
+      'Estándar Operativo',
+      'Control de resolución, calidad técnica y trazabilidad de escalamiento.'
     ],
+
     image: '/bloque4soporte.png'
   },
+
   {
     id: 'backoffice-bpo',
     slug: 'backoffice-bpo',
-    title: 'BackOffice / BPO',
-    tagline: 'Externaliza procesos operativos con calidad medible y equipos dedicados.',
-    description: 'Externalización estratégica de procesos administrativos, data entry de alta precisión, verificación de documentos y onboarding ágil de nuevos clientes con SLAs rigurosos.',
+    title: 'Back Office',
+
+    tagline:
+      'Gestionamos procesos administrativos, documentales y de soporte que requieren precisión, control y continuidad.',
+
+    description:
+      'La ejecución se estructura sobre procedimientos definidos, criterios de validación, control de calidad y trazabilidad de cada proceso.',
+
     iconName: 'FileText',
+
     features: [
       'Data entry',
       'Verificación documental',
-      'Onboarding clientes',
+      'Onboarding de clientes',
       'Procesos administrativos'
     ],
+
     benefits: [
-      'Reducción de costos operativos y de estructura',
-      'Garantía de calidad con auditoría estandarizada',
-      'Escalabilidad inmediata según volumen de operaciones',
-      'Agilización del tiempo de incorporación de usuarios'
+      'Estándar Operativo',
+      'Control de calidad, cumplimiento de SLA y consistencia de procesos.'
     ],
+
     image: '/bloque4backofice.png'
   },
+
   {
     id: 'omnicanalidad-bots',
     slug: 'omnicanalidad-bots',
     title: 'Omnicanalidad & Bots',
-    tagline: 'WhatsApp, chatbots, IVR y voz orquestados en un solo flujo de cliente.',
-    description: 'Ecosistema de atención unificado con bots conversacionales inteligentes, integración oficial de WhatsApp Business API, IVR dinámico y conectividad total sin fricción.',
+
+    tagline:
+      'WhatsApp, chatbots, IVR y voz orquestados en un solo flujo de cliente.',
+
+    description:
+      'Cada canal opera sobre el mismo criterio y el mismo historial: el cliente no repite lo que ya contó, cambie por donde cambie.',
+
     iconName: 'Bot',
+
     features: [
+      'Integración de canales',
       'Bots conversacionales',
-      'WhatsApp Business API',
-      'IVR inteligente',
+      'IVR y enrutamiento',
       'Integración omnicanal'
     ],
+
     benefits: [
-      'Disponibilidad automatizada 24 horas al día, 365 días',
-      'Derivación inteligente a agentes humanos',
-      'Experiencia de cliente uniforme en todos los canales',
-      'Optimización de costos por transacción atendida'
+      'Estándar Operativo'
     ],
+
     image: '/bloque4bots.png'
   }
 ];

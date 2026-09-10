@@ -33,8 +33,8 @@ const HUBS: HubLocation[] = [
       'Mesa de Ayuda y Soporte Nivel 1, 2 y 3'
     ],
     stats: 'Base Corporativa · Hub Regional',
-    x: 31.2,
-    y: 63.0,
+    x: 26.8,
+    y: 64.0,
     isPrimary: true
   },
   {
@@ -51,8 +51,8 @@ const HUBS: HubLocation[] = [
       'Gestión de Bases de Datos y Enriquecimiento'
     ],
     stats: 'Expansión Regional · Cobertura Andina',
-    x: 31.4,
-    y: 69.5,
+    x: 25.8,
+    y: 72.0,
     isPrimary: true
   },
   {
@@ -69,8 +69,8 @@ const HUBS: HubLocation[] = [
       'Consultoría de Transformación y Estrategia BPO'
     ],
     stats: 'Gobernanza Corporativa · Cobertura UE',
-    x: 47.6,
-    y: 46.2,
+    x: 48.7,
+    y: 44.6,
     isPrimary: true
   }
 ];
@@ -78,11 +78,11 @@ const HUBS: HubLocation[] = [
 // Arcs connecting precisely Colombia, España and Perú
 const ARCS = [
   // Colombia -> España (Transatlantic Bridge)
-  { from: { x: 31.2, y: 63.0 }, to: { x: 47.6, y: 46.2 }, curve: -65 },
+  { from: { x: 26.8, y: 64.0 }, to: { x: 48.7, y: 44.6 }, curve: -65 },
   // Perú -> Colombia (Andean Spine)
-  { from: { x: 31.4, y: 69.5 }, to: { x: 31.2, y: 63.0 }, curve: -8 },
+  { from: { x: 25.8, y: 72.0 }, to: { x: 26.8, y: 64.0 }, curve: -8 },
   // Perú -> España (Direct Link)
-  { from: { x: 31.4, y: 69.5 }, to: { x: 47.6, y: 46.2 }, curve: -95 }
+  { from: { x: 25.8, y: 72.0 }, to: { x: 48.7, y: 44.6 }, curve: -95 }
 ];
 
 export default function GlobalNetworkMap() {
@@ -94,7 +94,7 @@ export default function GlobalNetworkMap() {
       
       {/* Background Gradients & Subtle Radial Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-950/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-950/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neutral-800/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-6 w-full">
         
@@ -133,21 +133,7 @@ export default function GlobalNetworkMap() {
               className="absolute inset-0 w-full h-full pointer-events-none select-none z-10"
             >
               <defs>
-                {/* Glow Filter for primary arcs */}
-                <filter id="mapArcGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-                
-                {/* Gradient for transatlantic and global arcs */}
-                <linearGradient id="mapGlobalArcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
-                  <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.9" />
-                </linearGradient>
+
               </defs>
 
               {/* Dynamic Connecting Arcs */}
@@ -166,19 +152,18 @@ export default function GlobalNetworkMap() {
                     <path
                       d={pathD}
                       fill="none"
-                      stroke="#404040"
-                      strokeWidth="1.2"
+                      stroke="#ffffff"
+                      strokeWidth="0.8"
                       strokeDasharray="4,4"
-                      opacity="0.6"
+                      opacity="0.35"
                     />
                     {/* Glowing Fluid Arc (Slower Latency) */}
                     <path
                       d={pathD}
                       fill="none"
-                      stroke="url(#mapGlobalArcGradient)"
-                      strokeWidth="1.8"
-                      filter="url(#mapArcGlow)"
-                      opacity="0.85"
+                      stroke="#ffffff"
+                      strokeWidth="1"
+                      opacity="0.75"
                       style={{ animation: 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
                     />
                   </g>
@@ -209,20 +194,20 @@ export default function GlobalNetworkMap() {
                         {/* Outer Glow Ping Animation (Calm, Slower Latency 4s & Compact) */}
                         <span
                           style={{ animation: 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite' }}
-                          className="absolute w-7 h-7 rounded-full bg-amber-400/25 pointer-events-none"
+                          className="absolute w-7 h-7 rounded-full bg-gray-400/20 pointer-events-none"
                         ></span>
                         
                         {/* Inner Wave Pulse Animation (Slower Latency 3.5s & Compact) */}
                         <span
                           style={{ animation: 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
-                          className="absolute w-5 h-5 rounded-full bg-sky-400/35 pointer-events-none"
+                          className="absolute w-5 h-5 rounded-full bg-gray-300/25 pointer-events-none"
                         ></span>
 
                         {/* Solid Ring with Center Marker (Accurate pinpoint size) */}
                         <div className={`w-3.5 h-3.5 rounded-full border border-white transition-all duration-300 flex items-center justify-center shadow-lg ${
                           isSelected
-                            ? 'bg-amber-400 scale-125 ring-2 ring-amber-400/70 shadow-amber-400/80'
-                            : 'bg-amber-400 hover:scale-125 shadow-amber-500/50'
+                            ? 'bg-gray-300 scale-125 ring-2 ring-gray-400/70 shadow-gray-400/50'
+                            : 'bg-gray-400 hover:scale-125 shadow-gray-500/40'
                         }`}>
                           <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
                         </div>
@@ -257,7 +242,7 @@ export default function GlobalNetworkMap() {
                       <h4 className="text-lg font-black text-white tracking-tight">
                         {selectedHub.country}
                       </h4>
-                      <p className="text-xs font-bold text-amber-400">
+                      <p className="text-xs font-bold text-neutral-300">
                         {selectedHub.name}
                       </p>
                     </div>
@@ -281,9 +266,9 @@ export default function GlobalNetworkMap() {
                   </div>
 
                   <div className="flex items-center gap-2 text-neutral-300">
-                    <Users className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <Users className="w-3.5 h-3.5 text-neutral-300 shrink-0" />
                     <span className="font-semibold text-neutral-200">Enfoque:</span>
-                    <span className="text-amber-200 font-medium">{selectedHub.stats}</span>
+                    <span className="text-neutral-300 font-medium">{selectedHub.stats}</span>
                   </div>
                 </div>
 

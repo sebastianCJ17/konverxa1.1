@@ -37,7 +37,7 @@ export default function Footer() {
               <img
                 src="/Logofooter.png"
                 alt="KONVERXA"
-                className="h-10 sm:h-12 w-auto max-w-full object-contain object-left"
+                className="h-10 sm:h-12 w-auto max-w-full object-contain object-left translate-x-3"
                 onError={(e) => {
                   const target = e.currentTarget;
                   if (!target.src.includes('logofooter.png')) {
@@ -46,9 +46,6 @@ export default function Footer() {
                 }}
               />
             </Link>
-            <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide">
-              BPO & IntegraX Accredited
-            </p>
           </div>
 
           {/* Navigation Links in 3 Clean Compact Columns */}

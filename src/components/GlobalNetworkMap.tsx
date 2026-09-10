@@ -51,7 +51,7 @@ const HUBS: HubLocation[] = [
       'Gestión de Bases de Datos y Enriquecimiento'
     ],
     stats: 'Expansión Regional · Cobertura Andina',
-    x: 25.8,
+    x: 27.2,
     y: 72.0,
     isPrimary: true
   },
@@ -73,16 +73,6 @@ const HUBS: HubLocation[] = [
     y: 44.6,
     isPrimary: true
   }
-];
-
-// Arcs connecting precisely Colombia, España and Perú
-const ARCS = [
-  // Colombia -> España (Transatlantic Bridge)
-  { from: { x: 26.8, y: 64.0 }, to: { x: 48.7, y: 44.6 }, curve: -65 },
-  // Perú -> Colombia (Andean Spine)
-  { from: { x: 25.8, y: 72.0 }, to: { x: 26.8, y: 64.0 }, curve: -8 },
-  // Perú -> España (Direct Link)
-  { from: { x: 25.8, y: 72.0 }, to: { x: 48.7, y: 44.6 }, curve: -95 }
 ];
 
 export default function GlobalNetworkMap() {
@@ -109,13 +99,10 @@ export default function GlobalNetworkMap() {
         </div>
 
         {/* Solid Black Map Canvas Container Frame (Expansive & High Definition) */}
-        <div className="relative rounded-3xl bg-black border border-neutral-900 shadow-2xl overflow-hidden min-h-[560px] sm:min-h-[660px] lg:min-h-[760px] flex items-center justify-center p-2 sm:p-4 lg:p-6">
+        <div className="relative rounded-3xl bg-black border border-neutral-900 shadow-2xl overflow-hidden min-h-[420px] sm:min-h-[500px] lg:min-h-[620px] flex items-center justify-center p-2 sm:p-4 lg:p-6">
           
-          {/* Subtle Coordinate Grid Lines */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none"></div>
-
           {/* Realistic World Map Presentation Layer */}
-          <div className="relative w-full aspect-[1410/752] max-w-[1360px] mx-auto flex items-center justify-center">
+          <div className="relative w-full aspect-[1410/752] max-w-[1360px] mx-auto flex items-center justify-center scale-[1.28] sm:scale-[1.32] lg:scale-[1.36]">
             
             {/* World Map Exact Continental Silhouette (Transparent PNG on Pure Black Canvas) */}
             <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
@@ -126,50 +113,6 @@ export default function GlobalNetworkMap() {
                 className="w-full h-full object-contain select-none brightness-110 contrast-105 opacity-90"
               />
             </div>
-
-            {/* SVG Interactive Arcs Overlay */}
-            <svg
-              viewBox="0 0 1000 533.33"
-              className="absolute inset-0 w-full h-full pointer-events-none select-none z-10"
-            >
-              <defs>
-
-              </defs>
-
-              {/* Dynamic Connecting Arcs */}
-              {ARCS.map((arc, idx) => {
-                const x1 = arc.from.x * 10;
-                const y1 = arc.from.y * 5.3333;
-                const x2 = arc.to.x * 10;
-                const y2 = arc.to.y * 5.3333;
-                const midX = (x1 + x2) / 2;
-                const midY = Math.min(y1, y2) + arc.curve;
-                const pathD = `M ${x1} ${y1} Q ${midX} ${midY} ${x2} ${y2}`;
-
-                return (
-                  <g key={idx}>
-                    {/* Dashed Base Arc */}
-                    <path
-                      d={pathD}
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeWidth="0.8"
-                      strokeDasharray="4,4"
-                      opacity="0.35"
-                    />
-                    {/* Glowing Fluid Arc (Slower Latency) */}
-                    <path
-                      d={pathD}
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeWidth="1"
-                      opacity="0.75"
-                      style={{ animation: 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
-                    />
-                  </g>
-                );
-              })}
-            </svg>
 
             {/* Interactive HTML Markers Placed with Pinpoint Precision on Map */}
             {HUBS.map((hub) => {

@@ -67,14 +67,14 @@ export default function NarrativeScroll() {
   return (
     <section className="relative w-full py-16 sm:py-20 bg-slate-100 text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Background Soft Texture & Ambient Tone - Bloque 02 Photo */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-50">
+      {/* Background Soft Texture & Ambient Tone - Bloque 02 Photo (10% less overlay) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-65">
         <img
           src="/bloque2.png"
           alt="Análisis y Visualización Operacional KONVERXA"
-          className="w-full h-full object-cover filter brightness-95"
+          className="w-full h-full object-cover filter brightness-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/78 to-slate-100/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/78 via-slate-100/58 to-slate-100/15"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -102,8 +102,8 @@ export default function NarrativeScroll() {
               ))}
             </div>
 
-            {/* Elevated Content with Smooth Motion Transition */}
-            <div className="min-h-[300px] sm:min-h-[320px] flex flex-col justify-start">
+            {/* Elevated Content with Smooth Motion Transition - Uniform height across all slides */}
+            <div className="min-h-[520px] sm:min-h-[420px] lg:min-h-[360px] flex flex-col justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMoment.id}
@@ -111,7 +111,7 @@ export default function NarrativeScroll() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.35, ease: 'easeOut' }}
-                  className="space-y-5"
+                  className="space-y-5 min-h-[520px] sm:min-h-[420px] lg:min-h-[360px] flex flex-col justify-start"
                 >
                   
                   {/* Main Title - Cleanly elevated at the top */}
@@ -121,7 +121,7 @@ export default function NarrativeScroll() {
 
                   {/* Subtitle 01 */}
                   {activeMoment.subtitle && (
-                    <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl pt-1">
+                    <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl pt-1 text-justify">
                       {activeMoment.subtitle}
                     </p>
                   )}
@@ -129,7 +129,7 @@ export default function NarrativeScroll() {
                   {/* Secondary Text for Point 02 */}
                   {activeMoment.secondaryText && (
                     <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-300/90 shadow-xs max-w-2xl mt-3">
-                      <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed">
+                      <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed text-justify">
                         {activeMoment.secondaryText}
                       </p>
                     </div>
@@ -137,24 +137,24 @@ export default function NarrativeScroll() {
 
                   {/* 3 Core Cards for Slide 04: DIAGNOSTICAR, COORDINAR, EJECUTAR */}
                   {activeMoment.cards && (
-                    <div className="pt-3 space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                    <div className="pt-2 space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         {activeMoment.cards.map((card, idx) => {
                           const IconComp = card.icon;
                           return (
                             <div
                               key={idx}
-                              className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col gap-2 hover:border-slate-400 hover:shadow-md transition-all group"
+                              className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col gap-1.5 hover:border-slate-400 hover:shadow-md transition-all group"
                             >
-                              <div className="flex items-center gap-2.5">
-                                <div className="w-8 h-8 rounded-lg bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                                  <IconComp className="w-4 h-4" />
+                              <div className="flex items-center gap-2">
+                                <div className="w-7 h-7 rounded-lg bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                                  <IconComp className="w-3.5 h-3.5" />
                                 </div>
-                                <span className="font-black text-xs sm:text-sm tracking-wider text-slate-950 uppercase">
+                                <span className="font-black text-xs tracking-wider text-slate-950 uppercase">
                                   {card.label}
                                 </span>
                               </div>
-                              <p className="text-xs text-slate-600 leading-relaxed">
+                              <p className="text-xs text-slate-600 leading-relaxed text-justify">
                                 {card.desc}
                               </p>
                             </div>
@@ -162,7 +162,7 @@ export default function NarrativeScroll() {
                         })}
                       </div>
 
-                      <div className="pt-2">
+                      <div className="pt-1">
                         <Link
                           to="/modelo"
                           className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-black uppercase tracking-wider group"

@@ -40,7 +40,7 @@ export default function WhyKonverxa() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="space-y-4 text-slate-200 text-sm sm:text-[15px] leading-relaxed font-normal max-w-2xl pt-1"
+            className="space-y-4 text-slate-200 text-sm sm:text-[15px] leading-relaxed font-normal max-w-2xl pt-1 text-justify"
           >
             <p>
               Un recorrido que nos enseñó a reconocer dónde comienzan a perder consistencia los negocios, cómo se manifiesta en las operaciones y qué se necesita para sostener su desempeño.

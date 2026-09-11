@@ -27,7 +27,7 @@ export default function CareerTeaser() {
             Las carreras también se construyen.
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl pt-1">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl pt-1 text-justify">
             Hacer bien el trabajo no debería depender de esfuerzos excepcionales. En KONVERXA el método, el criterio y las responsabilidades están definidos para que hacer bien el trabajo <span className="text-slate-900 font-semibold">sea lo habitual, no lo extraordinario</span>. Y desde ahí empiezas a construir tu carrera.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function CareerTeaser() {
               CULTURA DE TRABAJO y DESARROLLO HUMANO
             </h3>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify">
               La exigencia viene acompañada de método. Cada persona cuenta con formación continua, criterios claros de evaluación y una vía definida para desarrollarse dentro de la organización.
             </p>
 

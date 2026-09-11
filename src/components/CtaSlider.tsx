@@ -27,9 +27,9 @@ export default function CtaSlider() {
       {/* Background Contact Center Operations Image with Cinematic Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src="/contact-center-operations.jpg"
+          src="/contact-center-operations.jpg?v=5"
           alt="Operación de Contact Center y BPO KONVERXA"
-          className="w-full h-full object-cover object-center filter brightness-[0.68] contrast-[1.08]"
+          className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.05]"
           referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.currentTarget;
@@ -45,15 +45,17 @@ export default function CtaSlider() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
         
         {/* Main Phrase with exact typography from Bloque 05 Mercados title */}
-        <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight leading-tight text-white whitespace-nowrap">
+        <div className="space-y-2 text-center flex flex-col items-center justify-center w-full">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight leading-tight text-white whitespace-nowrap text-center">
             Los resultados se construyen
           </h2>
 
-          {/* Subtitle: - con - en blanco y sin cursiva */}
-          <p className="text-white text-sm sm:text-base font-normal tracking-widest pt-1">
-            – con –
-          </p>
+          {/* Subtitle: - con - en blanco y sin cursiva, estrictamente centrado */}
+          <div className="w-full text-center flex items-center justify-center">
+            <p className="text-white text-sm sm:text-base font-normal tracking-widest pt-1 !text-center text-center">
+              – con –
+            </p>
+          </div>
         </div>
 
         {/* Dynamic Rotating Words - Larger than the phrase but with refined, elegant weight */}

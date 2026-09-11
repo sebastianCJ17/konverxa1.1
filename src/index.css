@@ -22,6 +22,12 @@
     font-feature-settings: "zero" 0;
   }
 
+  /* Justify text across all content paragraphs */
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
   /* Sleek custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

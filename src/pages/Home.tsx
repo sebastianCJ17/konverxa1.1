@@ -45,7 +45,7 @@ export default function Home() {
           
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-4">
             <SectionTitle
-              badge="Portafolio de Soluciones BPO"
+              badge="Portafolio de Servicios BPO"
               title="Capacidades Operativas de Alto Desempeño"
               centered
             />

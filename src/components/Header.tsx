@@ -194,23 +194,23 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* 3. INDUSTRIA Dropdown - Single Vertical Column (No two columns) */}
+            {/* 3. INDUSTRIAS Dropdown - Single Vertical Column (No two columns) */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown('industria')}
+              onMouseEnter={() => setActiveDropdown('industrias')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
                 to="/industrias"
                 className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
-                <span>INDUSTRIA</span>
-                <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('industria')}`} />
+                <span>INDUSTRIAS</span>
+                <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('industrias')}`} />
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-200 group-hover:w-full"></span>
               </Link>
 
               <AnimatePresence>
-                {activeDropdown === 'industria' && (
+                {activeDropdown === 'industrias' && (
                   <motion.div
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -426,13 +426,13 @@ export default function Header() {
                 )}
               </div>
 
-              {/* INDUSTRIA Mobile */}
+              {/* INDUSTRIAS Mobile */}
               <div>
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === 'm-industria' ? null : 'm-industria')}
                   className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
-                  INDUSTRIA
+                  INDUSTRIAS
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-industria' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-industria' && (

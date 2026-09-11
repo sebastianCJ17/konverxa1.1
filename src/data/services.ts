@@ -25,7 +25,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Estándar Operativo',
       'Control de SLA, supervisión en vivo y medición continua.'
     ],
-
+    operationalStandard: 'Control de SLA, supervisión en vivo y medición continua.',
     image: '/bloque4atencionalcliente.png'
   },
 
@@ -53,7 +53,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Estándar Operativo',
       'Control de conversión, calidad comercial y trazabilidad de oportunidades.'
     ],
-
+    operationalStandard: 'Control de conversión, calidad comercial y trazabilidad de oportunidades.',
     image: '/bloque4ventas.png'
   },
 
@@ -81,7 +81,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Estándar Operativo',
       'Control de recuperación, calidad de negociación y trazabilidad de acuerdos.'
     ],
-
+    operationalStandard: 'Control de recuperación, calidad de negociación y trazabilidad de acuerdos.',
     image: '/bloque4cobranzas.png'
   },
 
@@ -109,7 +109,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Estándar Operativo',
       'Control de resolución, calidad técnica y trazabilidad de escalamiento.'
     ],
-
+    operationalStandard: 'Control de resolución, calidad técnica y trazabilidad de escalamiento.',
     image: '/bloque4soporte.png'
   },
 
@@ -135,9 +135,9 @@ export const SERVICES_DATA: ServicePillar[] = [
 
     benefits: [
       'Estándar Operativo',
-      'Control de calidad, cumplimiento de SLA y consistencia de procesos.'
+      'Control de ejecución, criterios de validación y trazabilidad end to end.'
     ],
-
+    operationalStandard: 'Control de ejecución, criterios de validación y trazabilidad end to end.',
     image: '/bloque4backofice.png'
   },
 
@@ -155,16 +155,17 @@ export const SERVICES_DATA: ServicePillar[] = [
     iconName: 'Bot',
 
     features: [
-      'Integración de canales',
+      'Integración omnicanal',
       'Bots conversacionales',
       'IVR y enrutamiento',
-      'Integración omnicanal'
+      'Automatización de interacciones'
     ],
 
     benefits: [
-      'Estándar Operativo'
+      'Estándar Operativo',
+      'Control de enrutamiento, continuidad entre canales y trazabilidad de cada interacción.'
     ],
-
+    operationalStandard: 'Control de enrutamiento, continuidad entre canales y trazabilidad de cada interacción.',
     image: '/bloque4bots.png'
   }
 ];

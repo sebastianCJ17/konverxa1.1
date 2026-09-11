@@ -43,7 +43,7 @@ export default function WhyKonverxa() {
             className="space-y-4 text-slate-200 text-sm sm:text-[15px] leading-relaxed font-normal max-w-2xl pt-1"
           >
             <p>
-              Un recorrido que nos enseñó a reconocer dónde comienzan a perder consistencia los negocios, cómo se manifiesta en las operaciones y que se necesita para sostener su desempeño.
+              Un recorrido que nos enseñó a reconocer dónde comienzan a perder consistencia los negocios, cómo se manifiesta en las operaciones y qué se necesita para sostener su desempeño.
             </p>
             <p>
               Hoy, esa experiencia se traduce en operaciones mejor organizadas, decisiones fundamentadas y un desempeño que se sostiene sin perder coherencia operativa, organizacional ni ética.

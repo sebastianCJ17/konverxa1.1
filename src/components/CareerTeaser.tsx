@@ -63,17 +63,6 @@ export default function CareerTeaser() {
           })}
         </div>
 
-        {/* CTA placed beneath the 4 cards, aligned left with content to close the argument */}
-        <div className="pt-1">
-          <Link
-            to="/trabaja-con-nosotros"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-base border border-zinc-800 shadow-md transition-all duration-300 group"
-          >
-            <span>Conoce cómo trabajamos</span>
-            <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
-
         {/* Part 2: Cultura de Trabajo y Desarrollo Humano */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-50 p-8 sm:p-12 rounded-3xl border border-slate-200">
           
@@ -83,7 +72,7 @@ export default function CareerTeaser() {
             </h3>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              La exigencia viene acompañada de método. Cada persona tiene formación continua, criterios claros de evaluación y una vía definida para crecer dentro de la organización.
+              La exigencia viene acompañada de método. Cada persona cuenta con formación continua, criterios claros de evaluación y una vía definida para desarrollarse dentro de la organización.
             </p>
 
             <ul className="space-y-3 text-sm text-slate-700">
@@ -97,19 +86,9 @@ export default function CareerTeaser() {
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
-                <span>Las posiciones de responsabilidad se convocan internamente antes de salir al mercado.</span>
+                <span>Las posiciones de responsabilidad se abren primero internamente.</span>
               </li>
             </ul>
-
-            <div className="pt-2">
-              <Link
-                to="/trabaja-con-nosotros"
-                className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-black transition-colors group"
-              >
-                <span>Conoce nuestra propuesta para el talento</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
           </div>
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">

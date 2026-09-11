@@ -48,81 +48,52 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Navigation Links in 3 Clean Compact Columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 flex-1 max-w-2xl">
+          {/* Navigation Links in 3 Columns: NAVEGACIÓN, KONVERXA, CONTACTO */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 flex-1 max-w-2xl">
             
-            {/* Soluciones */}
-            <div className="space-y-2.5">
-              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wide">
-                Soluciones
+            {/* NAVEGACIÓN */}
+            <div className="space-y-3">
+              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wider uppercase">
+                NAVEGACIÓN
               </h4>
-              <ul className="space-y-1.5 text-xs text-slate-400">
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
                 <li>
-                  <Link to="/servicios" className="hover:text-white transition-colors block">
-                    Atención y experiencia
+                  <Link to="/modelo" className="hover:text-white transition-colors block">
+                    Modelo
                   </Link>
                 </li>
                 <li>
                   <Link to="/servicios" className="hover:text-white transition-colors block">
-                    Ventas y fidelización
+                    Servicios
                   </Link>
                 </li>
                 <li>
-                  <Link to="/servicios" className="hover:text-white transition-colors block">
-                    Back Office y procesos
+                  <Link to="/industrias" className="hover:text-white transition-colors block">
+                    Industrias
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/nosotros" className="hover:text-white transition-colors block">
+                    Nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/trabaja-con-nosotros" className="hover:text-white transition-colors block">
+                    Carreras
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Industrias */}
-            <div className="space-y-2.5">
-              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wide">
-                Industrias
+            {/* KONVERXA */}
+            <div className="space-y-3">
+              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wider uppercase">
+                KONVERXA
               </h4>
-              <ul className="space-y-1.5 text-xs text-slate-400">
-                <li>
-                  <Link to="/industrias/financiero-fintech" className="hover:text-white transition-colors block">
-                    Financiero
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/industrias/telecomunicaciones" className="hover:text-white transition-colors block">
-                    Telecomunicaciones
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/industrias/retail-ecommerce" className="hover:text-white transition-colors block">
-                    Retail
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/industrias/salud-pharma" className="hover:text-white transition-colors block">
-                    Salud
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/industrias/energia-utilities" className="hover:text-white transition-colors block">
-                    Energía
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Nosotros */}
-            <div className="space-y-2.5 col-span-2 sm:col-span-1">
-              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wide">
-                Nosotros
-              </h4>
-              <ul className="space-y-1.5 text-xs text-slate-400">
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
                 <li>
                   <Link to="/nosotros" className="hover:text-white transition-colors block">
                     Quiénes somos
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/modelo" className="hover:text-white transition-colors block">
-                    Nuestro modelo
                   </Link>
                 </li>
                 <li>
@@ -134,6 +105,34 @@ export default function Footer() {
                   <Link to="/trabaja-con-nosotros" className="hover:text-white transition-colors block">
                     Trabaja con nosotros
                   </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* CONTACTO */}
+            <div className="space-y-3">
+              <h4 className="text-white font-bold text-xs sm:text-sm tracking-wider uppercase">
+                CONTACTO
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+                <li>
+                  <a
+                    href="mailto:comercial@konverxa.com"
+                    className="hover:text-white transition-colors block text-slate-300"
+                  >
+                    comercial@konverxa.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+573226282039"
+                    className="hover:text-white transition-colors block"
+                  >
+                    Teléfono +57 322 628 2039
+                  </a>
+                </li>
+                <li className="text-slate-400">
+                  Pereira · Colombia
                 </li>
               </ul>
             </div>

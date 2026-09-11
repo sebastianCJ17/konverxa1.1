@@ -24,12 +24,12 @@ export default function CtaSlider() {
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] flex items-center justify-center overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Boardroom Image with Cinematic Dark Gradient Overlay */}
+      {/* Background Contact Center Operations Image with Cinematic Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src="/boardroom-results-bg.jpg"
-          alt="Sala Ejecutiva y Gobernanza KONVERXA"
-          className="w-full h-full object-cover object-center filter brightness-[0.62] contrast-[1.05]"
+          src="/contact-center-operations.jpg"
+          alt="Operación de Contact Center y BPO KONVERXA"
+          className="w-full h-full object-cover object-center filter brightness-[0.68] contrast-[1.08]"
           referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.currentTarget;
@@ -38,20 +38,20 @@ export default function CtaSlider() {
             }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/95" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
         
-        {/* Main Phrase in One Single Line with Lighter, Smaller Refined Font */}
+        {/* Main Phrase with exact typography from Bloque 05 Mercados title */}
         <div className="space-y-2">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wider text-slate-200 uppercase whitespace-nowrap">
-            LOS RESULTADOS SE CONSTRUYEN
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight leading-tight text-white whitespace-nowrap">
+            Los resultados se construyen
           </h2>
 
-          {/* Subtitle: - con - */}
-          <p className="text-slate-400 text-sm sm:text-base font-light italic tracking-widest pt-1">
+          {/* Subtitle: - con - en blanco y sin cursiva */}
+          <p className="text-white text-sm sm:text-base font-normal tracking-widest pt-1">
             – con –
           </p>
         </div>

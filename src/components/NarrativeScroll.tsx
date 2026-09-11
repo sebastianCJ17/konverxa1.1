@@ -68,13 +68,13 @@ export default function NarrativeScroll() {
     <section className="relative w-full py-16 sm:py-20 bg-slate-100 text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
       {/* Background Soft Texture & Ambient Tone - Bloque 02 Photo */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-38">
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-50">
         <img
           src="/bloque2.png"
           alt="Análisis y Visualización Operacional KONVERXA"
           className="w-full h-full object-cover filter brightness-95"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/95 via-slate-100/85 to-slate-100/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/78 to-slate-100/30"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

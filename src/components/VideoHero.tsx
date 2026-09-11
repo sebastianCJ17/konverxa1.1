@@ -130,7 +130,7 @@ export default function VideoHero() {
         <div className="flex items-center gap-3">
           <div className="font-semibold tracking-wide text-slate-300 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-slate-100 animate-pulse"></span>
-            <span>Operador BPO y Contact Center</span>
+            <span>BPO · Contact Center</span>
           </div>
         </div>
 

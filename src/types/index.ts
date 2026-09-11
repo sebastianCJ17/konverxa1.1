@@ -20,6 +20,7 @@ export interface ServicePillar {
   iconName: string;
   features: string[];
   benefits: string[];
+  operationalStandard?: string;
   image: string;
 }
 

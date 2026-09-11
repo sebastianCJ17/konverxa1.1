@@ -62,10 +62,10 @@ export default function ServicesCarousel() {
 
       {/* Main Single Showcase Card (Split Grid: Details + High-Res Image) */}
       <div className="rounded-3xl bg-white border border-slate-200/90 shadow-xl overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[540px] lg:h-[580px]">
           
           {/* Left Column: Solution Detail with Color Accents */}
-          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between h-full space-y-6">
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -74,7 +74,7 @@ export default function ServicesCarousel() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 16 }}
                 transition={{ duration: 0.35 }}
-                className="space-y-6"
+                className="space-y-5 min-h-[320px] sm:min-h-[340px] flex flex-col justify-start"
               >
                 
                 {/* Top Badge */}
@@ -90,7 +90,7 @@ export default function ServicesCarousel() {
                   <h3 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight leading-tight">
                     {activeService.title}
                   </h3>
-                  <p className="text-sm font-semibold text-slate-600 mt-1.5">
+                  <p className="text-sm font-semibold text-slate-600 mt-1.5 leading-relaxed">
                     {activeService.tagline}
                   </p>
                 </div>
@@ -152,7 +152,7 @@ export default function ServicesCarousel() {
           </div>
 
           {/* Right Column: High-Quality Representative Photograph with Gradient */}
-          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] overflow-hidden bg-slate-900">
+          <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[300px] overflow-hidden bg-slate-900">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
@@ -174,14 +174,14 @@ export default function ServicesCarousel() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-transparent lg:block hidden"></div>
                 
-                {/* Bottom Image Tag Overlay */}
+                {/* Bottom Image Tag Overlay - Dynamic Operational Standard */}
                 <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-                  <div className="p-4 rounded-2xl bg-slate-950/80 backdrop-blur-md border border-white/10 shadow-lg">
+                  <div className="p-4 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/10 shadow-lg">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 block">
                       Estándar Operativo
                     </span>
                     <p className="text-xs font-semibold text-white mt-0.5">
-                      Garantía de SLAs, supervisión en vivo y medición continua.
+                      {activeService.operationalStandard || activeService.benefits[1] || 'Garantía de SLAs, supervisión en vivo y medición continua.'}
                     </p>
                   </div>
                 </div>

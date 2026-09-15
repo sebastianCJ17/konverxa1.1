@@ -75,7 +75,17 @@ const HUBS: HubLocation[] = [
   }
 ];
 
-export default function GlobalNetworkMap() {
+interface GlobalNetworkMapProps {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+export default function GlobalNetworkMap({
+  badge = 'PRESENCIA INTERNACIONAL',
+  title = 'Infraestructura Operativa Sin Fronteras',
+  subtitle = 'Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con una misma forma de organizar, dirigir y controlar la operación.'
+}: GlobalNetworkMapProps = {}) {
   const [selectedHub, setSelectedHub] = useState<HubLocation | null>(HUBS[0]); // Default Colombia
   const [mapImageError, setMapImageError] = useState(false);
 
@@ -91,9 +101,9 @@ export default function GlobalNetworkMap() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-4">
           <SectionTitle
-            badge="Presencia Multilocación & Cobertura Global"
-            title="Infraestructura Operativa Sin Fronteras"
-            subtitle="Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con el mismo estándar en cualquier huso horario."
+            badge={badge}
+            title={title}
+            subtitle={subtitle}
             light
           />
         </div>

@@ -10,6 +10,7 @@ export interface BreadcrumbItem {
 export interface PageBannerProps {
   title: string;
   watermark?: string;
+  watermarkFilled?: boolean;
   titleAccentColor?: string;
   badge?: string;
   headline?: string;
@@ -17,11 +18,13 @@ export interface PageBannerProps {
   breadcrumbs: BreadcrumbItem[];
   image: string;
   imageAlt?: string;
+  showDownloadBtn?: boolean;
 }
 
 export default function PageBanner({
   title,
   watermark,
+  watermarkFilled = false,
   titleAccentColor = 'text-slate-900',
   badge,
   headline,
@@ -31,6 +34,7 @@ export default function PageBanner({
   imageAlt = 'KONVERXA',
 }: PageBannerProps) {
   const displayWatermark = watermark || title;
+  const isLongWatermark = displayWatermark.length > 11;
 
   return (
     <section className="relative w-full min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] pt-28 sm:pt-32 pb-14 sm:pb-16 flex items-center bg-[#f8f9fa] text-slate-900 overflow-hidden font-sans border-b border-slate-200">
@@ -48,16 +52,24 @@ export default function PageBanner({
         <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa]/70 via-transparent to-transparent lg:hidden"></div>
       </div>
 
-      {/* Massive Outlined Watermark Typography behind */}
+      {/* Massive Watermark Typography behind */}
       <div
         className="absolute top-1/2 left-0 -translate-y-[45%] pointer-events-none select-none overflow-hidden z-0 pl-4 sm:pl-8 lg:pl-12 max-w-full"
         aria-hidden="true"
       >
         <span
-          className="text-[15vw] sm:text-[14vw] lg:text-[12vw] font-black uppercase tracking-tight leading-none block whitespace-nowrap text-transparent opacity-80"
-          style={{
-            WebkitTextStroke: '2px rgba(203, 213, 225, 0.75)',
-            textStroke: '2px rgba(203, 213, 225, 0.75)',
+          className={`${
+            isLongWatermark
+              ? 'text-[11vw] sm:text-[9vw] lg:text-[7.5vw]'
+              : 'text-[15vw] sm:text-[14vw] lg:text-[12vw]'
+          } font-black uppercase tracking-tight leading-none block whitespace-nowrap ${
+            watermarkFilled
+              ? 'text-slate-900/[0.045] sm:text-slate-900/[0.05]'
+              : 'text-transparent opacity-40 sm:opacity-45'
+          }`}
+          style={watermarkFilled ? undefined : {
+            WebkitTextStroke: '1.5px rgba(203, 213, 225, 0.55)',
+            textStroke: '1.5px rgba(203, 213, 225, 0.55)',
           }}
         >
           {displayWatermark}

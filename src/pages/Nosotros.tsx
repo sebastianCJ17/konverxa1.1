@@ -1,38 +1,210 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
 import { COMPANY_INFO } from '../data/company';
-import { Building2, ShieldCheck, Target, Heart, Cpu, ArrowRight, Award, CheckCircle2, Globe } from 'lucide-react';
+import { Building2, ShieldCheck, Target, Heart, Cpu, ArrowRight, Award, CheckCircle2, Globe, Leaf, Users } from 'lucide-react';
 
 const VALUE_ICONS: Record<string, any> = {
-  Target, Heart, Cpu, ShieldCheck
+  Target, Heart, Cpu, ShieldCheck, CheckCircle2, Building2, Users
+};
+
+type NosotrosSectionKey = 'quienes-somos' | 'fundamentos' | 'mision-vision' | 'certificaciones' | 'sostenibilidad' | 'ubicacion';
+
+interface NosotrosBannerConfig {
+  title: string;
+  watermark: string;
+  badge: string;
+  headline: string;
+  description: string;
+  breadcrumbLabel: string;
+  image: string;
+  imageAlt: string;
+}
+
+const FILOSOFIA_DECLARACIONES = [
+  {
+    fase: 1,
+    descriptor: 'QUÉ CREEMOS',
+    nombre: 'Convicción',
+    texto: 'Las organizaciones sólidas no se improvisan. Se construyen.',
+  },
+  {
+    fase: 2,
+    descriptor: 'POR QUÉ EXISTIMOS',
+    nombre: 'Convicción',
+    texto: 'Ayudar a las organizaciones a construir la solidez necesaria para cerrar la brecha entre lo que prometen y lo que pueden sostener, alineando su promesa, sus personas y su capacidad.',
+  },
+  {
+    fase: 3,
+    descriptor: 'QUÉ HACEMOS',
+    nombre: 'Misión',
+    texto: 'Hacemos que las organizaciones cumplan y sostengan su promesa de negocio. Desarrollamos la capacidad organizacional necesaria para generar resultados consistentes, evolucionar con solidez y mantener su desempeño desde dentro, de manera estructural.',
+  },
+  {
+    fase: 4,
+    descriptor: 'QUÉ ASPIRAMOS A DEMOSTRAR',
+    nombre: 'Visión',
+    texto: 'Convertirnos en la evidencia de que es posible construir organizaciones sólidas, capaces de crecer y afrontar nuevas etapas de complejidad sin perder la coherencia de sus decisiones, la confianza en sus relaciones ni los fundamentos que sostienen su evolución.',
+  },
+];
+
+const NOSOTROS_SECTIONS: Record<NosotrosSectionKey, NosotrosBannerConfig> = {
+  'quienes-somos': {
+    title: 'ORIGEN',
+    watermark: 'ORIGEN',
+    badge: 'Quiénes Somos',
+    headline: 'Más de veinte años de gestión convertidos en una forma definida de operar.',
+    description: 'KONVERXA nace de la experiencia de gestionar negocios, equipos y operaciones, y de traducir ese recorrido en un modelo propio, documentado y gobernado por criterios explícitos.',
+    breadcrumbLabel: 'Quiénes Somos',
+    image: '/banners/banner-quienes-somos.png',
+    imageAlt: 'Equipo y liderazgo KONVERXA'
+  },
+  'fundamentos': {
+    title: 'FUNDAMENTOS',
+    watermark: 'FUNDAMENTOS',
+    badge: 'PRINCIPIOS DE GESTIÓN',
+    headline: 'Fundamentos que orientan cómo decidimos, operamos y respondemos.',
+    description: 'Responsabilidad, evidencia, disciplina, separación de funciones y capacidad organizacional forman el marco que orienta nuestras decisiones y la forma en que gestionamos cada operación.',
+    breadcrumbLabel: 'Fundamentos Corporativos',
+    image: '/banners/banner-fundamentos.png',
+    imageAlt: 'Fundamentos y principios de gestión KONVERXA'
+  },
+  'mision-vision': {
+    title: 'RUMBO',
+    watermark: 'RUMBO',
+    badge: 'DIRECCIÓN INSTITUCIONAL',
+    headline: 'Nuestra Misión y Visión',
+    description: 'La misión define lo que hacemos. La visión, aquello que el trabajo debe llegar a demostrar.',
+    breadcrumbLabel: 'Misión y Visión',
+    image: '/banners/banner-vision-general.png',
+    imageAlt: 'Dirección institucional, misión y visión KONVERXA'
+  },
+  'certificaciones': {
+    title: 'CERTIFICACIONES',
+    watermark: 'CALIDAD ISO',
+    badge: 'Gobernanza & Cumplimiento',
+    headline: 'Estándares de Calidad Internacional & Seguridad',
+    description: 'Garantizamos seguridad de la información, protección de datos personales y rigurosidad operacional avalada por certificaciones internacionales.',
+    breadcrumbLabel: 'Certificaciones',
+    image: '/banners/banner-certificaciones.png',
+    imageAlt: 'Certificaciones de calidad KONVERXA'
+  },
+  'sostenibilidad': {
+    title: 'SOSTENIBILIDAD',
+    watermark: 'IMPACTO RSE',
+    badge: 'Responsabilidad Social',
+    headline: 'Compromiso Humano, Social y Ambiental',
+    description: 'Generamos empleo digno de calidad, promovemos la inclusión y operamos con prácticas sostenibles que impactan positivamente nuestras comunidades.',
+    breadcrumbLabel: 'Sostenibilidad',
+    image: '/banners/banner-sostenibilidad.png',
+    imageAlt: 'Sostenibilidad y RSE KONVERXA'
+  },
+  'ubicacion': {
+    title: 'PRESENCIA',
+    watermark: 'PRESENCIA',
+    badge: 'PRESENCIA INTERNACIONAL',
+    headline: 'Distintas geografías. Un mismo estándar.',
+    description: 'Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con una misma forma de organizar, dirigir y controlar la operación.',
+    breadcrumbLabel: 'Ubicación',
+    image: '/banners/banner-contacto.png',
+    imageAlt: 'Ubicación y presencia internacional KONVERXA'
+  }
 };
 
 export default function Nosotros() {
+  const { hash } = useLocation();
+  const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState<NosotrosSectionKey>('quienes-somos');
+
+  useEffect(() => {
+    if (hash) {
+      const clean = hash.replace('#', '') as NosotrosSectionKey;
+      if (clean === 'ubicacion') {
+        navigate('/contacto');
+        return;
+      }
+      if (clean in NOSOTROS_SECTIONS) {
+        setActiveSection(clean);
+      }
+    }
+  }, [hash, navigate]);
+
+  const currentBanner = NOSOTROS_SECTIONS[activeSection] || NOSOTROS_SECTIONS['quienes-somos'];
+
+  const handleSectionSelect = (key: NosotrosSectionKey) => {
+    if (key === 'ubicacion') {
+      navigate('/contacto');
+      return;
+    }
+    setActiveSection(key);
+    const elem = document.getElementById(key);
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title="Sobre Nosotros - KONVERXA"
-        description="Conoce la historia, filosofía corporativa, valores y estándar de calidad internacional de KONVERXA en BPO y Customer Experience."
+        title={`${currentBanner.title} - Sobre Nosotros | KONVERXA`}
+        description={currentBanner.description}
       />
 
-      {/* Header Banner with Breadcrumbs & Outlined Watermark */}
+      {/* Header Banner with Dynamic Section Title, Watermark & Downloadable Image */}
       <PageBanner
-        title="NOSOTROS"
-        watermark="NOSOTROS"
+        title={currentBanner.title}
+        watermark={currentBanner.watermark}
         titleAccentColor="text-slate-900"
-        badge="Nuestra Firma & Estándar"
-        headline="Liderazgo, Método y Excelencia Operacional"
-        description="Somos un aliado estratégico corporativo comprometido con elevar la eficiencia, rentabilidad y satisfacción del usuario final en grandes organizaciones."
-        breadcrumbs={[
-          { label: 'Inicio', path: '/' },
-          { label: 'Sobre Nosotros' }
-        ]}
-        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
-        imageAlt="Equipo ejecutivo y liderazgo KONVERXA"
+        badge={currentBanner.badge}
+        headline={currentBanner.headline}
+        description={currentBanner.description}
+        breadcrumbs={
+          activeSection === 'quienes-somos'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Nosotros' }
+              ]
+            : [
+                { label: 'Inicio', path: '/' },
+                { label: 'Nosotros', path: '/nosotros' },
+                { label: currentBanner.breadcrumbLabel }
+              ]
+        }
+        image={currentBanner.image}
+        imageAlt={currentBanner.imageAlt}
+        showDownloadBtn={true}
       />
+
+      {/* Quick Section Switcher Bar */}
+      <div className="bg-slate-100 border-b border-slate-200 sticky top-16 sm:top-18 z-20 backdrop-blur-md bg-slate-100/95">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between overflow-x-auto gap-2 scrollbar-none">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap hidden md:inline-block">
+            Secciones:
+          </span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {(Object.keys(NOSOTROS_SECTIONS) as NosotrosSectionKey[]).map((key) => {
+              const sec = NOSOTROS_SECTIONS[key];
+              const isActive = activeSection === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => handleSectionSelect(key)}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
+                    isActive
+                      ? 'bg-black text-white shadow-xs'
+                      : 'bg-white text-slate-700 hover:bg-slate-200 hover:text-black border border-slate-200'
+                  }`}
+                >
+                  {sec.breadcrumbLabel}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
       {/* Identity & Corporate Philosophy */}
       <section id="quienes-somos" className="py-20 bg-white relative overflow-hidden">
@@ -87,13 +259,13 @@ export default function Nosotros() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <SectionTitle
-            badge="Principios Rectores"
-            title="Nuestros Valores Corporativos"
-            subtitle="Cada integrante de KONVERXA guía su actuación diaria en estos 4 pilares de conducta."
+            badge="PRINCIPIOS DE GESTIÓN"
+            title="Nuestros Fundamentos Corporativos"
+            subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {COMPANY_INFO.values.map((val, idx) => {
               const IconComp = VALUE_ICONS[val.icon] || Target;
               return (
@@ -102,19 +274,78 @@ export default function Nosotros() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4 hover:border-black/30 hover:shadow-md transition-all duration-300"
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
-                    <IconComp className="w-6 h-6 text-black" />
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <IconComp className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        {(val as any).number || `0${idx + 1}`}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
                   </div>
-                  <h3 className="text-xl font-black text-black">{val.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{val.desc}</p>
                 </motion.div>
               );
             })}
           </div>
 
+        </div>
+      </section>
+
+      {/* Declaraciones Institucionales - Misión y Visión */}
+      <section id="mision-vision" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
+        {/* Subtle Visual Aid: Dot grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+          <SectionTitle
+            badge="DECLARACIONES INSTITUCIONALES"
+            title="Nuestra Filosofía"
+            subtitle="Lo que KONVERXA cree, por qué existe, qué hace y qué aspira a demostrar."
+            centered
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FILOSOFIA_DECLARACIONES.map((item, idx) => (
+              <motion.div
+                key={item.fase}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-6 hover:border-black/40 hover:bg-white hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="space-y-4">
+                  {/* Top Bar: N° Fase + Descriptor de Fase */}
+                  <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3">
+                    <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-black text-white font-mono font-bold text-xs tracking-wider">
+                      {`N° 0${item.fase}`}
+                    </span>
+                    <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 group-hover:text-black transition-colors">
+                      {item.descriptor}
+                    </span>
+                  </div>
+
+                  {/* Nombre de Fase */}
+                  <div className="pt-1">
+                    <h3 className="text-2xl font-black text-black tracking-tight">
+                      {item.nombre}
+                    </h3>
+                  </div>
+
+                  {/* Texto descriptivo */}
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                    {item.texto}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -152,6 +383,50 @@ export default function Nosotros() {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* Sostenibilidad & RSE */}
+      <section id="sostenibilidad" className="py-20 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+          <SectionTitle
+            badge="Responsabilidad Social Corporativa"
+            title="Sostenibilidad e Impacto Comunitario"
+            subtitle="El crecimiento empresarial solo tiene sentido cuando genera bienestar social, inclusión laboral y respeto por el medio ambiente."
+            centered
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                <Users className="w-6 h-6 text-black" />
+              </div>
+              <h4 className="text-xl font-black text-black">Empleo Digno e Inclusión</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Priorizamos la vinculación laboral de jóvenes en su primer empleo y madres cabeza de hogar, con capacitación continua en la Universidad Konverxa y planes de carrera claros.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                <Heart className="w-6 h-6 text-black" />
+              </div>
+              <h4 className="text-xl font-black text-black">Bienestar y Salud Mental</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Programas permanentes de acompañamiento psicosocial, pausas activas, zonas de relajación y balance vida-trabajo para todos nuestros colaboradores.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                <Leaf className="w-6 h-6 text-black" />
+              </div>
+              <h4 className="text-xl font-black text-black">Operación Cero Papel</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Centros de contacto 100% digitalizados, eficiencia energética y reducción sostenida de huella de carbono en todas nuestras instalaciones operativas.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

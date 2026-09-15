@@ -15,6 +15,7 @@ import TrabajaConNosotros from './pages/TrabajaConNosotros';
 import Contacto from './pages/Contacto';
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
+import BannersHub from './pages/BannersHub';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -34,8 +35,10 @@ export default function App() {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotros />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/ubicacion" element={<Contacto />} />
             <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
             <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
+            <Route path="/banners" element={<BannersHub />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

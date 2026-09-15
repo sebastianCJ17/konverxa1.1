@@ -1,186 +1,561 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
-import { ONEX_PILLARS, INTEGRALX_PHASES } from '../data/model';
-import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ONEX_PILLARS, INTEGRALX_PHASES, EXCELENCIA_DIMENSIONS, ONEX_DIMENSIONS, CIK_PHASES } from '../data/model';
+import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale } from 'lucide-react';
 
 const PILLAR_ICONS: Record<string, any> = {
   Target, Users, Cpu, BarChart3, ShieldCheck
 };
 
-export default function Modelo() {
-  const [selectedPillar, setSelectedPillar] = useState(ONEX_PILLARS[0].id);
+const DIMENSION_ICONS: Record<string, any> = {
+  Target, Users, Building2, Activity, Scale, ShieldCheck
+};
 
+type ModeloSectionKey = 'vision-general' | 'excelencia-integral' | 'onex' | 'cik' | 'integralx';
+
+interface ModeloBannerConfig {
+  title: string;
+  watermark: string;
+  watermarkFilled?: boolean;
+  badge: string;
+  headline: string;
+  description: string;
+  breadcrumbLabel: string;
+  tabLabel?: string;
+  image: string;
+  imageAlt: string;
+}
+
+const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
+  'vision-general': {
+    title: 'MODELO',
+    watermark: 'MODELO',
+    watermarkFilled: true,
+    badge: 'ARQUITECTURA OPERATIVA',
+    headline: 'Modelo Operativo KONVERXA · MOK',
+    description: 'Un sistema propio para organizar, dirigir y controlar cada operación con un mismo criterio y siempre al servicio de los objetivos del negocio.',
+    breadcrumbLabel: 'Visión General',
+    image: '/banners/banner-vision-general.png',
+    imageAlt: 'Modelo Operativo KONVERXA · MOK'
+  },
+  'excelencia-integral': {
+    title: 'EXCELENCIA INTEGRAL',
+    watermark: 'EXCELENCIA',
+    watermarkFilled: true,
+    badge: 'ESTÁNDAR OPERATIVO',
+    headline: 'La excelencia como estándar de operación',
+    description: 'Tres dimensiones inseparables —operativa, organizacional y ética— que determinan si una operación está realmente bien gobernada.',
+    breadcrumbLabel: 'Excelencia Integral',
+    image: '/banners/banner-excelencia-integral.png',
+    imageAlt: 'La excelencia como estándar de operación'
+  },
+  'onex': {
+    title: 'ONEX',
+    watermark: 'ONEX',
+    watermarkFilled: true,
+    badge: 'LECTURA y EVIDENCIA',
+    headline: 'Sistema de Lectura y Evidencia Operativa',
+    description: 'KONVERXA utiliza OneX para observar, interpretar y medir la realidad de cada operación, produciendo la evidencia que permite comprender su desempeño y orientar las decisiones.',
+    breadcrumbLabel: 'OneX',
+    tabLabel: 'OneX',
+    image: '/banners/banner-modelo-onex.png',
+    imageAlt: 'Sistema de Lectura y Evidencia Operativa'
+  },
+  'cik': {
+    title: 'CIK',
+    watermark: 'CIK',
+    watermarkFilled: true,
+    badge: 'COMPONENTE MOK',
+    headline: 'Ciclo de Intervención KONVERXA',
+    description: 'Siete fases que se activan, se articulan y se retroalimentan para responder a las necesidades de cada operación, sostener su desempeño y orientar su evolución.',
+    breadcrumbLabel: 'CIK',
+    tabLabel: 'CIK',
+    image: '/banners/banner-capacidades-integradas.png',
+    imageAlt: 'Ciclo de Intervención KONVERXA · CIK'
+  },
+  'integralx': {
+    title: 'INTEGRALX™',
+    watermark: 'INTEGRALX',
+    watermarkFilled: true,
+    badge: 'ACREDITACIÓN OPERATIVA',
+    headline: 'Sistema de Acreditación · IntegralX™',
+    description: 'KONVERXA acredita mediante IntegralX™ aquello que la evidencia permite considerar demostrado: que una operación funciona bajo el estándar de Excelencia Integral.',
+    breadcrumbLabel: 'Modelo IntegralX™',
+    tabLabel: 'IntegralX™ Accredited',
+    image: '/banners/banner-ciclo-integralx.png',
+    imageAlt: 'Sistema de Acreditación · IntegralX™'
+  }
+};
+
+export default function Modelo() {
+  const { hash } = useLocation();
+  const [activeSection, setActiveSection] = useState<ModeloSectionKey>('vision-general');
+  const [selectedPillar, setSelectedPillar] = useState(ONEX_PILLARS[0].id);
+  const [selectedDimension, setSelectedDimension] = useState(EXCELENCIA_DIMENSIONS[0].id);
+  const [selectedOneXDim, setSelectedOneXDim] = useState(ONEX_DIMENSIONS[0].id);
+
+  // Sync active section with URL hash
+  useEffect(() => {
+    if (hash) {
+      const clean = hash.replace('#', '');
+      if (clean in MODELO_SECTIONS) {
+        setActiveSection(clean as ModeloSectionKey);
+        return;
+      }
+    }
+  }, [hash]);
+
+  const currentBanner = MODELO_SECTIONS[activeSection] || MODELO_SECTIONS['vision-general'];
   const activePillarObj = ONEX_PILLARS.find((p) => p.id === selectedPillar) || ONEX_PILLARS[0];
+  const activeDimensionObj = EXCELENCIA_DIMENSIONS.find((d) => d.id === selectedDimension) || EXCELENCIA_DIMENSIONS[0];
+  const activeOneXDimObj = ONEX_DIMENSIONS.find((d) => d.id === selectedOneXDim) || ONEX_DIMENSIONS[0];
+
+  const handleSectionSelect = (key: ModeloSectionKey) => {
+    setActiveSection(key);
+    setTimeout(() => {
+      const elem = document.getElementById(key);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
+  };
 
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title="Modelo Operativo OneX & Ciclo IntegralX"
-        description="Conoce la arquitectura metodológica OneX de KONVERXA: Estrategia, Talento, Tecnología, Analítica y Gobernanza para BPO y Customer Experience."
+        title={`${currentBanner.headline} | KONVERXA`}
+        description={currentBanner.description}
       />
 
-      {/* Header Banner with Breadcrumbs & Outlined Watermark */}
+      {/* Header Banner with Dynamic Section Title, Watermark & Local Image */}
       <PageBanner
-        title="MODELO"
-        watermark="MODELO"
+        title={currentBanner.title}
+        watermark={currentBanner.watermark}
+        watermarkFilled={currentBanner.watermarkFilled}
         titleAccentColor="text-slate-900"
-        badge="Arquitectura de Transformación"
-        headline="Modelo Operativo OneX & Ciclo IntegralX"
-        description="Una metodología propietaria de gestión de BPO y Contact Center diseñada para alinearse con los objetivos estratégicos de cada corporativo."
-        breadcrumbs={[
-          { label: 'Inicio', path: '/' },
-          { label: 'Modelo OneX' }
-        ]}
-        image="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
-        imageAlt="Metodología y modelo operativo KONVERXA"
+        badge={currentBanner.badge}
+        headline={currentBanner.headline}
+        description={currentBanner.description}
+        breadcrumbs={
+          activeSection === 'vision-general'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo Operativo' }
+              ]
+            : activeSection === 'excelencia-integral'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo', path: '/modelo' },
+                { label: 'Excelencia Integral' }
+              ]
+            : activeSection === 'onex'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo', path: '/modelo' },
+                { label: 'OneX' }
+              ]
+            : activeSection === 'cik'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo', path: '/modelo' },
+                { label: 'CIK' }
+              ]
+            : activeSection === 'integralx'
+            ? [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo IntegralX™' }
+              ]
+            : [
+                { label: 'Inicio', path: '/' },
+                { label: 'Modelo Operativo', path: '/modelo' },
+                { label: currentBanner.breadcrumbLabel }
+              ]
+        }
+        image={currentBanner.image}
+        imageAlt={currentBanner.imageAlt}
+        showDownloadBtn={true}
       />
 
-      {/* Visión General */}
-      <section id="vision-general" className="py-20 bg-white relative overflow-hidden">
-        {/* Subtle Visual Aid: Dot grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <SectionTitle
-                badge="Visión General"
-                title="De la Operación Convencional al Modelo Integrado OneX"
-                subtitle="El BPO tradicional se ha enfocado históricamente en reducir costos a costa de la calidad. KONVERXA reconfigura esta lógica introduciendo un estándar de consultoría operativa de clase mundial."
-              />
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Integramos cada componente operacional bajo el concepto OneX: una sola visión de servicio donde la tecnología no reemplaza la empatía humana, sino que la potencia para lograr tasas superiores de resolución, conversión y retención.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-2xl font-black text-black block">+98%</span>
-                  <span className="text-xs text-slate-600">Adherencia a SLAs Contratados</span>
-                </div>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-2xl font-black text-black block">0%</span>
-                  <span className="text-xs text-slate-600">Interrupción en Transición Operativa</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl relative space-y-6">
-                <h3 className="text-xl font-black text-black border-b border-slate-200 pb-4">
-                  Diferenciales del Modelo OneX
-                </h3>
-
-                <ul className="space-y-4 text-sm text-slate-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-black block">Gobernanza Transparente:</strong> Dashboards ejecutivos en tiempo real con auditoría de calidad al 100% mediante IA.
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-black block">Talento Certificado:</strong> Formación en la Universidad Konverxa enfocada en empatía, habilidades técnicas y negociación.
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-black block">Arquitectura Escalable:</strong> Capacidad elástica para absorber variaciones masivas de volumen en horas.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Deep Dive interactive OneX Pillars */}
-      <section id="onex" className="py-20 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <SectionTitle
-            badge="Pilares Fundamentales"
-            title="Excelencia Integral OneX"
-            subtitle="Explora en detalle los 5 pilares que sostienen nuestras operaciones BPO."
-            centered
-          />
-
-          {/* Interactive Tabs */}
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
-            {ONEX_PILLARS.map((p) => {
-              const IconComp = PILLAR_ICONS[p.icon] || Target;
-              const isActive = p.id === selectedPillar;
+      {/* Quick Section Switcher Bar */}
+      <div className="bg-slate-100 border-b border-slate-200 sticky top-16 sm:top-18 z-20 backdrop-blur-md bg-slate-100/95">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between overflow-x-auto gap-2 scrollbar-none">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap hidden md:inline-block">
+            Módulos del Modelo:
+          </span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {(Object.keys(MODELO_SECTIONS) as ModeloSectionKey[]).map((key) => {
+              const sec = MODELO_SECTIONS[key];
+              const isActive = activeSection === key;
               return (
                 <button
-                  key={p.id}
-                  onClick={() => setSelectedPillar(p.id)}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                  key={key}
+                  onClick={() => handleSectionSelect(key)}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                     isActive
-                      ? 'bg-black text-white border-black shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                      ? 'bg-black text-white shadow-xs'
+                      : 'bg-white text-slate-700 hover:bg-slate-200 hover:text-black border border-slate-200'
                   }`}
                 >
-                  <IconComp className="w-4 h-4" />
-                  <span>{p.title}</span>
+                  {sec.tabLabel || sec.breadcrumbLabel}
                 </button>
               );
             })}
           </div>
+        </div>
+      </div>
 
-          {/* Tab Detail View */}
-          <motion.div
-            key={activePillarObj.id}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-10 p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-          >
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-black">
-                {activePillarObj.subtitle}
-              </span>
-              <h3 className="text-3xl font-black text-black">{activePillarObj.title}</h3>
-              <p className="text-slate-600 text-base leading-relaxed">{activePillarObj.description}</p>
+      {/* 01. VISIÓN GENERAL */}
+      {activeSection === 'vision-general' && (
+        <>
+          {/* Visión General - Bloque 02: De la operación convencional al MOK */}
+          <section id="vision-general" className="py-20 bg-white relative overflow-hidden">
+            {/* Subtle Visual Aid: Dot grid */}
+            <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-              <div className="space-y-3 pt-2">
-                <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">Atributos Clave:</span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
-                  {activePillarObj.keyPoints.map((point, idx) => (
-                    <div key={idx} className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
-                      <span>{point}</span>
-                    </div>
-                  ))}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                {/* Bloque Izquierda */}
+                <div className="lg:col-span-6 space-y-6">
+                  <SectionTitle
+                    badge="VISIÓN GENERAL"
+                    title="De la operación convencional al Modelo Operativo KONVERXA"
+                  />
+
+                  <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p>
+                      En la externalización, la decisión suele tomarse por tamaño y precio. El Modelo Operativo KONVERXA introduce otro criterio: cómo se organiza, se dirige y se controla la operación.
+                    </p>
+                    <p>
+                      Cada operación se gobierna bajo un mismo modelo: un estándar que define qué significa operar con excelencia, un sistema que lee la realidad y produce evidencia, un ciclo que ordena la intervención y una acreditación que reconoce, sobre esa evidencia, el cumplimiento del estándar.
+                    </p>
+                  </div>
+
+                  {/* 01 Solo Cajón con la misma medida del bloque izquierdo */}
+                  <div className="w-full p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                    <p className="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed">
+                      El resultado es una operación gobernada por criterio, intervenida con base en evidencia y capaz de demostrar que cumple el estándar.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bloque Derecha */}
+                <div className="lg:col-span-6">
+                  <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-lg relative space-y-6">
+                    <h3 className="text-xl font-black text-black border-b border-slate-200 pb-4">
+                      Componentes del MOK
+                    </h3>
+
+                    <ul className="space-y-5 text-sm text-slate-700">
+                      <li className="flex items-start gap-3.5">
+                        <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
+                        <div className="space-y-1">
+                          <strong className="text-black block font-bold text-sm sm:text-base">
+                            Excelencia Integral
+                          </strong>
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Define qué significa excelencia en tres dimensiones inseparables: Operativa, Organizacional y Ética.
+                          </p>
+                        </div>
+                      </li>
+
+                      <li className="flex items-start gap-3.5">
+                        <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
+                        <div className="space-y-1">
+                          <strong className="text-black block font-bold text-sm sm:text-base">
+                            OneX
+                          </strong>
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            El sistema que observa, mide y produce la evidencia. No interviene.
+                          </p>
+                        </div>
+                      </li>
+
+                      <li className="flex items-start gap-3.5">
+                        <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
+                        <div className="space-y-1">
+                          <strong className="text-black block font-bold text-sm sm:text-base">
+                            Ciclo de Intervención KONVERXA · CIK
+                          </strong>
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Convierte la evidencia en intervención: diagnosticar, diseñar, implementar, operar, medir, aprender y mejorar, de forma continua.
+                          </p>
+                        </div>
+                      </li>
+
+                      <li className="flex items-start gap-3.5">
+                        <CheckCircle2 className="w-5 h-5 text-slate-800 shrink-0 mt-0.5" />
+                        <div className="space-y-1">
+                          <strong className="text-black block font-bold text-sm sm:text-base">
+                            IntegralX™
+                          </strong>
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Acredita que la operación funciona bajo un estándar, con datos, hechos y resultados que lo demuestran.
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+          </section>
 
-            <div className="lg:col-span-5 p-8 rounded-2xl bg-slate-100 border border-slate-200 text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
-                <Layers className="w-8 h-8 text-white" />
+          {/* Visión General - Bloque 03: Capacidades de Ejecución */}
+          <section id="capacidades-ejecucion" className="py-20 bg-slate-50 border-y border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <SectionTitle
+                badge="EJECUCIÓN OPERATIVA"
+                title="Capacidades de Ejecución"
+                subtitle="Cinco capacidades transversales que permiten desplegar el modelo y sostener su ejecución."
+                centered
+              />
+
+              {/* Interactive Tabs */}
+              <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+                {ONEX_PILLARS.map((p) => {
+                  const IconComp = PILLAR_ICONS[p.icon] || Target;
+                  const isActive = p.id === selectedPillar;
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => setSelectedPillar(p.id)}
+                      className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                        isActive
+                          ? 'bg-black text-white border-black shadow-md'
+                          : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                      }`}
+                    >
+                      <IconComp className="w-4 h-4 shrink-0" />
+                      <span className="whitespace-nowrap">{p.tabLabel || p.title}</span>
+                    </button>
+                  );
+                })}
               </div>
-              <h4 className="text-lg font-black text-black">Impacto en SLA & Operación</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Este pilar garantiza que el 100% de los procesos estén alineados con los requerimientos normativos y las metas de negocio.
-              </p>
+
+              {/* Tab Detail View */}
+              <motion.div
+                key={activePillarObj.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              >
+                <div className="lg:col-span-7 space-y-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                    {activePillarObj.subtitle}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activePillarObj.title}</h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activePillarObj.description}</p>
+
+                  <div className="space-y-3 pt-2">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                      Atributos Clave:
+                    </span>
+                    <div className="flex flex-col gap-2.5 w-full">
+                      {activePillarObj.keyPoints.map((point, idx) => (
+                        <div
+                          key={idx}
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                          <span>{point}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                    <Layers className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-black text-black">
+                    {activePillarObj.impactTitle || 'Impacto de Negocio'}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                    {activePillarObj.impactDescription}
+                  </p>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </section>
+        </>
+      )}
 
-        </div>
-      </section>
+      {/* 02. EXCELENCIA INTEGRAL */}
+      {activeSection === 'excelencia-integral' && (
+        <section id="excelencia-integral" className="py-20 bg-white relative overflow-hidden">
+          {/* Subtle Visual Aid */}
+          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-      {/* Ciclo de Intervención IntegralX */}
-      <section id="integralx" className="py-20 bg-white relative overflow-hidden">
-        {/* Subtle Visual Aid */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <SectionTitle
+              badge="LAS TRES DIMENSIONES"
+              title="Tres dimensiones, un solo estándar"
+              subtitle="Cada dimensión establece una exigencia distinta y complementaria. El estándar solo se cumple cuando las tres concurren."
+              centered
+            />
+
+            {/* Interactive Tabs */}
+            <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {EXCELENCIA_DIMENSIONS.map((dim) => {
+                const IconComp = DIMENSION_ICONS[dim.icon] || ShieldCheck;
+                const isActive = dim.id === selectedDimension;
+                return (
+                  <button
+                    key={dim.id}
+                    onClick={() => setSelectedDimension(dim.id)}
+                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                      isActive
+                        ? 'bg-black text-white border-black shadow-md'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  >
+                    <IconComp className="w-4 h-4 shrink-0" />
+                    <span className="whitespace-nowrap">{dim.tabLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Tab Detail View */}
+            <motion.div
+              key={activeDimensionObj.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            >
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                  {activeDimensionObj.subtitle}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-black">{activeDimensionObj.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeDimensionObj.description}</p>
+
+                <div className="space-y-3 pt-2">
+                  <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                    Atributos Clave:
+                  </span>
+                  <div className="flex flex-col gap-2.5 w-full">
+                    {activeDimensionObj.keyPoints.map((point, idx) => (
+                      <div
+                        key={idx}
+                        className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                        <span className="leading-snug">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                  {(() => {
+                    const DimIcon = DIMENSION_ICONS[activeDimensionObj.icon] || Layers;
+                    return <DimIcon className="w-8 h-8 text-white" />;
+                  })()}
+                </div>
+                <h4 className="text-lg sm:text-xl font-black text-black">
+                  {activeDimensionObj.impactTitle || 'Impacto de Negocio'}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                  {activeDimensionObj.impactDescription}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* 03. CIK - CICLO DE INTERVENCIÓN */}
+      {activeSection === 'onex' && (
+        <section id="onex" className="py-20 bg-slate-50/70 border-y border-slate-200 relative overflow-hidden">
+          {/* Subtle Visual Grid */}
+          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+            <SectionTitle
+              badge="INTERVENCIÓN OPERATIVA"
+              title="Fases de Intervención Continua"
+              subtitle="Siete funciones distintas dentro de una misma lógica de intervención."
+              centered
+            />
+
+            {/* Visual Cadence Stepper */}
+            <div className="flex items-center justify-center gap-2 flex-wrap pb-2">
+              {CIK_PHASES.map((phase) => (
+                <div
+                  key={phase.number}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold shadow-2xs"
+                >
+                  <span className="w-5 h-5 rounded-full bg-black text-white text-[10px] font-black flex items-center justify-center">
+                    {phase.number}
+                  </span>
+                  <span>{phase.name}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* 7 Fases Cards */}
+            <div className="space-y-4 sm:space-y-5 max-w-5xl mx-auto">
+              {CIK_PHASES.map((phase, idx) => (
+                <motion.div
+                  key={phase.number}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-black/30 hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
+                >
+                  <div className="lg:col-span-5 flex items-start sm:items-center gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center font-black text-lg sm:text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                      {phase.number < 10 ? `0${phase.number}` : phase.number}
+                    </div>
+                    <div>
+                      <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-700 block">
+                        {phase.descriptor}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-black text-black mt-0.5">
+                        {phase.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-7">
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      {phase.text}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="pt-6 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
+              >
+                <span>Solicitar Más Información sobre el CIK</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 04. CICLO INTEGRALX */}
+      {activeSection === 'integralx' && (
+        <section id="integralx" className="py-20 bg-white relative overflow-hidden">
+          {/* Subtle Visual Aid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
@@ -247,6 +622,7 @@ export default function Modelo() {
 
         </div>
       </section>
+      )}
 
     </div>
   );

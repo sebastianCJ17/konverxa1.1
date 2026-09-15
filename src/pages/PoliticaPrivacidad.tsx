@@ -18,8 +18,9 @@ export default function PoliticaPrivacidad() {
           { label: 'Inicio', path: '/' },
           { label: 'Política de Privacidad' }
         ]}
-        image="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
+        image="/banners/banner-certificaciones.png"
         imageAlt="Protección de datos y ciberseguridad"
+        showDownloadBtn={true}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">

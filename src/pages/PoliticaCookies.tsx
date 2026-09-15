@@ -18,8 +18,9 @@ export default function PoliticaCookies() {
           { label: 'Inicio', path: '/' },
           { label: 'Política de Cookies' }
         ]}
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+        image="/banners/banner-tecnologia.png"
         imageAlt="Seguridad y privacidad digital"
+        showDownloadBtn={true}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">

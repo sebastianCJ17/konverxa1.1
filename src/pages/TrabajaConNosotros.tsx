@@ -45,8 +45,9 @@ export default function TrabajaConNosotros() {
           { label: 'Inicio', path: '/' },
           { label: 'Trabaja con Nosotros' }
         ]}
-        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+        image="/banners/banner-carreras.png"
         imageAlt="Equipo de talento humano KONVERXA"
+        showDownloadBtn={true}
       />
 
       {/* Culture & Benefits */}

@@ -3,8 +3,9 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import GlobalNetworkMap from '../components/GlobalNetworkMap';
 import { COMPANY_INFO } from '../data/company';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Linkedin, ChevronDown, HelpCircle, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown, HelpCircle, ShieldCheck } from 'lucide-react';
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -36,27 +37,29 @@ export default function Contacto() {
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title="Contacto Corporativo & Consultoría BPO"
-        description="Ponte en contacto con el equipo ejecutivo de KONVERXA para coordinar una sesión consultiva sobre BPO, Contact Center y Customer Experience."
+        title="Ubicación & Presencia Internacional | KONVERXA"
+        description="Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con una misma forma de organizar, dirigir y controlar la operación."
       />
 
-      {/* Header Banner with Breadcrumbs & Outlined Watermark */}
+      {/* Bloque 01: Banner con Miga de Pan y Marca de Agua */}
       <PageBanner
-        title="CONTACTO"
-        watermark="CONTACTO"
+        title="PRESENCIA"
+        watermark="PRESENCIA"
         titleAccentColor="text-slate-900"
-        badge="Atención Ejecutiva"
-        headline="Inicia la Transformación de tu Operación"
-        description="Ponte en contacto directo con nuestro equipo directivo y consultores para estructurar una propuesta de servicio ajustada a tus objetivos."
+        badge="PRESENCIA INTERNACIONAL"
+        headline="Distintas geografías. Un mismo estándar."
+        description="Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con una misma forma de organizar, dirigir y controlar la operación."
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
-          { label: 'Contacto Corporativo' }
+          { label: 'Nosotros', path: '/nosotros' },
+          { label: 'Ubicación' }
         ]}
-        image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80"
-        imageAlt="Contacto y atención ejecutiva KONVERXA"
+        image="/banners/banner-contacto.png"
+        imageAlt="Ubicación y presencia internacional KONVERXA"
+        showDownloadBtn={true}
       />
 
-      {/* Form & Info Section */}
+      {/* Bloque 02: Información Institucional & Formulario */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid: Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
@@ -70,56 +73,63 @@ export default function Contacto() {
               <div className="space-y-4">
                 <h2 className="text-3xl font-black text-black">Información Institucional</h2>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Ofrecemos atención directa para corporaciones en América Latina y España con respuesta garantizada en menos de 24 horas hábiles.
+                  Respondemos en menos de 24 horas hábiles. Sin intermediarios ni formularios de seguimiento.
                 </p>
               </div>
 
-              <div className="space-y-6 text-sm text-slate-700">
+              <div className="space-y-4 text-sm text-slate-700">
+                {/* TARJETA 01 */}
                 <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div className="p-3 rounded-xl bg-slate-100 text-slate-800 shrink-0 border border-slate-300">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
                     <strong className="text-slate-900 block font-bold mb-1">Sede Central Corporativa</strong>
-                    <span className="text-xs text-slate-600 block">{COMPANY_INFO.contact.address}</span>
+                    <span className="text-xs text-slate-600 block font-medium">Pereira - Colombia</span>
                   </div>
                 </div>
 
+                {/* TARJETA 02 */}
                 <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div className="p-3 rounded-xl bg-slate-100 text-slate-800 shrink-0 border border-slate-300">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
                     <strong className="text-slate-900 block font-bold mb-1">Correos de Atención</strong>
-                    <a href={`mailto:${COMPANY_INFO.contact.email}`} className="text-xs text-slate-900 font-medium hover:underline block">
-                      General: {COMPANY_INFO.contact.email}
+                    <a href="mailto:administracion@konverxa.com" className="text-xs text-slate-900 font-medium hover:underline block">
+                      administración@konverxa.com
                     </a>
-                    <a href={`mailto:${COMPANY_INFO.contact.salesEmail}`} className="text-xs text-slate-900 font-medium hover:underline block mt-0.5">
-                      Ventas: {COMPANY_INFO.contact.salesEmail}
+                    <a href="mailto:comercial@konverxa.com" className="text-xs text-slate-900 font-medium hover:underline block mt-0.5">
+                      comercial@konverxa.com
                     </a>
                   </div>
                 </div>
 
+                {/* TARJETA 03 */}
                 <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div className="p-3 rounded-xl bg-slate-100 text-slate-800 shrink-0 border border-slate-300">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
                     <strong className="text-slate-900 block font-bold mb-1">Línea Telefónica Directa</strong>
-                    <a href={`tel:${COMPANY_INFO.contact.phone.replace(/\D/g,'')}`} className="text-xs text-slate-700 hover:text-black block">
-                      {COMPANY_INFO.contact.phone}
+                    <a href="tel:+573226282039" className="text-xs text-slate-700 hover:text-black font-medium block">
+                      (+57) 3226282039
                     </a>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-                <div className="flex items-center gap-2 text-slate-900 text-xs font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4 text-slate-800" /> Acuerdo de Confidencialidad (NDA)
+                {/* TARJETA 04: ACUERDO DE CONFIDENCIALIDAD (NDA) */}
+                <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                  <div className="p-3 rounded-xl bg-slate-100 text-slate-800 shrink-0 border border-slate-300">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block font-bold mb-1">ACUERDO DE CONFIDENCIALIDAD (NDA)</strong>
+                    <span className="text-xs text-slate-600 block leading-relaxed">
+                      Toda la información operativa compartida está protegida por acuerdos de confidencialidad.
+                    </span>
+                  </div>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Toda la información operacional y métricas compartidas están protegidas bajo estrictos convenios de confidencialidad y norma ISO 27001.
-                </p>
               </div>
             </div>
 
@@ -130,8 +140,8 @@ export default function Contacto() {
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-1">Solicita un Diagnóstico Operativo</h3>
-                      <p className="text-xs text-slate-500">Completa los campos a continuación y un consultor senior se comunicará contigo.</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-1">Enviar Solicitud de Consultoría</h3>
+                      <p className="text-xs text-slate-500">Completa los campos y nos pondremos en contacto contigo.</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
@@ -300,6 +310,13 @@ export default function Contacto() {
 
         </div>
       </section>
+
+      {/* Bloque 03: Mapa de Presencia Internacional y Conectividad Global */}
+      <GlobalNetworkMap
+        badge="PRESENCIA INTERNACIONAL"
+        title="Infraestructura Operativa Sin Fronteras"
+        subtitle="Operamos desde Colombia, Perú y España para atender América Latina, Europa y Estados Unidos con una misma forma de organizar, dirigir y controlar la operación."
+      />
 
       {/* Frequently Asked Questions (FAQ) Section */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">

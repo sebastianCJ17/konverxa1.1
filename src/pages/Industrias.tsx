@@ -34,8 +34,9 @@ export default function Industrias() {
           { label: 'Inicio', path: '/' },
           { label: 'Industrias y Mercados' }
         ]}
-        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+        image="/banners/banner-industrias.png"
         imageAlt="Sectores e industrias globales"
+        showDownloadBtn={true}
       />
 
       {/* Featured Modern Carousel */}

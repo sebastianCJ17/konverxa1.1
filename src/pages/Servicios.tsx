@@ -11,6 +11,44 @@ const ICON_MAP: Record<string, any> = {
   Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot
 };
 
+const SERVICE_BANNER_MAP: Record<string, { title: string; watermark: string; badge: string; image: string; imageAlt: string }> = {
+  'atencion-al-cliente': {
+    title: 'ATENCIÓN AL CLIENTE',
+    watermark: 'ATENCIÓN CX',
+    badge: 'Experiencia y Resolución',
+    image: '/banners/banner-atencion-cliente.png',
+    imageAlt: 'Atención al Cliente KONVERXA'
+  },
+  'ventas-telemarketing': {
+    title: 'VENTAS Y FIDELIZACIÓN',
+    watermark: 'VENTAS B2B',
+    badge: 'Conversión Comercial',
+    image: '/banners/banner-ventas-fidelizacion.png',
+    imageAlt: 'Ventas y Fidelización KONVERXA'
+  },
+  'backoffice-bpo': {
+    title: 'BACK OFFICE Y BPO',
+    watermark: 'BACK OFFICE',
+    badge: 'Gestión de Procesos Críticos',
+    image: '/banners/banner-backoffice-bpo.png',
+    imageAlt: 'Back Office y BPO KONVERXA'
+  },
+  'omnicanalidad-bots': {
+    title: 'CAPACIDADES INTEGRADAS',
+    watermark: 'TECNOLOGÍA IA',
+    badge: 'Omnicanalidad & Automatización',
+    image: '/banners/banner-capacidades-integradas.png',
+    imageAlt: 'Capacidades Integradas KONVERXA'
+  },
+  'cobranzas': {
+    title: 'RRHH Y APOYO PSICOSOCIAL',
+    watermark: 'TALENTO HUMANO',
+    badge: 'Gestión Humana y Bienestar',
+    image: '/banners/banner-gestion-humana.png',
+    imageAlt: 'RRHH y Apoyo Psicosocial KONVERXA'
+  }
+};
+
 export default function Servicios() {
   const { hash } = useLocation();
   const [activeTab, setActiveTab] = useState(SERVICES_DATA[0].id);
@@ -27,28 +65,37 @@ export default function Servicios() {
 
   const activeService = SERVICES_DATA.find((s) => s.id === activeTab) || SERVICES_DATA[0];
   const IconComp = ICON_MAP[activeService.iconName] || Headphones;
+  const currentBannerInfo = SERVICE_BANNER_MAP[activeService.id] || {
+    title: activeService.title.toUpperCase(),
+    watermark: activeService.title.toUpperCase(),
+    badge: 'Soluciones Corporativas BPO',
+    image: activeService.image || '/banners/banner-atencion-cliente.png',
+    imageAlt: activeService.title
+  };
 
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title="Servicios BPO, Contact Center & Omnicanalidad"
-        description="Explora las soluciones de KONVERXA: Atención al Cliente, Ventas y Fidelización, Capacidades Integradas con IA/RPA y Ciclo de Intervención."
+        title={`${currentBannerInfo.title} - Servicios BPO | KONVERXA`}
+        description={activeService.description}
       />
 
-      {/* Header Banner with Breadcrumbs & Outlined Watermark */}
+      {/* Header Banner with Dynamic Service Title, Outlined Watermark & Downloadable Image */}
       <PageBanner
-        title="SERVICIOS"
-        watermark="SERVICIOS"
+        title={currentBannerInfo.title}
+        watermark={currentBannerInfo.watermark}
         titleAccentColor="text-slate-900"
-        badge="Soluciones Corporativas BPO"
-        headline="Servicios Especializados de BPO & Customer Experience"
-        description="Combinamos tecnología avanzada, procesos optimizados y talento humano empático para gestionar cada interacción con excelencia y resultados medibles."
+        badge={currentBannerInfo.badge}
+        headline={activeService.tagline || activeService.title}
+        description={activeService.description}
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
-          { label: 'Servicios' }
+          { label: 'Servicios', path: '/servicios' },
+          { label: activeService.title }
         ]}
-        image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
-        imageAlt="Servicios de Contact Center y BPO"
+        image={currentBannerInfo.image}
+        imageAlt={currentBannerInfo.imageAlt}
+        showDownloadBtn={true}
       />
 
       {/* Service Selection Tabs */}

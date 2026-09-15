@@ -8,7 +8,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Onboarding, cobranzas, soporte y prevención de fraude.',
     fullDesc: 'Brindamos soporte de alta seguridad para entidades bancarias y empresas fintech, cubriendo onboarding digital de clientes, cobranzas especializadas, soporte en transacciones y protocolos estrictos para la prevención de fraude.',
     iconName: 'Landmark',
-    heroImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-fundamentos.png',
     keyChallenges: [
       'Validación e identificación segura en registro de usuarios.',
       'Prevención de mora y gestión de cobro oportuno.',
@@ -34,7 +34,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Pre-venta, post-venta, logística inversa y fidelización.',
     fullDesc: 'Acompañamos al comprador en toda su experiencia comercial. Gestionamos desde la orientación en pre-venta y resolución de dudas sobre productos hasta atención post-venta, logística inversa de cambios/devoluciones y programas de fidelización.',
     iconName: 'ShoppingBag',
-    heroImage: 'https://images.unsplash.com/photo-1556742049-0a67e51a6627?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-retail.png',
     keyChallenges: [
       'Elevados picos de demanda durante campañas y temporadas altas.',
       'Saturación en consultas de estado de pedidos y entregas.',
@@ -60,7 +60,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Agendamiento, telemedicina y seguimiento a pacientes.',
     fullDesc: 'Humanizamos la comunicación entre pacientes y centros médicos, clínicas y plataformas de salud. Coordinamos el agendamiento y confirmación de citas, soporte a servicios de telemedicina y acompañamiento en planes de salud y tratamientos.',
     iconName: 'Activity',
-    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-salud.png',
     keyChallenges: [
       'Líneas telefónicas saturadas para solicitud de citas.',
       'Ausentismo de pacientes por falta de recordatorios oportunos.',
@@ -112,7 +112,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Soporte técnico multinivel, retención y upgrades.',
     fullDesc: 'Optimizamos la atención al usuario final en operadoras de telecomunicaciones. Resolvemos incidencias técnicas en Nivel 1 y Nivel 2, ejecutamos planes de retención proactiva y gestionamos renovaciones e incremento de servicios.',
     iconName: 'Radio',
-    heroImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-telecomunicaciones.png',
     keyChallenges: [
       'Volumen alto de llamadas por incidentes de red o configuración.',
       'Evolución constante de ofertas de competidores y riesgo de churn.',
@@ -164,7 +164,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Asistencia, siniestros y renovaciones proactivas.',
     fullDesc: 'Brindamos tranquilidad y respuesta rápida a los asegurados en momentos decisivos. Gestionamos la recepción y reporte de siniestros, coordinación de asistencias inmediatas y campañas proactivas de renovación de pólizas.',
     iconName: 'ShieldCheck',
-    heroImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-seguros.png',
     keyChallenges: [
       'Llamadas de emergencia con alta carga de urgencia del usuario.',
       'Procesos complejos en registro y seguimiento de siniestros.',
@@ -190,7 +190,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Rastreos, gestión de entregas y atención a transportistas.',
     fullDesc: 'Aseguramos la eficiencia comunicacional en la cadena de suministro y envíos. Resolvemos dudas sobre rastreo de guías, gestionamos entregas con novedades y brindamos soporte en tiempo real a conductores y transportistas.',
     iconName: 'Truck',
-    heroImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-movilidad.png',
     keyChallenges: [
       'Alto volumen de consultas repetitivas de rastreo de paquete.',
       'Novedades en entregas de última milla (dirección incorrecta, ausencia).',
@@ -216,7 +216,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Soporte SaaS, onboarding de usuarios y retención de suscriptores.',
     fullDesc: 'Acompañamos a empresas de software, plataformas en la nube y startups tecnológicas en su escalamiento. Brindamos soporte técnico especializado, onboarding ágil y gestión proactiva para reducir el churn en modelos de suscripción.',
     iconName: 'Cpu',
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-tecnologia.png',
     keyChallenges: [
       'Curva de adopción y onboarding complejo para nuevos usuarios.',
       'Manejo de tickets técnicos con criticidad de uptime.',
@@ -242,7 +242,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     shortDesc: 'Gestión de averías, facturación, atención ciudadana y reclamos.',
     fullDesc: 'Soluciones integrales de contacto para empresas de energía, gas, agua y servicios domiciliarios. Atendemos reportes de fallas técnicas, aclaración de facturación y contingencias con alta disponibilidad 24/7.',
     iconName: 'Zap',
-    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/banners/banner-energia.png',
     keyChallenges: [
       'Picos extremos de llamadas durante interrupciones del servicio.',
       'Complejidad en aclaraciones de facturación y consumos.',

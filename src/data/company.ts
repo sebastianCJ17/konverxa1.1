@@ -12,24 +12,34 @@ export const COMPANY_INFO = {
   },
   values: [
     {
-      title: 'Disciplina Operativa',
-      desc: 'Ejecutamos cada proceso con rigor metodológico, medición constante y cumplimiento estricto de SLAs.',
+      number: '01',
+      title: 'Integridad',
+      desc: 'Actuamos con coherencia entre lo que decimos, decidimos y hacemos. Nuestro criterio no lo fija la situación, sino los principios que guían nuestra actuación.',
+      icon: 'ShieldCheck'
+    },
+    {
+      number: '02',
+      title: 'Disciplina',
+      desc: 'Aplicamos el método con la misma exigencia en cada operación, cada día. El desempeño no lo sostiene el esfuerzo excepcional: lo sostiene la repetición controlada.',
       icon: 'Target'
     },
     {
-      title: 'Excelencia Humana',
-      desc: 'Ponemos a las personas en el centro. Empatía, calidez y profesionalismo en cada conversación.',
-      icon: 'Heart'
+      number: '03',
+      title: 'Responsabilidad',
+      desc: 'Podemos distribuir tareas, decisiones y ejecución; no la responsabilidad sobre el resultado. Quien asume un compromiso responde por su desarrollo, sus desviaciones y su cierre.',
+      icon: 'Users'
     },
     {
-      title: 'Innovación Tecnológica',
-      desc: 'Integramos Inteligencia Artificial, RPA y analítica avanzada para resolver problemas complejos.',
-      icon: 'Cpu'
+      number: '04',
+      title: 'Rigor',
+      desc: 'El rigor comienza donde termina la conformidad y protege el estándar cuando ya nada falla. Cumplir es el punto de partida de nuestra propia exigencia.',
+      icon: 'CheckCircle2'
     },
     {
-      title: 'Transparencia & Confianza',
-      desc: 'Acceso total a métricas en tiempo real, comunicación directa y relaciones de largo plazo.',
-      icon: 'ShieldCheck'
+      number: '05',
+      title: 'Solidez',
+      desc: 'Somos sólidos cuando sostenemos el desempeño, respondemos a nuevas exigencias y evolucionamos sin perder coherencia. La solidez no surge de las circunstancias, sino del diseño.',
+      icon: 'Building2'
     }
   ],
   certifications: [

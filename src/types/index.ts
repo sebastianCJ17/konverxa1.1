@@ -67,9 +67,44 @@ export interface ModelPhase {
 
 export interface OneXPillar {
   id: string;
+  tabLabel?: string;
   title: string;
   subtitle: string;
   description: string;
   keyPoints: string[];
+  impactTitle?: string;
+  impactDescription?: string;
   icon: string;
 }
+
+export interface ExcelenciaDimension {
+  id: string;
+  tabLabel: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  keyPoints: string[];
+  impactTitle: string;
+  impactDescription: string;
+  icon: string;
+}
+
+export interface OneXDimension {
+  id: string;
+  tabLabel: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  keyPoints: string[];
+  impactTitle: string;
+  impactDescription: string;
+  icon: string;
+}
+
+export interface CikPhase {
+  number: number;
+  descriptor: string;
+  name: string;
+  text: string;
+}
+

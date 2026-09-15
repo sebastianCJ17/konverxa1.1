@@ -55,6 +55,7 @@ export default function IndustriaDetail() {
         ]}
         image={industry.heroImage}
         imageAlt={`Soluciones BPO para ${industry.name}`}
+        showDownloadBtn={true}
       />
 
       {/* Main Content Details */}

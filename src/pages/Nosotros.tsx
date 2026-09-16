@@ -131,6 +131,7 @@ export default function Nosotros() {
         setActiveSection(clean);
       }
     }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [hash, navigate]);
 
   const currentBanner = NOSOTROS_SECTIONS[activeSection] || NOSOTROS_SECTIONS['quienes-somos'];
@@ -142,9 +143,7 @@ export default function Nosotros() {
     }
     setActiveSection(key);
     navigate(`/nosotros#${key}`, { replace: true });
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 50);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   return (
@@ -239,13 +238,8 @@ export default function Nosotros() {
                     className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
                   >
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                          <IconComp className="w-6 h-6" />
-                        </div>
-                        <span className="text-xs font-mono font-bold text-slate-400">
-                          {(val as any).number || `0${idx + 1}`}
-                        </span>
+                      <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <IconComp className="w-6 h-6" />
                       </div>
                       <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
                       <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
@@ -282,11 +276,8 @@ export default function Nosotros() {
                   className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-6 hover:border-black/40 hover:bg-white hover:shadow-md transition-all duration-300 group"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3">
-                      <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-black text-white font-mono font-bold text-xs tracking-wider">
-                        {`N° 0${item.fase}`}
-                      </span>
-                      <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 group-hover:text-black transition-colors">
+                    <div className="border-b border-slate-200/80 pb-3">
+                      <span className="text-xs font-black uppercase tracking-wider text-slate-700 group-hover:text-black transition-colors">
                         {item.descriptor}
                       </span>
                     </div>

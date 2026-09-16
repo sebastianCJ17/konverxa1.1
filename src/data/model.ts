@@ -132,7 +132,7 @@ export const INTEGRALX_PHASES: ModelPhase[] = [
 export const EXCELENCIA_DIMENSIONS: ExcelenciaDimension[] = [
   {
     id: 'operativa',
-    tabLabel: '01 · Excelencia Operativa',
+    tabLabel: 'Excelencia Operativa',
     title: 'Excelencia Operativa',
     subtitle: 'EJECUCIÓN y CONTROL',
     description: 'Capacidad de ejecutar con consistencia. Una operación cumple esta dimensión cuando su desempeño no depende del día, de la carga ni de quién esté al frente.',
@@ -147,7 +147,7 @@ export const EXCELENCIA_DIMENSIONS: ExcelenciaDimension[] = [
   },
   {
     id: 'organizacional',
-    tabLabel: '02 · Excelencia Organizacional',
+    tabLabel: 'Excelencia Organizacional',
     title: 'Excelencia Organizacional',
     subtitle: 'ESTRUCTURA y GOBIERNO',
     description: 'Capacidad de sostener, aprender y evolucionar. Una organización cumple esta dimensión cuando mantiene su funcionamiento, desarrolla sus capacidades y responde a nuevas exigencias sin depender de soluciones circunstanciales.',
@@ -162,7 +162,7 @@ export const EXCELENCIA_DIMENSIONS: ExcelenciaDimension[] = [
   },
   {
     id: 'etica',
-    tabLabel: '03 · Excelencia Ética',
+    tabLabel: 'Excelencia Ética',
     title: 'Excelencia Ética',
     subtitle: 'COHERENCIA y RESPONSABILIDAD',
     description: 'Capacidad de actuar con coherencia y responsabilidad incluso bajo presión por el resultado. Una operación cumple esta dimensión cuando lo que promete, ejecuta y comunica responde al mismo criterio y puede contrastarse sin contradicción..',
@@ -225,7 +225,7 @@ export const CIK_PHASES: CikPhase[] = [
 export const ONEX_DIMENSIONS: OneXDimension[] = [
   {
     id: 'cx',
-    tabLabel: '01. CX · La Promesa',
+    tabLabel: 'CX · La Promesa',
     title: 'CX · Customer Xperience',
     subtitle: 'PROMESA',
     description: 'Lee si la organización entrega de forma consistente lo que prometió al mercado. La experiencia del cliente no es un resultado aislado: es la manifestación visible del funcionamiento del conjunto.',
@@ -240,7 +240,7 @@ export const ONEX_DIMENSIONS: OneXDimension[] = [
   },
   {
     id: 'ex',
-    tabLabel: '02. EX · Las Personas',
+    tabLabel: 'EX · Las Personas',
     title: 'EX · Employee Xperience',
     subtitle: 'PERSONAS',
     description: 'Lee si las personas disponen de las condiciones necesarias para cumplir lo que la organización promete, y qué explica sus desviaciones.',
@@ -255,7 +255,7 @@ export const ONEX_DIMENSIONS: OneXDimension[] = [
   },
   {
     id: 'ox',
-    tabLabel: '03. OX · La Capacidad',
+    tabLabel: 'OX · La Capacidad',
     title: 'OX · Organization Xperience',
     subtitle: 'CAPACIDAD',
     description: 'Lee si la organización tiene capacidad real para sostener lo que promete, en términos económicos, operativos y de crecimiento.',

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
-import IntegralXSeal from '../components/IntegralXSeal';
 import { ONEX_PILLARS, INTEGRALX_PHASES, EXCELENCIA_DIMENSIONS, ONEX_DIMENSIONS, CIK_PHASES } from '../data/model';
 import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale } from 'lucide-react';
 
@@ -15,6 +14,8 @@ const PILLAR_ICONS: Record<string, any> = {
 const DIMENSION_ICONS: Record<string, any> = {
   Target, Users, Building2, Activity, Scale, ShieldCheck
 };
+
+const CIK_ICONS = [Target, Cpu, ArrowRight, Activity, BarChart3, Users, CheckCircle2];
 
 type ModeloSectionKey = 'vision-general' | 'excelencia-integral' | 'onex' | 'cik' | 'integralx';
 
@@ -94,20 +95,21 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
 
 export default function Modelo() {
   const { hash } = useLocation();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<ModeloSectionKey>('vision-general');
   const [selectedPillar, setSelectedPillar] = useState(ONEX_PILLARS[0].id);
   const [selectedDimension, setSelectedDimension] = useState(EXCELENCIA_DIMENSIONS[0].id);
   const [selectedOneXDim, setSelectedOneXDim] = useState(ONEX_DIMENSIONS[0].id);
 
-  // Sync active section with URL hash
+  // Sync active section with URL hash and ensure top banner is visible
   useEffect(() => {
     if (hash) {
       const clean = hash.replace('#', '');
       if (clean in MODELO_SECTIONS) {
         setActiveSection(clean as ModeloSectionKey);
-        return;
       }
     }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [hash]);
 
   const currentBanner = MODELO_SECTIONS[activeSection] || MODELO_SECTIONS['vision-general'];
@@ -117,14 +119,8 @@ export default function Modelo() {
 
   const handleSectionSelect = (key: ModeloSectionKey) => {
     setActiveSection(key);
-    setTimeout(() => {
-      const elem = document.getElementById(key);
-      if (elem) {
-        elem.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 50);
+    navigate(`/modelo#${key}`, { replace: true });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   return (
@@ -581,12 +577,10 @@ export default function Modelo() {
             <div className="flex items-center justify-center gap-2 flex-wrap pb-2">
               {CIK_PHASES.map((phase) => (
                 <div
-                  key={phase.number}
+                  key={phase.name}
                   className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold shadow-2xs"
                 >
-                  <span className="w-5 h-5 rounded-full bg-black text-white text-[10px] font-black flex items-center justify-center">
-                    {phase.number}
-                  </span>
+                  <span className="w-2 h-2 rounded-full bg-black"></span>
                   <span>{phase.name}</span>
                 </div>
               ))}
@@ -594,36 +588,39 @@ export default function Modelo() {
 
             {/* 7 Fases Cards */}
             <div className="space-y-4 sm:space-y-5 max-w-5xl mx-auto">
-              {CIK_PHASES.map((phase, idx) => (
-                <motion.div
-                  key={phase.number}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: idx * 0.04 }}
-                  className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-black/30 hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
-                >
-                  <div className="lg:col-span-5 flex items-start sm:items-center gap-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black text-white flex items-center justify-center font-black text-lg sm:text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                      {phase.number < 10 ? `0${phase.number}` : phase.number}
+              {CIK_PHASES.map((phase, idx) => {
+                const PhaseIcon = CIK_ICONS[idx % CIK_ICONS.length] || Target;
+                return (
+                  <motion.div
+                    key={phase.name}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: idx * 0.04 }}
+                    className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-black/30 hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
+                  >
+                    <div className="lg:col-span-5 flex items-start sm:items-center gap-4">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center shrink-0 shadow-xs group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <PhaseIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-700 block">
+                          {phase.descriptor}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-black text-black mt-0.5">
+                          {phase.name}
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-700 block">
-                        {phase.descriptor}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-black text-black mt-0.5">
-                        {phase.name}
-                      </h3>
-                    </div>
-                  </div>
 
-                  <div className="lg:col-span-7">
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                      {phase.text}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="lg:col-span-7">
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        {phase.text}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="pt-6 text-center">
@@ -650,8 +647,12 @@ export default function Modelo() {
           {/* Bloque 02: Sello + Pastilla + Palabra Principal + Titular + Bajada */}
           <div className="text-center mx-auto max-w-4xl space-y-4">
             {/* LOGO SELLO sobre la pastilla */}
-            <div className="flex justify-center mb-3">
-              <IntegralXSeal className="w-24 h-24 sm:w-28 sm:h-28" />
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <img
+                src="/integralxlogo.png"
+                alt="Sello IntegralX™ Acreditación Operativa"
+                className="h-44 sm:h-52 md:h-60 w-auto object-contain drop-shadow-md"
+              />
             </div>
 
             {/* PASTILLA */}
@@ -687,8 +688,8 @@ export default function Modelo() {
                 className="p-8 rounded-3xl bg-slate-50/90 backdrop-blur-xs border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hover:border-black/30 transition-all shadow-xs"
               >
                 <div className="lg:col-span-4 flex items-start gap-4">
-                  <div className="text-5xl font-black text-black shrink-0">
-                    {phase.number}
+                  <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                    <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-700 block">

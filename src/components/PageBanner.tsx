@@ -37,19 +37,35 @@ export default function PageBanner({
   const isLongWatermark = displayWatermark.length > 11;
 
   return (
-    <section className="relative w-full min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] pt-28 sm:pt-32 pb-14 sm:pb-16 flex items-center bg-[#f8f9fa] text-slate-900 overflow-hidden font-sans border-b border-slate-200">
+    <section className="relative w-full min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] pt-28 sm:pt-32 pb-14 sm:pb-16 flex items-center bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Right Side Team / Professional Image with Smooth Left Fade */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none overflow-hidden">
+      {/* Right Side Team / Professional Image with Ultra-Smooth White Diffusion Blend */}
+      <div
+        className="absolute top-0 right-0 w-full lg:w-[64%] xl:w-[60%] h-full pointer-events-none overflow-hidden"
+        style={{
+          WebkitMaskImage:
+            'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.06) 18%, rgba(0,0,0,0.18) 30%, rgba(0,0,0,0.42) 46%, rgba(0,0,0,0.72) 65%, rgba(0,0,0,0.92) 82%, black 95%)',
+          maskImage:
+            'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.06) 18%, rgba(0,0,0,0.18) 30%, rgba(0,0,0,0.42) 46%, rgba(0,0,0,0.72) 65%, rgba(0,0,0,0.92) 82%, black 95%)',
+        }}
+      >
         <img
           src={image}
           alt={imageAlt}
-          className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.96] contrast-[1.03]"
+          className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.98] contrast-[1.02]"
         />
-        {/* Multi-layered smooth gradient fade to seamlessly merge with left background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f8f9fa] via-[#f8f9fa]/90 to-transparent lg:via-[#f8f9fa]/75"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f8f9fa] via-transparent to-[#f8f9fa]/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa]/70 via-transparent to-transparent lg:hidden"></div>
+        {/* Layer 1: Broad multi-stop white-to-transparent progressive gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-white/40 to-transparent"></div>
+        
+        {/* Layer 2: Extra soft horizontal feathering on the left blend zone */}
+        <div className="absolute inset-0 w-3/5 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+
+        {/* Layer 3: Top and Bottom subtle blends to dissolve cleanly into section borders */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent"></div>
+
+        {/* Layer 4: Mobile & Tablet overlay ensuring pristine legibility */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/70"></div>
       </div>
 
       {/* Massive Watermark Typography behind */}

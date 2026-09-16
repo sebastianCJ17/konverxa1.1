@@ -106,6 +106,13 @@ export default function Header() {
                         onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
+                        OneX
+                      </Link>
+                      <Link
+                        to="/modelo#cik"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                      >
                         CIK · Ciclo de Intervención
                       </Link>
                       <Link
@@ -321,11 +328,11 @@ export default function Header() {
                         Misión / Visión
                       </Link>
                       <Link
-                        to="/nosotros#quienes-somos"
+                        to="/nosotros#sostenibilidad"
                         onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        Capacidades
+                        Sostenibilidad y RSE
                       </Link>
                       <Link
                         to="/nosotros#certificaciones"
@@ -392,7 +399,8 @@ export default function Header() {
                   <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/modelo#vision-general" onClick={() => setMobileMenuOpen(false)}>Visión General</Link>
                     <Link to="/modelo#excelencia-integral" onClick={() => setMobileMenuOpen(false)}>Excelencia Integral</Link>
-                    <Link to="/modelo#onex" onClick={() => setMobileMenuOpen(false)}>CIK · Ciclo de Intervención</Link>
+                    <Link to="/modelo#onex" onClick={() => setMobileMenuOpen(false)}>OneX</Link>
+                    <Link to="/modelo#cik" onClick={() => setMobileMenuOpen(false)}>CIK · Ciclo de Intervención</Link>
                     <Link to="/modelo#integralx" onClick={() => setMobileMenuOpen(false)}>IntegralX™ Accredited</Link>
                   </div>
                 )}

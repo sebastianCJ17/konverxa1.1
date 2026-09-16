@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import IntegralXSeal from '../components/IntegralXSeal';
 import { ONEX_PILLARS, INTEGRALX_PHASES, EXCELENCIA_DIMENSIONS, ONEX_DIMENSIONS, CIK_PHASES } from '../data/model';
 import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale } from 'lucide-react';
 
@@ -82,12 +83,12 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     watermark: 'INTEGRALX',
     watermarkFilled: true,
     badge: 'ACREDITACIÓN OPERATIVA',
-    headline: 'Sistema de Acreditación · IntegralX™',
-    description: 'KONVERXA acredita mediante IntegralX™ aquello que la evidencia permite considerar demostrado: que una operación funciona bajo el estándar de Excelencia Integral.',
-    breadcrumbLabel: 'Modelo IntegralX™',
+    headline: 'Sello de Acreditación · IntegralX™',
+    description: 'IntegralX™ es el sello con el que KONVERXA reconoce que una operación funciona bajo su estándar. No acredita intenciones ni esfuerzo: solo lo que la evidencia permite demostrar.',
+    breadcrumbLabel: 'IntegralX™',
     tabLabel: 'IntegralX™ Accredited',
-    image: '/banners/banner-ciclo-integralx.png',
-    imageAlt: 'Sistema de Acreditación · IntegralX™'
+    image: '/banners/banner-integralx.jpg',
+    imageAlt: 'Sello de Acreditación · IntegralX™'
   }
 };
 
@@ -169,7 +170,8 @@ export default function Modelo() {
             : activeSection === 'integralx'
             ? [
                 { label: 'Inicio', path: '/' },
-                { label: 'Modelo IntegralX™' }
+                { label: 'Modelo', path: '/modelo' },
+                { label: 'IntegralX™' }
               ]
             : [
                 { label: 'Inicio', path: '/' },
@@ -476,9 +478,94 @@ export default function Modelo() {
         </section>
       )}
 
-      {/* 03. CIK - CICLO DE INTERVENCIÓN */}
+      {/* 03. ONEX - LECTURA Y EVIDENCIA */}
       {activeSection === 'onex' && (
-        <section id="onex" className="py-20 bg-slate-50/70 border-y border-slate-200 relative overflow-hidden">
+        <section id="onex" className="py-20 bg-slate-50 border-y border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionTitle
+              badge="LECTURA DE TRES DIMENSIONES"
+              title="Tres dimensiones, una sola realidad operativa"
+              subtitle="Cada dimensión responde una pregunta distinta y necesaria. Ninguna describe por sí sola la realidad de una operación."
+              centered
+            />
+
+            {/* Interactive Tabs */}
+            <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {ONEX_DIMENSIONS.map((d) => {
+                const IconComp = DIMENSION_ICONS[d.icon] || Target;
+                const isActive = d.id === selectedOneXDim;
+                return (
+                  <button
+                    key={d.id}
+                    onClick={() => setSelectedOneXDim(d.id)}
+                    className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                      isActive
+                        ? 'bg-black text-white border-black shadow-md'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  >
+                    <IconComp className="w-4 h-4 shrink-0" />
+                    <span className="whitespace-nowrap">{d.tabLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Tab Detail View */}
+            <motion.div
+              key={activeOneXDimObj.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            >
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                  {activeOneXDimObj.subtitle}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-black">{activeOneXDimObj.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeOneXDimObj.description}</p>
+
+                <div className="space-y-3 pt-2">
+                  <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                    Atributos Clave:
+                  </span>
+                  <div className="flex flex-col gap-2.5 w-full">
+                    {activeOneXDimObj.keyPoints.map((point, idx) => (
+                      <div
+                        key={idx}
+                        className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                        <span className="leading-snug">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                  {(() => {
+                    const DimIcon = DIMENSION_ICONS[activeOneXDimObj.icon] || Target;
+                    return <DimIcon className="w-8 h-8 text-white" />;
+                  })()}
+                </div>
+                <h4 className="text-lg sm:text-xl font-black text-black">
+                  {activeOneXDimObj.impactTitle || 'Impacto de Negocio'}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                  {activeOneXDimObj.impactDescription}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* 04. CIK - CICLO DE INTERVENCIÓN */}
+      {activeSection === 'cik' && (
+        <section id="cik" className="py-20 bg-slate-50/70 border-y border-slate-200 relative overflow-hidden">
           {/* Subtle Visual Grid */}
           <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
@@ -560,12 +647,34 @@ export default function Modelo() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
           
-          <SectionTitle
-            badge="Metodología de Proyectos"
-            title="Ciclo de Intervención IntegralX"
-            subtitle="Fases secuenciales diseñadas para una transición segura, estabilización oportuna y escalabilidad continua."
-            centered
-          />
+          {/* Bloque 02: Sello + Pastilla + Palabra Principal + Titular + Bajada */}
+          <div className="text-center mx-auto max-w-4xl space-y-4">
+            {/* LOGO SELLO sobre la pastilla */}
+            <div className="flex justify-center mb-3">
+              <IntegralXSeal className="w-24 h-24 sm:w-28 sm:h-28" />
+            </div>
+
+            {/* PASTILLA */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+              ACREDITACIÓN OPERATIVA
+            </div>
+
+            {/* PALABRA PRINCIPAL NEGRA + TITULAR GRANDE */}
+            <div className="space-y-1.5">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block">
+                INTEGRALX™
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-tight leading-tight text-black">
+                Construido para sostener tu promesa de negocio
+              </h2>
+            </div>
+
+            {/* BAJADA */}
+            <p className="text-base sm:text-lg leading-relaxed max-w-3xl mx-auto text-slate-600">
+              Operamos con un estándar propio y con un sistema que demuestra que se cumple.
+            </p>
+          </div>
 
           <div className="space-y-8">
             {INTEGRALX_PHASES.map((phase, idx) => (

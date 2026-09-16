@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import QuienesSomosView from '../components/QuienesSomosView';
 import { COMPANY_INFO } from '../data/company';
 import { Building2, ShieldCheck, Target, Heart, Cpu, ArrowRight, Award, CheckCircle2, Globe, Leaf, Users } from 'lucide-react';
 
@@ -140,10 +141,10 @@ export default function Nosotros() {
       return;
     }
     setActiveSection(key);
-    const elem = document.getElementById(key);
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(`/nosotros#${key}`, { replace: true });
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
   };
 
   return (
@@ -165,7 +166,8 @@ export default function Nosotros() {
           activeSection === 'quienes-somos'
             ? [
                 { label: 'Inicio', path: '/' },
-                { label: 'Nosotros' }
+                { label: 'Nosotros', path: '/nosotros' },
+                { label: 'Quiénes Somos' }
               ]
             : [
                 { label: 'Inicio', path: '/' },
@@ -206,229 +208,187 @@ export default function Nosotros() {
         </div>
       </div>
 
-      {/* Identity & Corporate Philosophy */}
-      <section id="quienes-somos" className="py-20 bg-white relative overflow-hidden">
-        {/* Subtle Visual Aid: Dot grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+      {/* 01. QUIÉNES SOMOS - NUEVO DISEÑO DISRUPTIVO Y ELEVADO */}
+      {activeSection === 'quienes-somos' && (
+        <section id="quienes-somos" className="py-8 bg-white relative overflow-hidden">
+          <QuienesSomosView />
+        </section>
+      )}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <SectionTitle
-                badge="Propósito Institucional"
-                title="Transformamos la Operación en una Ventaja Competitiva"
-                subtitle="Nuestra propuesta trasciende el esquema convencional de outsourcing. Nos involucramos activamente en la estrategia de nuestros clientes."
-              />
+      {/* 02. FUNDAMENTOS CORPORATIVOS */}
+      {activeSection === 'fundamentos' && (
+        <section id="fundamentos" className="py-20 bg-slate-50 border-y border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <SectionTitle
+              badge="PRINCIPIOS DE GESTIÓN"
+              title="Nuestros Fundamentos Corporativos"
+              subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
+              centered
+            />
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Fundada bajo los más altos estándares de consultoría internacional, KONVERXA opera centros de interacción inteligentes con presencia regional en América Latina y conectividad global.
-              </p>
-
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700">
-                  <Globe className="w-5 h-5 text-slate-800 shrink-0" />
-                  <span>Atención multilingüe y cobertura regional multizonas.</span>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700">
-                  <ShieldCheck className="w-5 h-5 text-slate-800 shrink-0" />
-                  <span>Infraestructura certificada ISO 27001 y PCI-DSS.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
-                alt="Centro de Operaciones KONVERXA"
-                className="rounded-2xl object-cover h-64 w-full border border-slate-200 shadow-md"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80"
-                alt="Reunión directiva KONVERXA"
-                className="rounded-2xl object-cover h-64 w-full border border-slate-200 shadow-md mt-8"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {COMPANY_INFO.values.map((val, idx) => {
+                const IconComp = VALUE_ICONS[val.icon] || Target;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                          <IconComp className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-mono font-bold text-slate-400">
+                          {(val as any).number || `0${idx + 1}`}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
+        </section>
+      )}
 
-        </div>
-      </section>
+      {/* 03. DECLARACIONES INSTITUCIONALES - MISIÓN Y VISIÓN */}
+      {activeSection === 'mision-vision' && (
+        <section id="mision-vision" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-      {/* Values Grid - Fundamentos Corporativos */}
-      <section id="fundamentos" className="py-20 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <SectionTitle
-            badge="PRINCIPIOS DE GESTIÓN"
-            title="Nuestros Fundamentos Corporativos"
-            subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
-            centered
-          />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+            <SectionTitle
+              badge="DECLARACIONES INSTITUCIONALES"
+              title="Nuestra Filosofía"
+              subtitle="Lo que KONVERXA cree, por qué existe, qué hace y qué aspira a demostrar."
+              centered
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {COMPANY_INFO.values.map((val, idx) => {
-              const IconComp = VALUE_ICONS[val.icon] || Target;
-              return (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {FILOSOFIA_DECLARACIONES.map((item, idx) => (
                 <motion.div
-                  key={idx}
+                  key={item.fase}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-6 hover:border-black/40 hover:bg-white hover:shadow-md transition-all duration-300 group"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                        <IconComp className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-mono font-bold text-slate-400">
-                        {(val as any).number || `0${idx + 1}`}
+                    <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3">
+                      <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-black text-white font-mono font-bold text-xs tracking-wider">
+                        {`N° 0${item.fase}`}
+                      </span>
+                      <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 group-hover:text-black transition-colors">
+                        {item.descriptor}
                       </span>
                     </div>
-                    <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
+
+                    <div className="pt-1">
+                      <h3 className="text-2xl font-black text-black tracking-tight">
+                        {item.nombre}
+                      </h3>
+                    </div>
+
+                    <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      {item.texto}
+                    </p>
                   </div>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
+        </section>
+      )}
 
-        </div>
-      </section>
+      {/* 04. CERTIFICACIONES */}
+      {activeSection === 'certificaciones' && (
+        <section id="certificaciones" className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-      {/* Declaraciones Institucionales - Misión y Visión */}
-      <section id="mision-vision" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
-        {/* Subtle Visual Aid: Dot grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+            <SectionTitle
+              badge="Gobernanza & Cumplimiento"
+              title="Estándares de Calidad Internacional"
+              subtitle="Garantizamos seguridad informática, protección de datos personales y rigurosidad operativa."
+              centered
+            />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          <SectionTitle
-            badge="DECLARACIONES INSTITUCIONALES"
-            title="Nuestra Filosofía"
-            subtitle="Lo que KONVERXA cree, por qué existe, qué hace y qué aspira a demostrar."
-            centered
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {FILOSOFIA_DECLARACIONES.map((item, idx) => (
-              <motion.div
-                key={item.fase}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-6 hover:border-black/40 hover:bg-white hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="space-y-4">
-                  {/* Top Bar: N° Fase + Descriptor de Fase */}
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3">
-                    <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-black text-white font-mono font-bold text-xs tracking-wider">
-                      {`N° 0${item.fase}`}
-                    </span>
-                    <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 group-hover:text-black transition-colors">
-                      {item.descriptor}
-                    </span>
-                  </div>
-
-                  {/* Nombre de Fase */}
-                  <div className="pt-1">
-                    <h3 className="text-2xl font-black text-black tracking-tight">
-                      {item.nombre}
-                    </h3>
-                  </div>
-
-                  {/* Texto descriptivo */}
-                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                    {item.texto}
-                  </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {COMPANY_INFO.certifications.map((cert, idx) => (
+                <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-2">
+                  <Award className="w-8 h-8 text-black mx-auto mb-2" />
+                  <h4 className="text-lg font-black text-black">{cert.name}</h4>
+                  <p className="text-xs text-slate-600">{cert.label}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Showcase */}
-      <section id="certificaciones" className="py-20 bg-white relative overflow-hidden">
-        {/* Subtle Visual Aid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          
-          <SectionTitle
-            badge="Gobernanza & Cumplimiento"
-            title="Estándares de Calidad Internacional"
-            subtitle="Garantizamos seguridad informática, protección de datos personales y rigurosidad operativa."
-            centered
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {COMPANY_INFO.certifications.map((cert, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-2">
-                <Award className="w-8 h-8 text-black mx-auto mb-2" />
-                <h4 className="text-lg font-black text-black">{cert.name}</h4>
-                <p className="text-xs text-slate-600">{cert.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-8 text-center">
-            <Link
-              to="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
-            >
-              <span>Conectar con un Ejecutivo Corporativo</span>
-              <ArrowRight className="w-4 h-4 text-white" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Sostenibilidad & RSE */}
-      <section id="sostenibilidad" className="py-20 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          <SectionTitle
-            badge="Responsabilidad Social Corporativa"
-            title="Sostenibilidad e Impacto Comunitario"
-            subtitle="El crecimiento empresarial solo tiene sentido cuando genera bienestar social, inclusión laboral y respeto por el medio ambiente."
-            centered
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
-                <Users className="w-6 h-6 text-black" />
-              </div>
-              <h4 className="text-xl font-black text-black">Empleo Digno e Inclusión</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Priorizamos la vinculación laboral de jóvenes en su primer empleo y madres cabeza de hogar, con capacitación continua en la Universidad Konverxa y planes de carrera claros.
-              </p>
+              ))}
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
-                <Heart className="w-6 h-6 text-black" />
-              </div>
-              <h4 className="text-xl font-black text-black">Bienestar y Salud Mental</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Programas permanentes de acompañamiento psicosocial, pausas activas, zonas de relajación y balance vida-trabajo para todos nuestros colaboradores.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-black" />
-              </div>
-              <h4 className="text-xl font-black text-black">Operación Cero Papel</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Centros de contacto 100% digitalizados, eficiencia energética y reducción sostenida de huella de carbono en todas nuestras instalaciones operativas.
-              </p>
+            <div className="pt-8 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
+              >
+                <span>Conectar con un Ejecutivo Corporativo</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 05. SOSTENIBILIDAD & RSE */}
+      {activeSection === 'sostenibilidad' && (
+        <section id="sostenibilidad" className="py-20 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+            <SectionTitle
+              badge="Responsabilidad Social Corporativa"
+              title="Sostenibilidad e Impacto Comunitario"
+              subtitle="El crecimiento empresarial solo tiene sentido cuando genera bienestar social, inclusión laboral y respeto por el medio ambiente."
+              centered
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                  <Users className="w-6 h-6 text-black" />
+                </div>
+                <h4 className="text-xl font-black text-black">Empleo Digno e Inclusión</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Priorizamos la vinculación laboral de jóvenes en su primer empleo y madres cabeza de hogar, con capacitación continua en la Universidad Konverxa y planes de carrera claros.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-black" />
+                </div>
+                <h4 className="text-xl font-black text-black">Bienestar y Salud Mental</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Programas permanentes de acompañamiento psicosocial, pausas activas, zonas de relajación y balance vida-trabajo para todos nuestros colaboradores.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center">
+                  <Leaf className="w-6 h-6 text-black" />
+                </div>
+                <h4 className="text-xl font-black text-black">Operación Cero Papel</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Centros de contacto 100% digitalizados, eficiencia energética y reducción sostenida de huella de carbono en todas nuestras instalaciones operativas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
     </div>
   );

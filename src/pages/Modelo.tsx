@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import { ONEX_PILLARS, INTEGRALX_PHASES, EXCELENCIA_DIMENSIONS, ONEX_DIMENSIONS, CIK_PHASES } from '../data/model';
 import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale } from 'lucide-react';
 
@@ -87,7 +88,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     headline: 'Sello de Acreditación · IntegralX™',
     description: 'IntegralX™ es el sello con el que KONVERXA reconoce que una operación funciona bajo su estándar. No acredita intenciones ni esfuerzo: solo lo que la evidencia permite demostrar.',
     breadcrumbLabel: 'IntegralX™',
-    tabLabel: 'IntegralX™ Accredited',
+    tabLabel: 'IntegralX™',
     image: '/banners/banner-integralx.jpg',
     imageAlt: 'Sello de Acreditación · IntegralX™'
   }
@@ -181,32 +182,15 @@ export default function Modelo() {
       />
 
       {/* Quick Section Switcher Bar */}
-      <div className="bg-slate-100 border-b border-slate-200 sticky top-16 sm:top-18 z-20 backdrop-blur-md bg-slate-100/95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between overflow-x-auto gap-2 scrollbar-none">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap hidden md:inline-block">
-            Módulos del Modelo:
-          </span>
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {(Object.keys(MODELO_SECTIONS) as ModeloSectionKey[]).map((key) => {
-              const sec = MODELO_SECTIONS[key];
-              const isActive = activeSection === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => handleSectionSelect(key)}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                    isActive
-                      ? 'bg-black text-white shadow-xs'
-                      : 'bg-white text-slate-700 hover:bg-slate-200 hover:text-black border border-slate-200'
-                  }`}
-                >
-                  {sec.tabLabel || sec.breadcrumbLabel}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <SectionSwitcherBar
+        badgeLabel="MÓDULOS DEL MODELO"
+        items={(Object.keys(MODELO_SECTIONS) as ModeloSectionKey[]).map((key) => ({
+          id: key,
+          label: MODELO_SECTIONS[key].tabLabel || MODELO_SECTIONS[key].breadcrumbLabel
+        }))}
+        activeId={activeSection}
+        onSelect={(id) => handleSectionSelect(id as ModeloSectionKey)}
+      />
 
       {/* 01. VISIÓN GENERAL */}
       {activeSection === 'vision-general' && (
@@ -216,19 +200,29 @@ export default function Modelo() {
             {/* Subtle Visual Aid: Dot grid */}
             <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+              <div className="text-center mx-auto max-w-5xl space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  VISIÓN GENERAL
+                </div>
+                <div className="space-y-1.5 max-w-5xl mx-auto text-center">
+                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block text-center">
+                    MODELO OPERATIVO
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight leading-tight text-black text-center whitespace-normal lg:whitespace-nowrap">
+                    De la operación convencional al Modelo Operativo KONVERXA
+                  </h2>
+                </div>
+                <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600">
+                  En la externalización, la decisión suele tomarse por tamaño y precio. El Modelo Operativo KONVERXA introduce otro criterio: cómo se organiza, se dirige y se controla la operación.
+                </p>
+              </div>
+
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Bloque Izquierda */}
                 <div className="lg:col-span-6 space-y-6">
-                  <SectionTitle
-                    badge="VISIÓN GENERAL"
-                    title="De la operación convencional al Modelo Operativo KONVERXA"
-                  />
-
                   <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                    <p>
-                      En la externalización, la decisión suele tomarse por tamaño y precio. El Modelo Operativo KONVERXA introduce otro criterio: cómo se organiza, se dirige y se controla la operación.
-                    </p>
                     <p>
                       Cada operación se gobierna bajo un mismo modelo: un estándar que define qué significa operar con excelencia, un sistema que lee la realidad y produce evidencia, un ciclo que ordena la intervención y una acreditación que reconoce, sobre esa evidencia, el cumplimiento del estándar.
                     </p>
@@ -392,13 +386,24 @@ export default function Modelo() {
           {/* Subtle Visual Aid */}
           <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionTitle
-              badge="LAS TRES DIMENSIONES"
-              title="Tres dimensiones, un solo estándar"
-              subtitle="Cada dimensión establece una exigencia distinta y complementaria. El estándar solo se cumple cuando las tres concurren."
-              centered
-            />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+            <div className="text-center mx-auto max-w-5xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                LAS TRES DIMENSIONES
+              </div>
+              <div className="space-y-1.5 max-w-5xl mx-auto text-center">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block text-center">
+                  EXCELENCIA INTEGRAL
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[40px] font-black tracking-tight leading-tight text-black text-center whitespace-normal md:whitespace-nowrap">
+                  Tres dimensiones, un solo estándar
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600 whitespace-normal md:whitespace-nowrap">
+                Cada dimensión establece una exigencia distinta y complementaria. El estándar solo se cumple cuando las tres concurren.
+              </p>
+            </div>
 
             {/* Interactive Tabs */}
             <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
@@ -477,13 +482,26 @@ export default function Modelo() {
       {/* 03. ONEX - LECTURA Y EVIDENCIA */}
       {activeSection === 'onex' && (
         <section id="onex" className="py-20 bg-slate-50 border-y border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionTitle
-              badge="LECTURA DE TRES DIMENSIONES"
-              title="Tres dimensiones, una sola realidad operativa"
-              subtitle="Cada dimensión responde una pregunta distinta y necesaria. Ninguna describe por sí sola la realidad de una operación."
-              centered
-            />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div className="text-center mx-auto max-w-5xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                LECTURA DE TRES DIMENSIONES
+              </div>
+
+              <div className="space-y-1.5 max-w-5xl mx-auto text-center">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block text-center">
+                  ONEX
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[40px] font-black tracking-tight leading-tight text-black text-center whitespace-normal md:whitespace-nowrap">
+                  Tres dimensiones, una sola realidad operativa
+                </h2>
+              </div>
+
+              <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600 whitespace-normal md:whitespace-nowrap">
+                Cada dimensión responde una pregunta distinta y necesaria. Ninguna describe por sí sola la realidad de una operación.
+              </p>
+            </div>
 
             {/* Interactive Tabs */}
             <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
@@ -566,12 +584,23 @@ export default function Modelo() {
           <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
-            <SectionTitle
-              badge="INTERVENCIÓN OPERATIVA"
-              title="Fases de Intervención Continua"
-              subtitle="Siete funciones distintas dentro de una misma lógica de intervención."
-              centered
-            />
+            <div className="text-center mx-auto max-w-5xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                INTERVENCIÓN OPERATIVA
+              </div>
+              <div className="space-y-1.5 max-w-5xl mx-auto text-center">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block text-center">
+                  CIK
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[40px] font-black tracking-tight leading-tight text-black text-center whitespace-normal md:whitespace-nowrap">
+                  Fases de Intervención Continua
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600 whitespace-normal md:whitespace-nowrap">
+                Siete funciones distintas dentro de una misma lógica de intervención.
+              </p>
+            </div>
 
             {/* Visual Cadence Stepper */}
             <div className="flex items-center justify-center gap-2 flex-wrap pb-2">
@@ -645,7 +674,7 @@ export default function Modelo() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
           
           {/* Bloque 02: Sello + Pastilla + Palabra Principal + Titular + Bajada */}
-          <div className="text-center mx-auto max-w-4xl space-y-4">
+          <div className="text-center mx-auto max-w-5xl space-y-4">
             {/* LOGO SELLO sobre la pastilla */}
             <div className="flex justify-center mb-4 sm:mb-6">
               <img
@@ -662,17 +691,17 @@ export default function Modelo() {
             </div>
 
             {/* PALABRA PRINCIPAL NEGRA + TITULAR GRANDE */}
-            <div className="space-y-1.5">
-              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block">
+            <div className="space-y-1.5 max-w-5xl mx-auto text-center">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-slate-500 block text-center">
                 INTEGRALX™
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-tight leading-tight text-black">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[40px] font-black tracking-tight leading-tight text-black text-center whitespace-normal md:whitespace-nowrap">
                 Construido para sostener tu promesa de negocio
               </h2>
             </div>
 
             {/* BAJADA */}
-            <p className="text-base sm:text-lg leading-relaxed max-w-3xl mx-auto text-slate-600">
+            <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600 whitespace-normal md:whitespace-nowrap">
               Operamos con un estándar propio y con un sistema que demuestra que se cumple.
             </p>
           </div>
@@ -688,8 +717,8 @@ export default function Modelo() {
                 className="p-8 rounded-3xl bg-slate-50/90 backdrop-blur-xs border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hover:border-black/30 transition-all shadow-xs"
               >
                 <div className="lg:col-span-4 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                    <ShieldCheck className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5 text-lg sm:text-xl font-black">
+                    {idx + 1}
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-700 block">

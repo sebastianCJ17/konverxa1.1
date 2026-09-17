@@ -24,7 +24,7 @@ export interface PageBannerProps {
 export default function PageBanner({
   title,
   watermark,
-  watermarkFilled = false,
+  watermarkFilled = true,
   titleAccentColor = 'text-slate-900',
   badge,
   headline,
@@ -37,7 +37,7 @@ export default function PageBanner({
   const isLongWatermark = displayWatermark.length > 11;
 
   return (
-    <section className="relative w-full min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] pt-28 sm:pt-32 pb-14 sm:pb-16 flex items-center bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
+    <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex items-center bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
       {/* Right Side Team / Professional Image with Ultra-Smooth White Diffusion Blend */}
       <div
@@ -68,7 +68,7 @@ export default function PageBanner({
         <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/70"></div>
       </div>
 
-      {/* Massive Watermark Typography behind */}
+      {/* Massive Watermark Typography behind - Relleno y menos visible */}
       <div
         className="absolute top-1/2 left-0 -translate-y-[45%] pointer-events-none select-none overflow-hidden z-0 pl-4 sm:pl-8 lg:pl-12 max-w-full"
         aria-hidden="true"
@@ -80,7 +80,7 @@ export default function PageBanner({
               : 'text-[15vw] sm:text-[14vw] lg:text-[12vw]'
           } font-black uppercase tracking-tight leading-none block whitespace-nowrap ${
             watermarkFilled
-              ? 'text-slate-900/[0.045] sm:text-slate-900/[0.05]'
+              ? 'text-slate-900/[0.038] sm:text-slate-900/[0.042]'
               : 'text-transparent opacity-40 sm:opacity-45'
           }`}
           style={watermarkFilled ? undefined : {
@@ -93,8 +93,8 @@ export default function PageBanner({
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-2xl lg:max-w-3xl space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 sm:pt-24 lg:pt-14 pb-6">
+        <div className="max-w-2xl lg:max-w-3xl space-y-3.5 sm:space-y-4">
           
           {/* Breadcrumb Navigation (Miga de pan) */}
           <motion.nav
@@ -134,7 +134,7 @@ export default function PageBanner({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold tracking-wider shadow-2xs"
             >
               {badge}
             </motion.div>
@@ -145,15 +145,15 @@ export default function PageBanner({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="space-y-3"
+            className="space-y-1.5"
           >
-            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase ${titleAccentColor}`}>
+            <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none ${titleAccentColor}`}>
               {title}
             </h1>
 
             {/* Main Headline */}
             {headline && (
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 tracking-tight leading-snug">
                 {headline}
               </h2>
             )}
@@ -164,7 +164,7 @@ export default function PageBanner({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl"
+            className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal max-w-2xl"
           >
             {description}
           </motion.p>

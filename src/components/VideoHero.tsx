@@ -100,10 +100,6 @@ export default function VideoHero() {
               no se improvisan. <br />
               Se construyen.
             </h1>
-
-            <p className="text-slate-200 text-lg sm:text-xl font-medium leading-relaxed max-w-2xl pt-2 drop-shadow-sm">
-              Ejecutamos para construir. Transformamos para sostener.
-            </p>
           </motion.div>
 
           {/* Hero CTAs - Single Discover Model button */}
@@ -126,11 +122,13 @@ export default function VideoHero() {
       </div>
 
       {/* Bottom Hero Bar: Left Tag & Right Institutional LinkedIn */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="font-semibold tracking-wide text-slate-300 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-slate-100 animate-pulse"></span>
-            <span>BPO · Contact Center</span>
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="text-base sm:text-lg md:text-xl font-black uppercase tracking-wider text-white">
+              BPO · Contact Center
+            </span>
           </div>
         </div>
 

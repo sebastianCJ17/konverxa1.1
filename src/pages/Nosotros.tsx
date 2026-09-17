@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import QuienesSomosView from '../components/QuienesSomosView';
 import { COMPANY_INFO } from '../data/company';
 import { Building2, ShieldCheck, Target, Heart, Cpu, ArrowRight, Award, CheckCircle2, Globe, Leaf, Users } from 'lucide-react';
@@ -180,32 +181,15 @@ export default function Nosotros() {
       />
 
       {/* Quick Section Switcher Bar */}
-      <div className="bg-slate-100 border-b border-slate-200 sticky top-16 sm:top-18 z-20 backdrop-blur-md bg-slate-100/95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between overflow-x-auto gap-2 scrollbar-none">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap hidden md:inline-block">
-            Secciones:
-          </span>
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {(Object.keys(NOSOTROS_SECTIONS) as NosotrosSectionKey[]).map((key) => {
-              const sec = NOSOTROS_SECTIONS[key];
-              const isActive = activeSection === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => handleSectionSelect(key)}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                    isActive
-                      ? 'bg-black text-white shadow-xs'
-                      : 'bg-white text-slate-700 hover:bg-slate-200 hover:text-black border border-slate-200'
-                  }`}
-                >
-                  {sec.breadcrumbLabel}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <SectionSwitcherBar
+        badgeLabel="SECCIONES"
+        items={(Object.keys(NOSOTROS_SECTIONS) as NosotrosSectionKey[]).map((key) => ({
+          id: key,
+          label: NOSOTROS_SECTIONS[key].breadcrumbLabel
+        }))}
+        activeId={activeSection}
+        onSelect={(id) => handleSectionSelect(id as NosotrosSectionKey)}
+      />
 
       {/* 01. QUIÉNES SOMOS - NUEVO DISEÑO DISRUPTIVO Y ELEVADO */}
       {activeSection === 'quienes-somos' && (

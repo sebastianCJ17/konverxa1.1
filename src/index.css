@@ -22,10 +22,9 @@
     font-feature-settings: "zero" 0;
   }
 
-  /* Justify text across all content paragraphs */
+  /* Default text alignment */
   p {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
   }
 
   /* Sleek custom scrollbar */

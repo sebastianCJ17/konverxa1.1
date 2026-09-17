@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES_DATA } from '../data/services';
 import {
-  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot,
+  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot, Users,
   ChevronLeft, ChevronRight, ArrowRight, CheckCircle2
 } from 'lucide-react';
 
 const SERVICE_ICONS: Record<string, any> = {
-  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot
+  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot, Users
 };
 
 // Rich color accents for each solution to add vibrancy
@@ -18,7 +18,8 @@ const SERVICE_THEMES = [
   { color: '#059669', bgLight: 'bg-emerald-50', textCol: 'text-emerald-600', borderCol: 'border-emerald-200', tag: 'Recuperación de Cartera' },
   { color: '#7c3aed', bgLight: 'bg-purple-50', textCol: 'text-purple-600', borderCol: 'border-purple-200', tag: 'Mesa de Ayuda N1/N2' },
   { color: '#0284c7', bgLight: 'bg-sky-50', textCol: 'text-sky-600', borderCol: 'border-sky-200', tag: 'Back Office Crítico' },
-  { color: '#e11d48', bgLight: 'bg-rose-50', textCol: 'text-rose-600', borderCol: 'border-rose-200', tag: 'IA Generativa & RPA' }
+  { color: '#e11d48', bgLight: 'bg-rose-50', textCol: 'text-rose-600', borderCol: 'border-rose-200', tag: 'IA Generativa & RPA' },
+  { color: '#0d9488', bgLight: 'bg-teal-50', textCol: 'text-teal-600', borderCol: 'border-teal-200', tag: 'Bienestar & Talento Humano' }
 ];
 
 export default function ServicesCarousel() {

@@ -89,7 +89,7 @@ export default function StatsCounter() {
 
             {/* Description - aligned start position across all cards */}
             <div className="mt-1.5 flex-1 min-h-[2.75rem] flex items-start">
-              <p className="text-[11px] sm:text-xs text-slate-500 leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-500 leading-normal text-left">
                 {stat.description}
               </p>
             </div>

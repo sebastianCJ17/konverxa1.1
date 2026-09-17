@@ -3,7 +3,7 @@ import { ModelPhase, OneXPillar, ExcelenciaDimension, OneXDimension, CikPhase } 
 export const ONEX_PILLARS: OneXPillar[] = [
   {
     id: 'estrategia',
-    tabLabel: '01 · Estrategia y Alineación',
+    tabLabel: 'Estrategia y Alineación',
     title: 'Estrategia y Alineación',
     subtitle: 'DIRECCIÓN CLARA',
     description: 'Conecta los objetivos del negocio con las prioridades y criterios de la operación. La ejecución avanza bajo una dirección común, no por inercia del servicio.',
@@ -18,7 +18,7 @@ export const ONEX_PILLARS: OneXPillar[] = [
   },
   {
     id: 'talento',
-    tabLabel: '02 · Talento y Cultura',
+    tabLabel: 'Talento y Cultura',
     title: 'Talento y Cultura',
     subtitle: 'FACTOR HUMANO',
     description: 'Reclutamos, formamos y desarrollamos talento operativo bajo una cultura de trabajo definida, con capacitación continua, acompañamiento y desarrollo profesional.',
@@ -33,7 +33,7 @@ export const ONEX_PILLARS: OneXPillar[] = [
   },
   {
     id: 'tecnologia',
-    tabLabel: '03 · Tecnología y Automatización',
+    tabLabel: 'Tecnología y Automatización',
     title: 'Tecnología y Automatización',
     subtitle: 'INFRAESTRUCTURA ROBUSTA',
     description: 'Integramos tecnología, automatización e inteligencia artificial en la operación cuando aportan eficiencia, control o capacidad',
@@ -48,7 +48,7 @@ export const ONEX_PILLARS: OneXPillar[] = [
   },
   {
     id: 'analitica',
-    tabLabel: '04 · Analítica y BI Operativo',
+    tabLabel: 'Analítica y BI Operativo',
     title: 'Analítica y BI Operativo',
     subtitle: 'DECISIONES BASADAS EN DATOS',
     description: 'Medimos el comportamiento de cada operación frente al estándar que debe cumplir, sin limitar el análisis a la comparación con su propio histórico.',
@@ -63,7 +63,7 @@ export const ONEX_PILLARS: OneXPillar[] = [
   },
   {
     id: 'gobernanza',
-    tabLabel: '05 · Gobernanza y Calidad',
+    tabLabel: 'Gobernanza y Calidad',
     title: 'Gobierno y Calidad',
     subtitle: 'GARANTÍA DE CONTROL',
     description: 'Establecemos responsabilidades diferenciadas, niveles de decisión y controles integrados en la gestión de cada operación.',

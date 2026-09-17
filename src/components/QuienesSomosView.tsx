@@ -10,11 +10,12 @@ export default function QuienesSomosView() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Fila superior: Categoría y Titular */}
-          <div className="max-w-4xl space-y-4 pb-12 border-b border-slate-200">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
-              Propósito Institucional
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          <div className="max-w-5xl mx-auto text-center space-y-4 pb-12 border-b border-slate-200">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+              PROPÓSITO INSTITUCIONAL
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight text-center">
               Transformamos la Operación en una Ventaja Competitiva
             </h2>
           </div>
@@ -71,7 +72,7 @@ export default function QuienesSomosView() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <span className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight block">
                 20+
               </span>
@@ -83,7 +84,7 @@ export default function QuienesSomosView() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <span className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight block">
                 03
               </span>
@@ -95,7 +96,7 @@ export default function QuienesSomosView() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <span className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight block">
                 ISO
               </span>
@@ -107,7 +108,7 @@ export default function QuienesSomosView() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <span className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight block">
                 100%
               </span>
@@ -127,14 +128,15 @@ export default function QuienesSomosView() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
-          <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
-              Pilares de Operación
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+          <div className="max-w-4xl mx-auto text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+              PILARES DE OPERACIÓN
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight text-center">
               Los Fundamentos que Sostienen Nuestro Servicio
             </h3>
-            <p className="text-base text-slate-600 leading-relaxed">
+            <p className="text-base text-slate-600 leading-relaxed max-w-3xl mx-auto text-center">
               Estructuramos nuestras operaciones para garantizar consistencia, seguridad y continuidad sin importar la complejidad del negocio.
             </p>
           </div>

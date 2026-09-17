@@ -4,48 +4,102 @@ import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import { SERVICES_DATA } from '../data/services';
-import { Headphones, TrendingUp, Workflow, FileText, Bot, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Headphones, TrendingUp, Workflow, FileText, Bot, CheckCircle2, ArrowRight, ShieldCheck, Users } from 'lucide-react';
 
 const ICON_MAP: Record<string, any> = {
-  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot
+  Headphones, TrendingUp, ShieldCheck, Workflow, FileText, Bot, Users
 };
 
-const SERVICE_BANNER_MAP: Record<string, { title: string; watermark: string; badge: string; image: string; imageAlt: string }> = {
-  'atencion-al-cliente': {
-    title: 'ATENCIÓN AL CLIENTE',
-    watermark: 'ATENCIÓN CX',
-    badge: 'Experiencia y Resolución',
+interface ServiceBannerInfo {
+  title: string;
+  watermark: string;
+  badge: string;
+  headline: string;
+  description: string;
+  breadcrumbLabel: string;
+  image: string;
+  imageAlt: string;
+}
+
+const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
+  'atencion-experiencia-cliente': {
+    title: 'ATENCIÓN',
+    watermark: 'ATENCIÓN AL CLIENTE',
+    badge: 'EXPERIENCIA Y RESOLUCIÓN',
+    headline: 'Cada interacción pone a prueba la promesa.',
+    description:
+      'Gestionamos cada contacto con criterios claros de resolución, continuidad y control para sostener una experiencia consistente en cada punto de interacción.',
+    breadcrumbLabel: 'Atención al Cliente',
     image: '/banners/banner-atencion-cliente.png',
     imageAlt: 'Atención al Cliente KONVERXA'
   },
-  'ventas-telemarketing': {
-    title: 'VENTAS Y FIDELIZACIÓN',
-    watermark: 'VENTAS B2B',
-    badge: 'Conversión Comercial',
+  'ventas-fidelizacion': {
+    title: 'Ventas y Fidelización',
+    watermark: 'VENTAS Y FIDELIZACIÓN',
+    badge: 'CONVERSIÓN y PERMANENCIA',
+    headline: 'Vender inicia una relación. Fidelizar la construye.',
+    description:
+      'Gestionamos cada oportunidad comercial con criterios claros de conversión, seguimiento y permanencia para generar resultados consistentes y relaciones a largo plazo.',
+    breadcrumbLabel: 'Ventas y Fidelización',
     image: '/banners/banner-ventas-fidelizacion.png',
     imageAlt: 'Ventas y Fidelización KONVERXA'
   },
-  'backoffice-bpo': {
-    title: 'BACK OFFICE Y BPO',
+  'cobranzas': {
+    title: 'COBRANZAS',
+    watermark: 'COBRANZAS',
+    badge: 'CARTERA y RECUPERACIÓN',
+    headline: 'Recuperar también es conservar al cliente.',
+    description:
+      'Gestionamos cada caso con criterio para alcanzar acuerdos viables, recuperar saldos y dar continuidad a una relación de confianza con los clientes.',
+    breadcrumbLabel: 'Cobranzas',
+    image: '/banners/banner-fundamentos.png',
+    imageAlt: 'Cobranzas KONVERXA'
+  },
+  'soporte-tecnico': {
+    title: 'SOPORTE TÉCNICO',
+    watermark: 'SOPORTE',
+    badge: 'DIAGNÓSTICO Y RESOLUCIÓN',
+    headline: 'Resolver una incidencia es devolver continuidad a la experiencia.',
+    description:
+      'Gestionamos cada incidencia con criterio técnico y seguimiento hasta el cierre, para que el problema se resuelva y no vuelva a aparecer.',
+    breadcrumbLabel: 'Soporte Técnico',
+    image: '/banners/banner-tecnologia.png',
+    imageAlt: 'Soporte Técnico KONVERXA'
+  },
+  'bo-gestion-procesos': {
+    title: 'BACK OFFICE',
     watermark: 'BACK OFFICE',
-    badge: 'Gestión de Procesos Críticos',
+    badge: 'PROCESOS Y CONTROL',
+    headline: 'Lo que no se ve también sostiene la promesa',
+    description:
+      'Procesos administrativos con criterio y trazabilidad, para que cada expediente avance sin esperas, ni reprocesos.',
+    breadcrumbLabel: 'Back Office',
     image: '/banners/banner-backoffice-bpo.png',
-    imageAlt: 'Back Office y BPO KONVERXA'
+    imageAlt: 'Back Office KONVERXA'
   },
   'omnicanalidad-bots': {
-    title: 'CAPACIDADES INTEGRADAS',
-    watermark: 'TECNOLOGÍA IA',
-    badge: 'Omnicanalidad & Automatización',
+    title: 'OMNICANALIDAD y BOTS',
+    watermark: 'OMNICANALIDAD',
+    badge: 'CANALES Y CONTINUIDAD',
+    headline: 'Muchos canales. Una sola conversación',
+    description:
+      'Cada canal conserva el contexto para que la conversación continúe, aunque cambie el medio. Los bots amplían la capacidad de respuesta y la disponibilidad del servicio, manteniendo una atención consistente.',
+    breadcrumbLabel: 'Omnicanalidad y BOTS',
     image: '/banners/banner-capacidades-integradas.png',
-    imageAlt: 'Capacidades Integradas KONVERXA'
+    imageAlt: 'Omnicanalidad y BOTS KONVERXA'
   },
-  'cobranzas': {
-    title: 'RRHH Y APOYO PSICOSOCIAL',
-    watermark: 'TALENTO HUMANO',
-    badge: 'Gestión Humana y Bienestar',
+  'rrhh-apoyo-psicosocial': {
+    title: 'ATENCIÓN',
+    watermark: 'ATENCIÓN AL CLIENTE',
+    badge: 'RRHH',
+    headline: 'Cada interacción pone a prueba la promesa de negocio.',
+    description:
+      'Gestionamos cada contacto con criterios claros de resolución, continuidad y control para sostener una experiencia consistente en cada punto de interacción.',
+    breadcrumbLabel: 'Atención al Cliente',
     image: '/banners/banner-gestion-humana.png',
-    imageAlt: 'RRHH y Apoyo Psicosocial KONVERXA'
+    imageAlt: 'RRHH KONVERXA'
   }
 };
 
@@ -56,7 +110,13 @@ export default function Servicios() {
   useEffect(() => {
     if (hash) {
       const cleanHash = hash.replace('#', '');
-      const match = SERVICES_DATA.find((s) => s.id === cleanHash || s.slug === cleanHash);
+      const aliasMap: Record<string, string> = {
+        'atencion-al-cliente': 'atencion-experiencia-cliente',
+        'ventas-telemarketing': 'ventas-fidelizacion',
+        'backoffice-bpo': 'bo-gestion-procesos'
+      };
+      const resolvedId = aliasMap[cleanHash] || cleanHash;
+      const match = SERVICES_DATA.find((s) => s.id === resolvedId || s.slug === resolvedId || s.id === cleanHash);
       if (match) {
         setActiveTab(match.id);
       }
@@ -66,9 +126,12 @@ export default function Servicios() {
   const activeService = SERVICES_DATA.find((s) => s.id === activeTab) || SERVICES_DATA[0];
   const IconComp = ICON_MAP[activeService.iconName] || Headphones;
   const currentBannerInfo = SERVICE_BANNER_MAP[activeService.id] || {
-    title: activeService.title.toUpperCase(),
+    title: activeService.title,
     watermark: activeService.title.toUpperCase(),
     badge: 'Soluciones Corporativas BPO',
+    headline: activeService.tagline,
+    description: activeService.description,
+    breadcrumbLabel: activeService.title,
     image: activeService.image || '/banners/banner-atencion-cliente.png',
     imageAlt: activeService.title
   };
@@ -77,68 +140,46 @@ export default function Servicios() {
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
         title={`${currentBannerInfo.title} - Servicios BPO | KONVERXA`}
-        description={activeService.description}
+        description={currentBannerInfo.description}
       />
 
-      {/* Header Banner with Dynamic Service Title, Outlined Watermark & Downloadable Image */}
+      {/* Header Banner with Dynamic Service Title, Outlined/Filled Watermark & Downloadable Image */}
       <PageBanner
         title={currentBannerInfo.title}
         watermark={currentBannerInfo.watermark}
+        watermarkFilled={true}
         titleAccentColor="text-slate-900"
         badge={currentBannerInfo.badge}
-        headline={activeService.tagline || activeService.title}
-        description={activeService.description}
+        headline={currentBannerInfo.headline}
+        description={currentBannerInfo.description}
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
           { label: 'Servicios', path: '/servicios' },
-          { label: activeService.title }
+          { label: currentBannerInfo.breadcrumbLabel }
         ]}
         image={currentBannerInfo.image}
         imageAlt={currentBannerInfo.imageAlt}
         showDownloadBtn={true}
       />
 
-      {/* Service Selection Tabs */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      {/* Quick Service Switcher Bar */}
+      <SectionSwitcherBar
+        badgeLabel="LÍNEAS DE SERVICIO"
+        items={SERVICES_DATA.map((srv) => ({
+          id: srv.id,
+          label: srv.title
+        }))}
+        activeId={activeTab}
+        onSelect={(id) => setActiveTab(id)}
+      />
+
+      {/* Active Service Deep Dive View */}
+      <section className="py-12 sm:py-16 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid: Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-            {SERVICES_DATA.map((srv) => {
-              const TabIcon = ICON_MAP[srv.iconName] || Headphones;
-              const isActive = srv.id === activeTab;
-              return (
-                <button
-                  key={srv.id}
-                  onClick={() => setActiveTab(srv.id)}
-                  className={`p-6 rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between ${
-                    isActive
-                      ? 'bg-black text-white border-black shadow-md'
-                      : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:text-black'
-                  }`}
-                >
-                  <div>
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-                      isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-800 border border-slate-300'
-                    }`}>
-                      <TabIcon className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-black text-base leading-snug">{srv.title}</h3>
-                  </div>
-
-                  <span className={`text-[11px] font-semibold mt-4 block ${
-                    isActive ? 'text-slate-200' : 'text-slate-800'
-                  }`}>
-                    Ver Capacidades →
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active Service Deep Dive View */}
           <motion.div
             key={activeService.id}
             initial={{ opacity: 0, y: 15 }}

@@ -128,6 +128,11 @@ export default function Nosotros() {
         navigate('/contacto');
         return;
       }
+      if (clean === 'certificaciones' || clean === 'sostenibilidad') {
+        // Redirigir a quiénes somos si se intenta acceder directamente a las secciones deshabilitadas
+        setActiveSection('quienes-somos');
+        return;
+      }
       if (clean in NOSOTROS_SECTIONS) {
         setActiveSection(clean);
       }
@@ -140,6 +145,9 @@ export default function Nosotros() {
   const handleSectionSelect = (key: NosotrosSectionKey) => {
     if (key === 'ubicacion') {
       navigate('/contacto');
+      return;
+    }
+    if (key === 'certificaciones' || key === 'sostenibilidad') {
       return;
     }
     setActiveSection(key);
@@ -187,33 +195,35 @@ export default function Nosotros() {
             'quienes-somos': 'Origen',
             'fundamentos': 'Fundamentos',
             'mision-vision': 'Rumbo',
-            'certificaciones': 'Certificaciones',
+            'certificaciones': 'Certificación',
             'sostenibilidad': 'Sostenibilidad',
             'ubicacion': 'Ubicación'
           };
+          const isDisabled = key === 'certificaciones' || key === 'sostenibilidad';
           return {
             id: key,
-            label: shortNosotrosLabels[key] || NOSOTROS_SECTIONS[key].breadcrumbLabel
+            label: shortNosotrosLabels[key] || NOSOTROS_SECTIONS[key].breadcrumbLabel,
+            disabled: isDisabled
           };
         })}
         activeId={activeSection}
         onSelect={(id) => handleSectionSelect(id as NosotrosSectionKey)}
       />
 
-      {/* 01. QUIÉNES SOMOS - NUEVO DISEÑO DISRUPTIVO Y ELEVADO */}
+      {/* 01. QUIÉNES SOMOS */}
       {activeSection === 'quienes-somos' && (
-        <section id="quienes-somos" className="py-8 bg-white relative overflow-hidden">
+        <section id="quienes-somos" className="bg-white relative overflow-hidden">
           <QuienesSomosView />
         </section>
       )}
 
-      {/* 02. FUNDAMENTOS CORPORATIVOS */}
+      {/* 02. FUNDAMENTOS */}
       {activeSection === 'fundamentos' && (
         <section id="fundamentos" className="py-20 bg-slate-50 border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <SectionTitle
               badge="PRINCIPIOS DE GESTIÓN"
-              title="Nuestros Fundamentos Corporativos"
+              title="Nuestros Fundamentos"
               subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
               centered
             />
@@ -245,49 +255,150 @@ export default function Nosotros() {
         </section>
       )}
 
-      {/* 03. DECLARACIONES INSTITUCIONALES - MISIÓN Y VISIÓN */}
+      {/* 03. DECLARACIONES INSTITUCIONALES - MISIÓN Y VISIÓN (2 BLOQUES CON FOTO Y CONTENIDO VERTICAL) */}
       {activeSection === 'mision-vision' && (
         <section id="mision-vision" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-            <SectionTitle
-              badge="DECLARACIONES INSTITUCIONALES"
-              title="Nuestra Filosofía"
-              subtitle="Lo que KONVERXA cree, por qué existe, qué hace y qué aspira a demostrar."
-              centered
-            />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
+            
+            {/* Cabecera centrada y justificada con el título */}
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-900 border border-slate-200/80 mx-auto shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                DECLARACIONES INSTITUCIONALES
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-tight">
+                Nuestra Filosofía
+              </h2>
+              
+              {/* Bloque de Convicción y Propósito justificado y centrado con el título */}
+              <div className="max-w-3xl mx-auto pt-2 space-y-4 text-center">
+                <div className="space-y-1">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block">
+                    01 · QUÉ CREEMOS — Convicción
+                  </span>
+                  <p className="text-lg sm:text-xl font-bold text-slate-950 leading-snug">
+                    Las organizaciones sólidas no se improvisan. Se construyen.
+                  </p>
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {FILOSOFIA_DECLARACIONES.map((item, idx) => (
-                <motion.div
-                  key={item.fase}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-6 hover:border-black/40 hover:bg-white hover:shadow-md transition-all duration-300 group"
-                >
-                  <div className="space-y-4">
-                    <div className="border-b border-slate-200/80 pb-3">
-                      <span className="text-xs font-black uppercase tracking-wider text-slate-700 group-hover:text-black transition-colors">
-                        {item.descriptor}
-                      </span>
+                <div className="space-y-1 pt-3 border-t border-slate-200">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block">
+                    02 · POR QUÉ EXISTIMOS — Propósito
+                  </span>
+                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                    Ayudar a las organizaciones a construir la solidez necesaria para cerrar la brecha entre lo que prometen y lo que pueden sostener, alineando su promesa, sus personas y su capacidad.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 2 BLOQUES CON FOTO DE LONGITUD Y CONTENIDO VERTICAL A LA DERECHA */}
+            <div className="space-y-12 max-w-6xl mx-auto">
+              
+              {/* BLOQUE 1: MISIÓN */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm hover:border-black/30 hover:shadow-md transition-all duration-300"
+              >
+                {/* Columna Izquierda: Foto con longitud vertical */}
+                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] bg-slate-200 overflow-hidden">
+                  <img
+                    src="/images/mision-portrait.jpg"
+                    alt="Propósito y convicción institucional KONVERXA"
+                    className="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden"></div>
+                </div>
+
+                {/* Columna Derecha: Información en vertical */}
+                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
+                      03 · QUÉ HACEMOS
                     </div>
+                    
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+                      Misión
+                    </h3>
 
-                    <div className="pt-1">
-                      <h3 className="text-2xl font-black text-black tracking-tight">
-                        {item.nombre}
-                      </h3>
-                    </div>
-
-                    <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                      {item.texto}
+                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-2">
+                      Hacemos que las organizaciones cumplan y sostengan su promesa de negocio. Desarrollamos la capacidad organizacional necesaria para generar resultados consistentes, evolucionar con solidez y mantener su desempeño desde dentro, de manera estructural.
                     </p>
                   </div>
-                </motion.div>
-              ))}
+
+                  <div className="pt-4 border-t border-slate-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Enfoque Operacional
+                    </span>
+                    <p className="text-sm font-semibold text-slate-900">
+                      Capacidad organizacional, solidez estructural y consistencia en el tiempo.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* BLOQUE 2: VISIÓN */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm hover:border-black/30 hover:shadow-md transition-all duration-300"
+              >
+                {/* Columna Izquierda: Foto con longitud vertical */}
+                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] bg-slate-200 overflow-hidden">
+                  <img
+                    src="/images/vision-strategic.jpg"
+                    alt="Visión estratégica institucional KONVERXA"
+                    className="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden"></div>
+                </div>
+
+                {/* Columna Derecha: Información en vertical */}
+                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
+                      04 · QUÉ ASPIRAMOS A DEMOSTRAR
+                    </div>
+                    
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+                      Visión
+                    </h3>
+
+                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-2">
+                      Convertirnos en la evidencia de que es posible construir organizaciones sólidas, capaces de crecer y afrontar nuevas etapas de complejidad sin perder la coherencia de sus decisiones, la confianza en sus relaciones ni los fundamentos que sostienen su evolución.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Aspiración Estratégica
+                    </span>
+                    <p className="text-sm font-semibold text-slate-900">
+                      Crecimiento sostenible, coherencia en las decisiones y confianza indestructible.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
             </div>
+
+            {/* CTA Final */}
+            <div className="pt-8 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              >
+                <span>HABLEMOS DE TU NEGOCIO</span>
+              </Link>
+            </div>
+
           </div>
         </section>
       )}

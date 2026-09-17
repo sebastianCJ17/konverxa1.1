@@ -1,6 +1,7 @@
 export interface SwitcherItem {
   id: string;
   label: string;
+  disabled?: boolean;
 }
 
 export interface SectionSwitcherBarProps {
@@ -30,6 +31,20 @@ export default function SectionSwitcherBar({
         <div className="flex items-center justify-between gap-1.5 sm:gap-2.5 w-full overflow-x-auto scrollbar-none py-0.5">
           {items.map((item) => {
             const isActive = activeId === item.id;
+            const isDisabled = !!item.disabled;
+
+            if (isDisabled) {
+              return (
+                <div
+                  key={item.id}
+                  title="Sección en consolidación"
+                  className="flex-1 min-w-[100px] sm:min-w-0 h-9 px-2 sm:px-3 rounded-lg text-xs font-bold flex items-center justify-center text-center bg-slate-100/70 text-slate-400 border border-slate-200/60 cursor-not-allowed select-none opacity-60"
+                >
+                  <span className="truncate whitespace-nowrap">{item.label}</span>
+                </div>
+              );
+            }
+
             return (
               <button
                 key={item.id}

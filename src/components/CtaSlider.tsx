@@ -24,21 +24,19 @@ export default function CtaSlider() {
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] flex items-center justify-center overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Contact Center Operations Image with Cinematic Dark Gradient Overlay */}
+      {/* Modern High-Tech Command Operations Background with Cinematic Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src="/contact-center-operations.jpg?v=5"
-          alt="Operación de Contact Center y BPO KONVERXA"
-          className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.05]"
+          src="/modern-operations-hub.jpg?v=3"
+          alt="Operación de BPO y Contact Center Moderno KONVERXA"
+          className="w-full h-full object-cover object-center filter brightness-[0.68] contrast-[1.08]"
           referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.currentTarget;
-            if (!target.src.includes('operations-overview.jpg')) {
-              target.src = '/operations-overview.jpg';
-            }
+            target.src = '/contact-center-operations.jpg';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 pointer-events-none" />
       </div>
 

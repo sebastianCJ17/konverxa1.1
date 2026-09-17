@@ -1,13 +1,16 @@
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
+import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import GlobalNetworkMap from '../components/GlobalNetworkMap';
 import { COMPANY_INFO } from '../data/company';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown, HelpCircle, ShieldCheck } from 'lucide-react';
 
 export default function Contacto() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     company: '',
@@ -57,6 +60,36 @@ export default function Contacto() {
         image="/banners/banner-contacto.png"
         imageAlt="Ubicación y presencia internacional KONVERXA"
         showDownloadBtn={true}
+        ctaText="HABLEMOS DE TU NEGOCIO"
+        onCtaClick={() => {
+          const formEl = document.getElementById('formulario-contacto');
+          if (formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+          }
+        }}
+      />
+
+      {/* Barra de Navegación Interna entre Secciones */}
+      <SectionSwitcherBar
+        items={[
+          { id: 'quienes-somos', label: 'Origen' },
+          { id: 'fundamentos', label: 'Fundamentos' },
+          { id: 'mision-vision', label: 'Rumbo' },
+          { id: 'certificaciones', label: 'Certificación', disabled: true },
+          { id: 'sostenibilidad', label: 'Sostenibilidad', disabled: true },
+          { id: 'ubicacion', label: 'Ubicación' }
+        ]}
+        activeId="ubicacion"
+        onSelect={(id) => {
+          if (id === 'certificaciones' || id === 'sostenibilidad') return;
+          if (id === 'ubicacion') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
+          navigate(`/nosotros#${id}`);
+        }}
       />
 
       {/* Bloque 02: Información Institucional & Formulario */}
@@ -134,7 +167,7 @@ export default function Contacto() {
             </div>
 
             {/* Right Contact Form Column */}
-            <div className="lg:col-span-7">
+            <div id="formulario-contacto" className="lg:col-span-7 scroll-mt-24">
               <div className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl">
                 
                 {!submitted ? (
@@ -323,9 +356,9 @@ export default function Contacto() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <SectionTitle
-            badge="Preguntas Frecuentes"
-            title="Resuelves tus Dudas sobre Nuestro Modelo"
-            subtitle="Respuestas claras sobre tiempos de implementación, seguridad e integración."
+            badge="PREGUNTAS FRECUENTES"
+            title="Resuelve tus dudas sobre nuestro Modelo"
+            subtitle="Una operación puede desplegarse en varias ubicaciones sin que cambie la forma de gestionarla. La geografía condiciona el despliegue, no el criterio."
             centered
           />
 
@@ -361,6 +394,19 @@ export default function Contacto() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="pt-6 text-center">
+            <a
+              href="#formulario"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 380, behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all"
+            >
+              <span>HABLEMOS DE TU NEGOCIO</span>
+            </a>
           </div>
 
         </div>

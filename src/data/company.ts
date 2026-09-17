@@ -51,19 +51,19 @@ export const COMPANY_INFO = {
   faqs: [
     {
       question: '¿Qué diferencia a KONVERXA de un Contact Center tradicional?',
-      answer: 'A diferencia de los proveedores tradicionales orientados a volumetría básica, KONVERXA opera bajo el Modelo OneX: una arquitectura integral que combina analítica predictiva, IA Generativa, reingeniería de procesos y talento altamente especializado para entregar resultados de negocio tangibles y eficiencia operativa medible.'
+      answer: 'KONVERXA es un operador BPO con un modelo operativo propio. La diferencia no está en el tamaño ni en la tecnología, sino en cómo se organiza, se dirige y se controla la operación: un estándar que define cómo debe funcionar, un sistema que lee su realidad y produce evidencia, y un ciclo que convierte esa evidencia en intervención.'
     },
     {
       question: '¿Cuánto tiempo toma la transición e implementación de un servicio?',
-      answer: 'A través de nuestro Ciclo de Intervención IntegralX, realizamos transiciones operativas fluidas entre 3 y 6 semanas según la complejidad del servicio, garantizando cero interrupciones en la atención y manteniendo la continuidad de negocio del cliente al 100%.'
+      answer: 'Depende del alcance, del volumen y del estado en que se recibe la operación. La transición se estructura mediante el Ciclo de Intervención KONVERXA, con fases, responsables y controles definidos desde el inicio, y el plan se acuerda con el cliente antes de empezar.'
     },
     {
       question: '¿Cómo garantizan la confidencialidad y seguridad de la información?',
-      answer: 'Operamos bajo la norma ISO 27001 y cumplimiento PCI-DSS. Toda la infraestructura tecnológica cuenta con cifrado de grado bancario (AES-256), controles biométricos de acceso, políticas de Zero Trust y auditorías permanentes de ciberseguridad.'
+      answer: 'La seguridad no se añade a la operación: forma parte de su diseño. Cada operación define desde el inicio qué datos se tratan, quién accede a ellos, bajo qué controles y con qué trazabilidad. La información viaja y se almacena cifrada, los accesos son nominales y revocables, y cada actuación queda registrada. Cuando el cliente opera bajo un marco normativo propio, la operación se ajusta a sus requisitos y a los controles que deba acreditar.'
     },
     {
       question: '¿Pueden escalar operaciones en momentos de picos estacionales o contingencias?',
-      answer: 'Sí. Nuestra arquitectura en la nube y modelo de Workforce Management nos permiten escalar la capacidad de respuesta elásticamente hasta un 200% en menos de 48 horas ante eventos imprevistos o promociones de alto volumen.'
+      answer: 'Sí, y el criterio es que el pico no degrade el estándar. La capacidad adicional se planifica con antelación cuando el pico es previsible —campañas, estacionalidad, lanzamientos— y se activa con personas formadas para esa operación, no con refuerzos improvisados. Ante contingencias no previstas, la respuesta se dimensiona con el cliente según lo que la operación pueda sostener sin comprometer la calidad del servicio.'
     }
   ]
 };

@@ -19,6 +19,9 @@ export interface PageBannerProps {
   image: string;
   imageAlt?: string;
   showDownloadBtn?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+  onCtaClick?: () => void;
 }
 
 export default function PageBanner({
@@ -32,6 +35,9 @@ export default function PageBanner({
   breadcrumbs,
   image,
   imageAlt = 'KONVERXA',
+  ctaText,
+  ctaHref,
+  onCtaClick,
 }: PageBannerProps) {
   const displayWatermark = watermark || title;
   const isLongWatermark = displayWatermark.length > 11;
@@ -168,6 +174,32 @@ export default function PageBanner({
           >
             {description}
           </motion.p>
+
+          {/* Optional CTA Button */}
+          {ctaText && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="pt-2"
+            >
+              {ctaHref ? (
+                <Link
+                  to={ctaHref}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
+                >
+                  <span>{ctaText}</span>
+                </Link>
+              ) : (
+                <button
+                  onClick={onCtaClick}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
+                >
+                  <span>{ctaText}</span>
+                </button>
+              )}
+            </motion.div>
+          )}
 
         </div>
       </div>

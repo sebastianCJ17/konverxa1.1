@@ -142,7 +142,7 @@ export default function GlobalNetworkMap({
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
 
-            aspect-ratio: 1255 / 598;
+            aspect-ratio: 1821 / 864;
 
             background-image: url("/world-map.png");
             background-size: 100% 100%;
@@ -315,18 +315,18 @@ export default function GlobalNetworkMap({
         ========================================================= */
 
         .kx-spain {
-            left: 49.3%;
-            top: 47%;
+            left: 47.8%;
+            top: 43.8%;
         }
 
         .kx-colombia {
-            left: 31%;
-            top: 65.5%;
+            left: 29.8%;
+            top: 61.2%;
         }
 
         .kx-peru {
-            left: 29%;
-            top: 73%;
+            left: 27.2%;
+            top: 69.2%;
         }
 
         /* =========================================================
@@ -540,8 +540,8 @@ export default function GlobalNetworkMap({
 
         /* España: tarjeta hacia la derecha para no tapar el mapa */
         .kx-info-spain {
-            left: 49.3%;
-            top: 47%;
+            left: 47.8%;
+            top: 43.8%;
 
             transform:
                 translate(25px, -50%)
@@ -556,8 +556,8 @@ export default function GlobalNetworkMap({
 
         /* Colombia: tarjeta hacia la izquierda para no tapar el mapa */
         .kx-info-colombia {
-            left: 31%;
-            top: 65.5%;
+            left: 29.8%;
+            top: 61.2%;
 
             transform:
                 translate(-105%, -60%)
@@ -572,8 +572,8 @@ export default function GlobalNetworkMap({
 
         /* Perú: tarjeta hacia la izquierda para no tapar el mapa */
         .kx-info-peru {
-            left: 29%;
-            top: 73%;
+            left: 27.2%;
+            top: 69.2%;
 
             transform:
                 translate(-105%, -50%)

@@ -121,29 +121,21 @@ export default function VideoHero() {
         </div>
       </div>
 
-      {/* Bottom Hero Bar: Left Tag & Right Institutional LinkedIn */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+      {/* Bottom Hero Bar: Institutional Tag & Operational Focus */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 border-t border-white/10 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="text-base sm:text-lg md:text-xl font-black uppercase tracking-wider text-white">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-zinc-400"></span>
+            <span className="text-sm sm:text-base font-normal uppercase tracking-wider text-zinc-300">
               BPO · Contact Center
             </span>
           </div>
         </div>
 
-        {/* Institutional LinkedIn Link */}
-        <div>
-          <a
-            href={COMPANY_INFO.contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white flex items-center justify-center transition-all duration-300 shadow-md group hover:scale-105"
-            title="Presencia Institucional KONVERXA en LinkedIn"
-            aria-label="LinkedIn Oficial KONVERXA"
-          >
-            <LinkedInIcon className="w-5 h-5 text-white" />
-          </a>
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-400 font-medium">
+          <span>Operaciones Globales</span>
+          <span className="text-zinc-600">·</span>
+          <span className="text-zinc-300">España · Colombia · Perú</span>
         </div>
       </div>
 

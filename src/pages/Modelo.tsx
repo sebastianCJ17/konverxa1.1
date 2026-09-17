@@ -183,11 +183,19 @@ export default function Modelo() {
 
       {/* Quick Section Switcher Bar */}
       <SectionSwitcherBar
-        badgeLabel="MÓDULOS DEL MODELO"
-        items={(Object.keys(MODELO_SECTIONS) as ModeloSectionKey[]).map((key) => ({
-          id: key,
-          label: MODELO_SECTIONS[key].tabLabel || MODELO_SECTIONS[key].breadcrumbLabel
-        }))}
+        items={(Object.keys(MODELO_SECTIONS) as ModeloSectionKey[]).map((key) => {
+          const shortModelLabels: Record<string, string> = {
+            'vision-general': 'Visión',
+            'excelencia-integral': 'Excelencia',
+            'onex': 'OneX',
+            'cik': 'CIK',
+            'integralx': 'IntegralX™'
+          };
+          return {
+            id: key,
+            label: shortModelLabels[key] || MODELO_SECTIONS[key].tabLabel || MODELO_SECTIONS[key].breadcrumbLabel
+          };
+        })}
         activeId={activeSection}
         onSelect={(id) => handleSectionSelect(id as ModeloSectionKey)}
       />

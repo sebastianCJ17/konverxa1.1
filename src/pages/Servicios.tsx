@@ -164,11 +164,21 @@ export default function Servicios() {
 
       {/* Quick Service Switcher Bar */}
       <SectionSwitcherBar
-        badgeLabel="LÍNEAS DE SERVICIO"
-        items={SERVICES_DATA.map((srv) => ({
-          id: srv.id,
-          label: srv.title
-        }))}
+        items={SERVICES_DATA.map((srv) => {
+          const shortLabels: Record<string, string> = {
+            'atencion-experiencia-cliente': 'Atención',
+            'ventas-fidelizacion': 'Ventas',
+            'cobranzas': 'Cobranzas',
+            'soporte-tecnico': 'Soporte',
+            'bo-gestion-procesos': 'Backoffice',
+            'omnicanalidad-bots': 'Omnicanalidad',
+            'rrhh-apoyo-psicosocial': 'RRHH'
+          };
+          return {
+            id: srv.id,
+            label: shortLabels[srv.id] || srv.title
+          };
+        })}
         activeId={activeTab}
         onSelect={(id) => setActiveTab(id)}
       />

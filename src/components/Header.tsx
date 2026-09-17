@@ -332,7 +332,7 @@ export default function Header() {
                         onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        Fundamentos Corporativos
+                        Fundamentos
                       </Link>
                       <Link
                         to="/nosotros#mision-vision"
@@ -477,7 +477,7 @@ export default function Header() {
                 {activeDropdown === 'm-nosotros' && (
                   <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Quiénes somos</Link>
-                    <Link to="/nosotros#fundamentos" onClick={() => setMobileMenuOpen(false)}>Fundamentos Corporativos</Link>
+                    <Link to="/nosotros#fundamentos" onClick={() => setMobileMenuOpen(false)}>Fundamentos</Link>
                     <Link to="/nosotros#mision-vision" onClick={() => setMobileMenuOpen(false)}>Misión / Visión</Link>
                     <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Capacidades</Link>
                     <Link to="/nosotros#certificaciones" onClick={() => setMobileMenuOpen(false)}>Certificaciones</Link>

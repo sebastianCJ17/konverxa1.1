@@ -70,7 +70,7 @@ const NOSOTROS_SECTIONS: Record<NosotrosSectionKey, NosotrosBannerConfig> = {
     badge: 'PRINCIPIOS DE GESTIÓN',
     headline: 'Fundamentos que orientan cómo decidimos, operamos y respondemos.',
     description: 'Responsabilidad, evidencia, disciplina, separación de funciones y capacidad organizacional forman el marco que orienta nuestras decisiones y la forma en que gestionamos cada operación.',
-    breadcrumbLabel: 'Fundamentos Corporativos',
+    breadcrumbLabel: 'Fundamentos',
     image: '/banners/banner-fundamentos.png',
     imageAlt: 'Fundamentos y principios de gestión KONVERXA'
   },
@@ -182,11 +182,20 @@ export default function Nosotros() {
 
       {/* Quick Section Switcher Bar */}
       <SectionSwitcherBar
-        badgeLabel="SECCIONES"
-        items={(Object.keys(NOSOTROS_SECTIONS) as NosotrosSectionKey[]).map((key) => ({
-          id: key,
-          label: NOSOTROS_SECTIONS[key].breadcrumbLabel
-        }))}
+        items={(Object.keys(NOSOTROS_SECTIONS) as NosotrosSectionKey[]).map((key) => {
+          const shortNosotrosLabels: Record<string, string> = {
+            'quienes-somos': 'Origen',
+            'fundamentos': 'Fundamentos',
+            'mision-vision': 'Rumbo',
+            'certificaciones': 'Certificaciones',
+            'sostenibilidad': 'Sostenibilidad',
+            'ubicacion': 'Ubicación'
+          };
+          return {
+            id: key,
+            label: shortNosotrosLabels[key] || NOSOTROS_SECTIONS[key].breadcrumbLabel
+          };
+        })}
         activeId={activeSection}
         onSelect={(id) => handleSectionSelect(id as NosotrosSectionKey)}
       />

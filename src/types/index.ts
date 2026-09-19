@@ -9,6 +9,23 @@ export interface Industry {
   keyChallenges: string[];
   solutions: string[];
   stats: { label: string; value: string }[];
+  operationalScope?: string[];
+  appliedServices?: { title: string; desc: string; link: string }[];
+  complianceBadge?: string;
+  showcaseImage?: string;
+  showcaseTag?: string;
+  keyCapabilities?: string[];
+  operationalStandard?: string;
+  bannerInfo?: {
+    title: string;
+    watermark: string;
+    badge: string;
+    headline: string;
+    description: string;
+    breadcrumbLabel: string;
+    image: string;
+    imageAlt: string;
+  };
 }
 
 export interface ServicePillar {

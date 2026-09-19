@@ -1,10 +1,10 @@
-import { useState, useRef, ElementType } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef, ElementType } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Headphones, TrendingUp, Wrench, Heart, ClipboardList,
   ShieldCheck, ShoppingBag, Truck, Cpu, Zap, Activity,
-  ChevronLeft, ChevronRight, ArrowRight
+  ChevronLeft, ChevronRight, ArrowRight, Landmark, ChevronDown
 } from 'lucide-react';
 
 export interface MarketItem {
@@ -103,7 +103,7 @@ export const MARKETS_DATA: MarketItem[] = [
     id: 'movilidad-transporte',
     number: '06',
     name: 'Movilidad y Transporte',
-    slug: 'movilidad',
+    slug: 'movilidad-transporte',
     desc: 'Control en tiempo real para flotas, trazabilidad logística y soporte integral a conductores y usuarios.',
     image: '/movilidad.png',
     fallbackImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
@@ -130,22 +130,94 @@ export const MARKETS_DATA: MarketItem[] = [
       { label: 'Despacho de cuadrillas', icon: Wrench },
       { label: 'Canales digitales', icon: TrendingUp }
     ]
+  },
+  {
+    id: 'banca-fintech',
+    number: '08',
+    name: 'Banca y Fintech',
+    slug: 'banca-fintech',
+    desc: 'Onboarding digital biométrico, cobranza temprana especializada y soporte en transacciones con estricto cumplimiento ISO 27001.',
+    image: '/banners/banner-fundamentos.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80',
+    tags: [
+      { label: 'Onboarding y KYC', icon: ShieldCheck },
+      { label: 'Prevención de fraude', icon: ShieldCheck },
+      { label: 'Cobranza temprana', icon: TrendingUp },
+      { label: 'Soporte transaccional', icon: Headphones },
+      { label: 'Cumplimiento normativo', icon: ClipboardList }
+    ]
   }
 ];
 
-export default function IndustryCarousel() {
+export interface IndustryCarouselProps {
+  activeSlug?: string;
+  onSelectIndustry?: (slug: string) => void;
+  isInternalPage?: boolean;
+}
+
+export default function IndustryCarousel({
+  activeSlug,
+  onSelectIndustry,
+  isInternalPage = false,
+}: IndustryCarouselProps) {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const containerRef = useRef<HTMLDivElement>(null);
 
   const total = MARKETS_DATA.length;
 
+  // Synchronize activeIndex if activeSlug changes externally
+  useEffect(() => {
+    if (activeSlug) {
+      const idx = MARKETS_DATA.findIndex(
+        (m) =>
+          m.slug === activeSlug ||
+          m.id === activeSlug ||
+          (activeSlug === 'movilidad' && m.slug === 'movilidad-transporte') ||
+          (activeSlug === 'logistica' && m.slug === 'movilidad-transporte') ||
+          (activeSlug === 'energia' && m.slug === 'energia-servicios') ||
+          (activeSlug === 'tecnologia' && m.slug === 'tecnologia-digital') ||
+          (activeSlug === 'banca' && m.slug === 'banca-fintech')
+      );
+      if (idx !== -1 && idx !== activeIndex) {
+        setActiveIndex(idx);
+      }
+    }
+  }, [activeSlug]);
+
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+    const nextIdx = activeIndex === 0 ? total - 1 : activeIndex - 1;
+    setActiveIndex(nextIdx);
+    onSelectIndustry?.(MARKETS_DATA[nextIdx].slug);
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+    const nextIdx = activeIndex === total - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIdx);
+    onSelectIndustry?.(MARKETS_DATA[nextIdx].slug);
+  };
+
+  const handleDotClick = (idx: number) => {
+    setActiveIndex(idx);
+    onSelectIndustry?.(MARKETS_DATA[idx].slug);
+  };
+
+  const handleCardClick = (index: number, item: MarketItem) => {
+    if (index === activeIndex) {
+      if (isInternalPage) {
+        // Smooth scroll to detailed section below
+        const el = document.getElementById('detalle-industria');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        navigate(`/industrias#${item.slug}`);
+      }
+    } else {
+      setActiveIndex(index);
+      onSelectIndustry?.(item.slug);
+    }
   };
 
   return (
@@ -184,7 +256,7 @@ export default function IndustryCarousel() {
             return (
               <motion.div
                 key={item.id}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleCardClick(index, item)}
                 initial={false}
                 animate={{
                   x: translateX,
@@ -199,7 +271,7 @@ export default function IndustryCarousel() {
                 }}
                 className={`absolute w-[300px] sm:w-[370px] md:w-[410px] lg:w-[440px] h-[490px] sm:h-[520px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer ${
                   isActive
-                    ? 'ring-2 ring-white/50 shadow-2xl shadow-slate-950/70 cursor-default'
+                    ? 'ring-2 ring-white/50 shadow-2xl shadow-slate-950/70'
                     : 'hover:brightness-125'
                 }`}
                 style={{
@@ -275,23 +347,54 @@ export default function IndustryCarousel() {
 
                   {/* Bottom Action Link */}
                   <div className="pt-3 border-t border-white/15">
-                    <Link
-                      to={`/industrias#${item.slug}`}
-                      onClick={(e) => {
-                        if (!isActive) {
-                          e.preventDefault();
-                          setActiveIndex(index);
-                        }
-                      }}
-                      className={`inline-flex items-center gap-2 text-xs font-bold transition-all duration-200 group ${
-                        isActive
-                          ? 'px-4 py-2 rounded-xl bg-white text-slate-950 hover:bg-slate-200 shadow-md font-semibold'
-                          : 'text-slate-400 pointer-events-none'
-                      }`}
-                    >
-                      <span>Explorar {item.name}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    {isInternalPage ? (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!isActive) {
+                            handleCardClick(index, item);
+                          } else {
+                            const el = document.getElementById('detalle-industria');
+                            if (el) {
+                              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }
+                        }}
+                        className={`inline-flex items-center gap-2 text-xs font-bold transition-all duration-200 group ${
+                          isActive
+                            ? 'px-4 py-2 rounded-xl bg-white text-slate-950 hover:bg-slate-200 shadow-md font-semibold'
+                            : 'text-slate-400'
+                        }`}
+                      >
+                        <span>{isActive ? 'Ver Ficha y Soluciones' : `Seleccionar ${item.name}`}</span>
+                        {isActive ? (
+                          <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                        ) : (
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        )}
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!isActive) {
+                            handleCardClick(index, item);
+                          } else {
+                            navigate(`/industrias#${item.slug}`);
+                          }
+                        }}
+                        className={`inline-flex items-center gap-2 text-xs font-bold transition-all duration-200 group ${
+                          isActive
+                            ? 'px-4 py-2 rounded-xl bg-white text-slate-950 hover:bg-slate-200 shadow-md font-semibold'
+                            : 'text-slate-400'
+                        }`}
+                      >
+                        <span>Explorar {item.name}</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    )}
                   </div>
 
                 </div>
@@ -309,7 +412,7 @@ export default function IndustryCarousel() {
           {MARKETS_DATA.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setActiveIndex(idx)}
+              onClick={() => handleDotClick(idx)}
               className={`h-1.5 transition-all duration-300 rounded-full ${
                 idx === activeIndex
                   ? 'w-7 bg-slate-950'

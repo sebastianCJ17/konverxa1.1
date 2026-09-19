@@ -16,6 +16,7 @@ export default function PoliticaPrivacidad() {
         description="Compromiso formal de KONVERXA en el tratamiento confidencial y seguro de la información conforme a estándares internacionales ISO 27001."
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
+          { label: 'Legal' },
           { label: 'Política de Privacidad' }
         ]}
         image="/banners/banner-certificaciones.png"

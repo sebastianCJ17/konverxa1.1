@@ -43,7 +43,7 @@ export default function PageBanner({
   const isLongWatermark = displayWatermark.length > 11;
 
   return (
-    <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex items-center bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
+    <section className="relative w-full h-[420px] min-h-[420px] max-h-[420px] sm:h-[430px] sm:min-h-[430px] sm:max-h-[430px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex flex-col justify-start bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
       {/* Right Side Team / Professional Image with Ultra-Smooth White Diffusion Blend */}
       <div
@@ -99,7 +99,7 @@ export default function PageBanner({
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 sm:pt-24 lg:pt-14 pb-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-[84px] sm:pt-[96px] lg:pt-[116px] pb-6">
         <div className="max-w-2xl lg:max-w-3xl space-y-3.5 sm:space-y-4">
           
           {/* Breadcrumb Navigation (Miga de pan) */}
@@ -108,7 +108,7 @@ export default function PageBanner({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             aria-label="Miga de pan"
-            className="flex items-center flex-wrap gap-1.5 text-xs font-semibold text-slate-500"
+            className="flex items-center flex-wrap gap-1.5 text-xs font-semibold text-slate-500 h-5"
           >
             {breadcrumbs.map((crumb, idx) => {
               const isLast = idx === breadcrumbs.length - 1;
@@ -140,7 +140,7 @@ export default function PageBanner({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold tracking-wider shadow-2xs"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold tracking-wider shadow-2xs h-6"
             >
               {badge}
             </motion.div>

@@ -43,7 +43,8 @@ export default function TrabajaConNosotros() {
         description="Somos una compañía de talento multidisciplinario y multicultural. Impulsamos el desarrollo continuo, ambientes de trabajo inclusivos y programas que aceleran tu crecimiento."
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
-          { label: 'Trabaja con Nosotros' }
+          { label: 'Carreras', path: '/trabaja-con-nosotros' },
+          { label: 'Talento Humano' }
         ]}
         image="/banners/banner-carreras.png"
         imageAlt="Equipo de talento humano KONVERXA"

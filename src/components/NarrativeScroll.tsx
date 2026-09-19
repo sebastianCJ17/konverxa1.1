@@ -103,15 +103,15 @@ export default function NarrativeScroll() {
             </div>
 
             {/* Elevated Content with Smooth Motion Transition - Uniform height across all slides */}
-            <div className="min-h-[520px] sm:min-h-[420px] lg:min-h-[360px] flex flex-col justify-start">
+            <div className="min-h-[540px] sm:min-h-[440px] lg:min-h-[410px] flex flex-col justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMoment.id}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
-                  className="space-y-5 min-h-[520px] sm:min-h-[420px] lg:min-h-[360px] flex flex-col justify-start"
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  className="space-y-4 sm:space-y-5 flex flex-col justify-start w-full"
                 >
                   
                   {/* Main Title - Cleanly elevated at the top */}
@@ -128,7 +128,7 @@ export default function NarrativeScroll() {
 
                   {/* Secondary Text for Point 02 */}
                   {activeMoment.secondaryText && (
-                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-300/90 shadow-xs max-w-2xl mt-3">
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-300/90 shadow-xs max-w-2xl mt-2">
                       <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed text-justify">
                         {activeMoment.secondaryText}
                       </p>
@@ -137,24 +137,24 @@ export default function NarrativeScroll() {
 
                   {/* 3 Core Cards for Slide 04: DIAGNOSTICAR, COORDINAR, EJECUTAR */}
                   {activeMoment.cards && (
-                    <div className="pt-2 space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="pt-2 space-y-3 sm:space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                         {activeMoment.cards.map((card, idx) => {
                           const IconComp = card.icon;
                           return (
                             <div
                               key={idx}
-                              className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col gap-1.5 hover:border-slate-400 hover:shadow-md transition-all group"
+                              className="p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex flex-col gap-1 hover:border-slate-400 hover:shadow-sm transition-all group"
                             >
-                              <div className="flex items-center gap-2">
-                                <div className="w-7 h-7 rounded-lg bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
-                                  <IconComp className="w-3.5 h-3.5" />
+                              <div className="flex items-center gap-1.5">
+                                <div className="w-6 h-6 rounded-md bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                                  <IconComp className="w-3 h-3" />
                                 </div>
-                                <span className="font-black text-xs tracking-wider text-slate-950 uppercase">
+                                <span className="font-black text-[11px] tracking-wider text-slate-950 uppercase">
                                   {card.label}
                                 </span>
                               </div>
-                              <p className="text-xs text-slate-600 leading-relaxed text-justify">
+                              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
                                 {card.desc}
                               </p>
                             </div>

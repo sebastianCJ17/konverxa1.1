@@ -16,6 +16,7 @@ export default function PoliticaCookies() {
         description="Información detallada sobre el uso de cookies y tecnologías similares en nuestro portal corporativo."
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
+          { label: 'Legal' },
           { label: 'Política de Cookies' }
         ]}
         image="/banners/banner-tecnologia.png"

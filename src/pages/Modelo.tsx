@@ -144,7 +144,8 @@ export default function Modelo() {
           activeSection === 'vision-general'
             ? [
                 { label: 'Inicio', path: '/' },
-                { label: 'Modelo Operativo' }
+                { label: 'Modelo', path: '/modelo' },
+                { label: 'Visión General' }
               ]
             : activeSection === 'excelencia-integral'
             ? [

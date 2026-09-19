@@ -36,7 +36,7 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
     imageAlt: 'Atención al Cliente KONVERXA'
   },
   'ventas-fidelizacion': {
-    title: 'Ventas y Fidelización',
+    title: 'VENTAS',
     watermark: 'VENTAS Y FIDELIZACIÓN',
     badge: 'CONVERSIÓN y PERMANENCIA',
     headline: 'Vender inicia una relación. Fidelizar la construye.',
@@ -91,15 +91,15 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
     imageAlt: 'Omnicanalidad y BOTS KONVERXA'
   },
   'rrhh-apoyo-psicosocial': {
-    title: 'ATENCIÓN',
-    watermark: 'ATENCIÓN AL CLIENTE',
-    badge: 'RRHH',
-    headline: 'Cada interacción pone a prueba la promesa de negocio.',
+    title: 'TALENTO HUMANO',
+    watermark: 'GESTIÓN HUMANA',
+    badge: 'RRHH Y APOYO PSICOSOCIAL',
+    headline: 'El bienestar del equipo sostiene la calidad operativa.',
     description:
-      'Gestionamos cada contacto con criterios claros de resolución, continuidad y control para sostener una experiencia consistente en cada punto de interacción.',
-    breadcrumbLabel: 'Atención al Cliente',
+      'Acompañamiento continuo, programas de bienestar y contención psicosocial para consolidar equipos comprometidos y con alta estabilidad en cada servicio.',
+    breadcrumbLabel: 'Talento Humano',
     image: '/banners/banner-gestion-humana.png',
-    imageAlt: 'RRHH KONVERXA'
+    imageAlt: 'RRHH y Talento Humano KONVERXA'
   }
 };
 

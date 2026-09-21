@@ -41,7 +41,7 @@ export const MARKETS_DATA: MarketItem[] = [
     name: 'Banca y Servicios Financieros',
     slug: 'banca-fintech',
     desc: 'Operaciones de atención, ventas, cobranzas y back office para entidades financieras, con precisión, trazabilidad y control.',
-    image: '/banca.png',
+    image: '/banca.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80',
     tags: [
       { label: 'Movimiento y Reclamaciones', icon: ShieldCheck },

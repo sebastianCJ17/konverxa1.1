@@ -7,6 +7,84 @@ interface GlobalNetworkMapProps {
   subtitle?: string;
 }
 
+// Banderas Vectoriales Nativas (Garantizan visualización real y fidedigna en Windows, Mac, iOS y Android sin depender de emojis del SO)
+function SpainFlag({ className = "w-full h-full" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 750 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de España" role="img">
+      <rect width="750" height="125" fill="#AA151B" />
+      <rect y="125" width="750" height="250" fill="#F1BF00" />
+      <rect y="375" width="750" height="125" fill="#AA151B" />
+      {/* Escudo institucional simplificado */}
+      <g transform="translate(170, 155) scale(0.74)">
+        {/* Corona Real */}
+        <path d="M70 20 L85 45 L105 15 L125 45 L140 20 L135 58 L75 58 Z" fill="#AA151B" stroke="#F1BF00" strokeWidth="4" />
+        <circle cx="105" cy="12" r="6" fill="#F1BF00" />
+        {/* Columnas de Hércules */}
+        <rect x="25" y="55" width="14" height="120" rx="3" fill="#E5E7EB" stroke="#9CA3AF" strokeWidth="2" />
+        <rect x="170" y="55" width="14" height="120" rx="3" fill="#E5E7EB" stroke="#9CA3AF" strokeWidth="2" />
+        {/* Cintas Plus Ultra */}
+        <path d="M15 90 Q32 80 45 95 Q32 110 15 100 Z" fill="#AA151B" />
+        <path d="M160 90 Q177 80 190 95 Q177 110 160 100 Z" fill="#AA151B" />
+        {/* Escudo Cuartelado */}
+        <path d="M60 65 H150 V130 Q150 185 105 195 Q60 185 60 130 Z" fill="#AA151B" stroke="#F1BF00" strokeWidth="4" />
+        {/* Castillo (Castilla) */}
+        <rect x="62" y="67" width="42" height="42" fill="#AA151B" />
+        <path d="M72 100 H94 V80 L88 80 V74 H85 V80 H81 V74 H78 V80 H72 Z" fill="#F1BF00" />
+        {/* León (León) */}
+        <rect x="106" y="67" width="42" height="42" fill="#FFFFFF" />
+        <path d="M120 74 C116 74 114 78 116 83 C118 87 114 91 113 95 H130 C130 92 127 88 127 84 C127 78 124 74 120 74 Z" fill="#7E22CE" />
+        {/* Barras (Aragón) */}
+        <rect x="62" y="111" width="42" height="42" fill="#F1BF00" />
+        <rect x="68" y="111" width="5" height="42" fill="#AA151B" />
+        <rect x="78" y="111" width="5" height="42" fill="#AA151B" />
+        <rect x="88" y="111" width="5" height="42" fill="#AA151B" />
+        <rect x="98" y="111" width="5" height="42" fill="#AA151B" />
+        {/* Cadenas (Navarra) */}
+        <path d="M106 111 H148 V130 Q148 165 125 180 Q106 155 106 130 Z" fill="#AA151B" />
+        <path d="M110 115 L144 149 M144 115 L110 149 M127 115 V160 M108 132 H146" stroke="#F1BF00" strokeWidth="2.5" />
+        {/* Escusón Borbón */}
+        <ellipse cx="105" cy="110" rx="9" ry="11" fill="#1D4ED8" stroke="#F1BF00" strokeWidth="1.5" />
+      </g>
+    </svg>
+  );
+}
+
+function ColombiaFlag({ className = "w-full h-full" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Colombia" role="img">
+      <rect width="900" height="300" fill="#FCD116" />
+      <rect y="300" width="900" height="150" fill="#003893" />
+      <rect y="450" width="900" height="150" fill="#CE1126" />
+    </svg>
+  );
+}
+
+function PeruFlag({ className = "w-full h-full" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Perú" role="img">
+      <rect width="300" height="600" fill="#D91023" />
+      <rect x="300" width="300" height="600" fill="#FFFFFF" />
+      <rect x="600" width="300" height="600" fill="#D91023" />
+      {/* Escudo de Armas Nacional */}
+      <g transform="translate(375, 195) scale(0.76)">
+        <ellipse cx="100" cy="20" rx="35" ry="18" fill="none" stroke="#15803D" strokeWidth="8" strokeDasharray="8 4" />
+        <path d="M40 35 H160 V125 Q160 190 100 205 Q40 190 40 125 Z" fill="#FFFFFF" stroke="#1F2937" strokeWidth="3" />
+        <rect x="42" y="37" width="57" height="63" fill="#38BDF8" />
+        <path d="M65 80 L70 65 L76 65 L80 50 L84 50 L83 65 L88 70 L87 88 L83 88 L83 75 L73 75 L73 88 L69 88 Z" fill="#CA8A04" />
+        <rect x="101" y="37" width="57" height="63" fill="#FFFFFF" />
+        <path d="M125 90 V70 M120 75 Q115 50 128 45 Q142 50 137 75 Z" fill="#15803D" stroke="#14532D" strokeWidth="2" />
+        <path d="M42 102 H158 V125 Q158 188 100 203 Q42 188 42 125 Z" fill="#DC2626" />
+        <path d="M70 145 Q85 130 115 138 Q130 142 140 130 Q130 155 105 152 Q85 150 70 145 Z" fill="#EAB308" stroke="#CA8A04" strokeWidth="2" />
+        <circle cx="125" cy="148" r="4" fill="#FDE047" />
+        <circle cx="132" cy="144" r="3" fill="#FDE047" />
+        <circle cx="120" cy="155" r="3.5" fill="#FDE047" />
+        <path d="M25 60 Q15 130 50 185" fill="none" stroke="#16A34A" strokeWidth="6" strokeDasharray="6 3" />
+        <path d="M175 60 Q185 130 150 185" fill="none" stroke="#15803D" strokeWidth="6" strokeDasharray="6 3" />
+      </g>
+    </svg>
+  );
+}
+
 export default function GlobalNetworkMap({
   badge = 'PRESENCIA INTERNACIONAL',
   title = 'Infraestructura Operativa Sin Fronteras',
@@ -130,66 +208,47 @@ export default function GlobalNetworkMap({
     <section className="py-16 sm:py-20 bg-black text-white relative overflow-hidden font-sans border-t border-b border-neutral-900">
       <style>{`
         /* =========================================================
-           MAPA — ANCHO COMPLETO
+           MAPA — CONTENEDOR 100% PROPORCIONAL Y RESPONSIVE
+           (Evita desfases por scrollbars o monitores de 22"+)
         ========================================================= */
 
         .kx-world-map {
             position: relative;
-
-            width: 100vw;
-            max-width: 100vw;
-
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-
+            width: 100%;
+            max-width: 1821px;
+            margin: 0 auto;
             aspect-ratio: 1821 / 864;
-
             background-image: url("/world-map.png");
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
-
             overflow: visible;
         }
 
         /* =========================================================
-           LÍNEAS
+           LÍNEAS DE INTERCONEXIÓN SVG
         ========================================================= */
 
         .kx-map-lines {
             position: absolute;
-
             inset: 0;
-
             width: 100%;
             height: 100%;
-
             z-index: 5;
-
             pointer-events: none;
-
             overflow: visible;
         }
 
         .kx-map-line {
             fill: none;
-
             stroke: rgba(255, 255, 255, 0.65);
-
             stroke-width: 0.35;
-
             stroke-linecap: round;
             stroke-linejoin: round;
-
             vector-effect: non-scaling-stroke;
-
             stroke-dasharray: 5 5;
-
-            animation:
-                kxLineFlow 4s linear infinite;
-
-            filter:
-                drop-shadow(0 0 3px rgba(255,255,255,0.20));
+            animation: kxLineFlow 4s linear infinite;
+            filter: drop-shadow(0 0 3px rgba(255,255,255,0.25));
         }
 
         @keyframes kxLineFlow {
@@ -202,71 +261,64 @@ export default function GlobalNetworkMap({
         }
 
         /* =========================================================
-           PUNTOS
+           PUNTOS — ANCLAJE EXACTO AL CENTRO DEL PUNTO
+           (Matemáticamente inmune a cambios de pantalla y zoom)
         ========================================================= */
 
         .kx-country {
             position: absolute;
-
-            display: flex;
-
+            display: inline-flex;
             align-items: center;
-
-            gap: 10px;
-
             cursor: pointer;
-
-            z-index: 10;
-
-            transform: translate(-50%, -50%);
+            z-index: 20;
+            /* El punto mide 14px x 14px (radio = 7px).
+               Al trasladar en X exactamente -7px y en Y -50%,
+               el centro del punto queda fijado de forma inmutable
+               en el porcentaje geográfico (left, top), sin importar
+               el ancho del texto de la etiqueta ni el tamaño del monitor */
+            transform: translate(-7px, -50%);
+            pointer-events: auto;
         }
 
         .kx-point {
             position: relative;
-
-            width: 13px;
-            height: 13px;
-
+            width: 14px;
+            height: 14px;
             flex-shrink: 0;
-
             background: #ffffff;
-
             border: 3px solid #ffffff;
-
             border-radius: 50%;
-
             box-shadow:
-                0 0 0 4px rgba(255,255,255,0.15),
-                0 0 15px rgba(255,255,255,0.8);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
+                0 0 0 4px rgba(255,255,255,0.22),
+                0 0 16px rgba(255,255,255,0.85);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
 
         .kx-country:hover .kx-point {
-            transform: scale(1.15);
-
+            transform: scale(1.22);
             box-shadow:
-                0 0 0 5px rgba(255,255,255,0.18),
-                0 0 22px rgba(255,255,255,1);
+                0 0 0 6px rgba(255,255,255,0.28),
+                0 0 24px rgba(255,255,255,1);
+        }
+
+        .kx-country.active .kx-point {
+            transform: scale(1.3);
+            border-color: #38bdf8;
+            box-shadow:
+                0 0 0 6px rgba(56, 189, 248, 0.4),
+                0 0 25px rgba(56, 189, 248, 0.95);
         }
 
         /* =========================================================
-           PULSO
+           PULSO DINÁMICO
         ========================================================= */
 
         .kx-point::after {
             content: "";
-
             position: absolute;
-
             inset: -7px;
-
             border: 1px solid rgba(255,255,255,0.5);
-
             border-radius: 50%;
-
             animation: kxPulse 2s infinite;
         }
 
@@ -285,210 +337,231 @@ export default function GlobalNetworkMap({
         }
 
         /* =========================================================
-           NOMBRE
+           ETIQUETA DE PAÍS
         ========================================================= */
 
         .kx-country-name {
+            margin-left: 9px;
             color: #ffffff;
-
             font-family: Arial, sans-serif;
-
-            font-size: 16px;
-
-            font-weight: 600;
-
+            font-size: 15px;
+            font-weight: 700;
             white-space: nowrap;
-
-            text-shadow:
-                0 2px 8px rgba(0,0,0,.9);
-
-            transition:
-                transform .25s ease;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.8);
+            letter-spacing: 0.3px;
+            transition: transform .25s ease, color .25s ease;
+            user-select: none;
         }
 
-        .kx-country:hover .kx-country-name {
-            transform: translateX(3px);
+        .kx-country:hover .kx-country-name,
+        .kx-country.active .kx-country-name {
+            transform: translateX(2px);
+            color: #38bdf8;
         }
 
         /* =========================================================
-           POSICIONES
+           POSICIONES GEOGRÁFICAS EXACTAS
+           - España: un poquito hacia abajo y a la izquierda
+           - Colombia: un poquitico hacia abajo y a la derecha otro poquito
+           - Perú: hacia abajo y un poquito a la derecha
         ========================================================= */
 
         .kx-spain {
-            left: 47.8%;
-            top: 43.8%;
+            left: 45.2%;
+            top: 44.2%;
         }
 
         .kx-colombia {
-            left: 29.8%;
-            top: 61.2%;
+            left: 26.2%;
+            top: 62.2%;
         }
 
         .kx-peru {
-            left: 27.2%;
-            top: 69.2%;
+            left: 25.8%;
+            top: 71.0%;
         }
 
         /* =========================================================
-           TARJETA DE INFORMACIÓN
+           TARJETA DE INFORMACIÓN FLOTANTE
         ========================================================= */
 
         .kx-country-info {
             position: absolute;
-
-            z-index: 30;
-
-            width: 310px;
-
-            padding: 22px 22px 20px;
-
-            background:
-                rgba(11, 13, 17, 0.96);
-
-            border: 1px solid rgba(255,255,255,0.16);
-
+            z-index: 35;
+            width: 285px;
+            max-width: calc(100vw - 32px);
+            padding: 20px 20px 18px;
+            background: rgba(11, 13, 17, 0.96);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 16px;
-
             box-shadow:
-                0 20px 50px rgba(0,0,0,0.55),
-                0 0 25px rgba(255,255,255,0.05);
-
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-
+                0 25px 60px rgba(0,0,0,0.7),
+                0 0 25px rgba(255,255,255,0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             color: #ffffff;
-
             opacity: 0;
             visibility: hidden;
-
-            transform:
-                translateY(10px)
-                scale(.97);
-
             transition:
-                opacity .3s ease,
-                transform .3s ease,
+                opacity .3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform .3s cubic-bezier(0.16, 1, 0.3, 1),
                 visibility .3s ease;
-
             pointer-events: none;
         }
 
         .kx-country-info.active {
             opacity: 1;
-
             visibility: visible;
-
-            transform:
-                translateY(0)
-                scale(1);
-
             pointer-events: auto;
         }
 
         /* =========================================================
-           CABECERA DE LA TARJETA
+           POSICIONES DE LAS TARJETAS
+           - España: sale a la DERECHA con 105px de separación,
+             dejando el punto y el texto "España" totalmente libres
+           - Colombia: hacia la IZQUIERDA sobre el Océano Pacífico
+           - Perú: hacia la IZQUIERDA sobre el Océano Pacífico Sur
+        ========================================================= */
+
+        /* España: tarjeta hacia la DERECHA sin tapar nombre ni punto */
+        .kx-info-spain {
+            left: 45.2%;
+            top: 44.2%;
+            transform: translate(105px, -45%) scale(.96);
+        }
+
+        .kx-info-spain.active {
+            transform: translate(105px, -45%) scale(1);
+        }
+
+        /* Colombia: tarjeta hacia la IZQUIERDA sobre el Pacífico */
+        .kx-info-colombia {
+            left: 26.2%;
+            top: 57%;
+            transform: translate(calc(-100% - 25px), -75%) scale(.96);
+        }
+
+        .kx-info-colombia.active {
+            transform: translate(calc(-100% - 25px), -75%) scale(1);
+        }
+
+        /* Perú: tarjeta hacia la IZQUIERDA sobre el Pacífico Sur */
+        .kx-info-peru {
+            left: 25.8%;
+            top: 73%;
+            transform: translate(calc(-100% - 25px), -20%) scale(.96);
+        }
+
+        .kx-info-peru.active {
+            transform: translate(calc(-100% - 25px), -20%) scale(1);
+        }
+
+        /* Adaptación en pantallas medianas (tablets / laptops estrechas) */
+        @media (min-width: 768px) and (max-width: 1279px) {
+            .kx-info-colombia {
+                left: 16px !important;
+                transform: translateY(-75%) scale(.96) !important;
+            }
+            .kx-info-colombia.active {
+                transform: translateY(-75%) scale(1) !important;
+            }
+            .kx-info-peru {
+                left: 16px !important;
+                transform: translateY(-20%) scale(.96) !important;
+            }
+            .kx-info-peru.active {
+                transform: translateY(-20%) scale(1) !important;
+            }
+            .kx-info-spain {
+                left: 45.2% !important;
+                transform: translate(95px, -45%) scale(.96) !important;
+            }
+            .kx-info-spain.active {
+                transform: translate(95px, -45%) scale(1) !important;
+            }
+        }
+
+        /* =========================================================
+           CABECERA DE LA TARJETA Y BANDERA OFICIAL
         ========================================================= */
 
         .kx-info-header {
             display: flex;
-
             align-items: center;
-
-            gap: 10px;
-
-            margin-bottom: 5px;
+            gap: 12px;
+            margin-bottom: 6px;
         }
 
-        .kx-info-flag {
-            font-size: 27px;
-
-            line-height: 1;
+        .kx-info-flag-wrap {
+            width: 38px;
+            height: 25px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow:
+                0 2px 6px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(255,255,255,0.25);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #111;
         }
 
         .kx-info-title {
             margin: 0;
-
             color: #ffffff;
-
             font-family: Arial, sans-serif;
-
-            font-size: 21px;
-
+            font-size: 20px;
             font-weight: 700;
-
             line-height: 1.2;
         }
 
         .kx-info-subtitle {
-            margin: 0 0 18px;
-
-            color: rgba(255,255,255,0.65);
-
+            margin: 0 0 16px;
+            color: rgba(255,255,255,0.68);
             font-family: Arial, sans-serif;
-
             font-size: 13px;
-
             font-weight: 500;
         }
 
         /* =========================================================
-           DATOS
+           FILAS DE DATOS DE LA TARJETA
         ========================================================= */
 
         .kx-info-row {
             display: flex;
-
             align-items: flex-start;
-
             gap: 11px;
-
-            padding: 12px 0;
-
-            border-top:
-                1px solid rgba(255,255,255,0.10);
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.10);
         }
 
         .kx-info-icon {
-            width: 20px;
-            height: 20px;
-
+            width: 18px;
+            height: 18px;
             flex-shrink: 0;
-
-            margin-top: 1px;
-
+            margin-top: 2px;
             color: rgba(255,255,255,0.75);
         }
 
         .kx-info-label {
             display: block;
-
-            margin-bottom: 3px;
-
+            margin-bottom: 2px;
             color: rgba(255,255,255,0.45);
-
             font-family: Arial, sans-serif;
-
             font-size: 10px;
-
             font-weight: 700;
-
             letter-spacing: 1px;
-
             text-transform: uppercase;
         }
 
         .kx-info-value {
             display: block;
-
             color: #ffffff;
-
             font-family: Arial, sans-serif;
-
             font-size: 13px;
-
             font-weight: 500;
-
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
         /* =========================================================
@@ -497,146 +570,60 @@ export default function GlobalNetworkMap({
 
         .kx-info-close {
             position: absolute;
-
             top: 12px;
             right: 12px;
-
             width: 25px;
             height: 25px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             border: 0;
-
             background: rgba(255,255,255,0.08);
-
             border-radius: 50%;
-
             color: rgba(255,255,255,0.7);
-
             font-size: 16px;
-
             line-height: 1;
-
             cursor: pointer;
-
-            transition:
-                background .2s ease,
-                color .2s ease;
+            transition: background .2s ease, color .2s ease;
         }
 
         .kx-info-close:hover {
-            background: rgba(255,255,255,0.16);
-
+            background: rgba(255,255,255,0.18);
             color: #ffffff;
         }
 
         /* =========================================================
-           POSICIÓN DE LAS TARJETAS
-        ========================================================= */
-
-        /* España: tarjeta hacia la derecha para no tapar el mapa */
-        .kx-info-spain {
-            left: 47.8%;
-            top: 43.8%;
-
-            transform:
-                translate(25px, -50%)
-                scale(.97);
-        }
-
-        .kx-info-spain.active {
-            transform:
-                translate(25px, -50%)
-                scale(1);
-        }
-
-        /* Colombia: tarjeta hacia la izquierda para no tapar el mapa */
-        .kx-info-colombia {
-            left: 29.8%;
-            top: 61.2%;
-
-            transform:
-                translate(-105%, -60%)
-                scale(.97);
-        }
-
-        .kx-info-colombia.active {
-            transform:
-                translate(-105%, -60%)
-                scale(1);
-        }
-
-        /* Perú: tarjeta hacia la izquierda para no tapar el mapa */
-        .kx-info-peru {
-            left: 27.2%;
-            top: 69.2%;
-
-            transform:
-                translate(-105%, -50%)
-                scale(.97);
-        }
-
-        .kx-info-peru.active {
-            transform:
-                translate(-105%, -50%)
-                scale(1);
-        }
-
-        /* =========================================================
-           MÓVIL
+           MÓVIL (< 768px): DIÁLOGO CENTRADO FLOTANTE
         ========================================================= */
 
         @media (max-width: 767px) {
-            .kx-world-map {
-                width: 100vw;
-                max-width: 100vw;
-
-                margin-left: calc(50% - 50vw);
-                margin-right: calc(50% - 50vw);
-            }
-
             .kx-point {
                 width: 10px;
                 height: 10px;
-
                 border-width: 2px;
+            }
+
+            .kx-country {
+                transform: translate(-5px, -50%);
             }
 
             .kx-country-name {
                 font-size: 11px;
-            }
-
-            .kx-country {
-                gap: 6px;
+                margin-left: 5px;
             }
 
             .kx-country-info {
-                width: 260px;
-
-                padding: 18px;
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                width: min(320px, calc(100vw - 32px)) !important;
+                padding: 18px !important;
+                z-index: 60 !important;
+                transform: translate(-50%, -50%) scale(.96) !important;
             }
 
-            .kx-info-spain,
-            .kx-info-colombia,
-            .kx-info-peru {
-                left: 50%;
-                top: 50%;
-
-                transform:
-                    translate(-50%, -50%)
-                    scale(.97);
-            }
-
-            .kx-info-spain.active,
-            .kx-info-colombia.active,
-            .kx-info-peru.active {
-                transform:
-                    translate(-50%, -50%)
-                    scale(1);
+            .kx-country-info.active {
+                transform: translate(-50%, -50%) scale(1) !important;
             }
 
             .kx-info-title {
@@ -703,7 +690,7 @@ export default function GlobalNetworkMap({
 
         {/* ESPAÑA */}
         <div
-          className="kx-country kx-spain"
+          className={`kx-country kx-spain ${activeCountry === 'spain' ? 'active' : ''}`}
           data-country="spain"
           onClick={(e) => {
             e.stopPropagation();
@@ -716,7 +703,7 @@ export default function GlobalNetworkMap({
 
         {/* COLOMBIA */}
         <div
-          className="kx-country kx-colombia"
+          className={`kx-country kx-colombia ${activeCountry === 'colombia' ? 'active' : ''}`}
           data-country="colombia"
           onClick={(e) => {
             e.stopPropagation();
@@ -729,7 +716,7 @@ export default function GlobalNetworkMap({
 
         {/* PERÚ */}
         <div
-          className="kx-country kx-peru"
+          className={`kx-country kx-peru ${activeCountry === 'peru' ? 'active' : ''}`}
           data-country="peru"
           onClick={(e) => {
             e.stopPropagation();
@@ -759,8 +746,13 @@ export default function GlobalNetworkMap({
           </button>
 
           <div className="kx-info-header">
-            <span className="kx-info-flag">🇪🇸</span>
-            <h3 className="kx-info-title">España</h3>
+            <div className="kx-info-flag-wrap" title="Bandera de España">
+              <SpainFlag />
+            </div>
+            <div>
+              <h3 className="kx-info-title">España</h3>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-amber-400 block -mt-0.5">Hub Europa</span>
+            </div>
           </div>
 
           <p className="kx-info-subtitle">Hub Operaciones Europa</p>
@@ -832,8 +824,13 @@ export default function GlobalNetworkMap({
           </button>
 
           <div className="kx-info-header">
-            <span className="kx-info-flag">🇨🇴</span>
-            <h3 className="kx-info-title">Colombia</h3>
+            <div className="kx-info-flag-wrap" title="Bandera de Colombia">
+              <ColombiaFlag />
+            </div>
+            <div>
+              <h3 className="kx-info-title">Colombia</h3>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-yellow-400 block -mt-0.5">Base Corporativa</span>
+            </div>
           </div>
 
           <p className="kx-info-subtitle">Base Corporativa y Operativa</p>
@@ -905,8 +902,13 @@ export default function GlobalNetworkMap({
           </button>
 
           <div className="kx-info-header">
-            <span className="kx-info-flag">🇵🇪</span>
-            <h3 className="kx-info-title">Perú</h3>
+            <div className="kx-info-flag-wrap" title="Bandera de Perú">
+              <PeruFlag />
+            </div>
+            <div>
+              <h3 className="kx-info-title">Perú</h3>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-red-400 block -mt-0.5">Expansión Regional</span>
+            </div>
           </div>
 
           <p className="kx-info-subtitle">Plataforma de Expansión Regional</p>

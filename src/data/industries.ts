@@ -64,7 +64,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     fullDesc:
       'En servicios financieros, una consulta, una reclamación, una gestión de cartera o un proceso documental pueden afectar directamente la relación con el cliente. Ejecutar con precisión, mantener la trazabilidad y resolver con criterio permite dar continuidad a cada gestión.',
     iconName: 'Landmark',
-    heroImage: '/banca.png',
+    heroImage: '/banca.jpg',
     complianceBadge: 'Certificación ISO 27001 & PCI-DSS',
     showcaseImage: '/bloque2.png',
     showcaseTag: 'ALCANCE OPERATIVO',
@@ -105,7 +105,7 @@ export const INDUSTRIES_DATA: Industry[] = [
       description:
         'Gestionamos operaciones de atención, ventas, cobranzas y back office para entidades financieras, bajo criterios de precisión, trazabilidad y control en cada interacción y proceso.',
       breadcrumbLabel: 'Banca y Servicios Financieros',
-      image: '/banca.png',
+      image: '/banca.jpg',
       imageAlt: 'Detalle de edificio de oficinas moderno, superficie de vidrio'
     }
   },
@@ -462,8 +462,7 @@ export const OTRAS_INDUSTRIAS_DATA = [
     title: 'Educación',
     description:
       'Admisiones, matrículas, atención a estudiantes y gestión administrativa a lo largo del ciclo académico.',
-    image:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    image: '/industriaseducacion.jpg',
     fallbackImage:
       'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
     imageAlt:
@@ -474,8 +473,7 @@ export const OTRAS_INDUSTRIAS_DATA = [
     title: 'Turismo y Hospitalidad',
     description:
       'Reservas, modificaciones, atención al viajero y gestión de incidencias antes, durante y después de la estancia.',
-    image:
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    image: '/industriasturismo.jpg',
     fallbackImage:
       'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
     imageAlt:
@@ -486,8 +484,7 @@ export const OTRAS_INDUSTRIAS_DATA = [
     title: 'Logística y Suministro',
     description:
       'Seguimiento de envíos, incidencias de entrega, trazabilidad y coordinación operativa con clientes y proveedores.',
-    image:
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: '/industriaslogistica.jpg',
     fallbackImage:
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
     imageAlt:
@@ -498,8 +495,7 @@ export const OTRAS_INDUSTRIAS_DATA = [
     title: 'Servicios Inmobiliarios',
     description:
       'Captación, coordinación de visitas, seguimiento comercial y gestión documental a lo largo del proceso.',
-    image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+    image: '/industriasinmobiliarios.jpg',
     fallbackImage:
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
     imageAlt:

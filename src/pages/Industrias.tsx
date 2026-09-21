@@ -51,13 +51,13 @@ const INDUSTRY_ALIAS_MAP: Record<string, string> = {
 
 const SWITCHER_ITEMS = [
   { id: 'telecomunicaciones', label: 'TELECOMUNICACIONES' },
-  { id: 'banca-fintech', label: 'BANCA & SERVICIOS FINANCIEROS' },
-  { id: 'retail-ecommerce', label: 'RETAIL & COMERCIO ELECTRÓNICO' },
-  { id: 'tecnologia-digital', label: 'TECNOLOGÍA & NEGOCIOS DIGITALES' },
+  { id: 'banca-fintech', label: 'BANCA' },
+  { id: 'retail-ecommerce', label: 'RETAIL' },
+  { id: 'tecnologia-digital', label: 'TECNOLOGÍA' },
   { id: 'seguros', label: 'SEGUROS' },
-  { id: 'salud', label: 'SALUD & FARMACIA' },
-  { id: 'movilidad-transporte', label: 'MOVILIDAD & TRANSPORTE' },
-  { id: 'energia-servicios', label: 'ENERGÍA & SERVICIOS PÚBLICOS' }
+  { id: 'salud', label: 'SALUD' },
+  { id: 'movilidad-transporte', label: 'MOVILIDAD' },
+  { id: 'energia-servicios', label: 'ENERGÍA' }
 ];
 
 interface IndustriasProps {
@@ -294,11 +294,6 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                     src={item.image}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (item.id === 'educacion' && !target.dataset.triedVariant) {
-                        target.dataset.triedVariant = 'true';
-                        target.src = '/industriaseducacione.jpg';
-                        return;
-                      }
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
                         target.src = (item as any).fallbackImage || 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80';

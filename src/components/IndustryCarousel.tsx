@@ -36,115 +36,108 @@ export const MARKETS_DATA: MarketItem[] = [
     ]
   },
   {
-    id: 'retail-ecommerce',
+    id: 'banca-fintech',
     number: '02',
+    name: 'Banca y Servicios Financieros',
+    slug: 'banca-fintech',
+    desc: 'Operaciones de atención, ventas, cobranzas y back office para entidades financieras, con precisión, trazabilidad y control.',
+    image: '/banca.png',
+    fallbackImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80',
+    tags: [
+      { label: 'Movimiento y Reclamaciones', icon: ShieldCheck },
+      { label: 'Venta y Vinculación', icon: TrendingUp },
+      { label: 'Cobranzas y Cartera', icon: Headphones },
+      { label: 'Expedientes y BO', icon: ClipboardList }
+    ]
+  },
+  {
+    id: 'retail-ecommerce',
+    number: '03',
     name: 'Retail y Comercio Electrónico',
     slug: 'retail-ecommerce',
-    desc: 'Atención ágil para picos de alta demanda, garantizando experiencia de compra y resolución inmediata en cada punto de contacto.',
+    desc: 'Operaciones de atención, ventas, fidelización y back office para retail y comercio electrónico, conectando cada interacción.',
     image: '/retail.png',
     fallbackImage: 'https://images.unsplash.com/photo-1556742049-0a67e51a6627?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Atención pre y post-venta', icon: ShoppingBag },
-      { label: 'Logística inversa y cambios', icon: Truck },
-      { label: 'Soporte omnicanal 24/7', icon: Headphones },
-      { label: 'Fidelización', icon: Heart },
-      { label: 'Gestión de pedidos', icon: ClipboardList }
+      { label: 'Pedidos y Entregas', icon: Truck },
+      { label: 'Ventas y Fidelización', icon: TrendingUp },
+      { label: 'Cambios y Devoluciones', icon: ShoppingBag },
+      { label: 'Inventario y BO', icon: ClipboardList }
     ]
   },
   {
     id: 'tecnologia-digital',
-    number: '03',
+    number: '04',
     name: 'Tecnología y Negocios Digitales',
     slug: 'tecnologia-digital',
-    desc: 'Soporte técnico especializado y gestión de usuarios para plataformas SaaS y apps que crecen a ritmo acelerado.',
+    desc: 'Operaciones de atención, ventas, soporte y back office para tecnología y negocios digitales, con agilidad y control.',
     image: '/tecnologia.png',
     fallbackImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Help desk multinivel', icon: Cpu },
-      { label: 'Customer Success', icon: Heart },
-      { label: 'Soporte SaaS', icon: Wrench },
-      { label: 'Gestión de accesos', icon: Headphones },
-      { label: 'Monitorización 24/7', icon: Zap }
+      { label: 'Soporte de Producto', icon: Cpu },
+      { label: 'Incorporación de Usuarios', icon: Heart },
+      { label: 'Ventas y Renovaciones', icon: TrendingUp },
+      { label: 'Suscripciones y BO', icon: ClipboardList }
     ]
   },
   {
     id: 'seguros',
-    number: '04',
+    number: '05',
     name: 'Seguros',
     slug: 'seguros',
-    desc: 'Gestión humana y oportuna en momentos decisivos, acelerando la respuesta ante siniestros y asistencias 24/7.',
+    desc: 'Operaciones de atención, ventas, asistencia y back office para seguros, con precisión, continuidad y trazabilidad.',
     image: '/seguros.png',
     fallbackImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Atención siniestros 24/7', icon: ShieldCheck },
-      { label: 'Despacho de asistencias', icon: Truck },
-      { label: 'Renovación de pólizas', icon: TrendingUp },
-      { label: 'Soporte a corredores', icon: Headphones },
-      { label: 'Back Office asegurador', icon: ClipboardList }
+      { label: 'Consultas de Póliza', icon: ShieldCheck },
+      { label: 'Ventas y Renovaciones', icon: TrendingUp },
+      { label: 'Siniestros y Asistencias', icon: Truck },
+      { label: 'Expedientes y BO', icon: ClipboardList }
     ]
   },
   {
     id: 'salud',
-    number: '05',
-    name: 'Salud',
+    number: '06',
+    name: 'Salud y Farmacia',
     slug: 'salud',
-    desc: 'Coordinación precisa y empática para servicios médicos y asistenciales, asegurando agilidad y rigor profesional.',
+    desc: 'Operaciones de atención, soporte y back office para organizaciones de salud y farmacia, con precisión y trazabilidad.',
     image: '/salud.png',
     fallbackImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Agendamiento médico', icon: Activity },
-      { label: 'Soporte telemedicina', icon: Headphones },
-      { label: 'Mesa de orientación', icon: Wrench },
-      { label: 'Confirmación y citas', icon: TrendingUp },
-      { label: 'Gestión autorizaciones', icon: ClipboardList }
+      { label: 'Citas y Autorizaciones', icon: Activity },
+      { label: 'Orientación al Paciente', icon: Headphones },
+      { label: 'Dispensación y Solicitudes', icon: TrendingUp },
+      { label: 'Documentación Sanitaria y BO', icon: ClipboardList }
     ]
   },
   {
     id: 'movilidad-transporte',
-    number: '06',
+    number: '07',
     name: 'Movilidad y Transporte',
     slug: 'movilidad-transporte',
-    desc: 'Control en tiempo real para flotas, trazabilidad logística y soporte integral a conductores y usuarios.',
+    desc: 'Operaciones de atención, soporte, seguimiento y back office para movilidad y transporte, con continuidad y respuesta.',
     image: '/movilidad.png',
     fallbackImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Rastreo y trazabilidad', icon: Truck },
-      { label: 'Gestión de novedades', icon: Wrench },
-      { label: 'Soporte conductores', icon: Headphones },
-      { label: 'Atención post-entrega', icon: Heart },
-      { label: 'Torre de control 24/7', icon: ClipboardList }
+      { label: 'Atención en Ruta', icon: Truck },
+      { label: 'Incidencias y Reclamaciones', icon: Wrench },
+      { label: 'Reservas y Modificaciones', icon: Headphones },
+      { label: 'Liquidaciones y BO', icon: ClipboardList }
     ]
   },
   {
     id: 'energia-servicios',
-    number: '07',
+    number: '08',
     name: 'Energía y Servicios Públicos',
     slug: 'energia-servicios',
-    desc: 'Atención masiva con alta disponibilidad ante contingencias, emergencias técnicas y gestión integral del ciclo comercial.',
+    desc: 'Operaciones de atención, soporte, cobranzas y back office para energía y servicios públicos, con continuidad.',
     image: '/energia.png',
     fallbackImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80',
     tags: [
-      { label: 'Línea de emergencias 24/7', icon: Zap },
-      { label: 'Atención de PQRs', icon: Headphones },
-      { label: 'Gestión de facturación', icon: ClipboardList },
-      { label: 'Despacho de cuadrillas', icon: Wrench },
-      { label: 'Canales digitales', icon: TrendingUp }
-    ]
-  },
-  {
-    id: 'banca-fintech',
-    number: '08',
-    name: 'Banca y Fintech',
-    slug: 'banca-fintech',
-    desc: 'Onboarding digital biométrico, cobranza temprana especializada y soporte en transacciones con estricto cumplimiento ISO 27001.',
-    image: '/banners/banner-fundamentos.png',
-    fallbackImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80',
-    tags: [
-      { label: 'Onboarding y KYC', icon: ShieldCheck },
-      { label: 'Prevención de fraude', icon: ShieldCheck },
-      { label: 'Cobranza temprana', icon: TrendingUp },
-      { label: 'Soporte transaccional', icon: Headphones },
-      { label: 'Cumplimiento normativo', icon: ClipboardList }
+      { label: 'Facturación y Reclamaciones', icon: ClipboardList },
+      { label: 'Averías y Suspensiones', icon: Zap },
+      { label: 'Altas y Reconexiones', icon: Wrench },
+      { label: 'Lecturas y BO', icon: Headphones }
     ]
   }
 ];
@@ -178,7 +171,8 @@ export default function IndustryCarousel({
           (activeSlug === 'logistica' && m.slug === 'movilidad-transporte') ||
           (activeSlug === 'energia' && m.slug === 'energia-servicios') ||
           (activeSlug === 'tecnologia' && m.slug === 'tecnologia-digital') ||
-          (activeSlug === 'banca' && m.slug === 'banca-fintech')
+          (activeSlug === 'banca' && m.slug === 'banca-fintech') ||
+          (activeSlug === 'banca-servicios-financieros' && m.slug === 'banca-fintech')
       );
       if (idx !== -1 && idx !== activeIndex) {
         setActiveIndex(idx);

@@ -5,20 +5,27 @@ export const INDUSTRIES_DATA: Industry[] = [
     id: 'telecomunicaciones',
     slug: 'telecomunicaciones',
     name: 'Telecomunicaciones',
-    shortDesc: 'Soporte técnico multinivel, retención proactiva y upgrades de servicios.',
-    fullDesc: 'Operaciones de alto volumen donde la capacidad de respuesta, la continuidad y el control deben sostenerse en cada interacción.',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En telecomunicaciones, la relación con el cliente se construye en momentos que exigen coordinar canales, sistemas y áreas distintas. El reto no es resolver cada gestión de forma aislada, sino mantener la continuidad entre lo que el cliente contrató, lo que recibe y lo que ocurre cuando algo cambia o falla.',
     iconName: 'Radio',
     heroImage: '/banners/banner-telecomunicaciones.png',
     complianceBadge: 'SLAs Críticos 24/7 & ISO 27001',
-    showcaseImage: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Omnicanalidad 24/7',
+    showcaseImage: '/industriasbloque2.jpg',
+    showcaseTag: 'ALCANCE OPERATIVO',
     operationalStandard: 'Control de SLA, supervisión en vivo y medición continua.',
-    keyCapabilities: [
-      'Inbound multicanal y Help Desk N1/N2',
-      'Gestión de SLA y FCR superior al 90%',
-      'Células especializadas en retención activa',
-      'Autogestión por bots e IVR inteligente'
+    capabilitiesBars: [
+      'Facturación y Consumo',
+      'Renovaciones, Ventas y Fidelización',
+      'Soporte Técnico e Incidencias',
+      'Activaciones y Back Office'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
+    },
     keyChallenges: [
       'Volumen de incidencias: Picos masivos por fallas de red, fibra o configuración de equipos.',
       'Riesgo de churn: Fuga de abonados ante promociones agresivas de la competencia.',
@@ -36,65 +43,99 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Reducción de Churn', value: '-30%' },
       { label: 'Efectividad en Upgrades', value: '+25%' }
     ],
-    operationalScope: [
-      'Help Desk Técnico N1 / N2',
-      'Portabilidad y Migración',
-      'Retención de Abonados',
-      'Despacho y Coordinación Técnica',
-      'Atención Omnicanal 24/7',
-      'Gestión de Reclamaciones'
-    ],
-    appliedServices: [
-      {
-        title: 'Atención al Cliente',
-        desc: 'Resolución ágil de consultas comerciales y de servicio.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Soporte Técnico',
-        desc: 'Diagnóstico avanzado y resolución guiada de conectividad.',
-        link: '/servicios#soporte-tecnico'
-      },
-      {
-        title: 'Ventas y Fidelización',
-        desc: 'Retención preventiva y venta cruzada de paquetes de valor.',
-        link: '/servicios#ventas-fidelizacion'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Atención automatizada 24/7 vía WhatsApp y app móvil.',
-        link: '/servicios#omnicanalidad-bots'
-      }
-    ],
     bannerInfo: {
       title: 'TELECOMUNICACIONES',
       watermark: 'TELECOMUNICACIONES',
-      badge: 'SECTOR ESTRATÉGICO',
-      headline: 'Capacidad masiva, continuidad técnica y retención continua.',
-      description: 'Operaciones de alto volumen donde la capacidad de respuesta, la continuidad y el control deben sostenerse en cada interacción técnica y comercial.',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'La red conecta. La operación sostiene la relación.',
+      description:
+        'Gestionamos operaciones de atención, ventas, fidelización, soporte y back office para compañías de telecomunicaciones, articulando cada interacción con criterios de resolución, continuidad y control.',
       breadcrumbLabel: 'Telecomunicaciones',
       image: '/banners/banner-telecomunicaciones.png',
-      imageAlt: 'Telecomunicaciones KONVERXA'
+      imageAlt: 'Torre de telecomunicaciones al atardecer'
+    }
+  },
+  {
+    id: 'banca-fintech',
+    slug: 'banca-fintech',
+    name: 'Banca y Servicios Financieros',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En servicios financieros, una consulta, una reclamación, una gestión de cartera o un proceso documental pueden afectar directamente la relación con el cliente. Ejecutar con precisión, mantener la trazabilidad y resolver con criterio permite dar continuidad a cada gestión.',
+    iconName: 'Landmark',
+    heroImage: '/banca.png',
+    complianceBadge: 'Certificación ISO 27001 & PCI-DSS',
+    showcaseImage: '/bloque2.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Control de precisión, trazabilidad y resolución con criterio.',
+    capabilitiesBars: [
+      'Movimiento y Reclamaciones',
+      'Venta y Vinculación',
+      'Cobranzas y Cartera',
+      'Expedientes y BO'
+    ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
+    },
+    keyChallenges: [
+      'Consultas y reclamaciones críticas: Sensibilidad ante operaciones monetarias y tiempos de respuesta.',
+      'Riesgo en colocación: Fricción en procesos de venta asistida, onboarding y validación crediticia.',
+      'Gestión de cartera temprana y tardía: Recuperación sin deteriorar la relación ni el apego normativo.',
+      'Carga documental en Back Office: Verificación exhaustiva de expedientes con estricta trazabilidad.'
+    ],
+    solutions: [
+      'Gestión resolutiva de reclamos: Trazabilidad integral y resolución con criterio en cada interacción.',
+      'Venta y vinculación ágil: Células comerciales especializadas en colocación y onboarding financiero.',
+      'Cobranza especializada: Recuperación de cartera con negociación estratégica y respeto a la normativa.',
+      'Back Office de expedientes: Procesamiento documental riguroso con auditoría continua y cero errores.'
+    ],
+    stats: [
+      { label: 'Resolución de Reclamaciones', value: '94%' },
+      { label: 'Efectividad en Cobranzas', value: '+32%' },
+      { label: 'Conformidad Regulatoria', value: '100%' }
+    ],
+    bannerInfo: {
+      title: 'BANCA Y SERVICIOS FINANCIEROS',
+      watermark: 'BANCA Y SERVICIOS FINANCIEROS',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'Cada gestión pone a prueba la confianza.',
+      description:
+        'Gestionamos operaciones de atención, ventas, cobranzas y back office para entidades financieras, bajo criterios de precisión, trazabilidad y control en cada interacción y proceso.',
+      breadcrumbLabel: 'Banca y Servicios Financieros',
+      image: '/banca.png',
+      imageAlt: 'Detalle de edificio de oficinas moderno, superficie de vidrio'
     }
   },
   {
     id: 'retail-ecommerce',
     slug: 'retail-ecommerce',
     name: 'Retail y Comercio Electrónico',
-    shortDesc: 'Atención pre y post-venta, logística inversa y fidelización en picos de demanda.',
-    fullDesc: 'Acompañamos al comprador en toda su experiencia, absorbiendo picos estacionales y garantizando agilidad en cambios y devoluciones.',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En retail y comercio electrónico, una compra no termina con la transacción. Una consulta, una entrega, un cambio o una devolución pueden definir la relación futura con el cliente. La capacidad de resolver con continuidad y mantener el contexto en cada gestión influye directamente en su disposición a volver',
     iconName: 'ShoppingBag',
     heroImage: '/banners/banner-retail.png',
     complianceBadge: 'Escalabilidad Elástica & Omnicanalidad 24/7',
-    showcaseImage: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Escalabilidad Elástica & Picos',
-    operationalStandard: 'Capacidad elástica en Cyber Days, tiempo de respuesta < 30s.',
-    keyCapabilities: [
-      'Atención pre y post-venta omnicanal en vivo',
-      'Mesa dedicada de logística inversa y cambios',
-      'Rastreo transaccional de pedidos en WhatsApp',
-      'Programas de recuperación de carritos y fidelización'
+    showcaseImage: '/retail.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Resolución con continuidad y contexto en cada gestión.',
+    capabilitiesBars: [
+      'Pedidos y Entregas',
+      'Ventas y Fidelización',
+      'Cambios y Devoluciones',
+      'Inventario y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Una estructura diseñada para evolucionar con tu negocio.',
+      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
+      ctaText: 'Hablemos de tu negocio',
+      ctaLink: '/contacto'
+    },
     keyChallenges: [
       'Picos de demanda: Saturación en Cyber Days, Black Friday y campañas estacionales.',
       'Ansiedad en entregas: Consultas reiteradas de clientes por el estado de sus pedidos.',
@@ -112,65 +153,44 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Tiempo de Respuesta', value: '< 30s' },
       { label: 'Tasa de Fidelización', value: '+28%' }
     ],
-    operationalScope: [
-      'Asistencia Pre-Venta Omnicanal',
-      'Gestión de Pedidos y Entregas',
-      'Logística Inversa y Devoluciones',
-      'Atención a Reclamos y Garantías',
-      'Escalabilidad en Picos Comerciales',
-      'Fidelización y Recompra'
-    ],
-    appliedServices: [
-      {
-        title: 'Atención al Cliente',
-        desc: 'Resolución de dudas sobre envíos, garantías y compras.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Validación de facturación, notas de crédito y reembolsos.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Bots transaccionales para consulta de pedidos por WhatsApp.',
-        link: '/servicios#omnicanalidad-bots'
-      },
-      {
-        title: 'Ventas y Fidelización',
-        desc: 'Aceleración de conversión y programas de clientes VIP.',
-        link: '/servicios#ventas-fidelizacion'
-      }
-    ],
     bannerInfo: {
-      title: 'RETAIL & ECOMMERCE',
-      watermark: 'RETAIL Y ECOMMERCE',
-      badge: 'COMERCIO Y LOGÍSTICA',
-      headline: 'Experiencia de compra inmediata y gestión ágil en picos de demanda.',
-      description: 'Atención omnicanal resolutiva para pre y post-venta, cambios, devoluciones y fidelización que protege el valor del cliente en cada compra.',
-      breadcrumbLabel: 'Retail y eCommerce',
+      title: 'RETAIL Y COMERCIO ELECTRONICO',
+      watermark: 'RETAIL Y COMERCIO ELECTRONICO',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'Cada interacción influye en la recompra.',
+      description:
+        'Gestionamos operaciones de atención, ventas, fidelización y back office para compañías de retail y comercio electrónico, conectando cada interacción con criterios de resolución, continuidad y seguimiento.',
+      breadcrumbLabel: 'Retail y Comercio Electrónico',
       image: '/banners/banner-retail.png',
-      imageAlt: 'Retail y eCommerce KONVERXA'
+      imageAlt:
+        'dos hermosas vendedoras de negocios independientes comprobando el pedido del producto con la computadora'
     }
   },
   {
     id: 'tecnologia-digital',
     slug: 'tecnologia-digital',
     name: 'Tecnología y Negocios Digitales',
-    shortDesc: 'Help desk multinivel, onboarding SaaS y reducción de churn.',
-    fullDesc: 'Soporte técnico especializado y customer success para plataformas SaaS y apps que crecen a ritmo acelerado.',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En los negocios digitales, los productos, los canales y las necesidades del cliente pueden cambiar con rapidez. Mantener una ejecución consistente mientras evoluciona la propuesta exige incorporar cambios, resolver incidencias y adaptar la operación sin perder control ni trazabilidad.',
     iconName: 'Cpu',
     heroImage: '/banners/banner-tecnologia.png',
-    complianceBadge: 'Soporte L1/L2 & SLAs de Uptime',
-    showcaseImage: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Soporte SaaS & Customer Success',
-    operationalStandard: 'SLAs de Uptime garantizados, resolución en primer contacto 88%.',
-    keyCapabilities: [
-      'Help Desk L1/L2 especializado en tu stack',
-      'Customer Success y onboarding guiado',
-      'Monitoreo continuo de salud y churn',
-      'Escalamiento ágil y sincronizado a Jira / GitHub'
+    complianceBadge: 'Soporte L1/L2 & Agilidad Continua',
+    showcaseImage: '/tecnologia.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Agilidad, trazabilidad y control en entornos continuos.',
+    capabilitiesBars: [
+      'Soporte de Producto',
+      'Incorporación de Usuarios',
+      'Ventas y Renovaciones',
+      'Suscripciones y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
+    },
     keyChallenges: [
       'Adopción y onboarding: Curva de aprendizaje compleja que eleva el abandono temprano.',
       'Tickets críticos: Incidentes de software que demandan resolución veloz bajo SLAs.',
@@ -188,65 +208,48 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Reducción de Churn', value: '-31%' },
       { label: 'Tiempo de Respuesta', value: '< 45s' }
     ],
-    operationalScope: [
-      'Help Desk Técnico L1 / L2',
-      'Customer Onboarding Guiado',
-      'Customer Success Proactivo',
-      'Gestión de Accesos y Permisos',
-      'Monitorización de Uptime 24/7',
-      'Prevención de Churn'
-    ],
-    appliedServices: [
-      {
-        title: 'Soporte Técnico',
-        desc: 'Mesa especializada para incidencias en software y plataformas.',
-        link: '/servicios#soporte-tecnico'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Widgets integrados en la app con derivación inteligente.',
-        link: '/servicios#omnicanalidad-bots'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Configuración de cuentas, depuración de datos y altas.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Talento Humano',
-        desc: 'Perfiles técnicos con alta capacitación y estabilidad.',
-        link: '/servicios#rrhh-apoyo-psicosocial'
-      }
-    ],
     bannerInfo: {
-      title: 'TECNOLOGÍA DIGITAL',
-      watermark: 'TECNOLOGÍA Y SAAS',
-      badge: 'SOPORTE Y CUSTOMER SUCCESS',
-      headline: 'Soporte especializado para plataformas y apps de rápido crecimiento.',
-      description: 'Mesas de ayuda multinivel L1/L2, adopción de usuario, resolución ágil de incidencias y gestión proactiva para reducir el churn en modelos de suscripción.',
-      breadcrumbLabel: 'Tecnología Digital',
+      title: 'TECNOLOGÍA Y NEGOCIOS DIGITALES',
+      watermark: 'TECNOLOGÍA Y NEGOCIOS DIGITALES',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'Cuando el negocio cambia rápido, la operación no puede perder consistencia.',
+      description:
+        'Gestionamos operaciones de atención, ventas, soporte y back office para empresas tecnológicas y negocios digitales, combinando agilidad, trazabilidad y control en entornos que evolucionan de forma continua.',
+      breadcrumbLabel: 'Tecnología y Negocios Digitales',
+      parentBreadcrumbLabel: 'Industrias',
       image: '/banners/banner-tecnologia.png',
-      imageAlt: 'Tecnología y Negocios Digitales KONVERXA'
+      imageAlt:
+        'Torre de telecomunicaciones que domina el horizonte de Génova, Italia, durante la puesta de sol Foto de Stock, Incluyendo: antena y celular - Envato'
     }
   },
   {
     id: 'seguros',
     slug: 'seguros',
     name: 'Seguros',
-    shortDesc: 'Atención de siniestros 24/7, despacho de asistencias y renovación de pólizas.',
-    fullDesc: 'Respuesta empática e inmediata en momentos críticos para el asegurado, con radicación de siniestros y despacho ágil de asistencias.',
+    block2Title: 'Seguro',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En seguros, la relación se pone a prueba cuando el cliente necesita usar lo que contrató. Un siniestro, una asistencia o una renovación concentran urgencia, documentación y expectativa, y exigen una gestión coordinada, trazable y ajustada a los procedimientos de cada entidad.',
     iconName: 'ShieldCheck',
     heroImage: '/banners/banner-seguros.png',
     complianceBadge: 'Atención de Emergencias 24/7 & ISO 27001',
-    showcaseImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Asistencia & Siniestros 24/7',
-    operationalStandard: 'Asignación de auxilio < 15 min, certificación ISO 27001.',
-    keyCapabilities: [
-      'Línea de emergencia y contención humana 24/7',
-      'Despacho y geolocalización de asistencias en ruta',
-      'Back Office documental y revisión de expedientes',
-      'Campañas oportunas de renovación de pólizas'
+    showcaseImage: '/seguros.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Gestión coordinada, trazable y ajustada a cada entidad.',
+    capabilitiesBars: [
+      'Consultas de Póliza',
+      'Ventas y Renovaciones',
+      'Siniestros y Asistencias',
+      'Expedientes y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Una estructura diseñada para evolucionar con tu negocio.',
+      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
+      ctaText: 'Hablemos de tu negocio',
+      ctaLink: '/contacto'
+    },
     keyChallenges: [
       'Momentos de contingencia: Asegurados en situaciones de estrés que requieren contención humana.',
       'Retrasos documentales: Fricción y lentitud en la recopilación para liquidar siniestros.',
@@ -264,43 +267,15 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Renovación de Pólizas', value: '92%' },
       { label: 'CSAT en Siniestros', value: '96%' }
     ],
-    operationalScope: [
-      'Recepción de Siniestros 24/7',
-      'Despacho de Asistencias en Ruta',
-      'Radicación y Revisión Documental',
-      'Renovación Oportuna de Pólizas',
-      'Soporte a Red de Corredores',
-      'Cobranza Preventiva de Primas'
-    ],
-    appliedServices: [
-      {
-        title: 'Atención al Cliente',
-        desc: 'Radicación de siniestros con empatía y rapidez.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Revisión técnica de documentos y expedientes de pólizas.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Cobranzas',
-        desc: 'Cobro preventivo de cuotas y regularización de primas.',
-        link: '/servicios#cobranzas'
-      },
-      {
-        title: 'Ventas y Fidelización',
-        desc: 'Renovaciones y ofrecimiento de coberturas adicionales.',
-        link: '/servicios#ventas-fidelizacion'
-      }
-    ],
     bannerInfo: {
       title: 'SEGUROS',
-      watermark: 'SEGUROS Y ASISTENCIA',
-      badge: 'RESPUESTA INMEDIATA Y RIGOR',
-      headline: 'Gestión humana y oportuna en momentos decisivos y contingencias.',
-      description: 'Atención 24/7 en radicación de siniestros, despacho rápido de asistencias en terreno y campañas oportunas de renovación de pólizas.',
+      watermark: 'SEGUROS',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'La póliza define la cobertura. La operación sostiene la confianza.',
+      description:
+        'Gestionamos operaciones de atención, ventas, asistencia y back office para compañías de seguros, con criterios de precisión, continuidad y trazabilidad a lo largo de cada gestión.',
       breadcrumbLabel: 'Seguros',
+      parentBreadcrumbLabel: 'Industrias y Mercados',
       image: '/banners/banner-seguros.png',
       imageAlt: 'Seguros KONVERXA'
     }
@@ -308,21 +283,31 @@ export const INDUSTRIES_DATA: Industry[] = [
   {
     id: 'salud',
     slug: 'salud',
-    name: 'Salud',
-    shortDesc: 'Agendamiento centralizado, telemedicina y seguimiento continuo al paciente.',
-    fullDesc: 'Centralizamos citas médicas, reducimos el ausentismo y brindamos soporte humano y técnico en telemedicina con estricta confidencialidad.',
+    name: 'Salud y Farmacia',
+    block2Title: 'Salud y Farmacia',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En salud y farmacia, una demora, una información incompleta o una gestión mal resuelta pueden afectar directamente la experiencia del paciente y la continuidad de su atención. Por eso, cada solicitud requiere una gestión precisa, información fiable y trazabilidad durante su seguimiento.',
     iconName: 'Activity',
     heroImage: '/banners/banner-salud.png',
     complianceBadge: 'Confidencialidad de Datos Médicos & ISO 27001',
-    showcaseImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Agendamiento & Telemedicina',
-    operationalStandard: 'Reducción de ausentismo del 40% y confidencialidad médica total.',
-    keyCapabilities: [
-      'Central omnicanal de agendamiento y reprogramación 24/7',
-      'Recordatorios inteligentes multicanal (WhatsApp y voz)',
-      'Mesa técnica de asistencia al paciente en videoconsultas',
-      'Acompañamiento clínico post-alta y orientación previa'
+    showcaseImage: '/salud.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Gestión precisa, información fiable y trazabilidad continua.',
+    capabilitiesBars: [
+      'Citas y Autorizaciones',
+      'Orientación al Paciente',
+      'Dispensación y Solicitudes',
+      'Documentación Sanitaria y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Una estructura diseñada para evolucionar con tu negocio.',
+      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
+      ctaText: 'Hablemos de tu negocio',
+      ctaLink: '/contacto'
+    },
     keyChallenges: [
       'Colapso en citas: Saturación telefónica recurrente en centrales médicas.',
       'Ausentismo en consultas: Pérdida económica de capacidad médica instalada.',
@@ -340,65 +325,47 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Efectividad en Agendas', value: '96%' },
       { label: 'CSAT de Pacientes', value: '98%' }
     ],
-    operationalScope: [
-      'Central de Agendamiento Médico',
-      'Confirmación y Recordatorios de Cita',
-      'Soporte al Paciente en Telemedicina',
-      'Orientación Previa a Exámenes',
-      'Seguimiento Post-Consulta',
-      'Gestión de Autorizaciones'
-    ],
-    appliedServices: [
-      {
-        title: 'Atención al Cliente',
-        desc: 'Trato empático y ágil para pacientes y familiares.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Bots de autogestión para agendar y cancelar citas.',
-        link: '/servicios#omnicanalidad-bots'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Trámite de autorizaciones y validación de coberturas.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Talento Humano',
-        desc: 'Capacitación en trato humanizado y contención en salud.',
-        link: '/servicios#rrhh-apoyo-psicosocial'
-      }
-    ],
     bannerInfo: {
-      title: 'SALUD',
-      watermark: 'SALUD Y ASISTENCIA',
-      badge: 'EMPATÍA Y COORDINACIÓN',
-      headline: 'Precisión médica, agendamiento ágil y acompañamiento al paciente.',
-      description: 'Mesa centralizada para citas, soporte a telemedicina y seguimiento post-consulta con estricto resguardo confidencial de la información.',
-      breadcrumbLabel: 'Salud',
+      title: 'SALUD Y FARMACIA',
+      watermark: 'SALUD Y FARMACIA',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'La continuidad del servicio también se construye desde la operación.',
+      description:
+        'Gestionamos operaciones de atención, soporte y back office para organizaciones de salud y farmacia, con criterios de precisión, trazabilidad y continuidad en la gestión de solicitudes y procesos administrativos.',
+      breadcrumbLabel: 'Salud y Farmacia',
+      parentBreadcrumbLabel: 'Industrias y Mercados',
       image: '/banners/banner-salud.png',
-      imageAlt: 'Salud KONVERXA'
+      imageAlt: 'Salud y Farmacia'
     }
   },
   {
     id: 'movilidad-transporte',
     slug: 'movilidad-transporte',
     name: 'Movilidad y Transporte',
-    shortDesc: 'Torre de control 24/7, trazabilidad de flotas y soporte a conductores.',
-    fullDesc: 'Aseguramos la fluidez comunicacional en la cadena logística con trazabilidad en tiempo real y resolución inmediata de novedades.',
+    block2Title: 'Movilidad y Transporte',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En movilidad y transporte, una incidencia, un retraso, un cambio de servicio o una solicitud requieren información precisa y capacidad de respuesta. Mantener la trazabilidad y la continuidad de cada gestión permite dar seguimiento a las necesidades del cliente incluso cuando las condiciones del servicio cambian.',
     iconName: 'Truck',
     heroImage: '/banners/banner-movilidad.png',
     complianceBadge: 'Torre de Control Logístico 24/7',
-    showcaseImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Torre de Control Logístico 24/7',
-    operationalStandard: 'Atención a choferes en < 15s y resolución de novedades del 89%.',
-    keyCapabilities: [
-      'Trazabilidad en tiempo real de fletes y cargas',
-      'Torre de control para novedades de última milla',
-      'Línea exclusiva y prioritaria para conductores',
-      'Digitalización y conciliación rápida de POD y firmas'
+    showcaseImage: '/movilidad.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Continuidad, trazabilidad y capacidad de respuesta en ruta.',
+    capabilitiesBars: [
+      'Atención en Ruta',
+      'Incidencias y Reclamaciones',
+      'Reservas y Modificaciones',
+      'Liquidaciones y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Una estructura diseñada para evolucionar con tu negocio.',
+      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
+      ctaText: 'Hablemos de tu negocio',
+      ctaLink: '/contacto'
+    },
     keyChallenges: [
       'Consultas repetitivas: Alto volumen de llamadas preguntando por el estado del paquete o flete.',
       'Entregas fallidas: Destinatarios ausentes o direcciones erróneas sin resolución inmediata.',
@@ -416,65 +383,47 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'SLA Atención Choferes', value: '< 15s' },
       { label: 'Efectividad en Entrega', value: '+27%' }
     ],
-    operationalScope: [
-      'Rastreo y Trazabilidad de Carga',
-      'Torre de Control de Novedades',
-      'Línea Exclusiva a Conductores',
-      'Atención al Destinatario Final',
-      'Conciliación de Entregas y POD',
-      'Gestión de Averías y Reclamos'
-    ],
-    appliedServices: [
-      {
-        title: 'Back Office',
-        desc: 'Documentación de viaje, guías de despacho y verificación de firmas.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Atención al Cliente',
-        desc: 'Respuestas precisas y transparentes al usuario sobre su envío.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Consultas automáticas de guía por WhatsApp 24/7.',
-        link: '/servicios#omnicanalidad-bots'
-      },
-      {
-        title: 'Soporte Técnico',
-        desc: 'Asistencia técnica en apps de geolocalización a transportistas.',
-        link: '/servicios#soporte-tecnico'
-      }
-    ],
     bannerInfo: {
       title: 'MOVILIDAD Y TRANSPORTE',
-      watermark: 'MOVILIDAD Y LOGÍSTICA',
-      badge: 'OPERACIONES EN TIEMPO REAL',
-      headline: 'Control de flotas, trazabilidad y soporte a conductores y usuarios.',
-      description: 'Torre de control 24/7 para seguimiento de rutas, novedades de entrega de última milla y asistencia inmediata a conductores.',
+      watermark: 'MOVILIDAD Y TRANSPORTE',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'Cuando el servicio está en movimiento, la operación debe mantener el control.',
+      description:
+        'Gestionamos operaciones de atención, soporte, seguimiento y back office para compañías de movilidad y transporte, con criterios de continuidad, trazabilidad y capacidad de respuesta ante incidencias y cambios durante el servicio.',
       breadcrumbLabel: 'Movilidad y Transporte',
+      parentBreadcrumbLabel: 'Industrias y Mercados',
       image: '/banners/banner-movilidad.png',
-      imageAlt: 'Movilidad y Transporte KONVERXA'
+      imageAlt: 'Movilidad y Transporte'
     }
   },
   {
     id: 'energia-servicios',
     slug: 'energia-servicios',
     name: 'Energía y Servicios Públicos',
-    shortDesc: 'Disponibilidad 24/7 ante emergencias, cortes masivos y gestión de facturación.',
-    fullDesc: 'Capacidad masiva de respuesta para empresas de energía, gas y agua ante contingencias climáticas y reclamaciones de facturación.',
+    block2Title: 'Energía y Servicios Públicos',
+    shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
+    fullDesc:
+      'En energía y servicios públicos, una incidencia, una factura, una suspensión o una solicitud de servicio pueden afectar directamente la relación con el usuario. Gestionar cada solicitud con información clara, mantener su trazabilidad y dar continuidad al seguimiento permite atender las necesidades del usuario, incluso cuando intervienen distintas áreas de la compañía.',
     iconName: 'Zap',
     heroImage: '/banners/banner-energia.png',
     complianceBadge: 'Resiliencia Operativa & Marco Regulatorio',
-    showcaseImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Resiliencia Operativa & Contingencias',
-    operationalStandard: 'Atención en fallas masivas del 99.5% y cumplimiento de plazos legales.',
-    keyCapabilities: [
-      'Sobreflujo masivo asistido por IA ante tormentas',
-      'Mesa experta en tarifas, consumos y financiación',
-      'Trazabilidad automatizada de tiempos normativos PQR',
-      'Despacho geolocalizado e inmediato de cuadrillas'
+    showcaseImage: '/energia.png',
+    showcaseTag: 'ALCANCE OPERATIVO',
+    operationalStandard: 'Precisión, trazabilidad y continuidad en cada gestión.',
+    capabilitiesBars: [
+      'Facturación y Reclamaciones',
+      'Averías y Suspensiones',
+      'Altas y Reconexiones',
+      'Lecturas y BO'
     ],
+    footerClosing: {
+      tag: 'EVOLUCIÓN OPERATIVA',
+      title: 'Una estructura diseñada para evolucionar con tu negocio.',
+      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
+      ctaText: 'Hablemos de tu negocio',
+      ctaLink: '/contacto'
+    },
     keyChallenges: [
       'Cortes masivos imprevistos: Saturación telefónica extrema durante tormentas o averías.',
       'Reclamos de consumo: Sensibilidad del usuario ante variaciones en la factura de servicios.',
@@ -492,121 +441,68 @@ export const INDUSTRIES_DATA: Industry[] = [
       { label: 'Satisfacción del Usuario', value: '91%' },
       { label: 'Tiempo de Derivación', value: '< 2m' }
     ],
-    operationalScope: [
-      'Línea de Emergencias 24/7',
-      'Reporte Automatizado de Averías',
-      'Aclaración de Facturas y Consumos',
-      'Despacho y Coordinación de Cuadrillas',
-      'Gestión de PQR Regulatorias',
-      'Canales Digitales de Autogestión'
-    ],
-    appliedServices: [
-      {
-        title: 'Atención al Cliente',
-        desc: 'Mesa telefónica y digital con protocolos de contingencia 24/7.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Cobranzas',
-        desc: 'Negociación de acuerdos de pago para reducción de morosidad.',
-        link: '/servicios#cobranzas'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Análisis de reclamaciones técnicas y ajustes tarifarios.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Reportes de fallas por WhatsApp con geolocalización.',
-        link: '/servicios#omnicanalidad-bots'
-      }
-    ],
     bannerInfo: {
-      title: 'ENERGÍA Y SERVICIOS',
-      watermark: 'ENERGÍA Y PÚBLICOS',
-      badge: 'ALTA DISPONIBILIDAD',
-      headline: 'Disponibilidad 24/7 ante emergencias, contingencias y facturación.',
-      description: 'Atención masiva de reportes de cortes, aclaraciones de consumo y gestión de reclamaciones regulatorias con contingencia por IA.',
-      breadcrumbLabel: 'Energía y Servicios',
+      title: 'ENERGÍA Y SERVICIOS PÚBLICOS',
+      watermark: 'ENERGÍA Y SERVICIOS PÚBLICOS',
+      badge: 'SECTORES ESTRATÉGICOS',
+      headline: 'Cuando el servicio es esencial, la operación debe sostener la continuidad.',
+      description:
+        'Gestionamos operaciones de atención, soporte, cobranzas y back office para compañías de energía y servicios públicos, con criterios de precisión, trazabilidad y continuidad en cada gestión.',
+      breadcrumbLabel: 'Energía y Servicios Públicos',
+      parentBreadcrumbLabel: 'Industrias',
       image: '/banners/banner-energia.png',
-      imageAlt: 'Energía y Servicios Públicos KONVERXA'
+      imageAlt: 'Energía y Servicios Públicos'
     }
+  }
+];
+
+export const OTRAS_INDUSTRIAS_DATA = [
+  {
+    id: 'educacion',
+    title: 'Educación',
+    description:
+      'Admisiones, matrículas, atención a estudiantes y gestión administrativa a lo largo del ciclo académico.',
+    image:
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    imageAlt:
+      'Feliz grupo de estudiantes exitosos que estudian y trabajan juntos en la biblioteca de una universidad'
   },
   {
-    id: 'banca-fintech',
-    slug: 'banca-fintech',
-    name: 'Banca y Fintech',
-    shortDesc: 'Onboarding biométrico KYC, cobranzas tempranas y soporte transaccional.',
-    fullDesc: 'Operaciones de alta seguridad para entidades bancarias, billeteras digitales y neobancos, bajo estrictas normas de protección de datos.',
-    iconName: 'Landmark',
-    heroImage: '/banners/banner-fundamentos.png',
-    complianceBadge: 'Certificación ISO 27001 & PCI-DSS',
-    showcaseImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
-    showcaseTag: 'Seguridad & Onboarding KYC',
-    operationalStandard: 'Cumplimiento normativo 100%, normas ISO 27001 y PCI-DSS.',
-    keyCapabilities: [
-      'Onboarding digital guiado con validación biométrica KYC',
-      'Soporte especializado 24/7 en transacciones y banca móvil',
-      'Estrategias de cobranza preventiva y negociación temprana',
-      'Monitoreo continuo y mitigación preventiva de fraude'
-    ],
-    keyChallenges: [
-      'Abandono en onboarding: Fricción en pasos de verificación de identidad digital (KYC).',
-      'Mora temprana: Riesgo de impago en primeros ciclos de crédito si no se gestiona a tiempo.',
-      'Alertas de seguridad: Angustia del usuario por transacciones desconocidas o bloqueos.',
-      'Riesgo normativo: Rigurosas exigencias de protección de datos y secreto financiero.'
-    ],
-    solutions: [
-      'Onboarding guiado: Asistencia humana y validación biométrica en tiempo real.',
-      'Cobranza preventiva: Negociación temprana con acuerdos sostenibles y trato respetuoso.',
-      'Soporte transaccional 24/7: Bloqueo preventivo y reposición inmediata de accesos.',
-      'Operación certificada: Infraestructura y procesos auditados bajo ISO 27001 y PCI-DSS.'
-    ],
-    stats: [
-      { label: 'Recuperación de Cartera', value: '+34%' },
-      { label: 'NPS Financiero', value: '82 pts' },
-      { label: 'Cumplimiento Normativo', value: '100%' }
-    ],
-    operationalScope: [
-      'Onboarding Digital y KYC',
-      'Soporte Transaccional 24/7',
-      'Cobranza Preventiva y Negociación',
-      'Mesa de Ayuda Banca Móvil',
-      'Prevención y Alerta de Fraude',
-      'Cumplimiento Normativo y Auditoría'
-    ],
-    appliedServices: [
-      {
-        title: 'Cobranzas',
-        desc: 'Recuperación temprana con acuerdos sostenibles y confianza.',
-        link: '/servicios#cobranzas'
-      },
-      {
-        title: 'Atención al Cliente',
-        desc: 'Soporte confidencial en saldos, movimientos y productos.',
-        link: '/servicios#atencion-experiencia-cliente'
-      },
-      {
-        title: 'Back Office',
-        desc: 'Validación de expedientes crediticios y cotejo documental.',
-        link: '/servicios#bo-gestion-procesos'
-      },
-      {
-        title: 'Omnicanalidad y Bots',
-        desc: 'Canales seguros con autenticación de dos factores.',
-        link: '/servicios#omnicanalidad-bots'
-      }
-    ],
-    bannerInfo: {
-      title: 'BANCA Y FINTECH',
-      watermark: 'BANCA Y FINTECH',
-      badge: 'SEGURIDAD Y COMPLIANCE',
-      headline: 'Onboarding seguro, cobranza temprana y soporte transaccional.',
-      description: 'Verificación de identidad KYC, prevención de fraude, cobranza preventiva y mesa de ayuda bajo normativas ISO 27001 y PCI-DSS.',
-      breadcrumbLabel: 'Banca y Fintech',
-      image: '/banners/banner-fundamentos.png',
-      imageAlt: 'Banca y Fintech KONVERXA'
-    }
+    id: 'turismo-hospitalidad',
+    title: 'Turismo y Hospitalidad',
+    description:
+      'Reservas, modificaciones, atención al viajero y gestión de incidencias antes, durante y después de la estancia.',
+    image:
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    imageAlt:
+      'Recepcionista y mujer de negocios en recepción del hotel'
+  },
+  {
+    id: 'logistica-suministro',
+    title: 'Logística y Suministro',
+    description:
+      'Seguimiento de envíos, incidencias de entrega, trazabilidad y coordinación operativa con clientes y proveedores.',
+    image:
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    imageAlt:
+      'Gerente de almacén que usa una tableta digital y controla el inventario'
+  },
+  {
+    id: 'servicios-inmobiliarios',
+    title: 'Servicios Inmobiliarios',
+    description:
+      'Captación, coordinación de visitas, seguimiento comercial y gestión documental a lo largo del proceso.',
+    image:
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+    imageAlt:
+      'Primer plano de una pareja que recibe las nuevas llaves de la casa de un agente inmobiliario'
   }
 ];

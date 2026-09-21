@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
 import PageBanner from '../components/PageBanner';
 import SectionSwitcherBar from '../components/SectionSwitcherBar';
-import IndustryCarousel from '../components/IndustryCarousel';
-import { INDUSTRIES_DATA } from '../data/industries';
+import { INDUSTRIES_DATA, OTRAS_INDUSTRIAS_DATA } from '../data/industries';
 import {
   Radio, ShoppingBag, Cpu, ShieldCheck, Activity, Truck, Zap, Landmark,
-  Building2, ArrowRight, CheckCircle2, AlertCircle, Shield,
-  Sparkles, Layers, PhoneCall, ChevronRight, ChevronLeft
+  Building2, ArrowRight, CheckCircle2, ChevronRight
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, any> = {
@@ -18,33 +16,48 @@ const ICON_MAP: Record<string, any> = {
 
 const INDUSTRY_ALIAS_MAP: Record<string, string> = {
   'telecomunicaciones': 'telecomunicaciones',
+  'banca': 'banca-fintech',
+  'fintech': 'banca-fintech',
+  'banca-fintech': 'banca-fintech',
+  'banca-servicios-financieros': 'banca-fintech',
+  'banca-y-servicios-financieros': 'banca-fintech',
+  'servicios-financieros': 'banca-fintech',
   'retail': 'retail-ecommerce',
   'ecommerce': 'retail-ecommerce',
   'retail-ecommerce': 'retail-ecommerce',
+  'retail-y-comercio-electronico': 'retail-ecommerce',
+  'retail-comercio-electronico': 'retail-ecommerce',
   'tecnologia': 'tecnologia-digital',
   'tecnologia-digital': 'tecnologia-digital',
+  'tecnologia-y-negocios-digitales': 'tecnologia-digital',
+  'tecnologia-negocios-digitales': 'tecnologia-digital',
+  'seguro': 'seguros',
   'seguros': 'seguros',
   'salud': 'salud',
+  'salud-farmacia': 'salud',
+  'salud-y-farmacia': 'salud',
+  'farmacia': 'salud',
   'movilidad': 'movilidad-transporte',
   'transporte': 'movilidad-transporte',
   'logistica': 'movilidad-transporte',
   'movilidad-transporte': 'movilidad-transporte',
+  'movilidad-y-transporte': 'movilidad-transporte',
   'energia': 'energia-servicios',
   'energia-servicios': 'energia-servicios',
-  'banca': 'banca-fintech',
-  'fintech': 'banca-fintech',
-  'banca-fintech': 'banca-fintech'
+  'energia-y-servicios-publicos': 'energia-servicios',
+  'energia-servicios-publicos': 'energia-servicios',
+  'servicios-publicos': 'energia-servicios'
 };
 
 const SWITCHER_ITEMS = [
-  { id: 'telecomunicaciones', label: 'Telecomunicaciones' },
-  { id: 'retail-ecommerce', label: 'Retail & eCommerce' },
-  { id: 'tecnologia-digital', label: 'Tecnología' },
-  { id: 'seguros', label: 'Seguros' },
-  { id: 'salud', label: 'Salud' },
-  { id: 'movilidad-transporte', label: 'Movilidad' },
-  { id: 'energia-servicios', label: 'Energía' },
-  { id: 'banca-fintech', label: 'Banca & Fintech' }
+  { id: 'telecomunicaciones', label: 'TELECOMUNICACIONES' },
+  { id: 'banca-fintech', label: 'BANCA & SERVICIOS FINANCIEROS' },
+  { id: 'retail-ecommerce', label: 'RETAIL & COMERCIO ELECTRÓNICO' },
+  { id: 'tecnologia-digital', label: 'TECNOLOGÍA & NEGOCIOS DIGITALES' },
+  { id: 'seguros', label: 'SEGUROS' },
+  { id: 'salud', label: 'SALUD & FARMACIA' },
+  { id: 'movilidad-transporte', label: 'MOVILIDAD & TRANSPORTE' },
+  { id: 'energia-servicios', label: 'ENERGÍA & SERVICIOS PÚBLICOS' }
 ];
 
 interface IndustriasProps {
@@ -79,7 +92,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
   const currentBanner = activeIndustry.bannerInfo || {
     title: activeIndustry.name.toUpperCase(),
     watermark: activeIndustry.name.toUpperCase(),
-    badge: 'SECTOR ESTRATÉGICO',
+    badge: 'SECTORES ESTRATÉGICOS',
     headline: activeIndustry.shortDesc,
     description: activeIndustry.fullDesc,
     breadcrumbLabel: activeIndustry.name,
@@ -93,44 +106,16 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
     window.history.replaceState(null, '', `/industrias#${resolved}`);
   };
 
-  const handlePrevIndustry = () => {
-    const nextIdx = (safeIndex - 1 + INDUSTRIES_DATA.length) % INDUSTRIES_DATA.length;
-    handleSelectIndustry(INDUSTRIES_DATA[nextIdx].slug);
-  };
-
-  const handleNextIndustry = () => {
-    const nextIdx = (safeIndex + 1) % INDUSTRIES_DATA.length;
-    handleSelectIndustry(INDUSTRIES_DATA[nextIdx].slug);
-  };
-
-  // Helper to cleanly format bold lead-in titles: "Concepto: Detalle"
-  const renderItemText = (text: string, isSolution = false) => {
-    const colonIdx = text.indexOf(':');
-    if (colonIdx !== -1) {
-      const lead = text.slice(0, colonIdx);
-      const rest = text.slice(colonIdx + 1).trim();
-      return (
-        <span className="text-sm leading-relaxed">
-          <strong className={isSolution ? 'font-bold text-slate-900' : 'font-bold text-slate-900'}>
-            {lead}:
-          </strong>{' '}
-          <span className={isSolution ? 'text-slate-700' : 'text-slate-600'}>
-            {rest}
-          </span>
-        </span>
-      );
-    }
-    return <span className="text-sm text-slate-700">{text}</span>;
-  };
-
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title={`${currentBanner.title} - Sectores y Mercados | KONVERXA`}
+        title={`${currentBanner.title} - Sectores Estratégicos | KONVERXA`}
         description={currentBanner.description}
       />
 
-      {/* 1. Header Banner */}
+      {/* ========================================================================= */}
+      {/* BLOQUE 01: BANNER PRINCIPAL + MIGA DE PAN + SWITCHER DE LOS 8 MERCADOS    */}
+      {/* ========================================================================= */}
       <PageBanner
         title={currentBanner.title}
         watermark={currentBanner.watermark}
@@ -141,7 +126,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
         description={currentBanner.description}
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
-          { label: 'Mercados', path: '/industrias' },
+          { label: currentBanner.parentBreadcrumbLabel || 'Industrias y Mercados', path: '/industrias' },
           { label: currentBanner.breadcrumbLabel }
         ]}
         image={currentBanner.image}
@@ -149,327 +134,241 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
         showDownloadBtn={true}
       />
 
-      {/* 2. Internal Submenu Switcher Bar */}
+      {/* Botones de navegación en mayúsculas y emparejados con servicios */}
       <SectionSwitcherBar
         items={SWITCHER_ITEMS}
         activeId={activeIndustry.slug}
         onSelect={handleSelectIndustry}
       />
 
-      {/* 3. Showcase & Detailed Information Section */}
-      <section id="detalle-industria" className="py-12 sm:py-16 bg-white relative scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
-          
-          {/* Main Showcase Split Card (Matching user reference layout with distinct photo) */}
-          <div className="rounded-3xl bg-white border border-slate-200/90 shadow-xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px] lg:h-[560px]">
-              
-              {/* Left Column: Information, Key Capabilities, CTA & Controls */}
-              <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between h-full space-y-6">
-                
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndustry.slug}
-                    initial={{ opacity: 0, x: -14 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 14 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-5 flex flex-col justify-start"
-                  >
-                    {/* Top Pill Badge */}
-                    <div className="flex items-center justify-between">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-600 border border-blue-200/80 shadow-2xs">
-                        <IconComp className="w-3.5 h-3.5 text-blue-600" />
-                        <span>{activeIndustry.showcaseTag || 'Omnicanalidad 24/7'}</span>
-                      </div>
-                      <span className="text-xs font-bold text-slate-400">
-                        0{safeIndex + 1} / 0{INDUSTRIES_DATA.length}
-                      </span>
-                    </div>
+      {/* ========================================================================= */}
+      {/* BLOQUE 02: ALCANCE OPERATIVO + 4 BARRAS DE CAPACIDADES + FOTO & CIERRE   */}
+      {/* ========================================================================= */}
+      <section id="alcance-operativo" className="py-12 sm:py-16 bg-white relative overflow-hidden">
+        {/* Subtle dot pattern matching servicios */}
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-                    {/* Title & Short Tagline */}
-                    <div>
-                      <h3 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight leading-tight">
-                        {activeIndustry.name}
-                      </h3>
-                      <p className="text-sm sm:text-base font-semibold text-slate-700 mt-1.5 leading-relaxed">
-                        {activeIndustry.shortDesc}
-                      </p>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                      {activeIndustry.fullDesc}
-                    </p>
-
-                    {/* Key Capabilities Checklist */}
-                    <div className="space-y-3 pt-3 border-t border-slate-100">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                        CAPACIDADES CLAVE:
-                      </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
-                        {(activeIndustry.keyCapabilities || [
-                          'Operación Inbound y Outbound 24/7',
-                          'Gestión estricta de SLAs y FCR',
-                          'Supervisión y control en tiempo real',
-                          'Resolución integral de requerimientos'
-                        ]).map((cap, i) => (
-                          <div key={i} className="flex items-center gap-2.5">
-                            <CheckCircle2 className="w-4 h-4 shrink-0 text-blue-600" />
-                            <span className="font-medium text-slate-800">{cap}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Bottom Actions Row: Button + Slider Navigation Arrows */}
-                <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <Link
-                    to="/contacto"
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm group w-fit"
-                  >
-                    <span>VER DETALLES DE LA SOLUCIÓN</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  {/* Navigation Arrows */}
-                  <div className="flex items-center gap-2 self-end sm:self-auto">
-                    <button
-                      onClick={handlePrevIndustry}
-                      className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-950 hover:text-white text-slate-800 flex items-center justify-center transition-all shadow-2xs"
-                      aria-label="Industria anterior"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={handleNextIndustry}
-                      className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-950 hover:text-white text-slate-800 flex items-center justify-center transition-all shadow-2xs"
-                      aria-label="Industria siguiente"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-                  </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            key={activeIndustry.slug}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
+          >
+            {/* Columna Izquierda: Información + Capacidades en 4 Barras */}
+            <div className="lg:col-span-7 space-y-7 flex flex-col justify-between">
+              <div className="space-y-4">
+                {/* Pastilla */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-2xs">
+                  <IconComp className="w-3.5 h-3.5 text-slate-700" />
+                  <span>ALCANCE OPERATIVO</span>
                 </div>
 
-              </div>
+                {/* Titular Principal */}
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+                  {activeIndustry.block2Title || activeIndustry.name}
+                </h2>
 
-              {/* Right Column: High-Res Distinct Photo with Operational Standard Overlay */}
-              <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[320px] overflow-hidden bg-slate-950">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndustry.slug}
-                    initial={{ opacity: 0, scale: 1.04 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <img
-                      src={activeIndustry.showcaseImage}
-                      alt={`Operación en ${activeIndustry.name}`}
-                      className="w-full h-full object-cover filter brightness-95 saturate-[1.1] contrast-[1.05]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent lg:block hidden"></div>
-                    
-                    {/* Bottom Operational Standard Overlay */}
-                    <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-                      <div className="p-4 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/10 shadow-lg">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 block">
-                          ESTÁNDAR OPERATIVO
-                        </span>
-                        <p className="text-xs sm:text-sm font-semibold text-white mt-0.5">
-                          {activeIndustry.operationalStandard || activeIndustry.complianceBadge || 'Control de SLA, supervisión en vivo y medición continua.'}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+                {/* Descripción / Tagline */}
+                <p className="text-slate-800 font-bold text-sm sm:text-base tracking-wide uppercase">
+                  {activeIndustry.subHeadline || activeIndustry.shortDesc}
+                </p>
 
-            </div>
-          </div>
-
-          {/* Matriz 1-a-1: Desafíos Operativos vs. Solución KONVERXA */}
-          <div className="space-y-6">
-            <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
-              <div>
-                <h4 className="text-lg sm:text-xl font-black text-slate-950 tracking-tight">
-                  Enfoque Operativo y Resolutivo
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-500">
-                  Comparativa directa entre los retos habituales del sector y la respuesta KONVERXA.
+                {/* Bajada */}
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
+                  {activeIndustry.fullDesc}
                 </p>
               </div>
-            </div>
 
-            {/* Direct 2-Column Scannable Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-              
-              {/* Desafíos habituales del sector */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
-                <div className="flex items-center gap-2 text-slate-800 pb-2 border-b border-slate-100">
-                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                    Puntos de Dolor en {activeIndustry.name}
-                  </span>
-                </div>
-
-                <ul className="space-y-3.5">
-                  {activeIndustry.keyChallenges.map((challenge, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 shrink-0"></span>
-                      <div>{renderItemText(challenge, false)}</div>
-                    </li>
+              {/* Capacidades para la industria en 4 barras como en servicios */}
+              <div className="space-y-3 pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Capacidades para la Industria:
+                </h4>
+                <div className="space-y-2.5">
+                  {(activeIndustry.capabilitiesBars || [
+                    'Facturación y Consumo',
+                    'Renovaciones, Ventas y Fidelización',
+                    'Soporte Técnico e Incidencias',
+                    'Activaciones y Back Office'
+                  ]).map((cap, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 text-sm font-semibold text-slate-800 shadow-2xs hover:border-slate-300 transition-colors"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-slate-900 shrink-0" />
+                      <span>{cap}</span>
+                    </div>
                   ))}
-                </ul>
-              </div>
-
-              {/* Solución KONVERXA */}
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-300/80 shadow-2xs space-y-4">
-                <div className="flex items-center gap-2 text-slate-900 pb-2 border-b border-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Capacidad y Solución KONVERXA
-                  </span>
                 </div>
-
-                <ul className="space-y-3.5">
-                  {activeIndustry.solutions.map((sol, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
-                      <div>{renderItemText(sol, true)}</div>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
-            </div>
-          </div>
-
-          {/* Alcance Operacional (Chips limpios y sutiles) */}
-          {activeIndustry.operationalScope && activeIndustry.operationalScope.length > 0 && (
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="flex items-center gap-2 text-slate-800 shrink-0">
-                <Layers className="w-4 h-4 text-slate-600" />
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Alcances gestionados:
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {activeIndustry.operationalScope.map((scope, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="px-3 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200/80"
-                  >
-                    {scope}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Servicios Aplicados (Compact 4-grid with clean links) */}
-          {activeIndustry.appliedServices && activeIndustry.appliedServices.length > 0 && (
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Servicios KONVERXA Aplicados a este Sector
-                </span>
+              {/* Botón CTA hacia contacto */}
+              <div className="pt-3">
                 <Link
-                  to="/servicios"
-                  className="text-xs font-semibold text-slate-700 hover:text-black inline-flex items-center gap-1"
+                  to="/contacto"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-black/80 hover:bg-black text-white font-bold text-xs uppercase tracking-wider border border-zinc-700 shadow-md transition-all group"
                 >
-                  <span>Ver catálogo completo</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <span>Solicitar Propuesta para {activeIndustry.name}</span>
+                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {activeIndustry.appliedServices.map((srv, sIdx) => (
-                  <Link
-                    key={sIdx}
-                    to={srv.link}
-                    className="p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-900/30 hover:bg-slate-50/50 transition-all flex flex-col justify-between group shadow-2xs"
-                  >
-                    <div className="space-y-1">
-                      <h5 className="font-bold text-sm text-slate-950 group-hover:text-black">
-                        {srv.title}
-                      </h5>
-                      <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-                        {srv.desc}
-                      </p>
-                    </div>
-                    <div className="pt-3 mt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] font-bold text-slate-900 group-hover:translate-x-0.5 transition-transform">
-                      <span>Ver servicio</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </Link>
-                ))}
+            {/* Columna Derecha: Fotografía y Cierre Evolución Operativa */}
+            <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+              {/* Fotografía representativa de la operación */}
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md h-64 sm:h-80 bg-slate-900">
+                <img
+                  src={activeIndustry.showcaseImage}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80';
+                  }}
+                  alt={`Operación en ${activeIndustry.name}`}
+                  className="w-full h-full object-cover filter brightness-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Pie de la fotografía: Cierre Evolución Operativa */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-xs">
+                <div className="flex items-center gap-2 text-slate-900 text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4 text-slate-800" />
+                  <span>{activeIndustry.footerClosing?.tag || 'EVOLUCIÓN OPERATIVA'}</span>
+                </div>
+                <h5 className="text-sm sm:text-base font-bold text-slate-950">
+                  {activeIndustry.footerClosing?.title || 'Adaptamos la operación. No el estándar.'}
+                </h5>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {activeIndustry.footerClosing?.text ||
+                    'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'}
+                </p>
+                {activeIndustry.footerClosing?.ctaText && (
+                  <div className="pt-1.5">
+                    <Link
+                      to={activeIndustry.footerClosing.ctaLink || '/contacto'}
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-950 hover:text-slate-700 transition-colors group"
+                    >
+                      <span>{activeIndustry.footerClosing.ctaText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
-          )}
-
+          </motion.div>
         </div>
       </section>
 
-      {/* 4. Explorador de Mercados (Carrusel 3D posicionado ABAJO de la información) */}
-      <section id="carrusel-mercados" className="py-14 sm:py-18 bg-slate-50 border-t border-b border-slate-200/80 relative overflow-hidden scroll-mt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-slate-200/80 text-slate-700 border border-slate-300/60 mb-2">
-              <Sparkles className="w-3 h-3 text-slate-700" />
-              Explorador de Mercados
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-950">
-              Conoce Todos Nuestros Sectores Estratégicos
+      {/* ========================================================================= */}
+      {/* BLOQUE 03: OTRAS INDUSTRIAS (4 MICROTARJETAS)                              */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          {/* Cabecera de Sección */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-slate-200/90 text-slate-800 border border-slate-300">
+              OTRAS INDUSTRIAS
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-950">
+              Otros sectores con necesidades operativas específicas
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Haz clic en cualquiera de las tarjetas para cambiar de sector y actualizar su ficha técnica.
+            <p className="text-sm sm:text-base text-slate-600">
+              Adaptamos nuestro modelo integral para estructurar y sostener procesos críticos en sectores especializados.
             </p>
           </div>
 
-          <IndustryCarousel
-            activeSlug={activeIndustry.slug}
-            onSelectIndustry={(slug) => {
-              handleSelectIndustry(slug);
-              const el = document.getElementById('detalle-industria');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            isInternalPage={true}
-          />
+          {/* 4 Microtarjetas en Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {OTRAS_INDUSTRIAS_DATA.map((item) => (
+              <div
+                key={item.id}
+                className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col group"
+              >
+                {/* Fotografía de la Microtarjeta */}
+                <div className="h-44 w-full overflow-hidden relative bg-slate-100">
+                  <img
+                    src={item.image}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (item.id === 'educacion' && !target.dataset.triedVariant) {
+                        target.dataset.triedVariant = 'true';
+                        target.src = '/industriaseducacione.jpg';
+                        return;
+                      }
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = (item as any).fallbackImage || 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80';
+                      }
+                    }}
+                    alt={item.imageAlt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                </div>
+
+                {/* Contenido de la Microtarjeta */}
+                <div className="p-5 flex flex-col justify-between flex-1 space-y-3">
+                  <div className="space-y-2">
+                    <h3 className="text-base font-black text-slate-950 tracking-tight group-hover:text-black">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100">
+                    <Link
+                      to="/contacto"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 group-hover:text-black group-hover:translate-x-1 transition-all"
+                    >
+                      <span>Consultar sector</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* 5. Contact CTA Banner */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-950 text-white relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-1.5 max-w-xl relative z-10">
-              <h4 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-                ¿Tienes operaciones críticas en {activeIndustry.name}?
-              </h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Estructuremos juntos un modelo con talento especializado, tecnología integrada y cumplimiento estricto de SLAs.
+      {/* ========================================================================= */}
+      {/* BLOQUE 04: CIERRE (+15% a 20% MÁS GRANDE)                                 */}
+      {/* ========================================================================= */}
+      <section className="py-20 sm:py-28 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-12 sm:p-16 lg:p-20 rounded-3xl bg-slate-950 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+            
+            {/* Subtle background glow */}
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-slate-800/40 rounded-full blur-3xl pointer-events-none"></div>
+
+            {/* Titular y Bajada a la Izquierda (+15% - 20% más grande) */}
+            <div className="space-y-4 max-w-3xl relative z-10">
+              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-white leading-[1.18]">
+                La experiencia del sector adquiere valor cuando se convierte en ejecución.
+              </h3>
+              <p className="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed font-normal">
+                Aplicamos método y control sobre los procesos que sostienen la relación con tus clientes.
               </p>
             </div>
 
+            {/* CTA en la Derecha (+15% - 20% más grande) */}
             <div className="shrink-0 relative z-10">
               <Link
                 to="/contacto"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-md transition-all"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white text-slate-950 hover:bg-slate-100 font-black text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all uppercase tracking-wider group"
               >
-                <span>Hablar con un Especialista</span>
-                <PhoneCall className="w-4 h-4" />
+                <span>Hablemos de tu Negocio</span>
+                <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
+
           </div>
         </div>
       </section>

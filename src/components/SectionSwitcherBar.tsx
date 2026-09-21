@@ -49,13 +49,13 @@ export default function SectionSwitcherBar({
               <button
                 key={item.id}
                 onClick={() => onSelect(item.id)}
-                className={`flex-1 min-w-[100px] sm:min-w-0 h-9 px-2 sm:px-3 rounded-lg text-xs font-bold transition-all duration-200 flex items-center justify-center text-center ${
+                className={`flex-1 min-w-[105px] sm:min-w-0 h-9.5 sm:h-10 px-2.5 sm:px-3.5 rounded-lg text-[11px] sm:text-[12px] lg:text-[13px] font-extrabold uppercase tracking-wider transition-all duration-200 flex items-center justify-center text-center ${
                   isActive
                     ? 'bg-black text-white shadow-xs'
                     : 'bg-white text-slate-700 hover:bg-slate-200 hover:text-black border border-slate-200'
                 }`}
               >
-                <span className="truncate whitespace-nowrap">{item.label}</span>
+                <span className="truncate whitespace-nowrap uppercase">{item.label}</span>
               </button>
             );
           })}

@@ -245,7 +245,7 @@ export default function Header() {
                         onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
-                        Banca y Seguros Financieros
+                        Banca y Servicios Financieros
                       </Link>
                       <Link
                         to="/industrias/retail-ecommerce"
@@ -454,7 +454,7 @@ export default function Header() {
                 {activeDropdown === 'm-industria' && (
                   <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/industrias/telecomunicaciones" onClick={() => setMobileMenuOpen(false)}>Telecomunicaciones</Link>
-                    <Link to="/industrias/banca-fintech" onClick={() => setMobileMenuOpen(false)}>Banca y Seguros Financieros</Link>
+                    <Link to="/industrias/banca-fintech" onClick={() => setMobileMenuOpen(false)}>Banca y Servicios Financieros</Link>
                     <Link to="/industrias/retail-ecommerce" onClick={() => setMobileMenuOpen(false)}>Retail y Comercio Electrónico</Link>
                     <Link to="/industrias/tecnologia" onClick={() => setMobileMenuOpen(false)}>Tecnología y Negocios Digitales</Link>
                     <Link to="/industrias/seguros" onClick={() => setMobileMenuOpen(false)}>Seguros</Link>

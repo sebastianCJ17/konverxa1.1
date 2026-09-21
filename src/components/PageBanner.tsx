@@ -40,6 +40,7 @@ export default function PageBanner({
   onCtaClick,
 }: PageBannerProps) {
   const displayWatermark = watermark || title;
+  const isVeryLongWatermark = displayWatermark.length > 20;
   const isLongWatermark = displayWatermark.length > 11;
 
   return (
@@ -81,12 +82,14 @@ export default function PageBanner({
       >
         <span
           className={`${
-            isLongWatermark
+            isVeryLongWatermark
+              ? 'text-[8vw] sm:text-[6.5vw] lg:text-[5vw]'
+              : isLongWatermark
               ? 'text-[11vw] sm:text-[9vw] lg:text-[7.5vw]'
               : 'text-[15vw] sm:text-[14vw] lg:text-[12vw]'
           } font-black uppercase tracking-tight leading-none block whitespace-nowrap ${
             watermarkFilled
-              ? 'text-slate-900/[0.038] sm:text-slate-900/[0.042]'
+              ? 'text-slate-900/[0.032] sm:text-slate-900/[0.036]'
               : 'text-transparent opacity-40 sm:opacity-45'
           }`}
           style={watermarkFilled ? undefined : {

@@ -14,8 +14,18 @@ export interface Industry {
   complianceBadge?: string;
   showcaseImage?: string;
   showcaseTag?: string;
+  subHeadline?: string;
+  capabilitiesBars?: string[];
+  footerClosing?: {
+    tag: string;
+    title: string;
+    text: string;
+    ctaText?: string;
+    ctaLink?: string;
+  };
   keyCapabilities?: string[];
   operationalStandard?: string;
+  block2Title?: string;
   bannerInfo?: {
     title: string;
     watermark: string;
@@ -23,6 +33,7 @@ export interface Industry {
     headline: string;
     description: string;
     breadcrumbLabel: string;
+    parentBreadcrumbLabel?: string;
     image: string;
     imageAlt: string;
   };

@@ -46,6 +46,14 @@ const ALL_BANNERS: BannerItem[] = [
     filenameClean: '/banners/banner-ciclo-integralx-sin-texto.png',
     filenameWatermark: '/banners/banner-ciclo-integralx.png'
   },
+  {
+    id: 'integralx',
+    name: 'Acreditación IntegralX™',
+    category: 'Modelo OneX',
+    watermark: 'INTEGRALX',
+    filenameClean: '/banners/banner-integralx-sin-texto.png',
+    filenameWatermark: '/banners/banner-integralx.png'
+  },
 
   // Servicios
   {

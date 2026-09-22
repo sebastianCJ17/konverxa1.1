@@ -77,7 +77,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     description: 'Siete fases que se activan, se articulan y se retroalimentan para responder a las necesidades de cada operación, sostener su desempeño y orientar su evolución.',
     breadcrumbLabel: 'CIK',
     tabLabel: 'CIK',
-    image: '/banners/banner-capacidades-integradas.png',
+    image: '/banners/banner-ciclo-integralx.png',
     imageAlt: 'Ciclo de Intervención KONVERXA · CIK'
   },
   'integralx': {

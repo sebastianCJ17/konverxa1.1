@@ -157,7 +157,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
             className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
           >
             {/* Columna Izquierda: Información + Capacidades en 4 Barras */}
-            <div className="lg:col-span-7 space-y-7 flex flex-col justify-between">
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6 lg:space-y-0">
               <div className="space-y-4">
                 {/* Pastilla */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-2xs">
@@ -182,7 +182,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
               </div>
 
               {/* Capacidades para la industria en 4 barras como en servicios */}
-              <div className="space-y-3 pt-2">
+              <div className="space-y-3 pt-4 lg:pt-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Capacidades para la Industria:
                 </h4>
@@ -203,23 +203,12 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                   ))}
                 </div>
               </div>
-
-              {/* Botón CTA hacia contacto */}
-              <div className="pt-3">
-                <Link
-                  to="/contacto"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-black/80 hover:bg-black text-white font-bold text-xs uppercase tracking-wider border border-zinc-700 shadow-md transition-all group"
-                >
-                  <span>Solicitar Propuesta para {activeIndustry.name}</span>
-                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
             </div>
 
             {/* Columna Derecha: Fotografía y Cierre Evolución Operativa */}
-            <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+            <div className="lg:col-span-5 flex flex-col justify-between gap-6 h-full">
               {/* Fotografía representativa de la operación */}
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md h-64 sm:h-80 bg-slate-900">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-1 min-h-[220px] bg-slate-900">
                 <img
                   src={activeIndustry.showcaseImage}
                   onError={(e) => {
@@ -229,13 +218,12 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                   alt={`Operación en ${activeIndustry.name}`}
                   className="w-full h-full object-cover filter brightness-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
               </div>
 
               {/* Pie de la fotografía: Cierre Evolución Operativa */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-xs">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-2xs">
                 <div className="flex items-center gap-2 text-slate-900 text-xs font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4 text-slate-800" />
+                  <ShieldCheck className="w-4 h-4 text-slate-800 shrink-0" />
                   <span>{activeIndustry.footerClosing?.tag || 'EVOLUCIÓN OPERATIVA'}</span>
                 </div>
                 <h5 className="text-sm sm:text-base font-bold text-slate-950">
@@ -334,33 +322,33 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
       </section>
 
       {/* ========================================================================= */}
-      {/* BLOQUE 04: CIERRE (+15% a 20% MÁS GRANDE)                                 */}
+      {/* BLOQUE 04: CIERRE                                                         */}
       {/* ========================================================================= */}
-      <section className="py-20 sm:py-28 bg-white border-t border-slate-200">
+      <section className="py-12 sm:py-16 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-12 sm:p-16 lg:p-20 rounded-3xl bg-slate-950 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          <div className="p-8 sm:p-12 rounded-3xl bg-slate-950 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             
             {/* Subtle background glow */}
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-slate-800/40 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* Titular y Bajada a la Izquierda (+15% - 20% más grande) */}
-            <div className="space-y-4 max-w-3xl relative z-10">
-              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-white leading-[1.18]">
+            {/* Titular y Bajada a la Izquierda */}
+            <div className="space-y-3 max-w-2xl relative z-10">
+              <h3 className="text-2xl sm:text-3xl lg:text-3xl font-black tracking-tight text-white leading-snug">
                 La experiencia del sector adquiere valor cuando se convierte en ejecución.
               </h3>
-              <p className="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed font-normal">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
                 Aplicamos método y control sobre los procesos que sostienen la relación con tus clientes.
               </p>
             </div>
 
-            {/* CTA en la Derecha (+15% - 20% más grande) */}
+            {/* CTA en la Derecha: Más pequeño y alineado con el texto de abajo */}
             <div className="shrink-0 relative z-10">
               <Link
                 to="/contacto"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white text-slate-950 hover:bg-slate-100 font-black text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all uppercase tracking-wider group"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-bold text-sm shadow-md hover:shadow-lg transition-all group"
               >
                 <span>Hablemos de tu Negocio</span>
-                <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 

@@ -164,21 +164,16 @@ export default function Servicios() {
 
       {/* Quick Service Switcher Bar */}
       <SectionSwitcherBar
-        items={SERVICES_DATA.map((srv) => {
-          const shortLabels: Record<string, string> = {
-            'atencion-experiencia-cliente': 'Atención',
-            'ventas-fidelizacion': 'Ventas',
-            'cobranzas': 'Cobranzas',
-            'soporte-tecnico': 'Soporte',
-            'bo-gestion-procesos': 'Backoffice',
-            'omnicanalidad-bots': 'Omnicanalidad',
-            'rrhh-apoyo-psicosocial': 'RRHH'
-          };
-          return {
-            id: srv.id,
-            label: shortLabels[srv.id] || srv.title
-          };
-        })}
+        gridCols="grid-cols-2 sm:grid-cols-4 lg:grid-cols-7"
+        items={[
+          { id: 'atencion-experiencia-cliente', label: 'ATENCIÓN' },
+          { id: 'ventas-fidelizacion', label: 'VENTAS' },
+          { id: 'cobranzas', label: 'COBRANZAS' },
+          { id: 'soporte-tecnico', label: 'SOPORTE TÉCNICO' },
+          { id: 'bo-gestion-procesos', label: 'BACK OFFICE' },
+          { id: 'omnicanalidad-bots', label: 'OMNICANALIDAD' },
+          { id: 'rrhh-apoyo-psicosocial', label: 'TALENTO HUMANO' }
+        ]}
         activeId={activeTab}
         onSelect={(id) => setActiveTab(id)}
       />
@@ -195,16 +190,17 @@ export default function Servicios() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-12"
+            className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch"
           >
             {/* Left Info Column */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-xs">
-                  <IconComp className="w-3.5 h-3.5 text-slate-700" /> {activeService.title}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest shadow-2xs">
+                  <IconComp className="w-3.5 h-3.5 text-slate-700" />
+                  <span>{activeService.title}</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-black text-black">
+                <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
                   {activeService.title}
                 </h2>
 
@@ -212,71 +208,48 @@ export default function Servicios() {
                   {activeService.tagline}
                 </p>
 
-                <p className="text-slate-600 text-base leading-relaxed pt-2">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
                   {activeService.description}
                 </p>
               </div>
 
-              {/* Features List */}
+              {/* Capacidades de Operación */}
               <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Componentes y Capacidades Clave:
+                <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                  CAPACIDADES DE OPERACIÓN
                 </h4>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {activeService.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200 text-sm text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0 mt-0.5" />
-                      <span>{feat}</span>
+                    <div key={idx} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm text-slate-700 shadow-2xs">
+                      <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                      <span className="font-medium">{feat}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Benefits List */}
-              <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Beneficios Tangibles de Negocio:
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
-                  {activeService.benefits.map((ben, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 font-medium">
-                      • {ben}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  to="/contacto"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
-                >
-                  <span>Solicitar Propuesta para {activeService.title}</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </Link>
               </div>
             </div>
 
-            {/* Right Image & Quality Card */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md h-64 sm:h-80">
+            {/* Right Image & Quality Card - Misma medida exacta que la columna izquierda */}
+            <div className="lg:col-span-5 flex flex-col h-full gap-5 sm:gap-6">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-1 min-h-[220px] min-h-0">
                 <img
                   src={activeService.image}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80';
                   }}
                   alt={activeService.title}
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-xs">
-                <div className="flex items-center gap-2 text-slate-800 text-xs font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4 text-slate-700" /> Estándar de Calidad Garantizado
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-2xs shrink-0">
+                <div className="flex items-center gap-2 text-slate-800 text-xs font-extrabold uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4 text-slate-700 shrink-0" />
+                  <span>CALIDAD BASADA EN EVIDENCIA</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Operamos con monitoreo de Speech & Text Analytics para auditar el 100% de los contactos, asegurando un estricto apego a guiones, cumplimiento normativo y trato empático.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  {activeService.evidenceQualityText ||
+                    'El análisis de interacciones permite identificar qué se resuelve, qué vuelve a generar contacto y dónde se concentra la fricción.'}
                 </p>
               </div>
             </div>
@@ -286,22 +259,32 @@ export default function Servicios() {
         </div>
       </section>
 
-      {/* All Services Grid Summary */}
+      {/* Cierre inferior compartido para todas las pestañas de servicio */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <SectionTitle
-            badge="Escalabilidad Sin Límites"
-            title="Diseñado para Crecer con tu Empresa"
-            subtitle="Nuestra arquitectura de servicio permite integrar módulos adicionales a medida que evolucionan tus necesidades."
-            centered
-          />
+          <div className="space-y-3.5 max-w-6xl text-center mx-auto">
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                EVOLUCIÓN OPERATIVA
+              </div>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black tracking-tight leading-tight text-center text-black whitespace-normal md:whitespace-nowrap">
+              Una estructura diseñada para evolucionar con tu negocio.
+            </h2>
+
+            <p className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto text-center text-slate-600">
+              Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.
+            </p>
+          </div>
 
           <div className="pt-4">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold border border-zinc-700 transition-colors shadow-md text-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold border border-zinc-800 transition-colors shadow-md text-sm"
             >
-              <span>Hablar con un Especialista Operativo</span>
+              <span>Hablemos de tu Negocio</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </Link>
           </div>

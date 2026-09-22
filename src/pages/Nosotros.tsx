@@ -274,20 +274,20 @@ export default function Nosotros() {
               
               {/* Bloque de Convicción y Propósito justificado y centrado con el título */}
               <div className="max-w-3xl mx-auto pt-2 space-y-4 text-center">
-                <div className="space-y-1">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block">
+                <div className="space-y-1 text-center">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
                     01 · QUÉ CREEMOS — Convicción
                   </span>
-                  <p className="text-lg sm:text-xl font-bold text-slate-950 leading-snug">
-                    Las organizaciones sólidas no se improvisan. Se construyen.
+                  <p className="text-lg sm:text-xl font-bold text-slate-950 leading-snug text-center">
+                    «Las organizaciones sólidas no se improvisan. Se construyen»
                   </p>
                 </div>
 
-                <div className="space-y-1 pt-3 border-t border-slate-200">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block">
+                <div className="space-y-1 pt-3 border-t border-slate-200 text-center">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
                     02 · POR QUÉ EXISTIMOS — Propósito
                   </span>
-                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-center">
                     Ayudar a las organizaciones a construir la solidez necesaria para cerrar la brecha entre lo que prometen y lo que pueden sostener, alineando su promesa, sus personas y su capacidad.
                   </p>
                 </div>
@@ -389,14 +389,20 @@ export default function Nosotros() {
 
             </div>
 
-            {/* CTA Final */}
-            <div className="pt-8 text-center">
-              <Link
-                to="/contacto"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
-              >
-                <span>HABLEMOS DE TU NEGOCIO</span>
-              </Link>
+            {/* CIERRE: FRASE EN 1 SOLA LÍNEA Y CTA */}
+            <div className="border-t border-b border-slate-200 py-16 lg:py-20 text-center space-y-6">
+              <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight max-w-5xl mx-auto whitespace-normal lg:whitespace-nowrap leading-snug">
+                «Las organizaciones sólidas no se improvisan. Se construyen»
+              </p>
+
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+                >
+                  <span>HABLEMOS DE TU NEGOCIO</span>
+                </Link>
+              </div>
             </div>
 
           </div>

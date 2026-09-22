@@ -10,16 +10,18 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Gestionamos cada contacto con criterios claros de resolución, continuidad y control para sostener una experiencia consistente en cada punto de interacción.',
     iconName: 'Headphones',
     features: [
-      'Inbound multicanal',
-      'Gestión de SLA y FCR',
-      'Medición CSAT y NPS',
-      'Gestión integral de reclamos y requerimientos'
+      'Atención multicanal',
+      'Gestión de niveles de servicio',
+      'Medición de experiencia y resolución',
+      'Gestión de requerimientos y reclamaciones'
     ],
     benefits: [
       'Estándar Operativo',
       'Control de SLA, supervisión en vivo y medición continua.'
     ],
     operationalStandard: 'Control de SLA, supervisión en vivo y medición continua.',
+    evidenceQualityText:
+      'El análisis de interacciones permite identificar qué se resuelve, qué vuelve a generar contacto y dónde se concentra la fricción.',
     image: '/bloque4atencionalcliente.png'
   },
   {
@@ -31,7 +33,7 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Gestionamos cada oportunidad comercial con criterios claros de conversión, seguimiento y permanencia para generar resultados consistentes y relaciones a largo plazo.',
     iconName: 'TrendingUp',
     features: [
-      'Prospección B2B y B2C',
+      'Prospección y generación de demanda.',
       'Venta cruzada y ampliación de cartera',
       'Fidelización y retención de clientes',
       'Agendamiento y concertación comercial'
@@ -41,6 +43,8 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Control de conversión, calidad comercial y trazabilidad de oportunidades.'
     ],
     operationalStandard: 'Control de conversión, calidad comercial y trazabilidad de oportunidades.',
+    evidenceQualityText:
+      'El seguimiento de cada oportunidad permite identificar dónde se interrumpe la conversión y qué patrones se repiten en las gestiones más efectivas.',
     image: '/bloque4ventas.png'
   },
   {
@@ -53,15 +57,17 @@ export const SERVICES_DATA: ServicePillar[] = [
     iconName: 'ShieldCheck',
     features: [
       'Segmentación por tramo de deuda',
-      'Discado predictivo multicanal',
+      'Contacto multicanal',
       'Negociación estructurada y acuerdos',
-      'Conciliación y reportería diaria'
+      'Conciliación y seguimiento de cartera'
     ],
     benefits: [
       'Estándar Operativo',
       'Control de recuperación, calidad de negociación y trazabilidad de acuerdos.'
     ],
     operationalStandard: 'Control de recuperación, calidad de negociación y trazabilidad de acuerdos.',
+    evidenceQualityText:
+      'El análisis de cada gestión permite identificar qué acuerdos se sostienen, dónde se rompe el compromiso y qué patrones requieren intervención.',
     image: '/bloque4cobranzas.png'
   },
   {
@@ -73,16 +79,18 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Gestionamos cada incidencia con criterio técnico y seguimiento hasta el cierre, para que el problema se resuelva y no vuelva a aparecer.',
     iconName: 'Workflow',
     features: [
-      'Mesa de ayuda y escalamiento N1 / N2',
+      'Mesa de ayuda y escalamiento definido',
       'Base de conocimiento estructurada',
       'Diagnóstico remoto y resolución técnica',
-      'Integración con plataformas CRM / Ticketing'
+      'Integración con las plataformas del cliente'
     ],
     benefits: [
       'Estándar Operativo',
       'Control de resolución, calidad técnica y trazabilidad de escalamiento.'
     ],
     operationalStandard: 'Control de resolución, calidad técnica y trazabilidad de escalamiento.',
+    evidenceQualityText:
+      'El análisis de incidencias muestra qué se resuelve al primer contacto, qué vuelve a entrar y qué lo explica.',
     image: '/bloque4soporte.png'
   },
   {
@@ -94,16 +102,18 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Procesos administrativos con criterio y trazabilidad, para que cada expediente avance sin esperas, ni reprocesos.',
     iconName: 'FileText',
     features: [
-      'Validación y verificación documental',
-      'Onboarding de clientes y procesos KYC',
-      'Gestión de transacciones y conciliaciones',
-      'Data entry y auditoría de calidad end-to-end'
+      'Gestión y actualización de datos',
+      'Verificación documental',
+      'Incorporación de clientes',
+      'Gestión de procesos administrativos'
     ],
     benefits: [
       'Estándar Operativo',
       'Control de ejecución, criterios de validación y trazabilidad end to end.'
     ],
     operationalStandard: 'Control de ejecución, criterios de validación y trazabilidad end to end.',
+    evidenceQualityText:
+      'La trazabilidad de cada proceso permite identificar demoras, reprocesos y puntos de control que requieren intervención.',
     image: '/bloque4backofice.png'
   },
   {
@@ -115,16 +125,18 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Cada canal conserva el contexto para que la conversación continúe, aunque cambie el medio. Los bots amplían la capacidad de respuesta y la disponibilidad del servicio, manteniendo una atención consistente.',
     iconName: 'Bot',
     features: [
-      'Integración omnicanal unificada',
-      'Bots conversacionales con IA',
-      'IVR y enrutamiento inteligente',
-      'Automatización de interacciones recurrentes'
+      'Integración omnicanal',
+      'Bots conversacionales',
+      'Enrutamiento y autoservicio de voz',
+      'Continuidad de contexto entre automatización y atención humana'
     ],
     benefits: [
       'Estándar Operativo',
       'Control de enrutamiento, continuidad entre canales y trazabilidad de cada interacción.'
     ],
     operationalStandard: 'Control de enrutamiento, continuidad entre canales y trazabilidad de cada interacción.',
+    evidenceQualityText:
+      'El análisis del recorrido entre canales permite detectar pérdidas de contexto, fricciones y automatizaciones que requieren revisión.',
     image: '/bloque4bots.png'
   },
   {
@@ -136,16 +148,18 @@ export const SERVICES_DATA: ServicePillar[] = [
       'Gestionamos cada contacto con criterios claros de resolución, continuidad y control para sostener una experiencia consistente en cada punto de interacción.',
     iconName: 'Users',
     features: [
-      'Línea de orientación y apoyo psicosocial',
-      'Gestión de clima laboral y bienestar integral',
-      'Fidelización y retención de talento operativo',
-      'Acompañamiento en salud mental y prevención'
+      'Selección e incorporación de talento',
+      'Formación y desarrollo',
+      'Seguimiento de desempeño y permanencia',
+      'Acompañamiento psicosocial y bienestar laboral'
     ],
     benefits: [
       'Estándar Operativo',
       'Sostenibilidad del talento, reducción de rotación y clima laboral saludable.'
     ],
     operationalStandard: 'Sostenibilidad del talento, reducción de rotación y clima laboral saludable.',
-    image: '/banners/banner-gestion-humana.png'
+    evidenceQualityText:
+      'El seguimiento de rotación, ausentismo y desempeño permite detectar señales de desgaste y orientar el acompañamiento antes de que afecten a la operación.',
+    image: '/rrhh_multiethnic_team.jpg'
   }
 ];

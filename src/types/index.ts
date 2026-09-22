@@ -49,6 +49,7 @@ export interface ServicePillar {
   features: string[];
   benefits: string[];
   operationalStandard?: string;
+  evidenceQualityText?: string;
   image: string;
 }
 

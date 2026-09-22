@@ -294,19 +294,14 @@ export default function GlobalNetworkMap({
             transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
 
-        .kx-country:hover .kx-point {
-            transform: scale(1.22);
-            box-shadow:
-                0 0 0 6px rgba(255,255,255,0.28),
-                0 0 24px rgba(255,255,255,1);
-        }
-
+        .kx-country:hover .kx-point,
         .kx-country.active .kx-point {
-            transform: scale(1.3);
-            border-color: #38bdf8;
+            transform: none;
+            border-color: #ffffff;
+            background: #ffffff;
             box-shadow:
-                0 0 0 6px rgba(56, 189, 248, 0.4),
-                0 0 25px rgba(56, 189, 248, 0.95);
+                0 0 0 4px rgba(255,255,255,0.22),
+                0 0 16px rgba(255,255,255,0.85);
         }
 
         /* =========================================================
@@ -355,8 +350,7 @@ export default function GlobalNetworkMap({
 
         .kx-country:hover .kx-country-name,
         .kx-country.active .kx-country-name {
-            transform: translateX(2px);
-            color: #38bdf8;
+            color: #ffffff;
         }
 
         /* =========================================================

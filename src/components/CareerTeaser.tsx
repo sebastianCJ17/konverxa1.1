@@ -27,8 +27,10 @@ export default function CareerTeaser() {
             Las carreras también se construyen.
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl pt-1 text-justify">
-            Hacer bien el trabajo no debería depender de esfuerzos excepcionales. En KONVERXA el método, el criterio y las responsabilidades están definidos para que hacer bien el trabajo <span className="text-slate-900 font-semibold">sea lo habitual, no lo extraordinario</span>. Y desde ahí empiezas a construir tu carrera.
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl pt-1">
+            Hacer bien el trabajo no debería depender de esfuerzos excepcionales. En KONVERXA el método, el criterio y las responsabilidades están definidos para que hacer bien el trabajo sea lo habitual, no lo extraordinario.
+            <br />
+            Desde ahí empiezas a construir tu carrera.
           </p>
         </div>
 

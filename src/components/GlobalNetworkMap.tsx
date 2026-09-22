@@ -745,11 +745,11 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">España</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-amber-400 block -mt-0.5">Hub Europa</span>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
             </div>
           </div>
 
-          <p className="kx-info-subtitle">Hub Operaciones Europa</p>
+          <p className="kx-info-subtitle">Hub de Operaciones Iberia</p>
 
           {/* SEDES */}
           <div className="kx-info-row">
@@ -771,8 +771,8 @@ export default function GlobalNetworkMap({
               <path d="M12 16h2"></path>
             </svg>
             <div>
-              <span className="kx-info-label">Sedes / Hubs</span>
-              <span className="kx-info-value">Madrid · Barcelona</span>
+              <span className="kx-info-label">Sedes / Hub</span>
+              <span className="kx-info-value">Gijón, Asturias</span>
             </div>
           </div>
 
@@ -794,7 +794,7 @@ export default function GlobalNetworkMap({
             </svg>
             <div>
               <span className="kx-info-label">Enfoque</span>
-              <span className="kx-info-value">Gobernanza Corporativa · Cobertura UE</span>
+              <span className="kx-info-value">Puente Iberia/LATAM</span>
             </div>
           </div>
         </div>
@@ -823,11 +823,11 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">Colombia</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-yellow-400 block -mt-0.5">Base Corporativa</span>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">SEDE CORPORATIVA</span>
             </div>
           </div>
 
-          <p className="kx-info-subtitle">Base Corporativa y Operativa</p>
+          <p className="kx-info-subtitle">Hub de Operaciones LATAM</p>
 
           {/* SEDES */}
           <div className="kx-info-row">
@@ -849,8 +849,8 @@ export default function GlobalNetworkMap({
               <path d="M12 16h2"></path>
             </svg>
             <div>
-              <span className="kx-info-label">Sedes / Hubs</span>
-              <span className="kx-info-value">Pereira · Bogotá D.C.</span>
+              <span className="kx-info-label">Sedes / Hub</span>
+              <span className="kx-info-value">Pereira, Risaralda</span>
             </div>
           </div>
 
@@ -872,7 +872,7 @@ export default function GlobalNetworkMap({
             </svg>
             <div>
               <span className="kx-info-label">Enfoque</span>
-              <span className="kx-info-value">Base Corporativa · Hub Regional</span>
+              <span className="kx-info-value">Dirección del Modelo</span>
             </div>
           </div>
         </div>
@@ -901,11 +901,11 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">Perú</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-red-400 block -mt-0.5">Expansión Regional</span>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
             </div>
           </div>
 
-          <p className="kx-info-subtitle">Plataforma de Expansión Regional</p>
+          <p className="kx-info-subtitle">Hub de Operaciones Regional</p>
 
           {/* SEDES */}
           <div className="kx-info-row">
@@ -927,7 +927,7 @@ export default function GlobalNetworkMap({
               <path d="M12 16h2"></path>
             </svg>
             <div>
-              <span className="kx-info-label">Sedes / Hubs</span>
+              <span className="kx-info-label">Sedes / Hub</span>
               <span className="kx-info-value">Lima</span>
             </div>
           </div>
@@ -950,7 +950,7 @@ export default function GlobalNetworkMap({
             </svg>
             <div>
               <span className="kx-info-label">Enfoque</span>
-              <span className="kx-info-value">Expansión Regional · Cobertura Andina</span>
+              <span className="kx-info-value">Operaciones Regionales</span>
             </div>
           </div>
         </div>

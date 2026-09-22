@@ -1,14 +1,10 @@
-import { useState } from 'react';
-import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
-import CareerFormModal from '../components/CareerFormModal';
-import { JOB_POSITIONS, CAREER_BENEFITS } from '../data/jobs';
-import { JobPosition } from '../types';
+import { CAREER_BENEFITS } from '../data/jobs';
 import {
-  Users, TrendingUp, Home, Award, Briefcase, MapPin, Clock,
-  CheckCircle2, ArrowRight, Search, GraduationCap, Target
+  Users, TrendingUp, Home, Award, GraduationCap, Target, ArrowRight
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, any> = {
@@ -16,42 +12,33 @@ const ICON_MAP: Record<string, any> = {
 };
 
 export default function TrabajaConNosotros() {
-  const [selectedJob, setSelectedJob] = useState<JobPosition | null>(null);
-  const [departmentFilter, setDepartmentFilter] = useState('Todos');
-  const [modalityFilter, setModalityFilter] = useState('Todas');
-
-  const filteredJobs = JOB_POSITIONS.filter((job) => {
-    const matchDept = departmentFilter === 'Todos' || job.department === departmentFilter;
-    const matchMod = modalityFilter === 'Todas' || job.modality === modalityFilter;
-    return matchDept && matchMod;
-  });
-
   return (
     <div className="bg-white text-slate-900 min-h-screen font-sans">
       <SEOHead
-        title="Trabaja con Nosotros - Carreras en KONVERXA"
-        description="Explora las oportunidades laborales en KONVERXA. Crece profesionalmente en una empresa líder en BPO, Contact Center y Customer Experience."
+        title="Carreras - Talento Humano KONVERXA"
+        description="Construye tu Futuro Profesional con Nosotros. Procesos claros, criterios explícitos y espacio para aportar, desafiar y llevar los negocios más lejos."
       />
 
       {/* Header Banner with Breadcrumbs & Outlined Watermark */}
       <PageBanner
-        title="ÚNETE"
-        watermark="ÚNETE"
-        titleAccentColor="text-slate-900"
+        title="CARRERAS"
+        watermark="CARRERAS"
+        watermarkFilled={true}
+        titleAccentColor="text-black"
         badge="Talento Humano KONVERXA"
         headline="Construye tu Futuro Profesional con Nosotros"
-        description="Somos una compañía de talento multidisciplinario y multicultural. Impulsamos el desarrollo continuo, ambientes de trabajo inclusivos y programas que aceleran tu crecimiento."
+        description="Procesos claros, criterios explícitos y espacio para aportar, desafiar y llevar los negocios más lejos."
         breadcrumbs={[
           { label: 'Inicio', path: '/' },
           { label: 'Carreras', path: '/trabaja-con-nosotros' },
           { label: 'Talento Humano' }
         ]}
-        image="/banners/banner-carreras.png"
-        imageAlt="Equipo de talento humano KONVERXA"
+        image="/carreras_conferencia.jpg"
+        imageAlt="Vista posterior de la empresaria levantando la mano durante la conferencia en la oficina Foto de Stock, Incluyendo: vista trasera y negocio - Envato"
         showDownloadBtn={true}
       />
 
-      {/* Culture & Benefits */}
+      {/* Culture & Benefits / Compromisos */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Visual Aid: Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
@@ -59,9 +46,9 @@ export default function TrabajaConNosotros() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
           
           <SectionTitle
-            badge="Propuesta de Valor al Empleado"
+            badge="COMPROMISOS"
             title="¿Por qué Trabajar en KONVERXA?"
-            subtitle="Desarrollamos el potencial de cada colaborador mediante programas de formación continua y un entorno laboral inclusivo."
+            subtitle="Desde el primer día, cada persona conoce qué se espera de su función, con qué criterios será evaluada y qué oportunidades tiene para desarrollarse."
             centered
           />
 
@@ -102,106 +89,26 @@ export default function TrabajaConNosotros() {
         </div>
       </section>
 
-      {/* Open Vacancies Section */}
+      {/* Cierre institucional */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <SectionTitle
-            badge="Oportunidades Abiertas"
-            title="Vacantes Disponibles"
-            subtitle="Encuentra la posición que se ajuste a tus competencias e inscríbete en segundos."
-          />
-
-          {/* Filters */}
-          <div className="flex flex-wrap items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 text-xs shadow-xs">
-            <div className="flex items-center gap-2 text-slate-500">
-              <Search className="w-4 h-4" />
-              <span className="font-semibold text-slate-900">Filtrar Vacantes:</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-slate-500">Área:</span>
-              <select
-                value={departmentFilter}
-                onChange={(e) => setDepartmentFilter(e.target.value)}
-                className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-slate-900 focus:outline-none focus:border-black"
-              >
-                <option value="Todos">Todas las áreas</option>
-                <option value="Operaciones">Operaciones</option>
-                <option value="Customer Care">Customer Care</option>
-                <option value="Calidad & Analytics">Calidad & Analytics</option>
-                <option value="Desarrollo de Negocio">Desarrollo de Negocio</option>
-              </select>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-slate-500">Modalidad:</span>
-              <select
-                value={modalityFilter}
-                onChange={(e) => setModalityFilter(e.target.value)}
-                className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-slate-900 focus:outline-none focus:border-black"
-              >
-                <option value="Todas">Todas las modalidades</option>
-                <option value="Híbrido">Híbrido</option>
-                <option value="Remoto">Remoto</option>
-                <option value="Presencial">Presencial</option>
-              </select>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight max-w-5xl mx-auto whitespace-normal lg:whitespace-nowrap leading-snug">
+              «Las organizaciones sólidas no se improvisan. Se construyen»
+            </p>
           </div>
 
-          {/* Job List */}
-          <div className="space-y-6">
-            {filteredJobs.length > 0 ? (
-              filteredJobs.map((job) => (
-                <motion.div
-                  key={job.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-black/30 hover:shadow-md transition-all duration-300 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
-                >
-                  <div className="space-y-3 max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-2 text-xs">
-                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-300 font-semibold">
-                        {job.department}
-                      </span>
-                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-slate-700" /> {job.location}
-                      </span>
-                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-slate-700" /> {job.modality}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-black">{job.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{job.description}</p>
-                  </div>
-
-                  <button
-                    onClick={() => setSelectedJob(job)}
-                    className="whitespace-nowrap px-6 py-3.5 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all flex items-center gap-2 shrink-0"
-                  >
-                    <span>Postularme Ahora</span>
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </button>
-                </motion.div>
-              ))
-            ) : (
-              <div className="text-center py-12 p-8 rounded-2xl bg-slate-100 border border-slate-200 text-slate-600">
-                No se encontraron vacantes con los filtros seleccionados.
-              </div>
-            )}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/contacto"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+            >
+              <span>Hablemos de tu Negocio</span>
+              <ArrowRight className="w-4 h-4 text-white" />
+            </Link>
           </div>
-
         </div>
       </section>
-
-      {/* Application Modal */}
-      {selectedJob && (
-        <CareerFormModal
-          job={selectedJob}
-          onClose={() => setSelectedJob(null)}
-        />
-      )}
 
     </div>
   );

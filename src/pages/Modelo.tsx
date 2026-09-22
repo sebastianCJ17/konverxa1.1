@@ -384,6 +384,17 @@ export default function Modelo() {
                   </p>
                 </div>
               </motion.div>
+
+              {/* CTA Final Bloque 01: Visión General */}
+              <div className="mt-12 text-center">
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+                >
+                  <span>Hablemos de tu Negocio</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </Link>
+              </div>
             </div>
           </section>
         </>
@@ -484,6 +495,17 @@ export default function Modelo() {
                 </p>
               </div>
             </motion.div>
+
+            {/* CTA Final Bloque 02: Excelencia */}
+            <div className="mt-12 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              >
+                <span>Hablemos de tu Negocio</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
+            </div>
           </div>
         </section>
       )}
@@ -582,6 +604,17 @@ export default function Modelo() {
                 </p>
               </div>
             </motion.div>
+
+            {/* CTA Final Bloque 03: OneX */}
+            <div className="mt-12 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              >
+                <span>Hablemos de tu Negocio</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
+            </div>
           </div>
         </section>
       )}
@@ -661,12 +694,13 @@ export default function Modelo() {
               })}
             </div>
 
-            <div className="pt-6 text-center">
+            {/* CTA Final Bloque 04: CIK */}
+            <div className="pt-8 text-center">
               <Link
                 to="/contacto"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
               >
-                <span>Solicitar Más Información sobre el CIK</span>
+                <span>Hablemos de tu Negocio</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
             </div>
@@ -674,7 +708,7 @@ export default function Modelo() {
         </section>
       )}
 
-      {/* 04. CICLO INTEGRALX */}
+      {/* 05. CICLO INTEGRALX */}
       {activeSection === 'integralx' && (
         <section id="integralx" className="py-20 bg-white relative overflow-hidden">
           {/* Subtle Visual Aid */}
@@ -758,12 +792,13 @@ export default function Modelo() {
             ))}
           </div>
 
+          {/* CTA Final Bloque 05: IntegralX */}
           <div className="pt-8 text-center">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
             >
-              <span>Solicitar Presentación Metodológica Completa</span>
+              <span>Hablemos de tu Negocio</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </Link>
           </div>

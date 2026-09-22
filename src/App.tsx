@@ -34,6 +34,7 @@ export default function App() {
             <Route path="/industrias/:slug" element={<IndustriaDetail />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotros />} />
+            <Route path="/carreras" element={<TrabajaConNosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/ubicacion" element={<Contacto />} />
             <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />

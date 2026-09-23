@@ -289,7 +289,7 @@ export default function Nosotros() {
                   <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
                     QUÉ CREEMOS — Convicción
                   </span>
-                  <p className="text-lg sm:text-xl font-bold text-slate-950 leading-snug text-center">
+                  <p className="text-lg sm:text-xl font-normal text-slate-950 leading-snug text-center">
                     «Las organizaciones sólidas no se improvisan. Se construyen»
                   </p>
                 </div>

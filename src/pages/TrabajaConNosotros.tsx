@@ -47,7 +47,7 @@ export default function TrabajaConNosotros() {
           
           <SectionTitle
             badge="COMPROMISOS"
-            title="¿Por qué Trabajar en KONVERXA?"
+            title="¿Por qué trabajar en KONVERXA?"
             subtitle="Desde el primer día, cada persona conoce qué se espera de su función, con qué criterios será evaluada y qué oportunidades tiene para desarrollarse."
             centered
           />

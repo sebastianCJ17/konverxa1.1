@@ -794,7 +794,7 @@ export default function GlobalNetworkMap({
             </svg>
             <div>
               <span className="kx-info-label">Enfoque</span>
-              <span className="kx-info-value">Puente Iberia/LATAM</span>
+              <span className="kx-info-value">Operaciones Iberia/LATAM</span>
             </div>
           </div>
         </div>

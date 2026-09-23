@@ -69,28 +69,29 @@ export default function CareerTeaser() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-50 p-8 sm:p-12 rounded-3xl border border-slate-200">
           
           <div className="lg:col-span-6 space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-black text-black">
-              CULTURA DE TRABAJO y DESARROLLO HUMANO
+            <h3 className="text-2xl sm:text-3xl font-black text-black leading-tight">
+              CULTURA DE TRABAJO <br />
+              DESARROLLO HUMANO
             </h3>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify">
               La exigencia viene acompañada de método. Cada persona cuenta con formación continua, criterios claros de evaluación y una vía definida para desarrollarse dentro de la organización.
             </p>
 
-            <ul className="space-y-3 text-sm text-slate-700">
-              <li className="flex items-center gap-2.5">
+            <div className="space-y-2.5 pt-2">
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs">
                 <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
-                <span>Formación continua a través de la Universidad Konverxa.</span>
-              </li>
-              <li className="flex items-center gap-2.5">
+                <span>Formación continua a través de KONVERXA.</span>
+              </div>
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs">
                 <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
                 <span>Evaluación periódica del desempeño con criterios conocidos.</span>
-              </li>
-              <li className="flex items-center gap-2.5">
+              </div>
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs">
                 <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
                 <span>Las posiciones de responsabilidad se abren primero internamente.</span>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
@@ -125,7 +126,7 @@ export default function CareerTeaser() {
             to="/trabaja-con-nosotros"
             className="whitespace-nowrap px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold transition-all border border-slate-200 shadow-lg flex items-center gap-3 text-sm shrink-0 group"
           >
-            <span>Trabaja con nosotros</span>
+            <span>Trabaja con Nosotros</span>
             <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

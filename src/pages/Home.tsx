@@ -59,7 +59,7 @@ export default function Home() {
               to="/servicios"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm shadow-md border border-zinc-700 transition-all"
             >
-              <span>Explorar Todo el Portafolio de Servicios</span>
+              <span>Explora nuestros servicios</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </Link>
           </div>

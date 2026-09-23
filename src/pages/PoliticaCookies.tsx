@@ -24,7 +24,7 @@ export default function PoliticaCookies() {
         showDownloadBtn={true}
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 sm:pb-36 space-y-8">
         <p className="text-xs text-slate-500">Última actualización: Julio 2026</p>
 
         <div className="space-y-6 text-sm text-slate-700 leading-relaxed">

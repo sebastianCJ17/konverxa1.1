@@ -60,7 +60,7 @@ export default function WhyKonverxa() {
           >
             <Link
               to="/modelo"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-200 hover:bg-white text-slate-950 font-bold text-sm transition-all duration-300 shadow-md hover:shadow-xl group"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-200 hover:bg-white text-slate-950 font-normal text-sm transition-all duration-300 shadow-md hover:shadow-xl group"
             >
               <span>Descubre nuestro Modelo</span>
               <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />

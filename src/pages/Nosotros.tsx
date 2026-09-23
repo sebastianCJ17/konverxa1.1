@@ -256,7 +256,7 @@ export default function Nosotros() {
             <div className="pt-8 text-center">
               <Link
                 to="/contacto"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
               >
                 <span>Hablemos de tu Negocio</span>
                 <ArrowRight className="w-4 h-4 text-white" />
@@ -409,7 +409,7 @@ export default function Nosotros() {
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
                 >
                   <span>Hablemos de tu Negocio</span>
                   <ArrowRight className="w-4 h-4 text-white" />
@@ -447,7 +447,7 @@ export default function Nosotros() {
             <div className="pt-8 text-center">
               <Link
                 to="/contacto"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-normal text-sm border border-zinc-700 shadow-md transition-all"
               >
                 <span>Conectar con un Ejecutivo Corporativo</span>
                 <ArrowRight className="w-4 h-4 text-white" />

@@ -57,7 +57,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               to="/servicios"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm shadow-md border border-zinc-700 transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-normal text-sm shadow-md border border-zinc-700 transition-all"
             >
               <span>Explora nuestros Servicios</span>
               <ArrowRight className="w-4 h-4 text-white" />

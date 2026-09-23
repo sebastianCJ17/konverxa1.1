@@ -17,14 +17,14 @@ export default function NotFound() {
         <div className="pt-4 flex items-center justify-center gap-4">
           <Link
             to="/"
-            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-600/20 transition-all flex items-center gap-2"
+            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-normal text-sm shadow-md shadow-blue-600/20 transition-all flex items-center gap-2"
           >
             <Home className="w-4 h-4" />
             <span>Volver al Inicio</span>
           </Link>
           <Link
             to="/contacto"
-            className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 transition-all flex items-center gap-2"
+            className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-normal text-sm border border-slate-200 transition-all flex items-center gap-2"
           >
             <span>Contacto</span>
             <ArrowRight className="w-4 h-4" />

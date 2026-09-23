@@ -124,7 +124,7 @@ export default function CareerTeaser() {
           </div>
           <Link
             to="/trabaja-con-nosotros"
-            className="whitespace-nowrap px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold transition-all border border-slate-200 shadow-lg flex items-center gap-3 text-sm shrink-0 group"
+            className="whitespace-nowrap px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-normal transition-all border border-slate-200 shadow-lg flex items-center gap-3 text-sm shrink-0 group"
           >
             <span>Trabaja con Nosotros</span>
             <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />

@@ -282,7 +282,7 @@ export default function Servicios() {
           <div className="pt-4">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold border border-zinc-800 transition-colors shadow-md text-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal border border-zinc-800 transition-colors shadow-md text-sm"
             >
               <span>Hablemos de tu Negocio</span>
               <ArrowRight className="w-4 h-4 text-white" />

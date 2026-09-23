@@ -177,7 +177,7 @@ export default function CareerFormModal({ job, onClose }: ModalProps) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all flex items-center justify-center gap-2 mt-4"
+                className="w-full py-3.5 rounded-xl bg-black/75 hover:bg-black/90 text-white font-normal text-sm border border-zinc-700 shadow-md transition-all flex items-center justify-center gap-2 mt-4"
               >
                 {loading ? (
                   <span>Enviando postulación...</span>

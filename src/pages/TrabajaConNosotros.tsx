@@ -101,7 +101,7 @@ export default function TrabajaConNosotros() {
           <div className="pt-2 flex items-center justify-center">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
             >
               <span>Hablemos de tu Negocio</span>
               <ArrowRight className="w-4 h-4 text-white" />

@@ -195,14 +195,14 @@ export default function PageBanner({
               {ctaHref ? (
                 <Link
                   to={ctaHref}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
                 >
                   <span>{ctaText}</span>
                 </Link>
               ) : (
                 <button
                   onClick={onCtaClick}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-xs sm:text-sm tracking-wide shadow-md transition-all border border-zinc-800"
                 >
                   <span>{ctaText}</span>
                 </button>

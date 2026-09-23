@@ -363,7 +363,7 @@ export default function Header() {
             {/* CONTÁCTANOS Button */}
             <Link
               to="/contacto"
-              className="px-5 py-2 rounded-lg bg-transparent hover:bg-slate-100 text-slate-100 hover:text-black border border-slate-300/40 text-xs font-bold uppercase tracking-widest transition-all duration-[220ms] ml-2"
+              className="px-5 py-2 rounded-lg bg-transparent hover:bg-slate-100 text-slate-100 hover:text-black border border-slate-300/40 text-xs font-normal uppercase tracking-widest transition-all duration-[220ms] ml-2"
             >
               CONTÁCTANOS
             </Link>
@@ -483,7 +483,7 @@ export default function Header() {
               <Link
                 to="/contacto"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 w-full py-3 text-center rounded-xl bg-transparent hover:bg-slate-100 text-white hover:text-black font-bold text-xs uppercase tracking-widest border border-slate-300/40"
+                className="mt-2 w-full py-3 text-center rounded-xl bg-transparent hover:bg-slate-100 text-white hover:text-black font-normal text-xs uppercase tracking-widest border border-slate-300/40"
               >
                 CONTÁCTANOS
               </Link>

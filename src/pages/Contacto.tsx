@@ -306,7 +306,7 @@ export default function Contacto() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-xl bg-black/75 hover:bg-black/90 text-white font-normal text-sm border border-zinc-700 shadow-md transition-all flex items-center justify-center gap-2"
                     >
                       {loading ? (
                         <span>Procesando solicitud...</span>
@@ -329,7 +329,7 @@ export default function Contacto() {
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="mt-4 px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors border border-slate-200"
+                      className="mt-4 px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-normal transition-colors border border-slate-200"
                     >
                       Enviar otra consulta
                     </button>
@@ -403,7 +403,7 @@ export default function Contacto() {
                 e.preventDefault();
                 window.scrollTo({ top: 380, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
             >
               <span>Hablemos de tu Negocio</span>
               <ArrowRight className="w-4 h-4 text-white" />

@@ -296,7 +296,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                   <div className="pt-3 border-t border-slate-100">
                     <Link
                       to="/contacto"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 group-hover:text-black group-hover:translate-x-1 transition-all"
+                      className="inline-flex items-center gap-1.5 text-xs font-normal text-slate-800 group-hover:text-black group-hover:translate-x-1 transition-all"
                     >
                       <span>Consultar sector</span>
                       <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
@@ -334,7 +334,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
             <div className="shrink-0 relative z-10 w-full sm:w-auto">
               <Link
                 to="/contacto"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-bold text-sm shadow-md hover:shadow-lg transition-all group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-normal text-sm shadow-md hover:shadow-lg transition-all group"
               >
                 <span>Hablemos de tu Negocio</span>
                 <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />

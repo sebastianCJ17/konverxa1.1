@@ -80,51 +80,39 @@ export const ONEX_PILLARS: OneXPillar[] = [
 
 export const INTEGRALX_PHASES: ModelPhase[] = [
   {
-    number: '01',
-    name: 'Diagnóstico & Inmersión (DiagnósticoX)',
-    subtitle: 'Fase de Análisis Profundo',
-    description: 'Analizamos la situación actual (As-Is) de los procesos, tecnología, volumetrías y experiencia del usuario para identificar cuellos de botella y brechas de eficiencia.',
+    name: 'Diágnóstico e Inmersión',
+    subtitle: 'FASE DE DIAGNÓSTICO',
+    question: '¿Dónde pierde consistencia la operación hoy?',
+    description: 'Observamos cómo funciona la operación en la práctica, contrastamos los procesos definidos con su ejecución real e identificamos dónde se producen desviaciones, qué las origina y cómo afectan al servicio.',
     deliverables: [
-      'Mapa de procesos operativo detallado',
-      'Business Case de eficiencias proyectadas',
-      'Matriz de riesgos y mitigación',
-      'Plan maestro de transición (SLA/KPI target)'
+      'Una lectura de tu operación basada en evidencias, no en supuestos.'
     ]
   },
   {
-    number: '02',
-    name: 'Diseño & Reingeniería (DiseñoX)',
-    subtitle: 'Fase de Arquitectura de Servicio',
-    description: 'Rediseñamos la operación (To-Be) integrando mejores prácticas de la industria, flujos omnicanal, guiones de interacción, automatizaciones y modelos de capacitación.',
+    name: 'Diseño y Reingeniería',
+    subtitle: 'ARQUITECTURA DE SERVICIO',
+    question: '¿Cómo debe funcionar para sostener los resultados?',
+    description: 'Diseñamos la operación a partir del diagnóstico, definiendo procesos, responsabilidades, recursos y mecanismos de control. Establecemos la integración tecnológica y los flujos de trabajo necesarios para ejecutar el servicio bajo un mismo estándar operativo.',
     deliverables: [
-      'Modelos de atención y escalamiento',
-      'Configuración de tecnología e integraciones API',
-      'Contenidos y simuladores de formación',
-      'Gobernanza y estructura organizativa'
+      'Una operación diseñada con criterio antes de ponerla en marcha.'
     ]
   },
   {
-    number: '03',
-    name: 'Implementación & Transition (ImplementaciónX)',
-    subtitle: 'Puesta en Marcha Controlada',
-    description: 'Ejecutamos la migración operativa en entornos paralelos controlados (Pilot Testing), garantizando continuidad total del servicio sin impacto en los clientes.',
+    name: 'Implementación y Transiciones',
+    subtitle: 'MARCHA CONTROLADA',
+    question: '¿Cómo se realiza la transición protegiendo la continuidad del servicio?',
+    description: 'Desplegamos el modelo de forma planificada, preparando los equipos, integrando la tecnología y validando los procesos. Medimos la ejecución desde el arranque y asumimos progresivamente la operación, con control sobre la continuidad del servicio.',
     deliverables: [
-      'Selección y contratación de talento alineado',
-      'Pruebas end-to-end de sistemas y telecomunicaciones',
-      'Período de marcha blanca (Go-Live gradual)',
-      'Acompañamiento directivo presencial/remoto'
+      'Despliegues y Transiciones controladas que protege la continuidad del servicio.'
     ]
   },
   {
-    number: '04',
-    name: 'Optimización Continua (EvoluciónX)',
-    subtitle: 'Fase de Sostenibilidad e Innovación',
-    description: 'Una vez estabilizada la operación, aplicamos metodologías Kaizen, analítica avanzada de Speech & Text, e IA para elevar constantemente la productividad y experiencia.',
+    name: 'Optimización contínua',
+    subtitle: 'SOSTENIBILIDAD E INNOVACIÓN',
+    question: '¿Cómo se sostiene y mejora en el tiempo?',
+    description: 'Con la operación estabilizada, analizamos la evidencia de su ejecución, detectamos desviaciones y aplicamos mejoras sobre los procesos, las capacidades y los mecanismos de control.',
     deliverables: [
-      'Auditoría continua de calidad mediante IA',
-      'Comités mensuales de innovación y eficiencias',
-      'Planes de carrera y fidelización de talento',
-      'Evolución tecnológica constante'
+      'Una operación que mejora con lo que aprende de sí misma.'
     ]
   }
 ];

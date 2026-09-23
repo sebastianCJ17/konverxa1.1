@@ -87,9 +87,10 @@ export interface StatItem {
 }
 
 export interface ModelPhase {
-  number: string;
+  number?: string;
   name: string;
   subtitle: string;
+  question?: string;
   description: string;
   deliverables: string[];
 }

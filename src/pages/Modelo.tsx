@@ -929,29 +929,52 @@ export default function Modelo() {
           <div className="space-y-8">
             {INTEGRALX_PHASES.map((phase, idx) => (
               <motion.div
-                key={phase.number}
+                key={phase.name}
                 initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="p-8 rounded-3xl bg-slate-50/90 backdrop-blur-xs border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hover:border-black/30 transition-all shadow-xs"
+                className="p-6 sm:p-8 rounded-3xl bg-slate-50/90 backdrop-blur-xs border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hover:border-slate-300 transition-all shadow-xs"
               >
-                <div className="lg:col-span-4 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5 text-lg sm:text-xl font-black">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-700 block">
-                      {phase.subtitle}
-                    </span>
-                    <h3 className="text-2xl font-black text-black mt-1">{phase.name}</h3>
-                  </div>
+                {/* IZQUIERDA: Subtítulo de Fase + Título (sin número) + Línea separatoria */}
+                <div className="lg:col-span-4 lg:border-r border-slate-200/90 lg:pr-8 pb-6 lg:pb-0 border-b lg:border-b-0">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 block">
+                    {phase.subtitle}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-black mt-2 leading-tight tracking-tight">
+                    {phase.name}
+                  </h3>
                 </div>
 
-                <div className="lg:col-span-8 space-y-4">
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    {phase.description}
-                  </p>
+                {/* DERECHA: Arriba (Pregunta en formato de Entregables + Bajada) y Abajo (LO QUE OBTIENES : + 01 Pastilla) */}
+                <div className="lg:col-span-8 space-y-6">
+                  {/* DERECHA - ARRIBA */}
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
+                      {phase.question}
+                    </h4>
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-2">
+                      {phase.description}
+                    </p>
+                  </div>
+
+                  {/* DERECHA - ABAJO */}
+                  <div className="pt-5 border-t border-slate-200/80 space-y-3">
+                    <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      LO QUE OBTIENES :
+                    </h5>
+                    <div>
+                      {phase.deliverables.map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2.5 py-3 px-4 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm shadow-2xs hover:border-slate-300 transition-colors"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-slate-900 shrink-0" />
+                          <span className="font-normal text-slate-800">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}

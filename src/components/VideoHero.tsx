@@ -111,7 +111,7 @@ export default function VideoHero() {
           >
             <Link
               to="/modelo"
-              className="inline-flex items-center gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold text-sm sm:text-base transition-all duration-300 shadow-xl hover:shadow-2xl group border border-slate-200"
+              className="inline-flex items-center gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-normal text-sm sm:text-base transition-all duration-300 shadow-xl hover:shadow-2xl group border border-slate-200"
             >
               <span>Descubre nuestro Modelo</span>
               <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />

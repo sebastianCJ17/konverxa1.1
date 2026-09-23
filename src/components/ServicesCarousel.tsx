@@ -93,18 +93,18 @@ export default function ServicesCarousel() {
             </p>
           </div>
 
-          {/* Capacidades Clave estructuradas y encerradas */}
-          <div className="space-y-3 pt-4 lg:pt-6">
+          {/* Capacidades Clave estructuradas en 1 sola columna y tamaño ajustado */}
+          <div className="space-y-2.5 pt-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Capacidades Clave:
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="space-y-2">
               {activeService.features.map((feat, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs hover:border-slate-300 transition-colors"
+                  className="flex items-center gap-2.5 py-2 px-3 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-800 shadow-2xs hover:border-slate-300 transition-colors"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-slate-900 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-slate-900 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -115,9 +115,9 @@ export default function ServicesCarousel() {
           <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <Link
               to={`/servicios#${activeService.id}`}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-950 hover:bg-black text-white text-sm font-bold transition-all shadow-sm group w-fit"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-950 hover:bg-black text-white text-xs sm:text-sm font-bold transition-all shadow-sm group w-fit"
             >
-              <span>Explora nuestros servicios</span>
+              <span>Ver detalles de la Solucion</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
 

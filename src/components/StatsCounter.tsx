@@ -36,9 +36,9 @@ export const STATS_ITEMS = [
   },
   {
     id: 'clientes',
-    value: '+25',
+    value: '+15',
     label: 'Clientes',
-    description: 'Empresas líderes confían en nuestro estándar',
+    description: 'Empresas líderes con las que desarrollamos nuestro estándar',
     icon: Briefcase,
     color: 'from-cyan-600 to-blue-600'
   },

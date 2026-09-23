@@ -313,7 +313,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
       {/* ========================================================================= */}
       {/* BLOQUE 04: CIERRE                                                         */}
       {/* ========================================================================= */}
-      <section className="pt-16 sm:pt-20 pb-28 sm:pb-36 lg:pb-44 bg-white border-t border-slate-200">
+      <section className="pt-14 sm:pt-16 pb-20 sm:pb-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-slate-950 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             

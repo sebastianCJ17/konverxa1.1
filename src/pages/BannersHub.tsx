@@ -73,6 +73,22 @@ const ALL_BANNERS: BannerItem[] = [
     filenameWatermark: '/banners/banner-ventas-fidelizacion.png'
   },
   {
+    id: 'cobranzas',
+    name: 'Cobranzas y Recuperación',
+    category: 'Servicios',
+    watermark: 'COBRANZAS',
+    filenameClean: '/banners/banner-cobranzas-sin-texto.png',
+    filenameWatermark: '/banners/banner-cobranzas.png'
+  },
+  {
+    id: 'soporte-tecnico',
+    name: 'Soporte Técnico Especializado',
+    category: 'Servicios',
+    watermark: 'SOPORTE TÉCNICO',
+    filenameClean: '/banners/banner-soporte-tecnico-sin-texto.png',
+    filenameWatermark: '/banners/banner-soporte-tecnico.png'
+  },
+  {
     id: 'backoffice-bpo',
     name: 'Back Office y BPO Crítico',
     category: 'Servicios',
@@ -179,6 +195,14 @@ const ALL_BANNERS: BannerItem[] = [
     watermark: 'TELECOMUNICACIONES',
     filenameClean: '/banners/banner-telecomunicaciones-sin-texto.png',
     filenameWatermark: '/banners/banner-telecomunicaciones.png'
+  },
+  {
+    id: 'banca',
+    name: 'Banca & Servicios Financieros',
+    category: 'Industrias',
+    watermark: 'BANCA & FINTECH',
+    filenameClean: '/banners/banner-banca-sin-texto.png',
+    filenameWatermark: '/banners/banner-banca.png'
   },
   {
     id: 'seguros',

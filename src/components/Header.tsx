@@ -341,20 +341,12 @@ export default function Header() {
                       >
                         Misión / Visión
                       </Link>
-                      <Link
-                        to="/nosotros#sostenibilidad"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
-                      >
+                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
                         Sostenibilidad y RSE
-                      </Link>
-                      <Link
-                        to="/nosotros#certificaciones"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
-                      >
+                      </span>
+                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
                         Certificaciones
-                      </Link>
+                      </span>
                       <Link
                         to="/contacto"
                         onClick={() => setActiveDropdown(null)}
@@ -480,7 +472,8 @@ export default function Header() {
                     <Link to="/nosotros#fundamentos" onClick={() => setMobileMenuOpen(false)}>Fundamentos</Link>
                     <Link to="/nosotros#mision-vision" onClick={() => setMobileMenuOpen(false)}>Misión / Visión</Link>
                     <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Capacidades</Link>
-                    <Link to="/nosotros#certificaciones" onClick={() => setMobileMenuOpen(false)}>Certificaciones</Link>
+                    <span className="text-slate-500 cursor-default select-none opacity-60">Sostenibilidad y RSE</span>
+                    <span className="text-slate-500 cursor-default select-none opacity-60">Certificaciones</span>
                     <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>Ubicación</Link>
                   </div>
                 )}

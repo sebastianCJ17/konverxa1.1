@@ -6,7 +6,7 @@ import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
 import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import { ONEX_PILLARS, INTEGRALX_PHASES, EXCELENCIA_DIMENSIONS, ONEX_DIMENSIONS, CIK_PHASES } from '../data/model';
-import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale } from 'lucide-react';
+import { Layers, Target, Users, Cpu, BarChart3, ShieldCheck, CheckCircle2, ArrowRight, Building2, Activity, Scale, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const PILLAR_ICONS: Record<string, any> = {
   Target, Users, Cpu, BarChart3, ShieldCheck
@@ -89,7 +89,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     description: 'IntegralX™ es el sello con el que KONVERXA reconoce que una operación funciona bajo su estándar. No acredita intenciones ni esfuerzo: solo lo que la evidencia permite demostrar.',
     breadcrumbLabel: 'IntegralX™',
     tabLabel: 'IntegralX™',
-    image: '/banners/banner-integralx.jpg',
+    image: '/banners/banner-integralx.png',
     imageAlt: 'Sello de Acreditación · IntegralX™'
   }
 };
@@ -117,6 +117,36 @@ export default function Modelo() {
   const activePillarObj = ONEX_PILLARS.find((p) => p.id === selectedPillar) || ONEX_PILLARS[0];
   const activeDimensionObj = EXCELENCIA_DIMENSIONS.find((d) => d.id === selectedDimension) || EXCELENCIA_DIMENSIONS[0];
   const activeOneXDimObj = ONEX_DIMENSIONS.find((d) => d.id === selectedOneXDim) || ONEX_DIMENSIONS[0];
+
+  const currentPillarIndex = ONEX_PILLARS.findIndex((p) => p.id === selectedPillar);
+  const handlePrevPillar = () => {
+    const prevIndex = (currentPillarIndex - 1 + ONEX_PILLARS.length) % ONEX_PILLARS.length;
+    setSelectedPillar(ONEX_PILLARS[prevIndex].id);
+  };
+  const handleNextPillar = () => {
+    const nextIndex = (currentPillarIndex + 1) % ONEX_PILLARS.length;
+    setSelectedPillar(ONEX_PILLARS[nextIndex].id);
+  };
+
+  const currentDimensionIndex = EXCELENCIA_DIMENSIONS.findIndex((d) => d.id === selectedDimension);
+  const handlePrevDimension = () => {
+    const prevIndex = (currentDimensionIndex - 1 + EXCELENCIA_DIMENSIONS.length) % EXCELENCIA_DIMENSIONS.length;
+    setSelectedDimension(EXCELENCIA_DIMENSIONS[prevIndex].id);
+  };
+  const handleNextDimension = () => {
+    const nextIndex = (currentDimensionIndex + 1) % EXCELENCIA_DIMENSIONS.length;
+    setSelectedDimension(EXCELENCIA_DIMENSIONS[nextIndex].id);
+  };
+
+  const currentOneXDimIndex = ONEX_DIMENSIONS.findIndex((d) => d.id === selectedOneXDim);
+  const handlePrevOneXDim = () => {
+    const prevIndex = (currentOneXDimIndex - 1 + ONEX_DIMENSIONS.length) % ONEX_DIMENSIONS.length;
+    setSelectedOneXDim(ONEX_DIMENSIONS[prevIndex].id);
+  };
+  const handleNextOneXDim = () => {
+    const nextIndex = (currentOneXDimIndex + 1) % ONEX_DIMENSIONS.length;
+    setSelectedOneXDim(ONEX_DIMENSIONS[nextIndex].id);
+  };
 
   const handleSectionSelect = (key: ModeloSectionKey) => {
     setActiveSection(key);
@@ -339,51 +369,100 @@ export default function Modelo() {
                 })}
               </div>
 
-              {/* Tab Detail View */}
-              <motion.div
-                key={activePillarObj.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-              >
-                <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
-                    {activePillarObj.subtitle}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activePillarObj.title}</h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activePillarObj.description}</p>
+              {/* Tab Detail View (Slide con flechas de navegación externas) */}
+              <div className="relative mt-10 max-w-6xl mx-auto">
+                {/* Flecha Anterior (Por fuera del slide) */}
+                <button
+                  type="button"
+                  onClick={handlePrevPillar}
+                  aria-label="Capacidad anterior"
+                  title="Capacidad anterior"
+                  className="absolute -left-3 sm:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+                >
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+                </button>
 
-                  <div className="space-y-3 pt-2">
-                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
-                      Atributos Clave:
+                {/* Flecha Siguiente (Por fuera del slide) */}
+                <button
+                  type="button"
+                  onClick={handleNextPillar}
+                  aria-label="Capacidad siguiente"
+                  title="Capacidad siguiente"
+                  className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+                >
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                <motion.div
+                  key={activePillarObj.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                >
+                  <div className="lg:col-span-7 space-y-6">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                      {activePillarObj.subtitle}
                     </span>
-                    <div className="flex flex-col gap-2.5 w-full">
-                      {activePillarObj.keyPoints.map((point, idx) => (
-                        <div
-                          key={idx}
-                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
-                          <span>{point}</span>
-                        </div>
-                      ))}
+                    <h3 className="text-2xl sm:text-3xl font-black text-black">{activePillarObj.title}</h3>
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activePillarObj.description}</p>
+
+                    <div className="space-y-3 pt-2">
+                      <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                        Atributos Clave:
+                      </span>
+                      <div className="flex flex-col gap-2.5 w-full">
+                        {activePillarObj.keyPoints.map((point, idx) => (
+                          <div
+                            key={idx}
+                            className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                          >
+                            <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                            <span>{point}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
-                    <Layers className="w-8 h-8 text-white" />
+                  <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                    <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                      <Layers className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-lg sm:text-xl font-black text-black">
+                      {activePillarObj.impactTitle || 'Impacto de Negocio'}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                      {activePillarObj.impactDescription}
+                    </p>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-black text-black">
-                    {activePillarObj.impactTitle || 'Impacto de Negocio'}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
-                    {activePillarObj.impactDescription}
-                  </p>
+                </motion.div>
+
+                {/* Controles de paginación e indicador */}
+                <div className="flex items-center justify-between mt-4 px-2">
+                  <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    Capacidad {currentPillarIndex + 1} de {ONEX_PILLARS.length}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handlePrevPillar}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      <span>Anterior</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextPillar}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    >
+                      <span>Siguiente</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* CTA Final Bloque 01: Visión General */}
               <div className="mt-12 text-center">
@@ -447,54 +526,103 @@ export default function Modelo() {
               })}
             </div>
 
-            {/* Tab Detail View */}
-            <motion.div
-              key={activeDimensionObj.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              <div className="lg:col-span-7 space-y-6">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
-                  {activeDimensionObj.subtitle}
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-black">{activeDimensionObj.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeDimensionObj.description}</p>
+            {/* Tab Detail View (Slide con flechas de navegación externas) */}
+            <div className="relative mt-10 max-w-6xl mx-auto">
+              {/* Flecha Anterior (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handlePrevDimension}
+                aria-label="Dimensión anterior"
+                title="Dimensión anterior"
+                className="absolute -left-3 sm:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+              </button>
 
-                <div className="space-y-3 pt-2">
-                  <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
-                    Atributos Clave:
+              {/* Flecha Siguiente (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handleNextDimension}
+                aria-label="Dimensión siguiente"
+                title="Dimensión siguiente"
+                className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              <motion.div
+                key={activeDimensionObj.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              >
+                <div className="lg:col-span-7 space-y-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                    {activeDimensionObj.subtitle}
                   </span>
-                  <div className="flex flex-col gap-2.5 w-full">
-                    {activeDimensionObj.keyPoints.map((point, idx) => (
-                      <div
-                        key={idx}
-                        className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
-                        <span className="leading-snug">{point}</span>
-                      </div>
-                    ))}
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeDimensionObj.title}</h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeDimensionObj.description}</p>
+
+                  <div className="space-y-3 pt-2">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                      Atributos Clave:
+                    </span>
+                    <div className="flex flex-col gap-2.5 w-full">
+                      {activeDimensionObj.keyPoints.map((point, idx) => (
+                        <div
+                          key={idx}
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                          <span className="leading-snug">{point}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
-                  {(() => {
-                    const DimIcon = DIMENSION_ICONS[activeDimensionObj.icon] || Layers;
-                    return <DimIcon className="w-8 h-8 text-white" />;
-                  })()}
+                <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                    {(() => {
+                      const DimIcon = DIMENSION_ICONS[activeDimensionObj.icon] || Layers;
+                      return <DimIcon className="w-8 h-8 text-white" />;
+                    })()}
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-black text-black">
+                    {activeDimensionObj.impactTitle || 'Impacto de Negocio'}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                    {activeDimensionObj.impactDescription}
+                  </p>
                 </div>
-                <h4 className="text-lg sm:text-xl font-black text-black">
-                  {activeDimensionObj.impactTitle || 'Impacto de Negocio'}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
-                  {activeDimensionObj.impactDescription}
-                </p>
+              </motion.div>
+
+              {/* Controles de paginación e indicador */}
+              <div className="flex items-center justify-between mt-4 px-2">
+                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Dimensión {currentDimensionIndex + 1} de {EXCELENCIA_DIMENSIONS.length}
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevDimension}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <span>Anterior</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextDimension}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <span>Siguiente</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA Final Bloque 02: Excelencia */}
             <div className="mt-12 text-center">
@@ -556,54 +684,103 @@ export default function Modelo() {
               })}
             </div>
 
-            {/* Tab Detail View */}
-            <motion.div
-              key={activeOneXDimObj.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mt-10 p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              <div className="lg:col-span-7 space-y-6">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
-                  {activeOneXDimObj.subtitle}
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-black">{activeOneXDimObj.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeOneXDimObj.description}</p>
+            {/* Tab Detail View (Slide con flechas de navegación externas) */}
+            <div className="relative mt-10 max-w-6xl mx-auto">
+              {/* Flecha Anterior (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handlePrevOneXDim}
+                aria-label="Dimensión anterior"
+                title="Dimensión anterior"
+                className="absolute -left-3 sm:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+              </button>
 
-                <div className="space-y-3 pt-2">
-                  <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
-                    Atributos Clave:
+              {/* Flecha Siguiente (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handleNextOneXDim}
+                aria-label="Dimensión siguiente"
+                title="Dimensión siguiente"
+                className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              <motion.div
+                key={activeOneXDimObj.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              >
+                <div className="lg:col-span-7 space-y-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                    {activeOneXDimObj.subtitle}
                   </span>
-                  <div className="flex flex-col gap-2.5 w-full">
-                    {activeOneXDimObj.keyPoints.map((point, idx) => (
-                      <div
-                        key={idx}
-                        className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
-                        <span className="leading-snug">{point}</span>
-                      </div>
-                    ))}
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeOneXDimObj.title}</h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeOneXDimObj.description}</p>
+
+                  <div className="space-y-3 pt-2">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                      Atributos Clave:
+                    </span>
+                    <div className="flex flex-col gap-2.5 w-full">
+                      {activeOneXDimObj.keyPoints.map((point, idx) => (
+                        <div
+                          key={idx}
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                          <span className="leading-snug">{point}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
-                  {(() => {
-                    const DimIcon = DIMENSION_ICONS[activeOneXDimObj.icon] || Target;
-                    return <DimIcon className="w-8 h-8 text-white" />;
-                  })()}
+                <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                    {(() => {
+                      const DimIcon = DIMENSION_ICONS[activeOneXDimObj.icon] || Target;
+                      return <DimIcon className="w-8 h-8 text-white" />;
+                    })()}
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-black text-black">
+                    {activeOneXDimObj.impactTitle || 'Impacto de Negocio'}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                    {activeOneXDimObj.impactDescription}
+                  </p>
                 </div>
-                <h4 className="text-lg sm:text-xl font-black text-black">
-                  {activeOneXDimObj.impactTitle || 'Impacto de Negocio'}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
-                  {activeOneXDimObj.impactDescription}
-                </p>
+              </motion.div>
+
+              {/* Controles de paginación e indicador */}
+              <div className="flex items-center justify-between mt-4 px-2">
+                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Dimensión {currentOneXDimIndex + 1} de {ONEX_DIMENSIONS.length}
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevOneXDim}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <span>Anterior</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextOneXDim}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <span>Siguiente</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA Final Bloque 03: OneX */}
             <div className="mt-12 text-center">

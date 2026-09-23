@@ -54,7 +54,7 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
     description:
       'Gestionamos cada caso con criterio para alcanzar acuerdos viables, recuperar saldos y dar continuidad a una relación de confianza con los clientes.',
     breadcrumbLabel: 'Cobranzas',
-    image: '/banners/banner-fundamentos.png',
+    image: '/banners/banner-cobranzas.png',
     imageAlt: 'Cobranzas KONVERXA'
   },
   'soporte-tecnico': {
@@ -65,7 +65,7 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
     description:
       'Gestionamos cada incidencia con criterio técnico y seguimiento hasta el cierre, para que el problema se resuelva y no vuelva a aparecer.',
     breadcrumbLabel: 'Soporte Técnico',
-    image: '/banners/banner-tecnologia.png',
+    image: '/banners/banner-soporte-tecnico.png',
     imageAlt: 'Soporte Técnico KONVERXA'
   },
   'bo-gestion-procesos': {

@@ -29,7 +29,7 @@ export default function SectionSwitcherBar({
         <div className={containerClass}>
           {/* Pastilla condicional si se requiere */}
           {badgeLabel && (
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-black uppercase tracking-wider shrink-0 shadow-2xs mr-1">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-normal uppercase tracking-wider shrink-0 shadow-2xs mr-1">
               {badgeLabel}
             </div>
           )}
@@ -44,7 +44,7 @@ export default function SectionSwitcherBar({
                 <div
                   key={item.id}
                   title="Sección en consolidación"
-                  className={`min-w-max h-10 sm:h-11 px-2.5 sm:px-3 rounded-lg text-xs sm:text-[13px] font-black flex items-center justify-center text-center bg-slate-100/70 text-slate-400 border border-slate-200/60 cursor-not-allowed select-none opacity-60 ${
+                  className={`min-w-max h-10 sm:h-11 px-2.5 sm:px-3 rounded-lg text-xs sm:text-[13px] font-normal flex items-center justify-center text-center bg-slate-100/70 text-slate-400 border border-slate-200/60 cursor-not-allowed select-none opacity-60 ${
                     gridCols ? 'w-full' : 'flex-1 shrink-0 lg:shrink'
                   }`}
                 >
@@ -57,7 +57,7 @@ export default function SectionSwitcherBar({
               <button
                 key={item.id}
                 onClick={() => onSelect(item.id)}
-                className={`h-10 sm:h-11 px-2.5 sm:px-3 lg:px-2 rounded-lg text-xs sm:text-[13px] font-black uppercase tracking-wider transition-all duration-200 flex items-center justify-center text-center ${
+                className={`h-10 sm:h-11 px-2.5 sm:px-3 lg:px-2 rounded-lg text-xs sm:text-[13px] font-normal uppercase tracking-wider transition-all duration-200 flex items-center justify-center text-center ${
                   gridCols ? 'w-full' : 'flex-1 min-w-max shrink-0 lg:shrink'
                 } ${
                   isActive

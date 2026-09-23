@@ -49,6 +49,20 @@ const BANNERS = [
     section: 'Servicios'
   },
   {
+    id: 'cobranzas',
+    name: 'Cobranzas y Recuperación',
+    watermark: 'COBRANZAS',
+    src: 'public/bloque4cobranzas.png',
+    section: 'Servicios'
+  },
+  {
+    id: 'soporte-tecnico',
+    name: 'Soporte Técnico Especializado',
+    watermark: 'SOPORTE TÉCNICO',
+    src: 'public/bloque4soporte.png',
+    section: 'Servicios'
+  },
+  {
     id: 'backoffice-bpo',
     name: 'Back Office y BPO',
     watermark: 'BACK OFFICE Y BPO',
@@ -66,7 +80,7 @@ const BANNERS = [
     id: 'gestion-humana',
     name: 'Gestión Humana y Bienestar',
     watermark: 'GESTIÓN HUMANA',
-    src: 'public/bloque4cobranzas.png',
+    src: 'public/rrhh_multiethnic_team.jpg',
     section: 'Servicios'
   },
 
@@ -113,6 +127,13 @@ const BANNERS = [
     name: 'Telecomunicaciones',
     watermark: 'TELECOMUNICACIONES',
     src: 'public/telecomunicaciones.png',
+    section: 'Industrias'
+  },
+  {
+    id: 'banca',
+    name: 'Banca y Fintech',
+    watermark: 'BANCA & FINTECH',
+    src: 'public/banca.png',
     section: 'Industrias'
   },
   {
@@ -170,7 +191,7 @@ const BANNERS = [
     id: 'carreras',
     name: 'Trabaja con Nosotros',
     watermark: 'CARRERAS',
-    src: 'public/cultura1.png',
+    src: 'public/carreras_conferencia.jpg',
     section: 'Carreras'
   }
 ];
@@ -207,13 +228,13 @@ for (const item of BANNERS) {
     `convert "${item.src}" -resize 1152x480^ -gravity center -extent 1152x480 "${maskPath}" -alpha off -compose CopyOpacity -composite "${fadedPath}"`
   );
 
-  // Step 2: Composite onto #f8f9fa canvas on the right side
+  // Step 2: Composite onto #ffffff canvas on the right side
   // Target: SIN TEXTO (completely clean banner layout)
   const cleanPathDirect = `public/banners/banner-${item.id}-sin-texto.png`;
   const cleanPathSubdir = `public/banners/sin-texto/banner-${item.id}.png`;
 
   execSync(
-    `convert -size 1920x480 xc:"#f8f9fa" "${fadedPath}" -gravity east -composite "${cleanPathDirect}"`
+    `convert -size 1920x480 xc:"#ffffff" "${fadedPath}" -gravity east -composite "${cleanPathDirect}"`
   );
   fs.copyFileSync(cleanPathDirect, cleanPathSubdir);
 

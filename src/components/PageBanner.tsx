@@ -43,36 +43,42 @@ export default function PageBanner({
   const isVeryLongWatermark = displayWatermark.length > 20;
   const isLongWatermark = displayWatermark.length > 11;
 
+  // Resolve to clean banner background to ensure crisp photographic fade without burned-in text collision
+  const resolvedImage = image.includes('/banners/banner-') && !image.includes('-sin-texto')
+    ? image.replace(/(\/banners\/banner-[^.]+)\.png$/, '$1-sin-texto.png')
+    : image;
+
   return (
     <section className="relative w-full h-[420px] min-h-[420px] max-h-[420px] sm:h-[430px] sm:min-h-[430px] sm:max-h-[430px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex flex-col justify-start bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Right Side Team / Professional Image with Ultra-Smooth White Diffusion Blend */}
+      {/* Right Side Team / Professional Image with Identical Fade & Uniform Positioning */}
       <div
-        className="absolute top-0 right-0 w-full lg:w-[64%] xl:w-[60%] h-full pointer-events-none overflow-hidden"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
         style={{
           WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.06) 18%, rgba(0,0,0,0.18) 30%, rgba(0,0,0,0.42) 46%, rgba(0,0,0,0.72) 65%, rgba(0,0,0,0.92) 82%, black 95%)',
+            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.22) 54%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0.82) 80%, black 94%)',
           maskImage:
-            'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.06) 18%, rgba(0,0,0,0.18) 30%, rgba(0,0,0,0.42) 46%, rgba(0,0,0,0.72) 65%, rgba(0,0,0,0.92) 82%, black 95%)',
+            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.22) 54%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0.82) 80%, black 94%)',
         }}
       >
         <img
-          src={image}
+          src={resolvedImage}
           alt={imageAlt}
-          className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.98] contrast-[1.02]"
+          className="w-full h-full object-cover object-right filter brightness-[0.98] contrast-[1.02]"
         />
-        {/* Layer 1: Broad multi-stop white-to-transparent progressive gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-white/40 to-transparent"></div>
-        
-        {/* Layer 2: Extra soft horizontal feathering on the left blend zone */}
-        <div className="absolute inset-0 w-3/5 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
 
-        {/* Layer 3: Top and Bottom subtle blends to dissolve cleanly into section borders */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent"></div>
+        {/* Desktop smooth blend overlay: ensures zero harsh cutoffs */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-35% via-white/20 via-60% to-transparent pointer-events-none" />
 
-        {/* Layer 4: Mobile & Tablet overlay ensuring pristine legibility */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/70"></div>
+        {/* Soft feathering on the transition zone */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-white via-white/70 to-transparent pointer-events-none" />
+
+        {/* Mobile & Tablet blend overlay: guarantees 100% text contrast and readability */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/75 pointer-events-none" />
+
+        {/* Subtle top & bottom edge blending */}
+        <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
       </div>
 
       {/* Massive Watermark Typography behind - Relleno y menos visible */}
@@ -102,8 +108,8 @@ export default function PageBanner({
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-[84px] sm:pt-[96px] lg:pt-[116px] pb-6">
-        <div className="max-w-2xl lg:max-w-3xl space-y-3.5 sm:space-y-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-[82px] sm:pt-[90px] lg:pt-[96px] pb-6">
+        <div className="max-w-2xl lg:max-w-4xl xl:max-w-5xl space-y-2.5 sm:space-y-3">
           
           {/* Breadcrumb Navigation (Miga de pan) */}
           <motion.nav
@@ -149,20 +155,20 @@ export default function PageBanner({
             </motion.div>
           )}
 
-          {/* Prominent Colored Title */}
+          {/* Prominent Colored Title: Single line on sm+ so long industry titles don't push description down */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="space-y-1.5"
           >
-            <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none ${titleAccentColor}`}>
+            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-black tracking-tight leading-none whitespace-normal sm:whitespace-nowrap ${titleAccentColor}`}>
               {title}
             </h1>
 
             {/* Main Headline */}
             {headline && (
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 tracking-tight leading-snug">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-950 tracking-tight leading-snug">
                 {headline}
               </h2>
             )}
@@ -173,7 +179,7 @@ export default function PageBanner({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal max-w-2xl"
+            className="text-xs sm:text-sm lg:text-base text-slate-700 leading-relaxed font-normal max-w-2xl sm:max-w-3xl"
           >
             {description}
           </motion.p>

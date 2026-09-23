@@ -7,7 +7,7 @@ import PageBanner from '../components/PageBanner';
 import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import GlobalNetworkMap from '../components/GlobalNetworkMap';
 import { COMPANY_INFO } from '../data/company';
-import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown, HelpCircle, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown, HelpCircle, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function Contacto() {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ export default function Contacto() {
         image="/banners/banner-contacto.png"
         imageAlt="Ubicación y presencia internacional KONVERXA"
         showDownloadBtn={true}
-        ctaText="HABLEMOS DE TU NEGOCIO"
+        ctaText="Hablemos de tu Negocio"
         onCtaClick={() => {
           const formEl = document.getElementById('formulario-contacto');
           if (formEl) {
@@ -403,9 +403,10 @@ export default function Contacto() {
                 e.preventDefault();
                 window.scrollTo({ top: 380, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
             >
-              <span>HABLEMOS DE TU NEGOCIO</span>
+              <span>Hablemos de tu Negocio</span>
+              <ArrowRight className="w-4 h-4 text-white" />
             </a>
           </div>
 

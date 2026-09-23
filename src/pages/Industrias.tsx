@@ -207,8 +207,8 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
 
             {/* Columna Derecha: Fotografía y Cierre Evolución Operativa */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-6 h-full">
-              {/* Fotografía representativa de la operación */}
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-1 min-h-[220px] bg-slate-900">
+              {/* Fotografía representativa de la operación con altura fija y uniforme */}
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-[240px] sm:h-[260px] lg:h-[270px] w-full bg-slate-900 shrink-0">
                 <img
                   src={activeIndustry.showcaseImage}
                   onError={(e) => {
@@ -220,8 +220,8 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                 />
               </div>
 
-              {/* Pie de la fotografía: Cierre Evolución Operativa */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-2xs">
+              {/* Pie de la fotografía: Cierre Evolución Operativa (sin CTA para uniformidad total de altura) */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-2xs flex-1 flex flex-col justify-center">
                 <div className="flex items-center gap-2 text-slate-900 text-xs font-bold uppercase tracking-wider">
                   <ShieldCheck className="w-4 h-4 text-slate-800 shrink-0" />
                   <span>{activeIndustry.footerClosing?.tag || 'EVOLUCIÓN OPERATIVA'}</span>
@@ -233,17 +233,6 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
                   {activeIndustry.footerClosing?.text ||
                     'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'}
                 </p>
-                {activeIndustry.footerClosing?.ctaText && (
-                  <div className="pt-1.5">
-                    <Link
-                      to={activeIndustry.footerClosing.ctaLink || '/contacto'}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-950 hover:text-slate-700 transition-colors group"
-                    >
-                      <span>{activeIndustry.footerClosing.ctaText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                )}
               </div>
             </div>
           </motion.div>

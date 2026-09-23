@@ -33,8 +33,8 @@ export default function TrabajaConNosotros() {
           { label: 'Carreras', path: '/trabaja-con-nosotros' },
           { label: 'Talento Humano' }
         ]}
-        image="/carreras_conferencia.jpg"
-        imageAlt="Vista posterior de la empresaria levantando la mano durante la conferencia en la oficina Foto de Stock, Incluyendo: vista trasera y negocio - Envato"
+        image="/banners/banner-carreras.png"
+        imageAlt="Equipo y profesionales KONVERXA en conferencia"
         showDownloadBtn={true}
       />
 
@@ -91,14 +91,14 @@ export default function TrabajaConNosotros() {
 
       {/* Cierre institucional */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight max-w-5xl mx-auto whitespace-normal lg:whitespace-nowrap leading-snug">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center space-y-8">
+          <div className="max-w-4xl mx-auto flex flex-col items-center justify-center text-center space-y-4">
+            <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight mx-auto leading-snug">
               «Las organizaciones sólidas no se improvisan. Se construyen»
             </p>
           </div>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+          <div className="pt-2 flex items-center justify-center">
             <Link
               to="/contacto"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"

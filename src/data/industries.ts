@@ -64,7 +64,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     fullDesc:
       'En servicios financieros, una consulta, una reclamación, una gestión de cartera o un proceso documental pueden afectar directamente la relación con el cliente. Ejecutar con precisión, mantener la trazabilidad y resolver con criterio permite dar continuidad a cada gestión.',
     iconName: 'Landmark',
-    heroImage: '/banca.jpg',
+    heroImage: '/banners/banner-banca.png',
     complianceBadge: 'Certificación ISO 27001 & PCI-DSS',
     showcaseImage: '/bloque2.png',
     showcaseTag: 'ALCANCE OPERATIVO',
@@ -105,7 +105,7 @@ export const INDUSTRIES_DATA: Industry[] = [
       description:
         'Gestionamos operaciones de atención, ventas, cobranzas y back office para entidades financieras, bajo criterios de precisión, trazabilidad y control en cada interacción y proceso.',
       breadcrumbLabel: 'Banca y Servicios Financieros',
-      image: '/banca.jpg',
+      image: '/banners/banner-banca.png',
       imageAlt: 'Detalle de edificio de oficinas moderno, superficie de vidrio'
     }
   },
@@ -131,10 +131,8 @@ export const INDUSTRIES_DATA: Industry[] = [
     ],
     footerClosing: {
       tag: 'EVOLUCIÓN OPERATIVA',
-      title: 'Una estructura diseñada para evolucionar con tu negocio.',
-      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
-      ctaText: 'Hablemos de tu negocio',
-      ctaLink: '/contacto'
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
     },
     keyChallenges: [
       'Picos de demanda: Saturación en Cyber Days, Black Friday y campañas estacionales.',
@@ -245,10 +243,8 @@ export const INDUSTRIES_DATA: Industry[] = [
     ],
     footerClosing: {
       tag: 'EVOLUCIÓN OPERATIVA',
-      title: 'Una estructura diseñada para evolucionar con tu negocio.',
-      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
-      ctaText: 'Hablemos de tu negocio',
-      ctaLink: '/contacto'
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
     },
     keyChallenges: [
       'Momentos de contingencia: Asegurados en situaciones de estrés que requieren contención humana.',
@@ -303,10 +299,8 @@ export const INDUSTRIES_DATA: Industry[] = [
     ],
     footerClosing: {
       tag: 'EVOLUCIÓN OPERATIVA',
-      title: 'Una estructura diseñada para evolucionar con tu negocio.',
-      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
-      ctaText: 'Hablemos de tu negocio',
-      ctaLink: '/contacto'
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
     },
     keyChallenges: [
       'Colapso en citas: Saturación telefónica recurrente en centrales médicas.',
@@ -361,10 +355,8 @@ export const INDUSTRIES_DATA: Industry[] = [
     ],
     footerClosing: {
       tag: 'EVOLUCIÓN OPERATIVA',
-      title: 'Una estructura diseñada para evolucionar con tu negocio.',
-      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
-      ctaText: 'Hablemos de tu negocio',
-      ctaLink: '/contacto'
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
     },
     keyChallenges: [
       'Consultas repetitivas: Alto volumen de llamadas preguntando por el estado del paquete o flete.',
@@ -419,10 +411,8 @@ export const INDUSTRIES_DATA: Industry[] = [
     ],
     footerClosing: {
       tag: 'EVOLUCIÓN OPERATIVA',
-      title: 'Una estructura diseñada para evolucionar con tu negocio.',
-      text: 'Incorpora nuevas capacidades a medida que cambian las necesidades de cada operación.',
-      ctaText: 'Hablemos de tu negocio',
-      ctaLink: '/contacto'
+      title: 'Adaptamos la operación. No el estándar.',
+      text: 'Cada industria exige procesos, riesgos y momentos críticos distintos. Los integramos bajo un mismo criterio de gestión, control y evidencia para sostener una ejecución consistente.'
     },
     keyChallenges: [
       'Cortes masivos imprevistos: Saturación telefónica extrema durante tormentas o averías.',

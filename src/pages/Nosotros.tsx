@@ -251,6 +251,17 @@ export default function Nosotros() {
                 );
               })}
             </div>
+
+            {/* CTA Final Fundamentos */}
+            <div className="pt-8 text-center">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+              >
+                <span>Hablemos de tu Negocio</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
+            </div>
           </div>
         </section>
       )}
@@ -273,19 +284,19 @@ export default function Nosotros() {
               </h2>
               
               {/* Bloque de Convicción y Propósito justificado y centrado con el título */}
-              <div className="max-w-3xl mx-auto pt-2 space-y-4 text-center">
-                <div className="space-y-1 text-center">
+              <div className="max-w-3xl mx-auto pt-4 text-center">
+                <div className="space-y-2 pb-8 text-center">
                   <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
-                    01 · QUÉ CREEMOS — Convicción
+                    QUÉ CREEMOS — Convicción
                   </span>
                   <p className="text-lg sm:text-xl font-bold text-slate-950 leading-snug text-center">
                     «Las organizaciones sólidas no se improvisan. Se construyen»
                   </p>
                 </div>
 
-                <div className="space-y-1 pt-3 border-t border-slate-200 text-center">
+                <div className="space-y-2 pt-8 border-t border-slate-200 text-center">
                   <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
-                    02 · POR QUÉ EXISTIMOS — Propósito
+                    POR QUÉ EXISTIMOS — Propósito
                   </span>
                   <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-center">
                     Ayudar a las organizaciones a construir la solidez necesaria para cerrar la brecha entre lo que prometen y lo que pueden sostener, alineando su promesa, sus personas y su capacidad.
@@ -319,7 +330,7 @@ export default function Nosotros() {
                 <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
                   <div className="space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
-                      03 · QUÉ HACEMOS
+                      QUÉ HACEMOS
                     </div>
                     
                     <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
@@ -364,7 +375,7 @@ export default function Nosotros() {
                 <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
                   <div className="space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
-                      04 · QUÉ ASPIRAMOS A DEMOSTRAR
+                      QUÉ ASPIRAMOS A DEMOSTRAR
                     </div>
                     
                     <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
@@ -398,9 +409,10 @@ export default function Nosotros() {
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm shadow-md transition-all border border-zinc-800"
                 >
-                  <span>HABLEMOS DE TU NEGOCIO</span>
+                  <span>Hablemos de tu Negocio</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Link>
               </div>
             </div>

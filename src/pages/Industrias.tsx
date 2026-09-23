@@ -154,7 +154,7 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="p-8 sm:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
+            className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
           >
             {/* Columna Izquierda: Información + Capacidades en 4 Barras */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6 lg:space-y-0">
@@ -313,9 +313,9 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
       {/* ========================================================================= */}
       {/* BLOQUE 04: CIERRE                                                         */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-white border-t border-slate-200">
+      <section className="pt-16 sm:pt-20 pb-28 sm:pb-36 lg:pb-44 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-slate-950 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-slate-950 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             
             {/* Subtle background glow */}
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-slate-800/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -331,10 +331,10 @@ export default function Industrias({ initialSlug }: IndustriasProps) {
             </div>
 
             {/* CTA en la Derecha: Más pequeño y alineado con el texto de abajo */}
-            <div className="shrink-0 relative z-10">
+            <div className="shrink-0 relative z-10 w-full sm:w-auto">
               <Link
                 to="/contacto"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-bold text-sm shadow-md hover:shadow-lg transition-all group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-slate-950 hover:bg-slate-100 font-bold text-sm shadow-md hover:shadow-lg transition-all group"
               >
                 <span>Hablemos de tu Negocio</span>
                 <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />

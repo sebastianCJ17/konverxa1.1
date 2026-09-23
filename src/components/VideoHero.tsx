@@ -95,7 +95,7 @@ export default function VideoHero() {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
               Los resultados <br />
               no se improvisan. <br />
               Se construyen.
@@ -111,7 +111,7 @@ export default function VideoHero() {
           >
             <Link
               to="/modelo"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold text-base transition-all duration-300 shadow-xl hover:shadow-2xl group border border-slate-200"
+              className="inline-flex items-center gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold text-sm sm:text-base transition-all duration-300 shadow-xl hover:shadow-2xl group border border-slate-200"
             >
               <span>Descubre nuestro modelo</span>
               <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
@@ -122,20 +122,20 @@ export default function VideoHero() {
       </div>
 
       {/* Bottom Hero Bar: Institutional Tag & Operational Focus */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 border-t border-white/10 flex items-center justify-between gap-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-zinc-400"></span>
-            <span className="text-sm sm:text-base font-normal uppercase tracking-wider text-zinc-300">
+            <span className="text-xs sm:text-sm md:text-base font-normal uppercase tracking-wider text-zinc-300">
               BPO · Contact Center
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-400 font-medium">
-          <span>Operaciones Globales</span>
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-400 font-normal">
+          <span className="font-normal text-zinc-400">Operaciones Globales</span>
           <span className="text-zinc-600">·</span>
-          <span className="text-zinc-300">España · Colombia · Perú</span>
+          <span className="font-normal text-zinc-300">España · Colombia · Perú</span>
         </div>
       </div>
 

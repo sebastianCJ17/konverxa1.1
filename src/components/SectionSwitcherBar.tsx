@@ -21,7 +21,7 @@ export default function SectionSwitcherBar({
 }: SectionSwitcherBarProps) {
   const containerClass = gridCols
     ? `grid ${gridCols} gap-1.5 sm:gap-2 w-full py-1`
-    : `flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none py-1 -my-1 px-1 -mx-1`;
+    : `flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none py-1 -my-1 px-1 -mx-1 touch-pan-x scroll-smooth overscroll-x-contain`;
 
   return (
     <div className="bg-slate-100 border-b border-slate-200 sticky top-16 sm:top-18 z-20 backdrop-blur-md bg-slate-100/95">

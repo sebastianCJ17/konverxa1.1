@@ -224,7 +224,7 @@ export const INDUSTRIES_DATA: Industry[] = [
     id: 'seguros',
     slug: 'seguros',
     name: 'Seguros',
-    block2Title: 'Seguro',
+    block2Title: 'Seguros',
     shortDesc: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
     subHeadline: 'DONDE LA OPERACIÓN MARCA LA DIFERENCIA',
     fullDesc:

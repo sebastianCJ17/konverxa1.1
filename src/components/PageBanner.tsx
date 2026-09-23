@@ -49,7 +49,7 @@ export default function PageBanner({
     : image;
 
   return (
-    <section className="relative w-full h-[420px] min-h-[420px] max-h-[420px] sm:h-[430px] sm:min-h-[430px] sm:max-h-[430px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex flex-col justify-start bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
+    <section className="relative w-full min-h-[410px] h-auto pb-6 sm:pb-0 sm:h-[430px] sm:min-h-[430px] sm:max-h-[430px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex flex-col justify-start bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
       {/* Right Side Team / Professional Image with Identical Fade & Uniform Positioning */}
       <div

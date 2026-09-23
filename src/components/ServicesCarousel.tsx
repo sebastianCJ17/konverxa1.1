@@ -115,7 +115,7 @@ export default function ServicesCarousel() {
           <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <Link
               to={`/servicios#${activeService.id}`}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-950 hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm group w-fit"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-950 hover:bg-black text-white text-sm font-bold transition-all shadow-sm group w-fit"
             >
               <span>Explora nuestros servicios</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

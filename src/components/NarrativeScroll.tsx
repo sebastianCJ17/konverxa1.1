@@ -67,14 +67,14 @@ export default function NarrativeScroll() {
   return (
     <section className="relative w-full py-16 sm:py-20 bg-slate-100 text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Background Soft Texture & Ambient Tone - Bloque 02 Photo (10% less overlay) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-65">
+      {/* Background Soft Texture & Ambient Tone - Operaciones Overview Photo */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-35">
         <img
-          src="/bloque2.png"
-          alt="Análisis y Visualización Operacional KONVERXA"
-          className="w-full h-full object-cover filter brightness-100"
+          src="/operations-overview.jpg"
+          alt="Centro de Operaciones y Contact Center KONVERXA"
+          className="w-full h-full object-cover filter brightness-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/78 via-slate-100/58 to-slate-100/15"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/75 to-slate-100/40"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -160,16 +160,6 @@ export default function NarrativeScroll() {
                             </div>
                           );
                         })}
-                      </div>
-
-                      <div className="pt-1">
-                        <Link
-                          to="/modelo"
-                          className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-black uppercase tracking-wider group"
-                        >
-                          <span>Profundizar en nuestra metodología</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
                       </div>
                     </div>
                   )}

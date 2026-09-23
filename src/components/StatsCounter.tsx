@@ -3,9 +3,9 @@ import { Users, Clock, Globe, Building2, Briefcase, Headphones } from 'lucide-re
 
 export const STATS_ITEMS = [
   {
-    id: 'empleados',
-    value: '+500',
-    label: 'Empleados',
+    id: 'colaboradores',
+    value: '+250',
+    label: 'Colaboradores',
     description: 'Talento humano especializado y capacitado',
     icon: Users,
     color: 'from-blue-600 to-indigo-600'
@@ -44,7 +44,7 @@ export const STATS_ITEMS = [
   },
   {
     id: 'posiciones',
-    value: '750',
+    value: '200',
     label: 'Posiciones',
     description: 'Capacidad instalada y escalabilidad inmediata',
     icon: Headphones,

@@ -952,18 +952,6 @@ export default function Modelo() {
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     {phase.description}
                   </p>
-
-                  <div className="pt-3 border-t border-slate-200">
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Entregables Principales:</span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
-                      {phase.deliverables.map((del, i) => (
-                        <div key={i} className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-slate-800 shrink-0" />
-                          <span>{del}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             ))}

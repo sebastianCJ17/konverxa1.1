@@ -9,9 +9,9 @@ export default function WhyKonverxa() {
       {/* High-Resolution Operations Center Background Image with Dark Contrast Gradients */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
         <img
-          src="/operations-overview.jpg"
+          src="/bloque2.png"
           alt="Centro de Operaciones y Contact Center KONVERXA"
-          className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08] saturate-[1.02]"
+          className="w-full h-full object-cover filter brightness-[0.70] contrast-[1.08] saturate-[1.02]"
         />
         {/* Deep navy/black gradient overlay on the left for maximum text contrast, lighter progressively to the right */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d141e] via-[#0d141e]/75 to-transparent"></div>

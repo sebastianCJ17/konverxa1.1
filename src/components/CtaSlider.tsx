@@ -78,7 +78,7 @@ export default function CtaSlider() {
             to="/contacto"
             className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-bold text-sm sm:text-base transition-all duration-300 shadow-2xl hover:scale-[1.02] border border-white group cursor-pointer"
           >
-            <span>Hablemos de tu negocio</span>
+            <span>Hablemos de tu Negocio</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

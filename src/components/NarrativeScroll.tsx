@@ -79,12 +79,12 @@ export default function NarrativeScroll() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         {/* Main Grid: Left Narrative + Right Static Sequence Bar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           
           {/* Left Column: Direct and Elevated Content */}
-          <div className="lg:col-span-8 flex flex-col justify-start">
+          <div className="lg:col-span-8 flex flex-col justify-between h-full">
             {/* Elevated Content with Smooth Motion Transition - Uniform height across all slides */}
-            <div className="min-h-[500px] sm:min-h-[400px] lg:min-h-[380px] flex flex-col justify-start">
+            <div className="min-h-[480px] sm:min-h-[420px] lg:min-h-[380px] h-full flex flex-col justify-between">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMoment.id}
@@ -92,43 +92,47 @@ export default function NarrativeScroll() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
-                  className="space-y-4 sm:space-y-5 flex flex-col justify-start w-full"
+                  className="space-y-4 sm:space-y-5 flex flex-col justify-between h-full w-full"
                 >
                   
-                  {/* Main Title - Cleanly elevated at the top */}
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.15] whitespace-pre-line">
-                    {activeMoment.title}
-                  </h2>
+                  <div className="space-y-4 sm:space-y-5">
+                    {/* Main Title - Cleanly elevated at the top */}
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.15] whitespace-pre-line">
+                      {activeMoment.title}
+                    </h2>
 
-                  {/* Subtitle 01 */}
-                  {activeMoment.subtitle && (
-                    <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl pt-1 text-justify">
-                      {activeMoment.subtitle}
-                    </p>
-                  )}
+                    {/* Subtitle 01 */}
+                    {activeMoment.subtitle && (
+                      <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl pt-1 text-justify">
+                        {activeMoment.subtitle}
+                      </p>
+                    )}
+                  </div>
 
                   {/* 3 Core Cards for Slide 04: DIAGNOSTICAR, COORDINAR, EJECUTAR */}
                   {activeMoment.cards && (
-                    <div className="pt-2 space-y-3 sm:space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                    <div className="pt-4 sm:pt-6 mt-auto w-full">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 items-stretch">
                         {activeMoment.cards.map((card, idx) => {
                           const IconComp = card.icon;
                           return (
                             <div
                               key={idx}
-                              className="p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex flex-col gap-1 hover:border-slate-400 hover:shadow-sm transition-all group"
+                              className="p-4 sm:p-4.5 rounded-xl bg-white border border-slate-200 shadow-xs flex flex-col justify-start h-full min-h-[120px] sm:min-h-[135px] hover:border-slate-400 hover:shadow-sm transition-all group"
                             >
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-6 h-6 rounded-md bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
-                                  <IconComp className="w-3 h-3" />
+                              <div className="flex items-start gap-2.5 sm:gap-3">
+                                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                                  <IconComp className="w-3.5 h-3.5" />
                                 </div>
-                                <span className="font-black text-[11px] tracking-wider text-slate-950 uppercase">
-                                  {card.label}
-                                </span>
+                                <div className="flex-1 min-w-0">
+                                  <span className="font-black text-[11px] sm:text-xs tracking-wider text-slate-950 uppercase block leading-snug">
+                                    {card.label}
+                                  </span>
+                                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed pt-1.5 font-normal">
+                                    {card.desc}
+                                  </p>
+                                </div>
                               </div>
-                              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
-                                {card.desc}
-                              </p>
                             </div>
                           );
                         })}
@@ -143,7 +147,7 @@ export default function NarrativeScroll() {
           </div>
 
           {/* Right Column: Static, non-jumping sequence navigator */}
-          <div className="lg:col-span-4 bg-white/95 backdrop-blur-xs p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between self-start w-full">
+          <div className="lg:col-span-4 bg-white/95 backdrop-blur-xs p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between w-full h-full">
             
             <div className="space-y-3">
               {/* Static list without vertical jumps */}

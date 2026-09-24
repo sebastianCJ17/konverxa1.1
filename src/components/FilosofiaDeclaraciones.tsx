@@ -55,7 +55,7 @@ export default function FilosofiaDeclaraciones() {
             {/* Columna Izquierda: Foto con longitud vertical */}
             <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] bg-slate-200 overflow-hidden">
               <img
-                src="/images/operador-linea-directa.jpg"
+                src="/mision.jpg"
                 alt="Operador de línea directa con auriculares trabajando en una computadora en la oficina Foto de Stock, Incluyendo: adulto y asistente - Envato"
                 className="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />

@@ -42,8 +42,8 @@ export default function QuienesSomosView() {
             </div>
           </div>
 
-          {/* Fila de Contenido: Narrativa y Fotografía Editorial alineadas */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Fila de Contenido: Narrativa y Fotografía Editorial alineadas y justificadas */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Columna Izquierda: Texto Narrativo */}
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -61,13 +61,13 @@ export default function QuienesSomosView() {
               </p>
             </div>
 
-            {/* Columna Derecha: Imagen Limpia sin pie de foto, alineada con el texto */}
-            <div className="lg:col-span-5">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+            {/* Columna Derecha: Imagen Limpia sin pie de foto, centrada y justificada con el texto */}
+            <div className="lg:col-span-5 flex items-center justify-center self-stretch">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm w-full h-72 sm:h-80 lg:h-full min-h-[280px] relative">
                 <img
                   src="/quienessomos.jpg"
                   alt="KONVERXA - Más de 20 años de trayectoria"
-                  className="w-full h-80 sm:h-96 lg:h-[420px] object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
                 />
               </div>
             </div>

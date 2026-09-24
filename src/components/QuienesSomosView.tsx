@@ -65,9 +65,9 @@ export default function QuienesSomosView() {
             <div className="lg:col-span-5">
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
                 <img
-                  src="/images/centro-operaciones-konverxa.jpg"
-                  alt="Centro de Operaciones KONVERXA"
-                  className="w-full h-80 sm:h-96 lg:h-[400px] object-cover"
+                  src="/quienessomos.jpg"
+                  alt="KONVERXA - Más de 20 años de trayectoria"
+                  className="w-full h-80 sm:h-96 lg:h-[420px] object-cover"
                 />
               </div>
             </div>

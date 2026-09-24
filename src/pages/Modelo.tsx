@@ -101,6 +101,7 @@ export default function Modelo() {
   const [selectedPillar, setSelectedPillar] = useState(ONEX_PILLARS[0].id);
   const [selectedDimension, setSelectedDimension] = useState(EXCELENCIA_DIMENSIONS[0].id);
   const [selectedOneXDim, setSelectedOneXDim] = useState(ONEX_DIMENSIONS[0].id);
+  const [selectedCikPhase, setSelectedCikPhase] = useState(CIK_PHASES[0].number);
 
   // Sync active section with URL hash and ensure top banner is visible
   useEffect(() => {
@@ -117,6 +118,7 @@ export default function Modelo() {
   const activePillarObj = ONEX_PILLARS.find((p) => p.id === selectedPillar) || ONEX_PILLARS[0];
   const activeDimensionObj = EXCELENCIA_DIMENSIONS.find((d) => d.id === selectedDimension) || EXCELENCIA_DIMENSIONS[0];
   const activeOneXDimObj = ONEX_DIMENSIONS.find((d) => d.id === selectedOneXDim) || ONEX_DIMENSIONS[0];
+  const activeCikPhaseObj = CIK_PHASES.find((p) => p.number === selectedCikPhase) || CIK_PHASES[0];
 
   const currentPillarIndex = ONEX_PILLARS.findIndex((p) => p.id === selectedPillar);
   const handlePrevPillar = () => {
@@ -146,6 +148,16 @@ export default function Modelo() {
   const handleNextOneXDim = () => {
     const nextIndex = (currentOneXDimIndex + 1) % ONEX_DIMENSIONS.length;
     setSelectedOneXDim(ONEX_DIMENSIONS[nextIndex].id);
+  };
+
+  const currentCikIndex = CIK_PHASES.findIndex((p) => p.number === selectedCikPhase);
+  const handlePrevCikPhase = () => {
+    const prevIndex = (currentCikIndex - 1 + CIK_PHASES.length) % CIK_PHASES.length;
+    setSelectedCikPhase(CIK_PHASES[prevIndex].number);
+  };
+  const handleNextCikPhase = () => {
+    const nextIndex = (currentCikIndex + 1) % CIK_PHASES.length;
+    setSelectedCikPhase(CIK_PHASES[nextIndex].number);
   };
 
   const handleSectionSelect = (key: ModeloSectionKey) => {
@@ -356,14 +368,14 @@ export default function Modelo() {
                     <button
                       key={p.id}
                       onClick={() => setSelectedPillar(p.id)}
-                      className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                      className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
                         isActive
                           ? 'bg-black text-white border-black shadow-md'
                           : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                       }`}
                     >
                       <IconComp className="w-4 h-4 shrink-0" />
-                      <span className="whitespace-nowrap">{p.tabLabel || p.title}</span>
+                      <span className="whitespace-nowrap uppercase">{p.tabLabel || p.title}</span>
                     </button>
                   );
                 })}
@@ -401,21 +413,21 @@ export default function Modelo() {
                   className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
                 >
                   <div className="lg:col-span-7 space-y-6">
-                    <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                    <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
                       {activePillarObj.subtitle}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-black text-black">{activePillarObj.title}</h3>
+                    <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activePillarObj.title}</h3>
                     <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activePillarObj.description}</p>
 
                     <div className="space-y-3 pt-2">
-                      <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                      <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
                         Atributos Clave:
                       </span>
                       <div className="flex flex-col gap-2.5 w-full">
                         {activePillarObj.keyPoints.map((point, idx) => (
                           <div
                             key={idx}
-                            className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                            className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
                           >
                             <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                             <span>{point}</span>
@@ -429,7 +441,7 @@ export default function Modelo() {
                     <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
                       <Layers className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-lg sm:text-xl font-black text-black">
+                    <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
                       {activePillarObj.impactTitle || 'Impacto de Negocio'}
                     </h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -440,14 +452,14 @@ export default function Modelo() {
 
                 {/* Controles de paginación e indicador */}
                 <div className="flex items-center justify-between mt-4 px-2">
-                  <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
                     Capacidad {currentPillarIndex + 1} de {ONEX_PILLARS.length}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={handlePrevPillar}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
                       <span>Anterior</span>
@@ -455,7 +467,7 @@ export default function Modelo() {
                     <button
                       type="button"
                       onClick={handleNextPillar}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                     >
                       <span>Siguiente</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -513,14 +525,14 @@ export default function Modelo() {
                   <button
                     key={dim.id}
                     onClick={() => setSelectedDimension(dim.id)}
-                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
                     <IconComp className="w-4 h-4 shrink-0" />
-                    <span className="whitespace-nowrap">{dim.tabLabel}</span>
+                    <span className="whitespace-nowrap uppercase">{dim.tabLabel}</span>
                   </button>
                 );
               })}
@@ -558,21 +570,21 @@ export default function Modelo() {
                 className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
                     {activeDimensionObj.subtitle}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeDimensionObj.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activeDimensionObj.title}</h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeDimensionObj.description}</p>
 
                   <div className="space-y-3 pt-2">
-                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
                       Atributos Clave:
                     </span>
                     <div className="flex flex-col gap-2.5 w-full">
                       {activeDimensionObj.keyPoints.map((point, idx) => (
                         <div
                           key={idx}
-                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
                         >
                           <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                           <span className="leading-snug">{point}</span>
@@ -589,7 +601,7 @@ export default function Modelo() {
                       return <DimIcon className="w-8 h-8 text-white" />;
                     })()}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-black text-black">
+                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
                     {activeDimensionObj.impactTitle || 'Impacto de Negocio'}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -600,14 +612,14 @@ export default function Modelo() {
 
               {/* Controles de paginación e indicador */}
               <div className="flex items-center justify-between mt-4 px-2">
-                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
                   Dimensión {currentDimensionIndex + 1} de {EXCELENCIA_DIMENSIONS.length}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handlePrevDimension}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -615,7 +627,7 @@ export default function Modelo() {
                   <button
                     type="button"
                     onClick={handleNextDimension}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                   >
                     <span>Siguiente</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -671,14 +683,14 @@ export default function Modelo() {
                   <button
                     key={d.id}
                     onClick={() => setSelectedOneXDim(d.id)}
-                    className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                    className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
                     <IconComp className="w-4 h-4 shrink-0" />
-                    <span className="whitespace-nowrap">{d.tabLabel}</span>
+                    <span className="whitespace-nowrap uppercase">{d.tabLabel}</span>
                   </button>
                 );
               })}
@@ -686,7 +698,7 @@ export default function Modelo() {
 
             {/* Tab Detail View (Slide con flechas de navegación externas) */}
             <div className="relative mt-10 max-w-6xl mx-auto">
-              {/* Flecha Anterior (Por fuera del slide) */}
+              {/* Flecha Anterior (Por扩大 del slide) */}
               <button
                 type="button"
                 onClick={handlePrevOneXDim}
@@ -716,21 +728,21 @@ export default function Modelo() {
                 className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
+                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
                     {activeOneXDimObj.subtitle}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeOneXDimObj.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activeOneXDimObj.title}</h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeOneXDimObj.description}</p>
 
                   <div className="space-y-3 pt-2">
-                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
+                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
                       Atributos Clave:
                     </span>
                     <div className="flex flex-col gap-2.5 w-full">
                       {activeOneXDimObj.keyPoints.map((point, idx) => (
                         <div
                           key={idx}
-                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
                         >
                           <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                           <span className="leading-snug">{point}</span>
@@ -747,7 +759,7 @@ export default function Modelo() {
                       return <DimIcon className="w-8 h-8 text-white" />;
                     })()}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-black text-black">
+                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
                     {activeOneXDimObj.impactTitle || 'Impacto de Negocio'}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -758,14 +770,14 @@ export default function Modelo() {
 
               {/* Controles de paginación e indicador */}
               <div className="flex items-center justify-between mt-4 px-2">
-                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
+                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
                   Dimensión {currentOneXDimIndex + 1} de {ONEX_DIMENSIONS.length}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handlePrevOneXDim}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -773,7 +785,7 @@ export default function Modelo() {
                   <button
                     type="button"
                     onClick={handleNextOneXDim}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
                   >
                     <span>Siguiente</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -821,54 +833,127 @@ export default function Modelo() {
               </p>
             </div>
 
-            {/* Visual Cadence Stepper */}
-            <div className="flex items-center justify-center gap-2 flex-wrap pb-2">
-              {CIK_PHASES.map((phase) => (
-                <div
-                  key={phase.name}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold shadow-2xs"
-                >
-                  <span className="w-2 h-2 rounded-full bg-black"></span>
-                  <span>{phase.name}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* 7 Fases Cards */}
-            <div className="space-y-4 sm:space-y-5 max-w-5xl mx-auto">
+            {/* Interactive Tabs */}
+            <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
               {CIK_PHASES.map((phase, idx) => {
-                const PhaseIcon = CIK_ICONS[idx % CIK_ICONS.length] || Target;
+                const IconComp = CIK_ICONS[idx % CIK_ICONS.length] || Target;
+                const isActive = phase.number === selectedCikPhase;
                 return (
-                  <motion.div
-                    key={phase.name}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: idx * 0.04 }}
-                    className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-black/30 hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
+                  <button
+                    key={phase.number}
+                    onClick={() => setSelectedCikPhase(phase.number)}
+                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                      isActive
+                        ? 'bg-black text-white border-black shadow-md'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
                   >
-                    <div className="lg:col-span-5 flex items-start sm:items-center gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center shrink-0 shadow-xs group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                        <PhaseIcon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-700 block">
-                          {phase.descriptor}
-                        </span>
-                        <h3 className="text-xl sm:text-2xl font-black text-black mt-0.5">
-                          {phase.name}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-7">
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        {phase.text}
-                      </p>
-                    </div>
-                  </motion.div>
+                    <IconComp className="w-4 h-4 shrink-0" />
+                    <span className="whitespace-nowrap uppercase">{phase.name}</span>
+                  </button>
                 );
               })}
+            </div>
+
+            {/* Tab Detail View (Slide con flechas de navegación externas) */}
+            <div className="relative mt-10 max-w-6xl mx-auto">
+              {/* Flecha Anterior (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handlePrevCikPhase}
+                aria-label="Fase anterior"
+                title="Fase anterior"
+                className="absolute -left-3 sm:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+              </button>
+
+              {/* Flecha Siguiente (Por fuera del slide) */}
+              <button
+                type="button"
+                onClick={handleNextCikPhase}
+                aria-label="Fase siguiente"
+                title="Fase siguiente"
+                className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border border-slate-300 shadow-xl text-slate-800 hover:bg-black hover:text-white hover:border-black flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              <motion.div
+                key={activeCikPhaseObj.number}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              >
+                <div className="lg:col-span-7 space-y-6">
+                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
+                    FASE 0{activeCikPhaseObj.number} · {activeCikPhaseObj.descriptor}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">
+                    {activeCikPhaseObj.name}
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    {activeCikPhaseObj.text}
+                  </p>
+
+                  <div className="space-y-3 pt-2">
+                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
+                      Criterio de Intervención:
+                    </span>
+                    <div className="flex flex-col gap-2.5 w-full">
+                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal">
+                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                        <span>Propósito: {activeCikPhaseObj.descriptor}</span>
+                      </div>
+                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal">
+                        <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
+                        <span>Intervención continua y trazable bajo el estándar KONVERXA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 p-7 sm:p-9 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
+                    {(() => {
+                      const PhaseIcon = CIK_ICONS[currentCikIndex % CIK_ICONS.length] || Target;
+                      return <PhaseIcon className="w-8 h-8 text-white" />;
+                    })()}
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
+                    {activeCikPhaseObj.descriptor}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+                    Fase 0{activeCikPhaseObj.number} del ciclo continuo para diagnosticar, actuar y sostener la operación.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Controles de paginación e indicador */}
+              <div className="flex items-center justify-between mt-4 px-2">
+                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
+                  Fase {currentCikIndex + 1} de {CIK_PHASES.length}
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevCikPhase}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <span>Anterior</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextCikPhase}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                  >
+                    <span>Siguiente</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* CTA Final Bloque 04: CIK */}

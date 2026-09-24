@@ -83,26 +83,8 @@ export default function NarrativeScroll() {
           
           {/* Left Column: Direct and Elevated Content */}
           <div className="lg:col-span-8 flex flex-col justify-start">
-            
-            {/* Top Moments Navigation Tabs (Misma forma que Modelo: rounded-xl, tamaño compacto en una sola línea) */}
-            <div className="flex flex-nowrap items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 max-w-full">
-              {MOMENTS.map((m, idx) => (
-                <button
-                  key={m.id}
-                  onClick={() => setCurrentStep(idx)}
-                  className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
-                    idx === currentStep
-                      ? 'bg-black text-white border-black shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
-                >
-                  <span className="whitespace-nowrap uppercase">{m.tabLabel}</span>
-                </button>
-              ))}
-            </div>
-
             {/* Elevated Content with Smooth Motion Transition - Uniform height across all slides */}
-            <div className="min-h-[540px] sm:min-h-[440px] lg:min-h-[410px] flex flex-col justify-start">
+            <div className="min-h-[500px] sm:min-h-[400px] lg:min-h-[380px] flex flex-col justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMoment.id}

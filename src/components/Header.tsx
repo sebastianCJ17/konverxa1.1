@@ -156,49 +156,49 @@ export default function Header() {
                       <Link
                         to="/servicios#atencion-experiencia-cliente"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Atención y Experiencia Cliente
                       </Link>
                       <Link
                         to="/servicios#ventas-fidelizacion"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Ventas y Fidelización
                       </Link>
                       <Link
                         to="/servicios#cobranzas"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Cobranzas
                       </Link>
                       <Link
                         to="/servicios#soporte-tecnico"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Soporte Técnico
                       </Link>
                       <Link
                         to="/servicios#bo-gestion-procesos"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         BO y Gestión de Procesos
                       </Link>
                       <Link
                         to="/servicios#omnicanalidad-bots"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Omnicanalidad y BOTS
                       </Link>
                       <Link
                         to="/servicios#rrhh-apoyo-psicosocial"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         RRHH y Apoyo Psicosocial
                       </Link>
@@ -236,56 +236,56 @@ export default function Header() {
                       <Link
                         to="/industrias/telecomunicaciones"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Telecomunicaciones
                       </Link>
                       <Link
                         to="/industrias/banca-fintech"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Banca y Servicios Financieros
                       </Link>
                       <Link
                         to="/industrias/retail-ecommerce"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Retail y Comercio Electrónico
                       </Link>
                       <Link
                         to="/industrias/tecnologia"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Tecnología y Negocios Digitales
                       </Link>
                       <Link
                         to="/industrias/seguros"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Seguros
                       </Link>
                       <Link
                         to="/industrias/salud"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Salud y Farmacia
                       </Link>
                       <Link
                         to="/industrias/logistica"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Movilidad y Transporte
                       </Link>
                       <Link
                         to="/industrias/energia"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Energía y Servicios Públicos
                       </Link>
@@ -323,34 +323,34 @@ export default function Header() {
                       <Link
                         to="/nosotros#quienes-somos"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Quiénes somos
                       </Link>
                       <Link
                         to="/nosotros#fundamentos"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Fundamentos
                       </Link>
                       <Link
                         to="/nosotros#mision-vision"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Misión / Visión
                       </Link>
-                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
+                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
                         Sostenibilidad y RSE
                       </span>
-                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
+                      <span className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-500 cursor-default select-none whitespace-nowrap opacity-60">
                         Certificaciones
                       </span>
                       <Link
                         to="/contacto"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Ubicación
                       </Link>
@@ -422,7 +422,7 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-servicios' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-servicios' && (
-                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-normal text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/servicios#atencion-experiencia-cliente" onClick={() => setMobileMenuOpen(false)}>Atención y Experiencia Cliente</Link>
                     <Link to="/servicios#ventas-fidelizacion" onClick={() => setMobileMenuOpen(false)}>Ventas y Fidelización</Link>
                     <Link to="/servicios#cobranzas" onClick={() => setMobileMenuOpen(false)}>Cobranzas</Link>
@@ -444,7 +444,7 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-industria' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-industria' && (
-                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-normal text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/industrias/telecomunicaciones" onClick={() => setMobileMenuOpen(false)}>Telecomunicaciones</Link>
                     <Link to="/industrias/banca-fintech" onClick={() => setMobileMenuOpen(false)}>Banca y Servicios Financieros</Link>
                     <Link to="/industrias/retail-ecommerce" onClick={() => setMobileMenuOpen(false)}>Retail y Comercio Electrónico</Link>
@@ -467,7 +467,7 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-nosotros' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-nosotros' && (
-                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-normal text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/nosotros#quienes-somos" onClick={() => setMobileMenuOpen(false)}>Quiénes somos</Link>
                     <Link to="/nosotros#fundamentos" onClick={() => setMobileMenuOpen(false)}>Fundamentos</Link>
                     <Link to="/nosotros#mision-vision" onClick={() => setMobileMenuOpen(false)}>Misión / Visión</Link>

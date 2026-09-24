@@ -46,7 +46,7 @@ export const STATS_ITEMS = [
     id: 'posiciones',
     value: '200',
     label: 'Posiciones',
-    description: 'Capacidad instalada y escalabilidad inmediata',
+    description: 'Gestionadas bajo un mismo estándar operativo',
     icon: Headphones,
     color: 'from-rose-600 to-red-600'
   }

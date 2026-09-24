@@ -84,13 +84,13 @@ export default function NarrativeScroll() {
           {/* Left Column: Direct and Elevated Content */}
           <div className="lg:col-span-8 flex flex-col justify-start">
             
-            {/* Top Moments Navigation Tabs (Misma forma que Modelo: rounded-xl, no redondeadas en píldora) */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-6 sm:mb-8">
+            {/* Top Moments Navigation Tabs (Misma forma que Modelo: rounded-xl, tamaño compacto en una sola línea) */}
+            <div className="flex flex-nowrap items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 max-w-full">
               {MOMENTS.map((m, idx) => (
                 <button
                   key={m.id}
                   onClick={() => setCurrentStep(idx)}
-                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                  className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
                     idx === currentStep
                       ? 'bg-black text-white border-black shadow-md'
                       : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'

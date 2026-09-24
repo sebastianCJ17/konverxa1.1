@@ -84,19 +84,19 @@ export default function NarrativeScroll() {
           {/* Left Column: Direct and Elevated Content */}
           <div className="lg:col-span-8 flex flex-col justify-start">
             
-            {/* Top Moments Navigation Tabs (Clean and direct) */}
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
+            {/* Top Moments Navigation Tabs (Misma forma que Modelo: rounded-xl, no redondeadas en píldora) */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-6 sm:mb-8">
               {MOMENTS.map((m, idx) => (
                 <button
                   key={m.id}
                   onClick={() => setCurrentStep(idx)}
-                  className={`px-4 py-2 rounded-full text-xs font-normal uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
                     idx === currentStep
-                      ? 'bg-slate-950 text-white shadow-sm'
-                      : 'bg-white/80 text-slate-600 hover:bg-white hover:text-slate-900 border border-slate-200'
+                      ? 'bg-black text-white border-black shadow-md'
+                      : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <span>{m.tabLabel}</span>
+                  <span className="whitespace-nowrap uppercase">{m.tabLabel}</span>
                 </button>
               ))}
             </div>
@@ -161,7 +161,7 @@ export default function NarrativeScroll() {
           </div>
 
           {/* Right Column: Static, non-jumping sequence navigator */}
-          <div className="lg:col-span-4 bg-white/90 backdrop-blur-xs p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col justify-between self-start w-full">
+          <div className="lg:col-span-4 bg-white/95 backdrop-blur-xs p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between self-start w-full">
             
             <div className="space-y-3">
               {/* Static list without vertical jumps */}
@@ -170,10 +170,10 @@ export default function NarrativeScroll() {
                   <button
                     key={m.id}
                     onClick={() => setCurrentStep(idx)}
-                    className={`w-full text-left p-3.5 rounded-2xl transition-all duration-200 flex items-center justify-between group ${
+                    className={`w-full text-left p-3.5 rounded-xl transition-all duration-200 flex items-center justify-between border ${
                       idx === currentStep
-                        ? 'bg-slate-950 text-white shadow-xs'
-                        : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/60'
+                        ? 'bg-black text-white border-black shadow-xs'
+                        : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -193,14 +193,14 @@ export default function NarrativeScroll() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-950 hover:text-white text-slate-700 flex items-center justify-center transition-all"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-black hover:text-white text-slate-700 flex items-center justify-center transition-all border border-slate-200"
                   aria-label="Momento anterior"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-950 hover:text-white text-slate-700 flex items-center justify-center transition-all"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-black hover:text-white text-slate-700 flex items-center justify-center transition-all border border-slate-200"
                   aria-label="Momento siguiente"
                 >
                   <ChevronRight className="w-4 h-4" />

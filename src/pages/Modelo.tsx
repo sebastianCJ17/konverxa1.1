@@ -359,8 +359,8 @@ export default function Modelo() {
                 centered
               />
 
-              {/* Interactive Tabs */}
-              <div className="mt-12 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {/* Interactive Tabs - Todas en una sola línea */}
+              <div className="mt-12 flex flex-nowrap justify-start lg:justify-center items-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 pt-1 px-1 max-w-full">
                 {ONEX_PILLARS.map((p) => {
                   const IconComp = PILLAR_ICONS[p.icon] || Target;
                   const isActive = p.id === selectedPillar;
@@ -368,13 +368,13 @@ export default function Modelo() {
                     <button
                       key={p.id}
                       onClick={() => setSelectedPillar(p.id)}
-                      className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                      className={`flex items-center gap-2 px-3 sm:px-4 lg:px-4 py-2 sm:py-2.5 rounded-xl font-normal uppercase tracking-wider text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
                         isActive
                           ? 'bg-black text-white border-black shadow-md'
                           : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                       }`}
                     >
-                      <IconComp className="w-4 h-4 shrink-0" />
+                      <IconComp className="w-3.5 h-3.5 shrink-0" />
                       <span className="whitespace-nowrap uppercase">{p.tabLabel || p.title}</span>
                     </button>
                   );

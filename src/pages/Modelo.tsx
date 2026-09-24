@@ -368,7 +368,7 @@ export default function Modelo() {
                     <button
                       key={p.id}
                       onClick={() => setSelectedPillar(p.id)}
-                      className={`flex items-center gap-2 px-3 sm:px-4 lg:px-4 py-2 sm:py-2.5 rounded-xl font-normal uppercase tracking-wider text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
+                      className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
                         isActive
                           ? 'bg-black text-white border-black shadow-md'
                           : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
@@ -413,21 +413,21 @@ export default function Modelo() {
                   className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
                 >
                   <div className="lg:col-span-7 space-y-6">
-                    <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
                       {activePillarObj.subtitle}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activePillarObj.title}</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black text-black">{activePillarObj.title}</h3>
                     <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activePillarObj.description}</p>
 
                     <div className="space-y-3 pt-2">
-                      <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
+                      <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
                         Atributos Clave:
                       </span>
                       <div className="flex flex-col gap-2.5 w-full">
                         {activePillarObj.keyPoints.map((point, idx) => (
                           <div
                             key={idx}
-                            className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
+                            className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
                           >
                             <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                             <span>{point}</span>
@@ -441,7 +441,7 @@ export default function Modelo() {
                     <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-md">
                       <Layers className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
+                    <h4 className="text-lg sm:text-xl font-black text-black">
                       {activePillarObj.impactTitle || 'Impacto de Negocio'}
                     </h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -452,14 +452,14 @@ export default function Modelo() {
 
                 {/* Controles de paginación e indicador */}
                 <div className="flex items-center justify-between mt-4 px-2">
-                  <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
+                  <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
                     Capacidad {currentPillarIndex + 1} de {ONEX_PILLARS.length}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={handlePrevPillar}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
                       <span>Anterior</span>
@@ -467,7 +467,7 @@ export default function Modelo() {
                     <button
                       type="button"
                       onClick={handleNextPillar}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                     >
                       <span>Siguiente</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -525,13 +525,13 @@ export default function Modelo() {
                   <button
                     key={dim.id}
                     onClick={() => setSelectedDimension(dim.id)}
-                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
-                    <IconComp className="w-4 h-4 shrink-0" />
+                    <IconComp className="w-3.5 h-3.5 shrink-0" />
                     <span className="whitespace-nowrap uppercase">{dim.tabLabel}</span>
                   </button>
                 );
@@ -570,21 +570,21 @@ export default function Modelo() {
                 className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
                     {activeDimensionObj.subtitle}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activeDimensionObj.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeDimensionObj.title}</h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeDimensionObj.description}</p>
 
                   <div className="space-y-3 pt-2">
-                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
                       Atributos Clave:
                     </span>
                     <div className="flex flex-col gap-2.5 w-full">
                       {activeDimensionObj.keyPoints.map((point, idx) => (
                         <div
                           key={idx}
-                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
                         >
                           <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                           <span className="leading-snug">{point}</span>
@@ -601,7 +601,7 @@ export default function Modelo() {
                       return <DimIcon className="w-8 h-8 text-white" />;
                     })()}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
+                  <h4 className="text-lg sm:text-xl font-black text-black">
                     {activeDimensionObj.impactTitle || 'Impacto de Negocio'}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -612,14 +612,14 @@ export default function Modelo() {
 
               {/* Controles de paginación e indicador */}
               <div className="flex items-center justify-between mt-4 px-2">
-                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
+                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
                   Dimensión {currentDimensionIndex + 1} de {EXCELENCIA_DIMENSIONS.length}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handlePrevDimension}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -627,7 +627,7 @@ export default function Modelo() {
                   <button
                     type="button"
                     onClick={handleNextDimension}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <span>Siguiente</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -683,13 +683,13 @@ export default function Modelo() {
                   <button
                     key={d.id}
                     onClick={() => setSelectedOneXDim(d.id)}
-                    className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
-                    <IconComp className="w-4 h-4 shrink-0" />
+                    <IconComp className="w-3.5 h-3.5 shrink-0" />
                     <span className="whitespace-nowrap uppercase">{d.tabLabel}</span>
                   </button>
                 );
@@ -698,7 +698,7 @@ export default function Modelo() {
 
             {/* Tab Detail View (Slide con flechas de navegación externas) */}
             <div className="relative mt-10 max-w-6xl mx-auto">
-              {/* Flecha Anterior (Por扩大 del slide) */}
+              {/* Flecha Anterior (Por fuera del slide) */}
               <button
                 type="button"
                 onClick={handlePrevOneXDim}
@@ -728,21 +728,21 @@ export default function Modelo() {
                 className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
                     {activeOneXDimObj.subtitle}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">{activeOneXDimObj.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">{activeOneXDimObj.title}</h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{activeOneXDimObj.description}</p>
 
                   <div className="space-y-3 pt-2">
-                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
                       Atributos Clave:
                     </span>
                     <div className="flex flex-col gap-2.5 w-full">
                       {activeOneXDimObj.keyPoints.map((point, idx) => (
                         <div
                           key={idx}
-                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal"
+                          className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium"
                         >
                           <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                           <span className="leading-snug">{point}</span>
@@ -759,7 +759,7 @@ export default function Modelo() {
                       return <DimIcon className="w-8 h-8 text-white" />;
                     })()}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
+                  <h4 className="text-lg sm:text-xl font-black text-black">
                     {activeOneXDimObj.impactTitle || 'Impacto de Negocio'}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -770,14 +770,14 @@ export default function Modelo() {
 
               {/* Controles de paginación e indicador */}
               <div className="flex items-center justify-between mt-4 px-2">
-                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
+                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
                   Dimensión {currentOneXDimIndex + 1} de {ONEX_DIMENSIONS.length}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handlePrevOneXDim}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -785,7 +785,7 @@ export default function Modelo() {
                   <button
                     type="button"
                     onClick={handleNextOneXDim}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <span>Siguiente</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -842,13 +842,13 @@ export default function Modelo() {
                   <button
                     key={phase.number}
                     onClick={() => setSelectedCikPhase(phase.number)}
-                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-normal uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 border ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
-                    <IconComp className="w-4 h-4 shrink-0" />
+                    <IconComp className="w-3.5 h-3.5 shrink-0" />
                     <span className="whitespace-nowrap uppercase">{phase.name}</span>
                   </button>
                 );
@@ -887,10 +887,10 @@ export default function Modelo() {
                 className="p-7 sm:p-10 lg:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-7 space-y-6">
-                  <span className="text-xs font-normal uppercase tracking-widest text-slate-800 block">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-800 block">
                     FASE 0{activeCikPhaseObj.number} · {activeCikPhaseObj.descriptor}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-normal uppercase tracking-tight text-black">
+                  <h3 className="text-2xl sm:text-3xl font-black text-black">
                     {activeCikPhaseObj.name}
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -898,15 +898,15 @@ export default function Modelo() {
                   </p>
 
                   <div className="space-y-3 pt-2">
-                    <span className="text-xs font-normal uppercase text-slate-400 tracking-wider block">
+                    <span className="text-xs font-bold uppercase text-slate-400 tracking-wider block">
                       Criterio de Intervención:
                     </span>
                     <div className="flex flex-col gap-2.5 w-full">
-                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal">
+                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium">
                         <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                         <span>Propósito: {activeCikPhaseObj.descriptor}</span>
                       </div>
-                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-normal">
+                      <div className="w-full flex items-center gap-3.5 px-4 py-3 sm:py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium">
                         <CheckCircle2 className="w-4 h-4 text-slate-800 shrink-0" />
                         <span>Intervención continua y trazable bajo el estándar KONVERXA</span>
                       </div>
@@ -921,7 +921,7 @@ export default function Modelo() {
                       return <PhaseIcon className="w-8 h-8 text-white" />;
                     })()}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-normal uppercase text-black">
+                  <h4 className="text-lg sm:text-xl font-black text-black">
                     {activeCikPhaseObj.descriptor}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -932,14 +932,14 @@ export default function Modelo() {
 
               {/* Controles de paginación e indicador */}
               <div className="flex items-center justify-between mt-4 px-2">
-                <span className="text-xs font-normal tracking-wider text-slate-500 uppercase">
+                <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">
                   Fase {currentCikIndex + 1} de {CIK_PHASES.length}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handlePrevCikPhase}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -947,7 +947,7 @@ export default function Modelo() {
                   <button
                     type="button"
                     onClick={handleNextCikPhase}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-normal uppercase text-slate-700 shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors"
                   >
                     <span>Siguiente</span>
                     <ChevronRight className="w-3.5 h-3.5" />

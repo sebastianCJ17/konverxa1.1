@@ -90,35 +90,35 @@ export default function Header() {
                       <Link
                         to="/modelo#vision-general"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Visión General
                       </Link>
                       <Link
                         to="/modelo#excelencia-integral"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         Excelencia Integral
                       </Link>
                       <Link
                         to="/modelo#onex"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         OneX
                       </Link>
                       <Link
                         to="/modelo#cik"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         CIK · Ciclo de Intervención
                       </Link>
                       <Link
                         to="/modelo#integralx"
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 rounded-xl text-[14px] sm:text-[15px] font-normal text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                       >
                         IntegralX™ Accredited
                       </Link>
@@ -402,7 +402,7 @@ export default function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-modelo' ? 'rotate-180 text-slate-200' : ''}`} />
                 </button>
                 {activeDropdown === 'm-modelo' && (
-                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-medium text-slate-300 border-l-2 border-slate-700 mt-2">
+                  <div className="pl-3 py-2 flex flex-col gap-2 text-[14px] sm:text-[15px] font-normal text-slate-300 border-l-2 border-slate-700 mt-2">
                     <Link to="/modelo#vision-general" onClick={() => setMobileMenuOpen(false)}>Visión General</Link>
                     <Link to="/modelo#excelencia-integral" onClick={() => setMobileMenuOpen(false)}>Excelencia Integral</Link>
                     <Link to="/modelo#onex" onClick={() => setMobileMenuOpen(false)}>OneX</Link>

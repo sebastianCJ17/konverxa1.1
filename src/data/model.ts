@@ -213,7 +213,7 @@ export const CIK_PHASES: CikPhase[] = [
 export const ONEX_DIMENSIONS: OneXDimension[] = [
   {
     id: 'cx',
-    tabLabel: 'CX · La Promesa',
+    tabLabel: 'CX · Promesa',
     title: 'CX · Customer Xperience',
     subtitle: 'PROMESA',
     description: 'Lee si la organización entrega de forma consistente lo que prometió al mercado. La experiencia del cliente no es un resultado aislado: es la manifestación visible del funcionamiento del conjunto.',
@@ -228,7 +228,7 @@ export const ONEX_DIMENSIONS: OneXDimension[] = [
   },
   {
     id: 'ex',
-    tabLabel: 'EX · Las Personas',
+    tabLabel: 'EX · Personas',
     title: 'EX · Employee Xperience',
     subtitle: 'PERSONAS',
     description: 'Lee si las personas disponen de las condiciones necesarias para cumplir lo que la organización promete, y qué explica sus desviaciones.',
@@ -243,7 +243,7 @@ export const ONEX_DIMENSIONS: OneXDimension[] = [
   },
   {
     id: 'ox',
-    tabLabel: 'OX · La Capacidad',
+    tabLabel: 'OX · Capacidad',
     title: 'OX · Organization Xperience',
     subtitle: 'CAPACIDAD',
     description: 'Lee si la organización tiene capacidad real para sostener lo que promete, en términos económicos, operativos y de crecimiento.',

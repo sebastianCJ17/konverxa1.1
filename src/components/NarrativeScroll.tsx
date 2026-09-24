@@ -66,14 +66,14 @@ export default function NarrativeScroll() {
   return (
     <section className="relative w-full py-16 sm:py-20 bg-slate-100 text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Background Soft Texture & Ambient Tone - Operaciones Overview Photo */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-35">
+      {/* Background Soft Texture & Ambient Tone - 20 Años Photo with reduced overlay */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden opacity-60">
         <img
-          src="/operations-overview.jpg"
-          alt="Centro de Operaciones y Contact Center KONVERXA"
-          className="w-full h-full object-cover filter brightness-105"
+          src="/20años.jpg"
+          alt="20 Años de Trayectoria KONVERXA"
+          className="w-full h-full object-cover filter brightness-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/75 to-slate-100/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/75 via-slate-100/50 to-slate-100/20"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

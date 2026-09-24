@@ -6,26 +6,25 @@ import { Link } from 'react-router-dom';
 const MOMENTS = [
   {
     id: '01',
-    tabLabel: 'Pregunta Clave',
-    title: 'Si el negocio exige resultados.\n¿Por qué conformarse con promesas?',
-    subtitle: 'Una pregunta que desafía el statu quo del outsourcing tradicional.',
+    tabLabel: 'PREGUNTA CLAVE',
+    title: 'Si el negocio exige resultados,\n¿por qué conformarse con promesas?',
+    subtitle: 'La pregunta con la que debería empezar cualquier decisión de tercerización.',
   },
   {
     id: '02',
-    tabLabel: 'Criterio Operativo',
-    title: 'El problema no es tercerizar.',
-    subtitle: 'Es confundir el tamaño del proveedor con su estándar operativo.',
-    secondaryText: 'Posiciones, Tecnología y Volumen demuestran capacidad, pero no garantizan Método, Control y Consistencia.',
+    tabLabel: 'CRITERIO OPERATIVO',
+    title: 'El problema no es tercerizar.\nEs confundir el tamaño del proveedor con su estándar operativo.',
+    subtitle: 'Posiciones, Tecnología y Volumen demuestran capacidad, pero no garantizan Método, Control y Consistencia.',
   },
   {
     id: '03',
-    tabLabel: 'Estándar y Gobernanza',
+    tabLabel: 'ESTÁNDAR Y GOBERNANZA',
     title: 'El tamaño absorbe volumen.\nEl estándar protege resultados.',
     subtitle: 'El estándar vive en cómo organizamos, dirigimos y controlamos la ejecución del negocio.',
   },
   {
     id: '04',
-    tabLabel: 'Método Operativo',
+    tabLabel: 'MÉTODO OPERATIVO',
     title: 'Los resultados empiezan mucho antes de hacerse visibles.',
     subtitle: 'Detrás de cada resultado consistente hay una operación pensada, organizada y gobernada con criterio.',
     cards: [
@@ -91,7 +90,7 @@ export default function NarrativeScroll() {
                 <button
                   key={m.id}
                   onClick={() => setCurrentStep(idx)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full text-xs font-normal uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
                     idx === currentStep
                       ? 'bg-slate-950 text-white shadow-sm'
                       : 'bg-white/80 text-slate-600 hover:bg-white hover:text-slate-900 border border-slate-200'
@@ -124,15 +123,6 @@ export default function NarrativeScroll() {
                     <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl pt-1 text-justify">
                       {activeMoment.subtitle}
                     </p>
-                  )}
-
-                  {/* Secondary Text for Point 02 */}
-                  {activeMoment.secondaryText && (
-                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-300/90 shadow-xs max-w-2xl mt-2">
-                      <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed text-justify">
-                        {activeMoment.secondaryText}
-                      </p>
-                    </div>
                   )}
 
                   {/* 3 Core Cards for Slide 04: DIAGNOSTICAR, COORDINAR, EJECUTAR */}
@@ -187,7 +177,7 @@ export default function NarrativeScroll() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold tracking-tight">
+                      <span className="text-xs font-normal uppercase tracking-wider">
                         {m.tabLabel}
                       </span>
                     </div>

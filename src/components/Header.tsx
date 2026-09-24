@@ -70,7 +70,7 @@ export default function Header() {
             >
               <Link
                 to="/modelo"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-normal uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>MODELO</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('modelo')}`} />
@@ -136,7 +136,7 @@ export default function Header() {
             >
               <Link
                 to="/servicios"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-normal uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>SERVICIOS</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('servicios')}`} />
@@ -216,7 +216,7 @@ export default function Header() {
             >
               <Link
                 to="/industrias"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-normal uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>INDUSTRIAS</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('industrias')}`} />
@@ -303,7 +303,7 @@ export default function Header() {
             >
               <Link
                 to="/nosotros"
-                className="group relative flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
+                className="group relative flex items-center gap-1.5 text-xs font-normal uppercase tracking-widest text-slate-200/90 hover:text-white py-2 transition-colors duration-200"
               >
                 <span>NOSOTROS</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${chevronClass('nosotros')}`} />
@@ -396,7 +396,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === 'm-modelo' ? null : 'm-modelo')}
-                  className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
+                  className="flex items-center justify-between w-full text-left font-normal text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
                   MODELO
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-modelo' ? 'rotate-180 text-slate-200' : ''}`} />
@@ -416,7 +416,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === 'm-servicios' ? null : 'm-servicios')}
-                  className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
+                  className="flex items-center justify-between w-full text-left font-normal text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
                   SERVICIOS
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-servicios' ? 'rotate-180 text-slate-200' : ''}`} />
@@ -438,7 +438,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === 'm-industria' ? null : 'm-industria')}
-                  className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
+                  className="flex items-center justify-between w-full text-left font-normal text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
                   INDUSTRIAS
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-industria' ? 'rotate-180 text-slate-200' : ''}`} />
@@ -461,7 +461,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === 'm-nosotros' ? null : 'm-nosotros')}
-                  className="flex items-center justify-between w-full text-left font-bold text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
+                  className="flex items-center justify-between w-full text-left font-normal text-xs uppercase tracking-widest py-2 border-b border-zinc-800 text-white"
                 >
                   NOSOTROS
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'm-nosotros' ? 'rotate-180 text-slate-200' : ''}`} />

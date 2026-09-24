@@ -6,6 +6,7 @@ import SectionTitle from '../components/SectionTitle';
 import PageBanner from '../components/PageBanner';
 import SectionSwitcherBar from '../components/SectionSwitcherBar';
 import QuienesSomosView from '../components/QuienesSomosView';
+import FilosofiaDeclaraciones from '../components/FilosofiaDeclaraciones';
 import { COMPANY_INFO } from '../data/company';
 import { Building2, ShieldCheck, Target, Heart, Cpu, ArrowRight, Award, CheckCircle2, Globe, Leaf, Users } from 'lucide-react';
 
@@ -219,194 +220,42 @@ export default function Nosotros() {
 
       {/* 02. FUNDAMENTOS */}
       {activeSection === 'fundamentos' && (
-        <section id="fundamentos" className="py-20 bg-slate-50 border-y border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <SectionTitle
-              badge="PRINCIPIOS DE GESTIÓN"
-              title="Nuestros Fundamentos"
-              subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
-              centered
-            />
+        <div id="fundamentos">
+          <section className="py-20 bg-slate-50 border-y border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              <SectionTitle
+                badge="PRINCIPIOS DE GESTIÓN"
+                title="Nuestros Fundamentos"
+                subtitle="Son los 5 criterios con los que trabajamos y con los que evaluamos a las organizaciones que acompañamos."
+                centered
+              />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {COMPANY_INFO.values.map((val, idx) => {
-                const IconComp = VALUE_ICONS[val.icon] || Target;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
-                  >
-                    <div className="space-y-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                        <IconComp className="w-6 h-6" />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                {COMPANY_INFO.values.map((val, idx) => {
+                  const IconComp = VALUE_ICONS[val.icon] || Target;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.08 }}
+                      className="p-7 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-5 hover:border-black/40 hover:shadow-md transition-all duration-300 group"
+                    >
+                      <div className="space-y-4">
+                        <div className="w-12 h-12 rounded-2xl bg-slate-100 text-black border border-slate-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                          <IconComp className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
                       </div>
-                      <h3 className="text-xl font-black text-black tracking-tight">{val.title}</h3>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">{val.desc}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* CTA Final Fundamentos */}
-            <div className="pt-8 text-center">
-              <Link
-                to="/contacto"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
-              >
-                <span>Hablemos de tu Negocio</span>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 03. DECLARACIONES INSTITUCIONALES - MISIÓN Y VISIÓN (2 BLOQUES CON FOTO Y CONTENIDO VERTICAL) */}
-      {activeSection === 'mision-vision' && (
-        <section id="mision-vision" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
-            
-            {/* Cabecera centrada y justificada con el título */}
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-900 border border-slate-200/80 mx-auto shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
-                DECLARACIONES INSTITUCIONALES
+                    </motion.div>
+                  );
+                })}
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-                Nuestra Filosofía
-              </h2>
-              
-              {/* Bloque de Convicción y Propósito justificado y centrado con el título */}
-              <div className="max-w-3xl mx-auto pt-4 text-center">
-                <div className="space-y-2 pb-8 text-center">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
-                    QUÉ CREEMOS — Convicción
-                  </span>
-                  <p className="text-lg sm:text-xl font-normal text-slate-950 leading-snug text-center">
-                    «Las organizaciones sólidas no se improvisan. Se construyen»
-                  </p>
-                </div>
 
-                <div className="space-y-2 pt-8 border-t border-slate-200 text-center">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
-                    POR QUÉ EXISTIMOS — Propósito
-                  </span>
-                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-center">
-                    Ayudar a las organizaciones a construir la solidez necesaria para cerrar la brecha entre lo que prometen y lo que pueden sostener, alineando su promesa, sus personas y su capacidad.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 2 BLOQUES CON FOTO DE LONGITUD Y CONTENIDO VERTICAL A LA DERECHA */}
-            <div className="space-y-12 max-w-6xl mx-auto">
-              
-              {/* BLOQUE 1: MISIÓN */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm hover:border-black/30 hover:shadow-md transition-all duration-300"
-              >
-                {/* Columna Izquierda: Foto con longitud vertical */}
-                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] bg-slate-200 overflow-hidden">
-                  <img
-                    src="/images/mision-portrait.jpg"
-                    alt="Propósito y convicción institucional KONVERXA"
-                    className="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden"></div>
-                </div>
-
-                {/* Columna Derecha: Información en vertical */}
-                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
-                  <div className="space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
-                      QUÉ HACEMOS
-                    </div>
-                    
-                    <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
-                      Misión
-                    </h3>
-
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-2">
-                      Hacemos que las organizaciones cumplan y sostengan su promesa de negocio. Desarrollamos la capacidad organizacional necesaria para generar resultados consistentes, evolucionar con solidez y mantener su desempeño desde dentro, de manera estructural.
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Enfoque Operacional
-                    </span>
-                    <p className="text-sm font-semibold text-slate-900">
-                      Capacidad organizacional, solidez estructural y consistencia en el tiempo.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* BLOQUE 2: VISIÓN */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm hover:border-black/30 hover:shadow-md transition-all duration-300"
-              >
-                {/* Columna Izquierda: Foto con longitud vertical */}
-                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[460px] bg-slate-200 overflow-hidden">
-                  <img
-                    src="/images/vision-strategic.jpg"
-                    alt="Visión estratégica institucional KONVERXA"
-                    className="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden"></div>
-                </div>
-
-                {/* Columna Derecha: Información en vertical */}
-                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-8">
-                  <div className="space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-black text-white">
-                      QUÉ ASPIRAMOS A DEMOSTRAR
-                    </div>
-                    
-                    <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
-                      Visión
-                    </h3>
-
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-2">
-                      Convertirnos en la evidencia de que es posible construir organizaciones sólidas, capaces de crecer y afrontar nuevas etapas de complejidad sin perder la coherencia de sus decisiones, la confianza en sus relaciones ni los fundamentos que sostienen su evolución.
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Aspiración Estratégica
-                    </span>
-                    <p className="text-sm font-semibold text-slate-900">
-                      Crecimiento sostenible, coherencia en las decisiones y confianza indestructible.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-            </div>
-
-            {/* CIERRE: FRASE EN 1 SOLA LÍNEA Y CTA */}
-            <div className="border-t border-b border-slate-200 py-16 lg:py-20 text-center space-y-6">
-              <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight max-w-5xl mx-auto whitespace-normal lg:whitespace-nowrap leading-snug">
-                «Las organizaciones sólidas no se improvisan. Se construyen»
-              </p>
-
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+              {/* CTA Final Fundamentos */}
+              <div className="pt-8 text-center">
                 <Link
                   to="/contacto"
                   className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-black hover:bg-zinc-800 text-white font-normal text-sm shadow-md transition-all border border-zinc-800"
@@ -416,8 +265,16 @@ export default function Nosotros() {
                 </Link>
               </div>
             </div>
+          </section>
 
-          </div>
+          <FilosofiaDeclaraciones />
+        </div>
+      )}
+
+      {/* 03. DECLARACIONES INSTITUCIONALES - MISIÓN Y VISIÓN */}
+      {activeSection === 'mision-vision' && (
+        <section id="mision-vision">
+          <FilosofiaDeclaraciones />
         </section>
       )}
 

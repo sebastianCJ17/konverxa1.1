@@ -340,7 +340,7 @@ export default function GlobalNetworkMap({
             color: #ffffff;
             font-family: Arial, sans-serif;
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 400;
             white-space: nowrap;
             text-shadow: 0 2px 6px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.8);
             letter-spacing: 0.3px;
@@ -506,7 +506,7 @@ export default function GlobalNetworkMap({
             color: #ffffff;
             font-family: Arial, sans-serif;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 1.2;
         }
 
@@ -515,7 +515,7 @@ export default function GlobalNetworkMap({
             color: rgba(255,255,255,0.68);
             font-family: Arial, sans-serif;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* =========================================================
@@ -544,7 +544,7 @@ export default function GlobalNetworkMap({
             color: rgba(255,255,255,0.45);
             font-family: Arial, sans-serif;
             font-size: 10px;
-            font-weight: 700;
+            font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -554,7 +554,7 @@ export default function GlobalNetworkMap({
             color: #ffffff;
             font-family: Arial, sans-serif;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 400;
             line-height: 1.4;
         }
 
@@ -745,7 +745,7 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">España</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
+              <span className="text-[10px] font-normal tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
             </div>
           </div>
 
@@ -823,7 +823,7 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">Colombia</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">SEDE CORPORATIVA</span>
+              <span className="text-[10px] font-normal tracking-wider uppercase text-white block -mt-0.5">SEDE CORPORATIVA</span>
             </div>
           </div>
 
@@ -901,7 +901,7 @@ export default function GlobalNetworkMap({
             </div>
             <div>
               <h3 className="kx-info-title">Perú</h3>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
+              <span className="text-[10px] font-normal tracking-wider uppercase text-white block -mt-0.5">EXPANSIÓN OPERATIVA</span>
             </div>
           </div>
 

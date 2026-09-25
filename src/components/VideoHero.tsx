@@ -72,7 +72,7 @@ export default function VideoHero() {
               setVideoError(true);
               setIsVideoLoaded(false);
             }}
-            className={`w-full h-full object-cover filter brightness-[0.92] saturate-[1.05] transition-opacity duration-700 ${
+            className={`w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[1.05] transition-opacity duration-700 ${
               isVideoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -80,9 +80,9 @@ export default function VideoHero() {
           </video>
         )}
 
-        {/* Gradient Overlay: Solid black on the left for text contrast, fading out to reveal the contact center clearly on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/15 sm:via-black/70 sm:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+        {/* Gradient Overlay: Softened dark gradient allowing video to shine clearly while keeping typography readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10 sm:via-black/35 sm:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12">

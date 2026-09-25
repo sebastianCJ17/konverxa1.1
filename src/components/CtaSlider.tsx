@@ -91,7 +91,7 @@ export default function CtaSlider() {
               setVideoError(true);
               setIsVideoLoaded(false);
             }}
-            className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.70] contrast-[1.1] saturate-[1.05] transition-opacity duration-700 ${
+            className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.88] contrast-[1.05] saturate-[1.05] transition-opacity duration-700 ${
               isVideoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -99,8 +99,8 @@ export default function CtaSlider() {
           </video>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/20 to-black/60 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">

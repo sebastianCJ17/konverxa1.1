@@ -16,7 +16,6 @@ export default function CtaSlider() {
   const [wordIndex, setWordIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
@@ -53,22 +52,8 @@ export default function CtaSlider() {
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] flex items-center justify-center overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Video con fallback de imagen y overlay cinematográfico */}
+      {/* Background Video con overlay cinematográfico claro */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-black">
-        {/* Imagen fallback mientras carga o si falla el video */}
-        <img
-          src="/modern-operations-hub.jpg?v=3"
-          alt="Operación de BPO y Contact Center Moderno KONVERXA"
-          className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.65] contrast-[1.08] transition-opacity duration-700 ${
-            isVideoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
-          }`}
-          referrerPolicy="no-referrer"
-          onError={(e) => {
-            const target = e.currentTarget;
-            target.src = '/contact-center-operations.jpg';
-          }}
-        />
-
         {!videoError && (
           <video
             key={videoSrc}
@@ -79,21 +64,10 @@ export default function CtaSlider() {
             muted
             playsInline
             preload="auto"
-            onLoadedData={() => {
-              setIsVideoLoaded(true);
-              setVideoError(false);
-            }}
-            onCanPlay={() => {
-              setIsVideoLoaded(true);
-              setVideoError(false);
-            }}
             onError={() => {
               setVideoError(true);
-              setIsVideoLoaded(false);
             }}
-            className={`absolute inset-0 w-full h-full object-cover filter brightness-[1.0] contrast-[1.02] saturate-[1.05] transition-opacity duration-700 ${
-              isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 w-full h-full object-cover filter brightness-[1.0] contrast-[1.02] saturate-[1.05]"
           >
             <source src={videoSrc} type="video/mp4" />
           </video>

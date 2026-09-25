@@ -9,7 +9,6 @@ import { getLocalVideoBlob } from '../utils/videoStorage';
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState<string>('/bannerfinal.mp4');
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
@@ -39,17 +38,8 @@ export default function VideoHero() {
   return (
     <section className="relative w-full min-h-[90vh] sm:min-h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-black text-white font-sans">
       
-      {/* Background Video with dark Overlay and Fallback poster */}
+      {/* Background Video with light overlay */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none bg-black">
-        {/* Fallback operations imagery if video is loading or unplayable */}
-        <img
-          src="/operations-overview.jpg"
-          alt="KONVERXA Centro Operativo"
-          className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.75] contrast-[1.05] transition-opacity duration-700 ${
-            isVideoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
-
         {!videoError && (
           <video
             key={videoSrc}
@@ -60,21 +50,10 @@ export default function VideoHero() {
             muted
             playsInline
             preload="auto"
-            onLoadedData={() => {
-              setIsVideoLoaded(true);
-              setVideoError(false);
-            }}
-            onCanPlay={() => {
-              setIsVideoLoaded(true);
-              setVideoError(false);
-            }}
             onError={() => {
               setVideoError(true);
-              setIsVideoLoaded(false);
             }}
-            className={`w-full h-full object-cover filter brightness-[1.05] contrast-[1.0] saturate-[1.05] transition-opacity duration-700 ${
-              isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="w-full h-full object-cover filter brightness-[1.05] contrast-[1.0] saturate-[1.05]"
           >
             <source src={videoSrc} type="video/mp4" />
           </video>

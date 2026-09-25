@@ -106,7 +106,9 @@ export default function Contacto() {
               <div className="space-y-4">
                 <h2 className="text-3xl font-black text-black">Información Institucional</h2>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Respondemos en menos de 24 horas hábiles. Sin intermediarios ni formularios de seguimiento.
+                  Respondemos en menos de 24 horas hábiles.
+                  <br />
+                  Sin intermediarios ni formularios de seguimiento.
                 </p>
               </div>
 
@@ -117,8 +119,8 @@ export default function Contacto() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block font-bold mb-1">Sede Central Corporativa</strong>
-                    <span className="text-xs text-slate-600 block font-medium">Pereira - Colombia</span>
+                    <strong className="text-slate-900 block font-bold mb-1">Sede</strong>
+                    <span className="text-xs text-slate-600 block font-normal">Pereira - Colombia</span>
                   </div>
                 </div>
 
@@ -128,12 +130,9 @@ export default function Contacto() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block font-bold mb-1">Correos de Atención</strong>
-                    <a href="mailto:administracion@konverxa.com" className="text-xs text-slate-900 font-medium hover:underline block">
-                      administración@konverxa.com
-                    </a>
-                    <a href="mailto:comercial@konverxa.com" className="text-xs text-slate-900 font-medium hover:underline block mt-0.5">
-                      comercial@konverxa.com
+                    <strong className="text-slate-900 block font-bold mb-1">Correo</strong>
+                    <a href="mailto:hablemos@konverxa.com" className="text-xs text-slate-900 font-normal hover:underline block">
+                      hablemos@konverxa.com
                     </a>
                   </div>
                 </div>
@@ -144,20 +143,20 @@ export default function Contacto() {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block font-bold mb-1">Línea Telefónica Directa</strong>
-                    <a href="tel:+573226282039" className="text-xs text-slate-700 hover:text-black font-medium block">
+                    <strong className="text-slate-900 block font-bold mb-1">Teléfono</strong>
+                    <a href="tel:+573226282039" className="text-xs text-slate-700 hover:text-black font-normal block">
                       (+57) 3226282039
                     </a>
                   </div>
                 </div>
 
-                {/* TARJETA 04: ACUERDO DE CONFIDENCIALIDAD (NDA) */}
+                {/* TARJETA 04: Acuerdo de confidencialidad */}
                 <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div className="p-3 rounded-xl bg-slate-100 text-slate-800 shrink-0 border border-slate-300">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block font-bold mb-1">ACUERDO DE CONFIDENCIALIDAD (NDA)</strong>
+                    <strong className="text-slate-900 block font-bold mb-1">Confidencialidad</strong>
                     <span className="text-xs text-slate-600 block leading-relaxed">
                       Toda la información operativa compartida está protegida por acuerdos de confidencialidad.
                     </span>

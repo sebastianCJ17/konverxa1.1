@@ -360,7 +360,7 @@ export default function Modelo() {
               />
 
               {/* Interactive Tabs - Todas en una sola línea */}
-              <div className="mt-12 flex flex-nowrap justify-start lg:justify-center items-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 pt-1 px-1 max-w-full">
+              <div className="mt-12 flex flex-nowrap justify-start xl:justify-center items-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 pt-1 px-1 max-w-full scrollbar-none">
                 {ONEX_PILLARS.map((p) => {
                   const IconComp = PILLAR_ICONS[p.icon] || Target;
                   const isActive = p.id === selectedPillar;
@@ -368,7 +368,7 @@ export default function Modelo() {
                     <button
                       key={p.id}
                       onClick={() => setSelectedPillar(p.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap ${
+                      className={`flex items-center justify-center gap-1.5 px-2.5 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wide text-[11px] sm:text-[11.5px] transition-all duration-300 border shrink-0 whitespace-nowrap w-[220px] ${
                         isActive
                           ? 'bg-black text-white border-black shadow-md'
                           : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
@@ -525,7 +525,7 @@ export default function Modelo() {
                   <button
                     key={dim.id}
                     onClick={() => setSelectedDimension(dim.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
+                    className={`flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap w-[280px] ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
@@ -683,7 +683,7 @@ export default function Modelo() {
                   <button
                     key={d.id}
                     onClick={() => setSelectedOneXDim(d.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
+                    className={`flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap w-[280px] ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
@@ -842,7 +842,7 @@ export default function Modelo() {
                   <button
                     key={phase.number}
                     onClick={() => setSelectedCikPhase(phase.number)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border ${
+                    className={`flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg font-normal uppercase tracking-wider text-[11px] sm:text-xs transition-all duration-300 border shrink-0 whitespace-nowrap w-[155px] sm:w-[160px] ${
                       isActive
                         ? 'bg-black text-white border-black shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'

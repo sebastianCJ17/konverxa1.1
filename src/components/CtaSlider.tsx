@@ -70,23 +70,23 @@ export default function CtaSlider() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-7">
         
-        {/* Main Title: Calibrado exactamente para iniciar en la mitad de MÉTODO y terminar casi acabando CONTROL, un poquito menos gruesa (font-bold/font-extrabold) */}
-        <div className="text-center flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-2">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] font-bold tracking-tight sm:tracking-[-0.01em] md:tracking-[0.005em] leading-tight text-white whitespace-nowrap text-center drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+        {/* Main Title: Calibrado exactamente según la imagen: la 'L' de 'Los' empieza a la mitad de MÉTODO y la 'n' de 'construyen' llega a la mitad de CONTROL */}
+        <div className="text-center flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-2">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[70px] font-bold tracking-[-0.015em] sm:tracking-[-0.01em] md:tracking-[0.005em] leading-tight text-white whitespace-nowrap text-center drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
             Los resultados se construyen
           </h2>
         </div>
 
         {/* Palabras en una sola línea continua exactamente como en la imagen */}
-        <div className="w-full max-w-7xl mx-auto px-2 pt-2">
-          <div className="flex items-center justify-center gap-x-2.5 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 w-full text-center whitespace-nowrap">
+        <div className="w-full max-w-7xl mx-auto px-2 pt-1.5 sm:pt-2">
+          <div className="flex items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-7 lg:gap-x-9 xl:gap-x-11 w-full text-center whitespace-nowrap">
             {WORDS_LIST.map((word, idx) => (
               <div key={word} className="inline-flex items-center">
-                <span className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-[21px] xl:text-[23px] font-medium tracking-[0.16em] sm:tracking-[0.2em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] select-none">
+                <span className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-[20px] xl:text-[22px] font-medium tracking-[0.16em] sm:tracking-[0.2em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] select-none">
                   {word}
                 </span>
                 {idx < WORDS_LIST.length - 1 && (
-                  <span className="ml-2.5 sm:ml-4 md:ml-6 lg:ml-8 xl:ml-10 text-white/50 text-xs sm:text-sm md:text-base select-none" aria-hidden="true">
+                  <span className="ml-3 sm:ml-5 md:ml-7 lg:ml-9 xl:ml-11 text-white/50 text-xs sm:text-sm md:text-base select-none" aria-hidden="true">
                     •
                   </span>
                 )}

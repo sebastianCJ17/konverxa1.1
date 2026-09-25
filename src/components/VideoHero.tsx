@@ -8,7 +8,7 @@ import { getLocalVideoBlob } from '../utils/videoStorage';
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
+  const [videoSrc, setVideoSrc] = useState<string>('/bannerfinal.mp4');
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
 

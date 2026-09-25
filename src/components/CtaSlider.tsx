@@ -84,16 +84,16 @@ export default function CtaSlider() {
           </div>
         </div>
 
-        {/* Palabras a lo ancho de toda la pantalla en una sola línea continua */}
-        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 pt-2 overflow-x-auto no-scrollbar">
-          <div className="flex items-center justify-between sm:justify-center gap-x-2 sm:gap-x-4 md:gap-x-8 lg:gap-x-12 w-full text-center whitespace-nowrap">
+        {/* Palabras en una sola línea continua, con espaciado equilibrado, mayor grosor y visibilidad */}
+        <div className="w-full max-w-5xl mx-auto px-4 pt-2 overflow-x-auto no-scrollbar">
+          <div className="flex items-center justify-center gap-x-2.5 sm:gap-x-4 md:gap-x-6 w-full text-center whitespace-nowrap">
             {WORDS_LIST.map((word, idx) => (
               <div key={word} className="inline-flex items-center">
-                <span className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-[0.16em] sm:tracking-[0.22em] lg:tracking-[0.28em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] select-none hover:text-white/80 transition-colors">
+                <span className="text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl font-semibold tracking-[0.14em] sm:tracking-[0.18em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] select-none hover:text-white/85 transition-colors">
                   {word}
                 </span>
                 {idx < WORDS_LIST.length - 1 && (
-                  <span className="ml-2 sm:ml-4 md:ml-8 lg:ml-12 text-white/50 text-xs sm:text-lg md:text-2xl select-none" aria-hidden="true">
+                  <span className="ml-2.5 sm:ml-4 md:ml-6 text-white/40 text-xs sm:text-base md:text-lg select-none" aria-hidden="true">
                     •
                   </span>
                 )}

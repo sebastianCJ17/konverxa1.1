@@ -18,6 +18,7 @@ export interface PageBannerProps {
   breadcrumbs: BreadcrumbItem[];
   image: string;
   imageAlt?: string;
+  imageClassName?: string;
   showDownloadBtn?: boolean;
   ctaText?: string;
   ctaHref?: string;
@@ -35,6 +36,7 @@ export default function PageBanner({
   breadcrumbs,
   image,
   imageAlt = 'KONVERXA',
+  imageClassName,
   ctaText,
   ctaHref,
   onCtaClick,
@@ -64,7 +66,7 @@ export default function PageBanner({
         <img
           src={resolvedImage}
           alt={imageAlt}
-          className="w-full h-full object-cover object-right filter brightness-[0.98] contrast-[1.02]"
+          className={`w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] ${imageClassName || 'object-right'}`}
         />
 
         {/* Desktop smooth blend overlay: ensures zero harsh cutoffs */}

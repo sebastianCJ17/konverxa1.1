@@ -21,6 +21,7 @@ interface ServiceBannerInfo {
   breadcrumbLabel: string;
   image: string;
   imageAlt: string;
+  imageClassName?: string;
 }
 
 const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
@@ -99,7 +100,8 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
       'Acompañamiento continuo, programas de bienestar y contención psicosocial para consolidar equipos comprometidos y con alta estabilidad en cada servicio.',
     breadcrumbLabel: 'Talento Humano',
     image: '/talento2.jpg',
-    imageAlt: 'RRHH y Talento Humano KONVERXA'
+    imageAlt: 'RRHH y Talento Humano KONVERXA',
+    imageClassName: 'object-top object-right'
   }
 };
 
@@ -159,6 +161,7 @@ export default function Servicios() {
         ]}
         image={currentBannerInfo.image}
         imageAlt={currentBannerInfo.imageAlt}
+        imageClassName={currentBannerInfo.imageClassName}
         showDownloadBtn={true}
       />
 

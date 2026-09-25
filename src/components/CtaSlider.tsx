@@ -93,26 +93,26 @@ export default function CtaSlider() {
           </div>
         </div>
 
-        {/* Dynamic Rotating Words - Nuevo diseño distintivo con glassmorphism sutil, bordes pulidos y acento sutil */}
-        <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center overflow-hidden w-full max-w-xl">
+        {/* Dynamic Rotating Words - Sin cuadro ni contenedor cerrado, libre con tipografía editorial sobria y tracking amplio */}
+        <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center overflow-hidden w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={ROTATING_WORDS[wordIndex]}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center justify-center px-6 sm:px-10 py-2 sm:py-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 shadow-2xl shadow-black/40"
+              initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -18, filter: 'blur(4px)' }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center"
             >
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[0.18em] text-white uppercase drop-shadow-lg">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-[0.25em] text-white uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] select-none">
                 {ROTATING_WORDS[wordIndex]}
               </span>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Single Solid CTA Button - Con mayor separación para no quedar pegado a las palabras que van rotando */}
-        <div className="pt-8 sm:pt-12">
+        {/* Single Solid CTA Button - Mayor separación vertical para que no quede pegado */}
+        <div className="pt-16 sm:pt-24">
           <Link
             to="/contacto"
             className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-normal text-sm sm:text-base transition-all duration-300 shadow-2xl hover:scale-[1.02] border border-white group cursor-pointer"

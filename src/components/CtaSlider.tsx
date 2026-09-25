@@ -68,10 +68,10 @@ export default function CtaSlider() {
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/10 to-black/45 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
         
         {/* Main Phrase with exact typography from Bloque 05 Mercados title */}
-        <div className="space-y-2 text-center flex flex-col items-center justify-center w-full">
+        <div className="space-y-2 text-center flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight leading-tight text-white whitespace-nowrap text-center drop-shadow-md">
             Los resultados se construyen
           </h2>
@@ -84,16 +84,16 @@ export default function CtaSlider() {
           </div>
         </div>
 
-        {/* Palabras a lo ancho en una misma línea separadas por puntos */}
-        <div className="w-full max-w-5xl mx-auto px-2 pt-2">
-          <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-2 text-center">
+        {/* Palabras a lo ancho de toda la pantalla en una sola línea continua */}
+        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 pt-2 overflow-x-auto no-scrollbar">
+          <div className="flex items-center justify-between sm:justify-center gap-x-2 sm:gap-x-4 md:gap-x-8 lg:gap-x-12 w-full text-center whitespace-nowrap">
             {WORDS_LIST.map((word, idx) => (
               <div key={word} className="inline-flex items-center">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.25em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] select-none hover:text-white/80 transition-colors">
+                <span className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-[0.16em] sm:tracking-[0.22em] lg:tracking-[0.28em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] select-none hover:text-white/80 transition-colors">
                   {word}
                 </span>
                 {idx < WORDS_LIST.length - 1 && (
-                  <span className="ml-3 sm:ml-4 md:ml-6 text-white/50 text-xl sm:text-2xl md:text-3xl select-none" aria-hidden="true">
+                  <span className="ml-2 sm:ml-4 md:ml-8 lg:ml-12 text-white/50 text-xs sm:text-lg md:text-2xl select-none" aria-hidden="true">
                     •
                   </span>
                 )}

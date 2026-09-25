@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
@@ -14,7 +15,7 @@ export interface PageBannerProps {
   titleAccentColor?: string;
   badge?: string;
   headline?: string;
-  description: string;
+  description: React.ReactNode;
   breadcrumbs: BreadcrumbItem[];
   image: string;
   imageAlt?: string;
@@ -181,7 +182,7 @@ export default function PageBanner({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-xs sm:text-sm lg:text-base text-slate-700 leading-relaxed font-normal max-w-2xl sm:max-w-3xl"
+            className="text-xs sm:text-sm lg:text-base text-slate-700 leading-relaxed font-normal max-w-2xl sm:max-w-4xl"
           >
             {description}
           </motion.p>

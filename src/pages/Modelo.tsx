@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import SEOHead from '../components/SEOHead';
@@ -27,6 +27,7 @@ interface ModeloBannerConfig {
   badge: string;
   headline: string;
   description: string;
+  descriptionNode?: React.ReactNode;
   breadcrumbLabel: string;
   tabLabel?: string;
   image: string;
@@ -87,6 +88,12 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     badge: 'ACREDITACIÓN OPERATIVA',
     headline: 'Sello de Acreditación · IntegralX™',
     description: 'IntegralX™ es el sello con el que KONVERXA reconoce que una operación funciona bajo su estándar. No acredita intenciones ni esfuerzo: solo lo que la evidencia permite demostrar.',
+    descriptionNode: (
+      <>
+        <span className="block">IntegralX™ es el sello con el que KONVERXA reconoce que una operación funciona bajo su estándar.</span>
+        <span className="block sm:whitespace-nowrap">No acredita intenciones ni esfuerzo: solo lo que la evidencia permite demostrar.</span>
+      </>
+    ),
     breadcrumbLabel: 'IntegralX™',
     tabLabel: 'IntegralX™',
     image: '/banners/banner-integralx.png',
@@ -181,7 +188,7 @@ export default function Modelo() {
         titleAccentColor="text-slate-900"
         badge={currentBanner.badge}
         headline={currentBanner.headline}
-        description={currentBanner.description}
+        description={currentBanner.descriptionNode || currentBanner.description}
         breadcrumbs={
           activeSection === 'vision-general'
             ? [

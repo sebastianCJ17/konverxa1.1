@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getLocalVideoBlob } from '../utils/videoStorage';
 
-const ROTATING_WORDS = [
+const WORDS_LIST = [
   'CRITERIO',
   'MÉTODO',
   'CONTROL',
@@ -13,7 +12,6 @@ const ROTATING_WORDS = [
 ];
 
 export default function CtaSlider() {
-  const [wordIndex, setWordIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
   const [videoError, setVideoError] = useState(false);
@@ -41,13 +39,6 @@ export default function CtaSlider() {
       }
     }
   }, [videoSrc]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
-    }, 2400);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] flex items-center justify-center overflow-hidden bg-black text-white font-sans">
@@ -93,26 +84,26 @@ export default function CtaSlider() {
           </div>
         </div>
 
-        {/* Dynamic Rotating Words - Sin cuadro ni contenedor cerrado, libre con tipografía editorial sobria y tracking amplio */}
-        <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center overflow-hidden w-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={ROTATING_WORDS[wordIndex]}
-              initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -18, filter: 'blur(4px)' }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center"
-            >
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-[0.25em] text-white uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] select-none">
-                {ROTATING_WORDS[wordIndex]}
-              </span>
-            </motion.div>
-          </AnimatePresence>
+        {/* Palabras a lo ancho en una misma línea separadas por puntos */}
+        <div className="w-full max-w-5xl mx-auto px-2 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-2 text-center">
+            {WORDS_LIST.map((word, idx) => (
+              <div key={word} className="inline-flex items-center">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.25em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] select-none hover:text-white/80 transition-colors">
+                  {word}
+                </span>
+                {idx < WORDS_LIST.length - 1 && (
+                  <span className="ml-3 sm:ml-4 md:ml-6 text-white/50 text-xl sm:text-2xl md:text-3xl select-none" aria-hidden="true">
+                    •
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Single Solid CTA Button - Mayor separación vertical para que no quede pegado */}
-        <div className="pt-16 sm:pt-24">
+        <div className="pt-12 sm:pt-16 md:pt-20">
           <Link
             to="/contacto"
             className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-normal text-sm sm:text-base transition-all duration-300 shadow-2xl hover:scale-[1.02] border border-white group cursor-pointer"
@@ -123,7 +114,6 @@ export default function CtaSlider() {
         </div>
 
       </div>
-
     </section>
   );
 }

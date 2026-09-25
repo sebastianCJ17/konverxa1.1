@@ -160,6 +160,6 @@ export const SERVICES_DATA: ServicePillar[] = [
     operationalStandard: 'Sostenibilidad del talento, reducción de rotación y clima laboral saludable.',
     evidenceQualityText:
       'El seguimiento de rotación, ausentismo y desempeño permite detectar señales de desgaste y orientar el acompañamiento antes de que afecten a la operación.',
-    image: '/rrhh_multiethnic_team.jpg'
+    image: '/talento1.jpg'
   }
 ];

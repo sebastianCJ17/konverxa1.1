@@ -98,7 +98,7 @@ const SERVICE_BANNER_MAP: Record<string, ServiceBannerInfo> = {
     description:
       'Acompañamiento continuo, programas de bienestar y contención psicosocial para consolidar equipos comprometidos y con alta estabilidad en cada servicio.',
     breadcrumbLabel: 'Talento Humano',
-    image: '/banners/banner-gestion-humana.png',
+    image: '/talento2.jpg',
     imageAlt: 'RRHH y Talento Humano KONVERXA'
   }
 };

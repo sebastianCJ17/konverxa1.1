@@ -43,7 +43,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     headline: 'Modelo Operativo KONVERXA · MOK',
     description: 'Un sistema propio para organizar, dirigir y controlar cada operación con un mismo criterio y siempre al servicio de los objetivos del negocio.',
     breadcrumbLabel: 'Visión General',
-    image: '/banners/banner-vision-general.png',
+    image: '/bannervision.jpg',
     imageAlt: 'Modelo Operativo KONVERXA · MOK'
   },
   'excelencia-integral': {
@@ -78,7 +78,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     description: 'Siete fases que se activan, se articulan y se retroalimentan para responder a las necesidades de cada operación, sostener su desempeño y orientar su evolución.',
     breadcrumbLabel: 'CIK',
     tabLabel: 'CIK',
-    image: '/banners/banner-ciclo-integralx.png',
+    image: '/bannercik.jpg',
     imageAlt: 'Ciclo de Intervención KONVERXA · CIK'
   },
   'integralx': {
@@ -96,7 +96,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     ),
     breadcrumbLabel: 'IntegralX™',
     tabLabel: 'IntegralX™',
-    image: '/banners/banner-integralx.png',
+    image: '/bannerintegralx.jpg',
     imageAlt: 'Sello de Acreditación · IntegralX™'
   }
 };

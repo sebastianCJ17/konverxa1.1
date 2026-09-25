@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { getLocalVideoBlob } from '../utils/videoStorage';
 
 const ROTATING_WORDS = [
   'CRITERIO',
@@ -13,6 +14,34 @@ const ROTATING_WORDS = [
 
 export default function CtaSlider() {
   const [wordIndex, setWordIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>('/videoweb.mp4');
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    // Si hay un video local en IndexedDB, usarlo también
+    getLocalVideoBlob().then((blob) => {
+      if (blob && blob.size > 1000) {
+        const localUrl = URL.createObjectURL(blob);
+        setVideoSrc(localUrl);
+        setVideoError(false);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay diferido
+        });
+      }
+    }
+  }, [videoSrc]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,19 +53,53 @@ export default function CtaSlider() {
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] flex items-center justify-center overflow-hidden bg-black text-white font-sans">
       
-      {/* Modern High-Tech Command Operations Background with Cinematic Dark Gradient Overlay */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Background Video con fallback de imagen y overlay cinematográfico */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-black">
+        {/* Imagen fallback mientras carga o si falla el video */}
         <img
           src="/modern-operations-hub.jpg?v=3"
           alt="Operación de BPO y Contact Center Moderno KONVERXA"
-          className="w-full h-full object-cover object-center filter brightness-[0.68] contrast-[1.08]"
+          className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.65] contrast-[1.08] transition-opacity duration-700 ${
+            isVideoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
+          }`}
           referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.currentTarget;
             target.src = '/contact-center-operations.jpg';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
+
+        {!videoError && (
+          <video
+            key={videoSrc}
+            ref={videoRef}
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onLoadedData={() => {
+              setIsVideoLoaded(true);
+              setVideoError(false);
+            }}
+            onCanPlay={() => {
+              setIsVideoLoaded(true);
+              setVideoError(false);
+            }}
+            onError={() => {
+              setVideoError(true);
+              setIsVideoLoaded(false);
+            }}
+            className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.70] contrast-[1.1] saturate-[1.05] transition-opacity duration-700 ${
+              isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        )}
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 pointer-events-none" />
       </div>
 

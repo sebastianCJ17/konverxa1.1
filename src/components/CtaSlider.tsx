@@ -4,11 +4,11 @@ import { ArrowRight } from 'lucide-react';
 import { getLocalVideoBlob } from '../utils/videoStorage';
 
 const WORDS_LIST = [
-  'CRITERIO',
   'MÉTODO',
-  'CONTROL',
+  'CRITERIO',
   'CONSISTENCIA',
-  'ESTÁNDAR'
+  'ESTÁNDAR',
+  'CONTROL'
 ];
 
 export default function CtaSlider() {
@@ -68,32 +68,25 @@ export default function CtaSlider() {
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/10 to-black/45 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-7">
         
-        {/* Main Phrase with exact typography from Bloque 05 Mercados title */}
-        <div className="space-y-2 text-center flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight leading-tight text-white whitespace-nowrap text-center drop-shadow-md">
+        {/* Main Title: Exacto como en la imagen de referencia */}
+        <div className="text-center flex flex-col items-center justify-center w-full">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-black tracking-tight leading-tight text-white whitespace-nowrap text-center drop-shadow-[0_2px_16px_rgba(0,0,0,0.9)]">
             Los resultados se construyen
           </h2>
-
-          {/* Subtitle: - con - en blanco y sin cursiva, estrictamente centrado */}
-          <div className="w-full text-center flex items-center justify-center">
-            <p className="text-white/90 text-sm sm:text-base font-normal tracking-widest pt-1 !text-center text-center drop-shadow-sm">
-              – con –
-            </p>
-          </div>
         </div>
 
-        {/* Palabras en una sola línea continua, con espaciado equilibrado, mayor grosor y visibilidad */}
-        <div className="w-full max-w-5xl mx-auto px-4 pt-2 overflow-x-auto no-scrollbar">
-          <div className="flex items-center justify-center gap-x-2.5 sm:gap-x-4 md:gap-x-6 w-full text-center whitespace-nowrap">
+        {/* Palabras en una sola línea continua exactamente como en la imagen */}
+        <div className="w-full mx-auto px-2 pt-1">
+          <div className="flex items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-7 lg:gap-x-9 w-full text-center whitespace-nowrap">
             {WORDS_LIST.map((word, idx) => (
               <div key={word} className="inline-flex items-center">
-                <span className="text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl font-semibold tracking-[0.14em] sm:tracking-[0.18em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] select-none hover:text-white/85 transition-colors">
+                <span className="text-xs xs:text-sm sm:text-base md:text-xl lg:text-[22px] font-medium tracking-[0.18em] sm:tracking-[0.22em] text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] select-none">
                   {word}
                 </span>
                 {idx < WORDS_LIST.length - 1 && (
-                  <span className="ml-2.5 sm:ml-4 md:ml-6 text-white/40 text-xs sm:text-base md:text-lg select-none" aria-hidden="true">
+                  <span className="ml-3 sm:ml-5 md:ml-7 lg:ml-9 text-white/50 text-xs sm:text-sm md:text-base select-none" aria-hidden="true">
                     •
                   </span>
                 )}
@@ -102,14 +95,14 @@ export default function CtaSlider() {
           </div>
         </div>
 
-        {/* Single Solid CTA Button - Mayor separación vertical para que no quede pegado */}
-        <div className="pt-12 sm:pt-16 md:pt-20">
+        {/* CTA Button centrado con el formato exacto de la imagen */}
+        <div className="pt-20 sm:pt-28 md:pt-36">
           <Link
             to="/contacto"
-            className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-xl bg-white hover:bg-slate-100 text-black font-normal text-sm sm:text-base transition-all duration-300 shadow-2xl hover:scale-[1.02] border border-white group cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-medium text-sm sm:text-base transition-all duration-300 shadow-xl hover:scale-[1.02] border border-white/90 group cursor-pointer"
           >
             <span>Hablemos de tu Negocio</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-900 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 

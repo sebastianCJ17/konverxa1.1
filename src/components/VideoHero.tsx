@@ -111,8 +111,6 @@ export default function VideoHero() {
         </div>
 
         <div className="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-400 font-normal">
-          <span className="font-normal text-zinc-400">Operaciones Globales</span>
-          <span className="text-zinc-600">·</span>
           <span className="font-normal text-zinc-300">España · Colombia · Perú</span>
         </div>
       </div>

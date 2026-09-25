@@ -70,9 +70,9 @@ export default function CtaSlider() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-28 sm:pt-28 sm:pb-36 flex flex-col items-center justify-center space-y-6 sm:space-y-7">
         
-        {/* Main Title: Más larga/ancha para que inicie a la mitad de MÉTODO y termine casi acabando CONTROL */}
-        <div className="text-center flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-2">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] font-black tracking-[-0.01em] sm:tracking-[0.02em] md:tracking-[0.04em] lg:tracking-[0.06em] leading-none text-white whitespace-nowrap text-center drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)]">
+        {/* Main Title: Calibrado exactamente para iniciar en la mitad de MÉTODO y terminar casi acabando CONTROL, un poquito menos gruesa (font-bold/font-extrabold) */}
+        <div className="text-center flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-2">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] font-bold tracking-tight sm:tracking-[-0.01em] md:tracking-[0.005em] leading-tight text-white whitespace-nowrap text-center drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
             Los resultados se construyen
           </h2>
         </div>

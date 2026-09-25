@@ -25,8 +25,8 @@ export default function FilosofiaDeclaraciones() {
               <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block text-center">
                 QUÉ CREEMOS — Convicción
               </span>
-              <p className="w-full text-center text-xl sm:text-2xl lg:text-3xl font-light text-slate-900 tracking-tight max-w-5xl mx-auto whitespace-normal leading-snug">
-                «Las organizaciones sólidas no se improvisan. Se construyen»
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-center max-w-3xl mx-auto">
+                Las organizaciones sólidas no se improvisan. Se construyen.
               </p>
             </div>
 

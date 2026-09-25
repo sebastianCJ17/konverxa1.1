@@ -72,7 +72,7 @@ export default function VideoHero() {
               setVideoError(true);
               setIsVideoLoaded(false);
             }}
-            className={`w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[1.05] transition-opacity duration-700 ${
+            className={`w-full h-full object-cover filter brightness-[1.05] contrast-[1.0] saturate-[1.05] transition-opacity duration-700 ${
               isVideoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -80,9 +80,9 @@ export default function VideoHero() {
           </video>
         )}
 
-        {/* Gradient Overlay: Softened dark gradient allowing video to shine clearly while keeping typography readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10 sm:via-black/35 sm:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+        {/* Gradient Overlay: Aligerado con mayor claridad para visualizar la operación y puestos de trabajo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/5 sm:via-black/25 sm:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12">

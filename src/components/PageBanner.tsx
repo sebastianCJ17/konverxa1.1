@@ -54,31 +54,31 @@ export default function PageBanner({
   return (
     <section className="relative w-full min-h-[410px] h-auto pb-6 sm:pb-0 sm:h-[430px] sm:min-h-[430px] sm:max-h-[430px] lg:h-[430px] lg:min-h-[430px] lg:max-h-[430px] flex flex-col justify-start bg-white text-slate-900 overflow-hidden font-sans border-b border-slate-200">
       
-      {/* Right Side Team / Professional Image with Identical Fade & Uniform Positioning */}
+      {/* Right Side Team / Professional Image with Signature White Fade Gradient */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
         style={{
           WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, transparent 10%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.5) 45%, black 70%)',
+            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.05) 32%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.6) 60%, black 82%)',
           maskImage:
-            'linear-gradient(to right, transparent 0%, transparent 10%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.5) 45%, black 70%)',
+            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.05) 32%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.6) 60%, black 82%)',
         }}
       >
         <img
           src={resolvedImage}
           alt={imageAlt}
-          className={`w-full h-full object-cover filter brightness-[1.02] contrast-[1.02] ${imageClassName || 'object-right'}`}
+          className={`w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] ${imageClassName || 'object-right'}`}
         />
 
-        {/* Desktop smooth blend overlay: sutil para garantizar lectura a la izquierda sin tapar la foto a la derecha */}
-        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/40 via-30% to-transparent pointer-events-none" />
+        {/* Desktop smooth white gradient blend: el difuminado blanco que funde el texto con la foto */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-35% via-white/20 via-65% to-transparent pointer-events-none" />
 
-        {/* Mobile & Tablet blend overlay: balance óptimo de visibilidad de foto y contraste de texto */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/80 via-40% to-transparent pointer-events-none" />
+        {/* Mobile & Tablet white blend overlay: garantiza contraste perfecto de lectura */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/90 via-45% to-white/60 pointer-events-none" />
 
         {/* Subtle top & bottom edge blending */}
-        <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
       </div>
 
       {/* Massive Watermark Typography behind - Relleno y menos visible */}

@@ -59,29 +59,26 @@ export default function PageBanner({
         className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
         style={{
           WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.22) 54%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0.82) 80%, black 94%)',
+            'linear-gradient(to right, transparent 0%, transparent 10%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.5) 45%, black 70%)',
           maskImage:
-            'linear-gradient(to right, transparent 0%, transparent 20%, rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.22) 54%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0.82) 80%, black 94%)',
+            'linear-gradient(to right, transparent 0%, transparent 10%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.5) 45%, black 70%)',
         }}
       >
         <img
           src={resolvedImage}
           alt={imageAlt}
-          className={`w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] ${imageClassName || 'object-right'}`}
+          className={`w-full h-full object-cover filter brightness-[1.02] contrast-[1.02] ${imageClassName || 'object-right'}`}
         />
 
-        {/* Desktop smooth blend overlay: ensures zero harsh cutoffs */}
-        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-35% via-white/20 via-60% to-transparent pointer-events-none" />
+        {/* Desktop smooth blend overlay: sutil para garantizar lectura a la izquierda sin tapar la foto a la derecha */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/40 via-30% to-transparent pointer-events-none" />
 
-        {/* Soft feathering on the transition zone */}
-        <div className="hidden lg:block absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-white via-white/70 to-transparent pointer-events-none" />
-
-        {/* Mobile & Tablet blend overlay: guarantees 100% text contrast and readability */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/75 pointer-events-none" />
+        {/* Mobile & Tablet blend overlay: balance óptimo de visibilidad de foto y contraste de texto */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-white via-white/80 via-40% to-transparent pointer-events-none" />
 
         {/* Subtle top & bottom edge blending */}
-        <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
       </div>
 
       {/* Massive Watermark Typography behind - Relleno y menos visible */}

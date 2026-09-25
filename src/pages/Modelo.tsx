@@ -54,7 +54,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     headline: 'La excelencia como estándar de operación',
     description: 'Tres dimensiones inseparables —operativa, organizacional y ética— que determinan si una operación está realmente bien gobernada.',
     breadcrumbLabel: 'Excelencia Integral',
-    image: '/banners/banner-excelencia-integral.png',
+    image: '/excbanner.jpg',
     imageAlt: 'La excelencia como estándar de operación'
   },
   'onex': {
@@ -66,7 +66,7 @@ const MODELO_SECTIONS: Record<ModeloSectionKey, ModeloBannerConfig> = {
     description: 'KONVERXA utiliza OneX para observar, interpretar y medir la realidad de cada operación, produciendo la evidencia que permite comprender su desempeño y orientar las decisiones.',
     breadcrumbLabel: 'OneX',
     tabLabel: 'OneX',
-    image: '/banners/banner-modelo-onex.png',
+    image: '/onexbanner.jpg',
     imageAlt: 'Sistema de Lectura y Evidencia Operativa'
   },
   'cik': {
